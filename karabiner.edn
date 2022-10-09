@@ -1,0 +1,281 @@
+    ;; !  | means mandatory -   modifier(s) alone when pressend change behavior
+    ;; #  | means optional  -   modifiers are optional (but atleast one necessary)
+
+    ;; :!Ca is keycode :a and prefix a with !C
+
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+
+    ;; ## | optional any
+    ;; !! | command + control + optional + shift (hyper)
+
+    ;; to understand better how modifiers work in karabiner
+    ;; karabiner definition of mandatory and optional
+    ;; https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/from/modifiers/
+
+
+    ;; need to prefix C T O S F with ! or #
+    ;;
+    ;; code for all this:
+    ;; https://github.com/yqrashawn/GokuRakuJoudo/blob/b9b334a187379f9bc8182ad59e2cca2a1789e9c0/src/karabiner_configurator/keys.clj#L68
+;; list of supported keys
+;; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/src/karabiner_configurator/keys_info.clj
+; examples:
+; https://github.com/yqrashawn/GokuRakuJoudo/blob/master/examples.org#custom-variable
+
+
+{:applications {:vim-mode-disabled-application ["^com\\.apple\\.Terminal$"
+                                                "^com\\.googlecode\\.iterm2$"
+                                                "^co\\.zeit\\.hyperterm$"
+                                                "^co\\.zeit\\.hyper$"
+                                                "^io\\.alacritty$"
+                                                "^net\\.kovidgoyal\\.kitty$"
+                                                "^org\\.vim\\."
+                                                "^com\\.qvacua\\.VimR$"]
+                :Browsers [;; you can find bundle_identifiers in the Info.plist file of an applications
+                            ;; eg. in /Applications/Mail.app/Contents/Info.plist
+                            ;; search for "CFBundleIdentifier"
+                           "^org\\.mozilla\\.firefox$"
+
+                           "^org\\.mozilla\\.firefoxdeveloperedition$"
+                           "^com\\.google\\.Chrome$"
+                           "^org\\.chromium\\.Chromium$"
+                           "^com\\.google\\.Chrome\\.canary$"
+                           "^com\\.apple\\.Safari$"]
+                :finder ["^com.apple.finder"]}
+
+  :input-sources {;; define input-source, these data can be founhd in Karabiner EventViewer gui
+                 :colemak_input_source {:input_mode_id   ""
+                      :input_source_id "com.apple.keylayout.colemak"
+                      :language        "en"}
+
+                  :arabic_input_source {:input_mode_id   ""
+                        :input_source_id "com.apple.keylayout.Arabic"
+                        :language        "ar"}
+
+                      }
+
+ :profiles {:Goku {:default true
+                   :sim     30
+                   :delay   0
+                   :alone   500
+                   :held    50}} ;; profiles
+
+ :tos {:left_paren      {:key :9 :modi [:left_shift] :lazy true}}
+ :simlayers {:vi_mode {:key :f :repeat false}
+             :vi_visual_mode        {:key :v}
+
+             :window-model {:key :w}
+             :application_mode {:key :a}
+             :new_application_mode {:key :w}}
+ :layers {;  :num_mode {:key :3}
+
+          :mediaMode {:key :0}
+
+          :fnCommand              {:key     :left_command
+                                   :afterup [{:set ["numMode" 0]}
+                                             {:set ["yabai-scale-mode" 0]}
+                                             {:set ["spec-mode" 0]}]
+                                   :condi   [:!comma-mode :!period-mode]}
+
+          :numMode       {:key :2 :condi [:!fnCommand]}
+          :symbol_mode {:key :4}
+        ;   :fnCommand {:key :left_command
+        ;               :afterup [{:set ["numMode" 0]}]}
+        ;   :numMode {:key :a :condi :fnCommand}
+;
+          }
+ :templates {:launch "osascript -e 'tell application \"Alfred 3\" to run trigger \"launch%s\" in workflow \"yqrashawn.workflow.launcher\" with argument \"%s\"'"}
+
+ :main [{:des "Vi Mode [D as Trigger Key]"
+         :rules [;;  arrow keys
+                ;  :vi_mode
+                 :fnCommand
+
+                ;; indent and un-indent
+                 [:##q :!Stab]
+
+                 [:escape :!CSw]
+
+                 [:##k :down_arrow]
+                 [:##i :up_arrow]
+                 [:##j :left_arrow]
+                 [:##l :right_arrow]
+                ;;  delete & backspace
+                 [:##h :delete_forward]
+                 [:##n :delete_or_backspace]
+                ;; this is what
+
+                 [:##d :left_option]
+                 [:##s :right_shift nil {:alone :!!d}]
+                ;;  home/ end
+                 [:##u :!Cleft_arrow]
+                 [:##o :!Cright_arrow]
+
+                ;;  chrome stuff
+                 [:##slash :!Cw]
+                 [:##comma :!TStab]
+                 [:##period :!Ttab]
+                 [:##m :!CSf]
+                ;;  desktop switching
+                 [:##open_bracket :!Tleft_arrow]
+                 [:##close_bracket :!Tright_arrow]
+
+
+                 [:##1 :f1]
+                 [:##2 :f2]
+                 [:##3 :f3]
+                 [:##4 :f4]
+                 [:##5 :f5]
+                 [:##6 :f6]
+                 [:##7 :f7]
+                 [:##8 :f8]
+                 [:##9 :f9]
+                 [:##0 :f10]
+                 [:##hyphen :f11]
+                 [:##equal_sign :f12]
+
+                 [:##c :!COsemicolon] ; trigger screenshoot.
+                 [:##w :!Oleft_shift  nil {:alone :tab}]
+        ;;
+                 ]}
+
+        {:des   "Vi Visual Mode"
+         :rules [:vi_visual_mode
+                 [:##k :!Sdown_arrow]
+                 [:##i :!Sup_arrow]
+                 [:##j :!Sleft_arrow]
+                 [:##l :!Sright_arrow]
+                 [:##b :!SOleft_arrow]
+                 [:##e :!SOright_arrow]
+                 [:##0 :!SCleft_arrow]
+                 [:##4 :!SCright_arrow]
+                 [:##open_bracket :!SOup_arrow]
+                 [:##close_bracket :!SOdown_arrow]]}
+
+        {:des "Symbol mode"
+         :rules [:symbol_mode
+                 [:j :!S9] ; (
+                 [:k :!S0] ; )
+                 [:n :open_bracket] ; [
+                 [:m :close_bracket] ;]
+                 [:u :!Sopen_bracket] ; {
+                 [:i :!Sclose_bracket] ; }
+                 ;[:semicolon :!Scomma] ; <
+
+                 ;[:period :!Speriod] ; >
+
+                 [:l :!S1] ; !
+                 [:o :!S2] ; @
+                 [:h :!S3] ; #
+                 [:semicolon :!S4] ; $
+                 [:p :!S5] ; %
+                 [:b :!S7] ; &
+                 [:y :!S8] ;/ * mulptiply
+                 [:spacebar :!Shyphen] ; _
+                 ]}
+        {:des "media Mode"
+         :rules [:mediaMode
+                 [:e :volume_up]
+                 [:d :volume_down]
+                 ;[:r :fastforward]
+                 ;[:w :rewind]
+
+                 [:s :vk_consumer_previous]
+                 [:f :vk_consumer_next]
+
+                 [:a :vk_consumer_play]
+
+                 [:g :!OSa] ; to toggle dark reader on / off in chrome
+
+
+                 [:r :vk_consumer_brightness_up]
+                 [:w :vk_consumer_brightness_down]
+
+                 [{:pkey :button5} :volume_up]
+                 ]}
+
+
+        {:des "Due to RSI,caps_lock, leftshift are disabled map capslock-> command | "
+
+         :rules [;t
+                 ;[:##right_shift :right_shift nil {:alone :f16}]
+
+
+                 [:##caps_lock :left_command]
+                 [:##left_shift :##out]
+
+                 [:!CSh :##out]
+
+                 ;[:delete_or_backspace :##out]
+
+                 [:##3 :left_shift nil {:alone :f16}]
+                 [:##9 :right_shift nil {:alone :return_or_enter}]
+                 ;[:##return_or_enter :f19]
+
+
+                ;  [:##caps_lock :left_command nil {:alone :f15}] ; caps => command alone => esc in vim
+                 [:##right_command :left_command nil {:alone :f15}] ; caps => command alone => esc in vim
+
+                ;  in finder make enter open files
+                 [:##return_or_enter :!Csemicolon :finder]
+
+                 [:##tab :left_control nil {:alone :tab}]
+                 [:##right_shift :!OSleft_command nil {:alone :f18}]
+
+
+                 ;[:##right_command :right_control]
+                ; [:##spacebar :left_shift nil {:alone :spacebar}]
+
+
+                 [:1 :!Oleft_shift nil {:alone :f17}] ; mod keys for Ametheyst
+                ;  [:2 :!TOleft_shift nil {:alone :2}] ; mod keys for Ametheyst
+                ;; this is a test
+                ;;
+                ;;
+                 ;;
+
+                ;;
+                ;;
+                 ]}
+        {:des "Mouse configs"
+                 :rules [
+
+                        ;; Switch back & forward buttons in mouse.
+                         [{:pkey :button5} {:pkey :button4}]
+                         [{:pkey :button4} {:pkey :button5}]
+
+                        ;; Switch between workspaces.
+                        [{:pkey :button4 :modi :left_control} :!Tleft_arrow ]
+                         [{:pkey :button5 :modi :left_control} :!Tright_arrow]
+                        ;;  open expose mode in macos
+                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]
+                         ]}
+        {:des "Numpad"
+         :rules [:numMode
+                 [:u :7]
+                 [:i :8]
+                 [:o :9]
+                 [:j :4]
+                 [:k :5]
+                 [:l :6]
+                 [:n :1]
+                 [:m :2]
+                 [:comma :3]
+                 [:spacebar :0]]}]}
+
+
+; ====================================================================================
+; ====================================================================================
+; ====================================================================================
+; =============================== OTHES Config =======================================
+; ====================================================================================
+; ====================================================================================
+; ====================================================================================
