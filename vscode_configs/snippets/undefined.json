@@ -1,0 +1,14 @@
+{
+	"undefined": {
+		"body": [
+			"class Screen extends StatelessWidget {\r",
+			"  @override\r",
+			"  Widget build(BuildContext context) {\r",
+			"    return Scaffold(\r",
+			"      body: Container(),\r",
+			"    );\r",
+			"  }\r",
+			""
+		]
+	}
+}

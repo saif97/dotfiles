@@ -1,0 +1,12 @@
+{
+	"flutter firebase related custome git ignore": {
+		"prefix": "fignore",
+		"body": [
+			"# custom",
+			"**/GoogleService-Info.plist",
+			"**/google-services.json",
+			""
+		],
+		"description": "flutter firebase related custome git ignore"
+	}
+}

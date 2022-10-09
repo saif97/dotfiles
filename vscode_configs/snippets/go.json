@@ -1,0 +1,9 @@
+{
+	"go print": {
+		"prefix": "print",
+		"body": [
+			"fmt.Println($1)"
+		],
+		"description": "go print"
+	}
+}

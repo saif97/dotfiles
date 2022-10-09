@@ -1,0 +1,433 @@
+{
+	"throw unimplemeted error": {
+		"prefix": "unimplemented",
+		"body": [
+			"throw \"Unimplemented\";",
+			""
+		],
+		"description": "throw unimplemeted error"
+	},
+	"Stateless Widget": {
+		"prefix": "fsl",
+		"body": [
+			"class ${1:name} extends StatelessWidget {",
+			"  const ${1:name}({Key? key}) : super(key: key);\n",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return Container(",
+			"      child: ${2:child},",
+			"    );",
+			"  }",
+			"}"
+		],
+		"description": "Create a Stateless widget"
+	},
+	"Stateful Widget": {
+		"prefix": "fsf",
+		"body": [
+			"class ${1:name} extends StatefulWidget {",
+			"  ${1:name}({Key? key}) : super(key: key);\n",
+			"  @override",
+			"  _${1:WidgetName}State createState() => _${1:WidgetName}State();",
+			"}\n",
+			"class _${1:index}State extends State<${1:index}> {",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return Container(",
+			"       child: ${2:child},",
+			"    );",
+			"  }",
+			"}"
+		],
+		"description": "Create a Stateful widget"
+	},
+	"create flutter screen": {
+		"prefix": "fscreen",
+		"body": [
+			"import 'package:flutter/material.dart';",
+			"",
+			"class Screen$1 extends StatelessWidget {",
+			"  const Screen$1({Key? key}) : super(key: key);",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return Scaffold(",
+			"      appBar: AppBar(",
+			"        title: const Text('$1'),",
+			"      ),",
+			"      body: const _Main(),",
+			"    );",
+			"  }",
+			"}",
+			"",
+			"class _Main extends StatelessWidget {",
+			"  const _Main({Key? key}) : super(key: key);",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return Container(",
+			"      child: const Text('$1'),",
+			"    );",
+			"  }",
+			"}",
+			""
+		],
+		"description": "create flutter screen"
+	},
+	"creat a flutter column": {
+		"prefix": "fcol",
+		"body": [
+			"Column(",
+			"  children: <Widget>[",
+			"    $1,",
+			"  ],",
+			")"
+		],
+		"description": "creat a flutter column"
+	},
+	"creat a flutter row": {
+		"prefix": "frow",
+		"body": [
+			"Row(",
+			"  children: <Widget>[",
+			"    $1,",
+			"  ],",
+			")"
+		],
+		"description": "creat a flutter row"
+	},
+	"build command": {
+		"prefix": "fcmd",
+		"body": [
+			"// flutterS pub run build_runner build --delete-conflicting-outputs"
+		],
+		"description": "build command"
+	},
+	"creat value objects": {
+		"prefix": "fvobj",
+		"body": [
+			"class $1 extends ValueObject<$3,$2> {",
+			"  @override",
+			"  final Either<$3, $2> value;",
+			"",
+			"  factory $1($2 input) {",
+			"    assert(input != null);",
+			"    return $1._(",
+			"      $4(input),",
+			"    );",
+			"  }",
+			"",
+			"  const $1._(this.value);",
+			"}"
+		],
+		"description": "creat value objects"
+	},
+	"creat a validator": {
+		"prefix": "fval",
+		"body": [
+			"Either<$3, $2> validate$1($2 input) {",
+			"  if () {",
+			"    return right(input);",
+			"  } else {",
+			"    return left($3);",
+			"  }",
+			"}"
+		],
+		"description": "creat a validator"
+	},
+	"create Freezed class": {
+		"prefix": "ffreezed",
+		"body": [
+			"",
+			"import 'package:freezed_annotation/freezed_annotation.dart';",
+			"",
+			"part '$TM_FILENAME_BASE.freezed.dart';",
+			"",
+			"// flutterS pub run build_runner build --delete-conflicting-outputs",
+			"@freezed",
+			"abstract class $1 with _$$1 {",
+			"  factory $1() = _$1;",
+			"}"
+		],
+		"description": "create Freezed class"
+	},
+	"Json Serializable from Json": {
+		"prefix": "ffromJson",
+		"body": [
+			"factory $1.fromJson(Map<String, dynamic> json) =>",
+			"      _$$1FromJson(json);"
+		],
+		"description": "Json Serializable from Json"
+	},
+	"multiline comment": {
+		"prefix": "fmcoment",
+		"body": [
+			"/*",
+			"$1",
+			"*/"
+		],
+		"description": "multiline comment"
+	},
+	"create a lambda with  brackets ": {
+		"prefix": "blamda",
+		"body": [
+			"($1){$2}"
+		],
+		"description": "create a lambda with  brackets "
+	},
+	"create a lambda ": {
+		"prefix": "lamda",
+		"body": [
+			"($1)=>$2"
+		],
+		"description": "create a lambda with  brackets "
+	},
+	"print": {
+		"prefix": "fprint",
+		"body": [
+			"print('---------------------------');",
+			"print($1);",
+			"print('---------------------------');"
+		],
+		"description": "print"
+	},
+	"Provider Selector": {
+		"prefix": "fselect",
+		"body": [
+			"Selector<${1:ViewModel}, ${2:value}>(",
+			"          builder: (_, v, __)=> ${4:build widget},",
+			"          selector: (_,model ) => ${3:select value from model},",
+			");"
+		],
+		"description": "Provider Selector"
+	},
+	"providor": {
+		"prefix": "fprovider",
+		"body": [
+			"final $1 model = Provider.of(context, listen: false);"
+		],
+		"description": "providor"
+	},
+	"generate getters and setters ": {
+		"prefix": "fgetset",
+		"body": [
+			"  ${1:type} get ${2:name} {",
+			"    return _${2:name};",
+			"  }",
+			"",
+			"  set ${2:name}(${1:name} newVal) {",
+			"    _${2:name} =  newVal;",
+			"  }"
+		],
+		"description": "generate getters and setters "
+	},
+	"Multi Line comment in dart": {
+		"prefix": "fmlc",
+		"body": [
+			"/*",
+			"$1",
+			"*/",
+		],
+		"description": "generate getters and setters "
+	},
+	"generate ChangeNotifierProvider": {
+		"prefix": "fcnp",
+		"body": [
+			"ChangeNotifierProvider<${1:model}>(",
+			"        create: (_)=>${1:model}(),",
+			"        builder: (_, __)=> ${2:child}(),",
+			"),"
+		],
+		"description": "generate ChangeNotifierProvider"
+	},
+	"generate flutter pacahges ": {
+		"prefix": "fimport",
+		"body": [
+			"import 'package:$1';"
+		],
+		"description": "generate flutter pacahges "
+	},
+	"group testing": {
+		"prefix": "fgroup",
+		"body": [
+			"group('$1', () {",
+			"  $2",
+			"      });"
+		],
+		"description": "group testing"
+	},
+	"experemental code": {
+		"prefix": "fexper",
+		"body": [
+			"    print(\"============ Experimental ==========\");",
+			"$1",
+			"    print(\"============== END =================\");",
+			"    return;",
+			""
+		],
+		"description": ""
+	},
+	"create a platform thingy": {
+		"prefix": "fplatform",
+		"body": [
+			"import 'package:flutter/cupertino.dart';",
+			"import 'package:flutter/material.dart';",
+			"",
+			"import 'base_Platform.dart';",
+			"",
+			"class Platform$1 extends BasePlatform<$2, $3> {",
+			"",
+			"",
+			"  const Platform$1();",
+			"",
+			"  @override",
+			"  $2 BuildCupertinoWidget(BuildContext context){",
+			"      return ;",
+			"  }",
+			"",
+			"  @override",
+			"  $3 BuildMaterialWidget(BuildContext context){",
+			"  return;",
+			"  }",
+			"}",
+			""
+		],
+		"description": "create a platform thingy"
+	},
+	"": {
+		"prefix": "frequired",
+		"body": [
+			"@required "
+		],
+		"description": ""
+	},
+	"Comment section that indecates getter & setters": {
+		"prefix": "cmethods",
+		"body": [
+			"// <<< <<===================>     METHODS     <===================>> >>> //",
+			""
+		],
+		"description": ""
+	},
+	"methods section": {
+		"prefix": "CGetterSetter",
+		"body": [
+			"// <<< <<===================> GETTERS SETTERS <===================>> >>> //",
+			""
+		],
+		"description": ""
+	},
+	"generate iterator": {
+		"prefix": "iter",
+		"body": [
+			"    for (var $1 = 0; $1 < $2; $1++){",
+			"      ",
+			"    }"
+		],
+		"description": "generate iterator"
+	},
+	"generate iterator in list of obj": {
+		"prefix": "iterIn",
+		"body": [
+			"    for(final $1 in $2){",
+			"      ",
+			"    }"
+		],
+		"description": "generate iterator"
+	},
+	"generate dart comment": {
+		"prefix": "dblockcomment",
+		"body": [
+			"/*",
+			"  $1",
+			"  */"
+		],
+		"description": "generate dart comment"
+	},
+	"comment breaker ": {
+		"prefix": "cbreaker",
+		"body": [
+			"// ===================== $1 ===================== \\\\",
+			"// ===================== END ===================== \\\\ "
+		],
+		"description": "comment breaker "
+	},
+	"get text theme": {
+		"prefix": "ftexttheme",
+		"body": [
+			"Theme.of(context).textTheme.$1"
+		],
+		"description": "get text theme"
+	},
+	"medial query": {
+		"prefix": "fsize",
+		"body": [
+			"MediaQuery.of(context).size."
+		],
+		"description": "medial query"
+	},
+	"navigate by replace": {
+		"prefix": "fNavRep",
+		"body": [
+			" Navigator.pushReplacement(",
+			"            context,",
+			"            PageRouteBuilder(",
+			"              pageBuilder:(context, _, __) => $1(),",
+			"            ))"
+		],
+		"description": "navigate"
+	},
+	"push not named": {
+		"prefix": "fpush",
+		"body": [
+			"  Navigator.push(",
+			"    context,",
+			"    MaterialPageRoute(builder: (context) => const $1()),",
+			"  );",
+			""
+		],
+		"description": "push not named"
+	},
+	"vertifcal ": {
+		"prefix": "fvspace",
+		"body": [
+			"const SizedBox(height: $1),"
+		],
+		"description": "vertifcal "
+	},
+	"horizontal": {
+		"prefix": "fhspace",
+		"body": [
+			"const SizedBox(width: $1),"
+		],
+		"description": "vertifcal "
+	},
+	"sentry event": {
+		"prefix": "fsentryEvent",
+		"body": [
+			"Sentry.captureEvent(SentryEvent(message: SentryMessage(\"$1\"),),);",
+			""
+		],
+		"description": "sentry event"
+	},
+	"navigate": {
+		"prefix": "fnavpushNamed",
+		"body": [
+			"Navigator.pushNamed(context, $1);"
+		],
+		"description": "navigate"
+	},
+	"dartz fold ": {
+		"prefix": "ffold",
+		"body": [
+			"fold((e){$1},(v){$2})"
+		],
+		"description": "dartz fold "
+	},
+	"translate": {
+		"prefix": "ftr",
+		"body": [
+			"LocaleKeys.$1.tr()"
+		],
+		"description": "translate"
+	}
+}

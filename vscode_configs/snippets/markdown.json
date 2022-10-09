@@ -1,0 +1,16 @@
+{
+	"markdown image": {
+		"prefix": "image",
+		"body": [
+			"![alt text]($1)"
+		],
+		"description": "markdown image"
+	},
+	"link": {
+		"prefix": "link",
+		"body": [
+			"[${2:hypertext}](${1:hyperlink})"
+		],
+		"description": "link"
+	}
+}
