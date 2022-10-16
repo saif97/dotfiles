@@ -1058,5 +1058,17 @@
   {
     "key": "cmd+numpad_add",
     "command": "-workbench.action.zoomIn"
+  },
+  {
+    "key": "cmd+= shift",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "cmd+- shift",
+    "command": "editor.action.fontZoomOut"
+  },
+  {
+    "key": "cmd+- shift",
+    "command": "editor.action.fontZoomOut"
   }
 ]

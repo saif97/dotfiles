@@ -52,23 +52,20 @@
                 :finder ["^com.apple.finder"]}
 
   :input-sources {;; define input-source, these data can be founhd in Karabiner EventViewer gui
-                 :colemak_input_source {:input_mode_id   ""
-                      :input_source_id "com.apple.keylayout.colemak"
-                      :language        "en"}
-
-                  :arabic_input_source {:input_mode_id   ""
-                        :input_source_id "com.apple.keylayout.Arabic"
-                        :language        "ar"}
-
-                      }
+                :colemak {:input_source_id "com.apple.keylayout.Colemak"}
+                :abc {:input_source_id "com.apple.keylayout.ABC"}
+                }
 
  :profiles {:Goku {:default true
                    :sim     30
                    :delay   0
                    :alone   500
-                   :held    50}} ;; profiles
+                   :held    50}
+           :stock {}
+           } ;; profiles
 
- :tos {:left_paren      {:key :9 :modi [:left_shift] :lazy true}}
+ :tos {:left_paren      {:key :9 :modi [:left_shift] :lazy true}
+ }
  :simlayers {:vi_mode {:key :f :repeat false}
              :vi_visual_mode        {:key :v}
 
@@ -206,8 +203,9 @@
         {:des "Due to RSI,caps_lock, leftshift are disabled map capslock-> command | "
 
          :rules [;t
-                 ;[:##right_shift :right_shift nil {:alone :f16}]
 
+                 ; switch to stock profile & swtich language to english
+                 [:!TO0 [{:input :abc} "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'stock'; afplay /System/Library/Sounds/Blow.aiff"]]
 
                  [:##caps_lock :left_command]
                  [:##left_shift :##out]
@@ -269,7 +267,15 @@
                  [:n :1]
                  [:m :2]
                  [:comma :3]
-                 [:spacebar :0]]}]}
+                 [:spacebar :0]]}
+
+        {:des "Stock Profile configs mainly used to switch off everything so other people can use my keyboard"
+         :rules [:stock
+                 ; switch to Goku profile & swtich language to colemak
+                 [:!TO0 [{:input :colemak }"'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'Goku'; afplay /System/Library/Sounds/Glass.aiff"]]
+                 ]};
+
+        ]}
 
 
 ; ====================================================================================

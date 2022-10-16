@@ -63,7 +63,6 @@
         "statusBarItem.hoverBackground": "#252525",
         "editorStickyScroll.background": "#241c0085",
         "gitDecoration.ignoredResourceForeground": "#ff6a6a",
-
         //
         "editor.foldBackground": "#65e8002f",
         "titleBar.activeForeground": "#fcfcfc",
@@ -515,8 +514,7 @@
         "Conceal": "vim",
         "Substitute": "vim"
     },
-    "window.zoomLevel": -1,
     "[clojure]": {
         "editor.defaultFormatter": "avli.clojure"
-    },
+    }
 }
