@@ -192,9 +192,11 @@
 
                  [:g :!OSa] ; to toggle dark reader on / off in chrome
 
-
                  [:r :vk_consumer_brightness_up]
                  [:w :vk_consumer_brightness_down]
+
+                 [:t :!COf16]
+                 [:v :!COf18]
 
                  [{:pkey :button5} :volume_up]
                  ]}

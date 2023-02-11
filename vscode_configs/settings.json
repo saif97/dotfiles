@@ -102,7 +102,7 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "editor.formatOnType": false,
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "dart.triggerSignatureHelpAutomatically": true,
     "git.enableSmartCommit": true,
     "workbench.iconTheme": "material-icon-theme",
