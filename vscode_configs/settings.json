@@ -96,6 +96,8 @@
           **************/
         "editorSuggestWidget.selectedBackground": "#ff00005b",
         "editorSuggestWidget.border": "#ff0000b2",
+        "tree.indentGuidesStroke": "#ff0000",
+        "tree.inactiveIndentGuidesStroke": "#fe7c7c",
     },
     "explorer.confirmDragAndDrop": false,
     "[json]": {
@@ -180,6 +182,7 @@
     "files.trimTrailingWhitespace": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+    "workbench.tree.indent": 10,
     "workbench.settings.enableNaturalLanguageSearch": false,
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
@@ -210,6 +213,7 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false,
         "editor.defaultFormatter": "Dart-Code.dart-code",
+        "editor.inlayHints.enabled": "on",
     },
     "editor.columnSelection": false,
     "files.exclude": {
@@ -516,5 +520,6 @@
     },
     "[clojure]": {
         "editor.defaultFormatter": "avli.clojure"
-    }
+    },
+    "window.zoomLevel": -1
 }
