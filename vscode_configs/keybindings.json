@@ -1047,4 +1047,8 @@
     "command": "-workbench.action.terminal.sendSequence",
     "when": "terminalFocus"
   },
+  {
+    "key": "f17",
+    "command": "workbench.action.tasks.runTask"
+  },
 ]

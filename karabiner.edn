@@ -108,7 +108,6 @@
                 ;;  delete & backspace
                  [:##h :delete_forward]
                  [:##n :delete_or_backspace]
-                ;; this is what
 
                  [:##d :left_option]
                  [:##s :right_shift nil {:alone :!!d}]
@@ -209,7 +208,7 @@
                  ; switch to stock profile & swtich language to english
                  [:!TO0 [{:input :abc} "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'stock'; afplay /System/Library/Sounds/Blow.aiff"]]
 
-                 [:##caps_lock :left_command]
+                 [:##caps_lock :left_command nil {:alone :caps_lock}]
                  [:##left_shift :##out]
 
                  [:!CSh :##out]
