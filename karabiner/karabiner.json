@@ -1524,9 +1524,6 @@
           } ],
           "type" : "basic"
         }, {
-          "to_if_alone" : [ {
-            "key_code" : "caps_lock"
-          } ],
           "from" : {
             "key_code" : "caps_lock",
             "modifiers" : {
@@ -1535,17 +1532,6 @@
           },
           "to" : [ {
             "key_code" : "left_command"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "left_shift",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "out"
           } ],
           "type" : "basic"
         }, {

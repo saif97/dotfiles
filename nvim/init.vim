@@ -45,10 +45,6 @@ nnoremap o i|onoremap o i|xnoremap o i
 nnoremap e j|onoremap e j|xnoremap e j
 nnoremap u k|onoremap u k|xnoremap u k
 
-
-
-
-
  if exists('g:vscode')
     " Workaround for gk/gj
     nnoremap u :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
