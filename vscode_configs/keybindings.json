@@ -353,12 +353,12 @@
     "command": "multiCommand.hideSidePanels"
   },
   {
-    "key": "f15",
+    "key": "escape",
     "command": "multiCommand.openAndCloseExplorer",
     "when": "filesExplorerFocus"
   },
   {
-    "key": "f15",
+    "key": "escape",
     "command": "multiCommand.EscapeKeyOnEditor",
     // "when": "editorTextFocus"
   },
@@ -588,7 +588,7 @@
     "when": "editorTextFocus && neovim.init"
   },
   // {
-  // "key": "f15",
+  // "key": "escape",
   // "command": "vscode-neovim.escape",
   // "when": "editorTextFocus && neovim.init"
   // },
@@ -884,7 +884,7 @@
     "command": "-workbench.action.files.openFileFolder"
   },
   // {
-  //   "key": "f15",
+  //   "key": "escape",
   //   "command": "workbench.action.focusActiveEditorGroup",
   //   "when": "terminalFocus || "
   // },

@@ -1575,7 +1575,7 @@
           "type" : "basic"
         }, {
           "to_if_alone" : [ {
-            "key_code" : "f15"
+            "key_code" : "escape"
           } ],
           "from" : {
             "key_code" : "right_command",
