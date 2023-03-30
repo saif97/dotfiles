@@ -1008,7 +1008,7 @@
     "when": "editorFocus && findWidgetVisible && !isComposing"
   },
   {
-    "key": "cmd+n shift",
+    "key": "cmd+n",
     "command": "workbench.action.navigateBack",
     "when": "editorFocus"
   },
@@ -1028,7 +1028,7 @@
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
   {
-    "key": "cmd+i shift",
+    "key": "cmd+i",
     "command": "workbench.action.navigateForward",
     "when": "editorFocus"
   },
@@ -1050,5 +1050,9 @@
   {
     "key": "f17",
     "command": "workbench.action.tasks.runTask"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-workbench.action.files.newUntitledFile"
   },
 ]
