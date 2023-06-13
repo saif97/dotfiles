@@ -368,10 +368,6 @@
     // "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+f",
-    "command": "multiCommand.run"
-  },
-  {
     "key": "f14 s",
     "command": "workbench.action.terminal.resizePaneDown"
   },
@@ -943,7 +939,7 @@
     "when": "workbench.panel.repl.view.active"
   },
   {
-    "key": "alt+d shift",
+    "key": "alt+d",
     "command": "workbench.debug.action.toggleRepl",
     "when": "workbench.panel.repl.view.active"
   },
@@ -1054,5 +1050,23 @@
   {
     "key": "cmd+n",
     "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-cursorRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "workbench.action.debug.run"
+  },
+  {
+    "key": "alt+c",
+    "command": "-gitlens.showQuickCommitFileDetails",
+    "when": "editorTextFocus && !gitlens:disabled && config.gitlens.keymap == 'alternate'"
+  },
+  {
+    "key": "alt+c",
+    "command": "workbench.panel.chat.view.copilot.focus"
   },
 ]

@@ -121,40 +121,16 @@
                  [:##period :!Ttab]
                  [:##m :!CSf]
                 ;;  desktop switching
-                 [:##open_bracket :!Tleft_arrow]
-                 [:##close_bracket :!Tright_arrow]
+                 [:open_bracket :!Tleft_arrow]
+                 [:close_bracket :!Tright_arrow]
 
-
-                 [:##1 :f1]
-                 [:##2 :f2]
-                 [:##3 :f3]
-                 [:##4 :f4]
-                 [:##5 :f5]
-                 [:##6 :f6]
-                 [:##7 :f7]
-                 [:##8 :f8]
-                 [:##9 :f9]
-                 [:##0 :f10]
-                 [:##hyphen :f11]
-                 [:##equal_sign :f12]
+                 [:!Sopen_bracket :!Copen_bracket]
+                 [:!Sclose_bracket :!Cclose_bracket]
 
                  [:##c :!COsemicolon] ; trigger screenshoot.
                  [:##w :!Oleft_shift  nil {:alone :tab}]
         ;;
                  ]}
-
-        {:des   "Vi Visual Mode"
-         :rules [:vi_visual_mode
-                 [:##k :!Sdown_arrow]
-                 [:##i :!Sup_arrow]
-                 [:##j :!Sleft_arrow]
-                 [:##l :!Sright_arrow]
-                 [:##b :!SOleft_arrow]
-                 [:##e :!SOright_arrow]
-                 [:##0 :!SCleft_arrow]
-                 [:##4 :!SCright_arrow]
-                 [:##open_bracket :!SOup_arrow]
-                 [:##close_bracket :!SOdown_arrow]]}
 
         {:des "Symbol mode"
          :rules [:symbol_mode
@@ -277,12 +253,3 @@
                  ]};
 
         ]}
-
-
-; ====================================================================================
-; ====================================================================================
-; ====================================================================================
-; =============================== OTHES Config =======================================
-; ====================================================================================
-; ====================================================================================
-; ====================================================================================

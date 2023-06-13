@@ -316,6 +316,7 @@
         "dartz",
         "datetime",
         "deque",
+        "dotfiles",
         "dtype",
         "dtypes",
         "firestore",
@@ -355,6 +356,7 @@
         "Reorderable",
         "roboto",
         "saif",
+        "saifhakeam",
         "scipy",
         "Serializable",
         "signin",
@@ -452,7 +454,6 @@
     "dart.flutterTestAdditionalArgs": [
         "--dart-define=testing_mode=true"
     ],
-    "workbench.activityBar.visible": false,
     "zenMode.fullScreen": false,
     "zenMode.hideStatusBar": false,
     "gitHistory.showEditorTitleMenuBarIcons": false,
@@ -522,5 +523,17 @@
     "[clojure]": {
         "editor.defaultFormatter": "avli.clojure"
     },
-    "window.zoomLevel": -1
+    "window.titleBarStyle": "custom",
+    "vscode_custom_css.imports": [
+        "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.css",
+        "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.js"
+    ],
+    "vscode_custom_css.policy": true,
+    "redhat.telemetry.enabled": false,
+    "i18n-ally.enabledFrameworks": [
+        "flutter"
+    ],
+    "editor.inlineSuggest.enabled": true,
+    "workbench.activityBar.visible": false,
+    // "editor.inlineSuggest.enabled": true,
 }
