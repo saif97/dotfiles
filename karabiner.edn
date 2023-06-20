@@ -129,7 +129,6 @@
 
                  [:##c :!COsemicolon] ; trigger screenshoot.
                  [:##w :!Oleft_shift  nil {:alone :tab}]
-        ;;
                  ]}
 
         {:des "Symbol mode"

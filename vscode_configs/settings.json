@@ -105,7 +105,6 @@
     },
     "editor.formatOnType": false,
     "editor.cursorSmoothCaretAnimation": "on",
-    "dart.triggerSignatureHelpAutomatically": true,
     "git.enableSmartCommit": true,
     "workbench.iconTheme": "material-icon-theme",
     "multiCommand.commands": [
@@ -193,8 +192,6 @@
         "!json",
         "dart"
     ],
-    "local-history.dateLocale": "en",
-    "dart.flutterHotRestartOnSave": false,
     "dart.previewHotReloadOnSaveWatcher": true,
     "editor.tokenColorCustomizations": {
         "comments": "#4ea146"
@@ -213,7 +210,7 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": false,
         "editor.defaultFormatter": "Dart-Code.dart-code",
-        "editor.inlayHints.enabled": "on",
+        // "editor.inlayHints.enabled": "on",
     },
     "editor.columnSelection": false,
     "files.exclude": {

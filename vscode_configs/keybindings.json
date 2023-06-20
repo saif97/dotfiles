@@ -1069,4 +1069,14 @@
     "key": "alt+c",
     "command": "workbench.panel.chat.view.copilot.focus"
   },
+  {
+    "key": "alt+r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
 ]
