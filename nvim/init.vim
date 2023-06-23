@@ -18,21 +18,12 @@ let mapleader = "p"
 "/******************
  "* NERD COMMENTER *
  "******************/
- "tsrtarst
- "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'
- "
- "
-
-  "
 "map <C-/> <leader>c<space>
 map <C-/> <leader>c<space>
 imap <C-/> <leader>c<space>
 
-
 map <Tab> >>
 map <S-Tab> <<
-
-
 
 map  <leader>i <Plug>(easymotion-f)
 map  <leader>n <Plug>(easymotion-F)
@@ -53,8 +44,6 @@ nnoremap u k|onoremap u k|xnoremap u k
     nnoremap U :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
     nnoremap E :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
 
-
-
     nnoremap zl <Cmd>call VSCodeNotify('extension.autofold')<CR>
     nnoremap zu <Cmd>call VSCodeNotify('editor.unfoldAll')<CR>
 
@@ -68,7 +57,9 @@ nnoremap u k|onoremap u k|xnoremap u k
     nnoremap K <Cmd>call VSCodeNotify('editor.action.previousMatchFindAction')<CR>
 
 else
-    " ordinary neovim
+    nnoremap E 5j|onoremap E 5j|xnoremap E 5j
+    nnoremap U 5k|onoremap U 5k|xnoremap U 5k
+
 endif
 
 
@@ -86,11 +77,11 @@ nnoremap b n|onoremap b n|xnoremap b n
 " noremap i <NOP>
 " noremap u <NOP>
 
-"" l & y to behaive as home and end
+" l & y to behaive as home and end
 nnoremap l 0|onoremap l 0|xnoremap l 0
 nnoremap y $|onoremap y $|xnoremap y $
 
-"" copy
+" copy
 nnoremap c y|onoremap c y|xnoremap c y
 nnoremap c y|onoremap c y|xnoremap c y
 
@@ -113,23 +104,14 @@ vnoremap w "_c
 nnoremap d "_d
 vnoremap d "_d
 
-
-
 " Delete char  w/o buffering
 nnoremap <Del> "_x
 vnoremap <Del> "_x
-
 
 " Undo & redo
 nnoremap q u|onoremap q u|xnoremap q u
 nnoremap Q <C-r>|xnoremap Q :<C-u>redo<CR>|
 
-"  map k to n used in searching
-" nnoremap k n|onoremap k n|xnoremap k n
-"nnoremap K N|onoremap K N|xnoremap K N
-
 " The below 2 lines enable vim & system copy pasting to interwork.
 set clipboard=unnamed
 set clipboard=unnamedplus
-
-
