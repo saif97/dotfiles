@@ -879,11 +879,11 @@
     "key": "cmd+o",
     "command": "-workbench.action.files.openFileFolder"
   },
-  // {
-  //   "key": "escape",
-  //   "command": "workbench.action.focusActiveEditorGroup",
-  //   "when": "terminalFocus || "
-  // },
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
   {
     "key": "enter",
     "command": "-renameFile",
@@ -1064,10 +1064,6 @@
     "key": "alt+c",
     "command": "-gitlens.showQuickCommitFileDetails",
     "when": "editorTextFocus && !gitlens:disabled && config.gitlens.keymap == 'alternate'"
-  },
-  {
-    "key": "alt+c",
-    "command": "workbench.panel.chat.view.copilot.focus"
   },
   {
     "key": "alt+r",
