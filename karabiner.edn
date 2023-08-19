@@ -61,11 +61,11 @@
                    :delay   0
                    :alone   500
                    :held    50}
-           :stock {}
-           } ;; profiles
+            :stock {}}
+            ;; profiles
 
- :tos {:left_paren      {:key :9 :modi [:left_shift] :lazy true}
- }
+ :tos {:left_paren      {:key :9 :modi [:left_shift] :lazy true}}
+
  :simlayers {:vi_mode {:key :f :repeat false}
              :vi_visual_mode        {:key :v}
 
@@ -83,12 +83,12 @@
                                    :condi   [:!comma-mode :!period-mode]}
 
           :numMode       {:key :2 :condi [:!fnCommand]}
-          :symbol_mode {:key :4}
+          :symbol_mode {:key :4}}
         ;   :fnCommand {:key :left_command
         ;               :afterup [{:set ["numMode" 0]}]}
         ;   :numMode {:key :a :condi :fnCommand}
 ;
-          }
+
  :templates {:launch "osascript -e 'tell application \"Alfred 3\" to run trigger \"launch%s\" in workflow \"yqrashawn.workflow.launcher\" with argument \"%s\"'"}
 
  :main [{:des "Vi Mode [D as Trigger Key]"
@@ -124,12 +124,16 @@
                  [:open_bracket :!Tleft_arrow]
                  [:close_bracket :!Tright_arrow]
 
+                ;; back & forward in browser & editors
                  [:!Sopen_bracket :!Copen_bracket]
                  [:!Sclose_bracket :!Cclose_bracket]
 
                  [:##c :!COsemicolon] ; trigger screenshoot.
                  [:##w :!Oleft_shift  nil {:alone :tab}]
+
+                 [:##tab :!Ctab] ; app switcher
                  ]}
+
 
         {:des "Symbol mode"
          :rules [:symbol_mode
@@ -150,8 +154,8 @@
                  [:p :!S5] ; %
                  [:b :!S7] ; &
                  [:y :!S8] ;/ * mulptiply
-                 [:spacebar :!Shyphen] ; _
-                 ]}
+                 [:spacebar :!Shyphen]]} ; _
+
         {:des "media Mode"
          :rules [:mediaMode
                  [:e :volume_up]
@@ -172,8 +176,8 @@
                  [:t :!COf16]
                  [:v :!COf18]
 
-                 [{:pkey :button5} :volume_up]
-                 ]}
+                 [{:pkey :button5} :volume_up]]}
+
 
 
         {:des "Due to RSI,caps_lock, leftshift are disabled map capslock-> command | "
@@ -209,7 +213,7 @@
                 ; [:##spacebar :left_shift nil {:alone :spacebar}]
 
 
-                 [:1 :!Oleft_shift nil {:alone :f17}] ; mod keys for Ametheyst
+                 [:1 :!Oleft_shift nil {:alone :f17}]]} ; mod keys for Ametheyst
                 ;  [:2 :!TOleft_shift nil {:alone :2}] ; mod keys for Ametheyst
                 ;; this is a test
                 ;;
@@ -218,7 +222,7 @@
 
                 ;;
                 ;;
-                 ]}
+
         {:des "Mouse configs"
                  :rules [
 
@@ -227,11 +231,11 @@
                          [{:pkey :button4} {:pkey :button5}]
 
                         ;; Switch between workspaces.
-                        [{:pkey :button4 :modi :left_control} :!Tleft_arrow ]
+                         [{:pkey :button4 :modi :left_control} :!Tleft_arrow]
                          [{:pkey :button5 :modi :left_control} :!Tright_arrow]
                         ;;  open expose mode in macos
-                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]
-                         ]}
+                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]]}
+
         {:des "Numpad"
          :rules [:numMode
                  [:u :7]
@@ -248,7 +252,7 @@
         {:des "Stock Profile configs mainly used to switch off everything so other people can use my keyboard"
          :rules [:stock
                  ; switch to Goku profile & swtich language to colemak
-                 [:!TO0 [{:input :colemak }"'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'Goku'; afplay /System/Library/Sounds/Glass.aiff"]]
-                 ]};
+                 [:!TO0 [{:input :colemak }"'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'Goku'; afplay /System/Library/Sounds/Glass.aiff"]]]}]}
+                 ;
 
-        ]}
+
