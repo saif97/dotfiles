@@ -358,14 +358,9 @@
     "when": "filesExplorerFocus"
   },
   {
-    "key": "escape",
-    "command": "multiCommand.EscapeKeyOnEditor",
-    // "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+o",
     "command": "multiCommand.multiComSuggest",
-    // "when": "editorTextFocus"
+    "when": "editorTextFocus"
   },
   {
     "key": "f14 s",
