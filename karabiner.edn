@@ -200,7 +200,8 @@
 
 
                 ;  [:##caps_lock :left_command nil {:alone :f15}] ; caps => command alone => esc in vim
-                 [:##right_command :left_command nil {:alone :escape}] ; caps => command alone => esc in vim
+                 [:##right_command :left_command :Browsers {:alone :escape} ] ; In browsers, set right command to escape. That's mainly used for notion
+                 [:##right_command :left_command nil {:alone :f15} ] ; 
 
                 ;  in finder make enter open files
                  [:##return_or_enter :!Csemicolon :finder]

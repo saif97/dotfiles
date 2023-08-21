@@ -353,9 +353,14 @@
     "command": "multiCommand.hideSidePanels"
   },
   {
-    "key": "escape",
+    "key": "f15",
     "command": "multiCommand.openAndCloseExplorer",
     "when": "filesExplorerFocus"
+  },
+  {
+    "key": "f15",
+    "command": "multiCommand.EscapeKeyOnEditor",
+    "when": ""
   },
   {
     "key": "ctrl+o",
@@ -578,11 +583,6 @@
     "command": "-vscode-neovim.escape",
     "when": "editorTextFocus && neovim.init"
   },
-  // {
-  // "key": "escape",
-  // "command": "vscode-neovim.escape",
-  // "when": "editorTextFocus && neovim.init"
-  // },
   {
     "key": "ctrl+[",
     "command": "-vscode-neovim.escape",

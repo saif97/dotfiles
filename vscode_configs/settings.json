@@ -242,12 +242,8 @@
     "local-history.maxDisplay": 100,
     "local-history.saveDelay": 3600,
     "problems.autoReveal": false,
-    "dart.flutterSdkPath": "~/dev/sdks/flutter_beta",
     "dart.debugExternalLibraries": false,
     "dart.debugSdkLibraries": false,
-    "dart.flutterSdkPaths": [
-        "~/dev/sdks/"
-    ],
     "workbench.list.automaticKeyboardNavigation": false,
     "python.showStartPage": false,
     "editor.formatOnSave": true,
@@ -343,6 +339,7 @@
         "Neighbours",
         "numpy",
         "nums",
+        "OPENAI",
         "Pomodoro",
         "Prefs",
         "println",
@@ -377,6 +374,7 @@
         "widget's",
         "wids",
         "WIFI",
+        "xcworkspace",
         "Youtube"
     ],
     "local-history.exclude": [
@@ -431,6 +429,7 @@
     "debug.showBreakpointsInOverviewRuler": true,
     "dart.allowTestsOutsideTestFolder": true,
     "search.exclude": {
+        "**/.fvm": true,
         "~/dev/sdks/**": true,
         "**/*.freezed.dart": true,
         "/macos": true,
@@ -449,9 +448,6 @@
         "build": true,
         "analysis_options.yaml": true
     },
-    "dart.flutterTestAdditionalArgs": [
-        "--dart-define=testing_mode=true"
-    ],
     "zenMode.fullScreen": false,
     "zenMode.hideStatusBar": false,
     "gitHistory.showEditorTitleMenuBarIcons": false,
@@ -533,5 +529,29 @@
     ],
     "editor.inlineSuggest.enabled": true,
     "workbench.activityBar.visible": false,
+    "github.copilot.advanced": {
+        "debug.showScores": true
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "search.useParentIgnoreFiles": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "lldb.launch.expressions": "native",
     // "editor.inlineSuggest.enabled": true,
+    /**************
+ * FVM CONFIG *
+ **************/
+    "dart.flutterSdkPath": "~/dev/sdks/flutter_stable/bin",
+    // Remove from file watching
+    "files.watcherExclude": {
+        "**/.fvm": true
+    },
+    "dart.flutterSdkPaths": [
+        "/Users/saifhakeam/fvm/versions"
+    ],
+    "dart.debugExternalPackageLibraries": false
 }

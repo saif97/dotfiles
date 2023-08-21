@@ -20,5 +20,28 @@
             "command": "dart run build_runner build --delete-conflicting-outputs",
             "problemMatcher": []
         },
+        {
+            "label": "flutter: open IOS Project",
+            "type": "shell",
+            "command": "open ./ios/Runner.xcworkspace",
+            "problemMatcher": []
+        },
+        {
+            "label": "Firebase: start emulator",
+            "type": "shell",
+            "command": [
+                "firebase emulators:start --import=firebase_emul_saved_data --export-on-exit=firebase_emul_saved_data"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Firebase deploy only functions.",
+            "type": "shell",
+            "command": [
+                "cd ./functions",
+                "&& firebase deploy --only functions"
+            ],
+            "problemMatcher": []
+        },
     ]
 }
