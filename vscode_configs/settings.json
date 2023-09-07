@@ -37,6 +37,8 @@
     "workbench.startupEditor": "newUntitledFile",
     "dart.previewFlutterUiGuides": true,
     "dart.previewFlutterUiGuidesCustomTracking": true,
+    "search.defaultViewMode": "tree",
+    "search.mode": "view",
     "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": false,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
@@ -533,7 +535,6 @@
         "debug.showScores": true
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "search.useParentIgnoreFiles": true,
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
@@ -553,5 +554,12 @@
     "dart.flutterSdkPaths": [
         "/Users/saifhakeam/fvm/versions"
     ],
-    "dart.debugExternalPackageLibraries": false
+    "dart.debugExternalPackageLibraries": false,
+    "terminal.sourceControlRepositoriesKind": "external",
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    },
+    "search.useIgnoreFiles": false,
+    "diffEditor.codeLens": true,
+    "scm.defaultViewMode": "tree"
 }
