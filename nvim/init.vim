@@ -36,14 +36,26 @@ nnoremap o i|onoremap o i|xnoremap o i
 nnoremap e j|onoremap e j|xnoremap e j
 nnoremap u k|onoremap u k|xnoremap u k
 
+" For nativation in VS code over foldded blocks.
+let navInFoldedBlock = 0
+
+if navInFoldedBlock
+    if exists('g:vscode')
+        nnoremap u :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
+        nnoremap e :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
+
+        nnoremap U :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
+        nnoremap E :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
+    else
+        nnoremap E 5j|onoremap E 5j|xnoremap E 5j
+        nnoremap U 5k|onoremap U 5k|xnoremap U 5k
+    endif
+else
+    nnoremap E 5j|onoremap E 5j|xnoremap E 5j
+    nnoremap U 5k|onoremap U 5k|xnoremap U 5k
+endif
+
  if exists('g:vscode')
-    " Workaround for gk/gj
-    nnoremap u :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
-    nnoremap e :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 1 })<CR>
-
-    nnoremap U :<C-u>call VSCodeCall('cursorMove', { 'to': 'up', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
-    nnoremap E :<C-u>call VSCodeCall('cursorMove', { 'to': 'down', 'by': 'wrappedLine', 'value': v:count ? v:count : 10 })<CR>
-
     nnoremap zl <Cmd>call VSCodeNotify('extension.autofold')<CR>
     nnoremap zu <Cmd>call VSCodeNotify('editor.unfoldAll')<CR>
 
@@ -57,9 +69,7 @@ nnoremap u k|onoremap u k|xnoremap u k
     nnoremap K <Cmd>call VSCodeNotify('editor.action.previousMatchFindAction')<CR>
 
 else
-    nnoremap E 5j|onoremap E 5j|xnoremap E 5j
-    nnoremap U 5k|onoremap U 5k|xnoremap U 5k
-
+    " Uncomment to enable
 endif
 
 
