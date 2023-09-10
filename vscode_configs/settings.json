@@ -561,5 +561,6 @@
     },
     "search.useIgnoreFiles": false,
     "diffEditor.codeLens": true,
-    "scm.defaultViewMode": "tree"
+    "scm.defaultViewMode": "tree",
+    "terminal.integrated.defaultProfile.osx": "zsh",
 }
