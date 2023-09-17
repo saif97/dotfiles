@@ -810,6 +810,16 @@
     "when": "editorFocus"
   },
   {
+    "key": "shift+ctrl+k",
+    "command": "cursorUndo",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
     "key": "cmd+d",
     "command": "-editor.action.addSelectionToNextFindMatch",
     "when": "editorFocus"
