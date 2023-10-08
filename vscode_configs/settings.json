@@ -534,7 +534,6 @@
     "github.copilot.advanced": {
         "debug.showScores": true
     },
-    "diffEditor.ignoreTrimWhitespace": false,
     "github.copilot.enable": {
         "*": true,
         "plaintext": false,
@@ -546,7 +545,7 @@
     /**************
  * FVM CONFIG *
  **************/
-    "dart.flutterSdkPath": "~/dev/sdks/flutter_stable/bin",
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
     // Remove from file watching
     "files.watcherExclude": {
         "**/.fvm": true
@@ -563,4 +562,10 @@
     "diffEditor.codeLens": true,
     "scm.defaultViewMode": "tree",
     "terminal.integrated.defaultProfile.osx": "zsh",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "window.zoomLevel": -1,
 }

@@ -956,22 +956,6 @@
           } ],
           "type" : "basic"
         }, {
-          "from" : {
-            "key_code" : "return_or_enter",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "semicolon",
-            "modifiers" : [ "left_command" ]
-          } ],
-          "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com.apple.finder" ]
-          } ],
-          "type" : "basic"
-        }, {
           "to_if_alone" : [ {
             "key_code" : "tab"
           } ],
