@@ -188,7 +188,7 @@
                  [:!TO0 [{:input :abc} "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'stock'; afplay /System/Library/Sounds/Blow.aiff"]]
 
                  [:##caps_lock :left_command]
-                ;;  [:##left_shift :##out]
+                 [:!Cm :##out]
 
                  [:!CSh :##out]
 

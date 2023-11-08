@@ -886,6 +886,17 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "m",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "out"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "h",
             "modifiers" : {
               "mandatory" : [ "left_command", "left_shift" ]
