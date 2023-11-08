@@ -530,7 +530,6 @@
         "flutter"
     ],
     "editor.inlineSuggest.enabled": true,
-    "workbench.activityBar.visible": false,
     "github.copilot.advanced": {
         "debug.showScores": true
     },
@@ -565,5 +564,7 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "diffEditor.ignoreTrimWhitespace": false
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.activityBar.location": "hidden",
+    "diffEditor.hideUnchangedRegions.enabled": true
 }

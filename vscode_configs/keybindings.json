@@ -1118,4 +1118,13 @@
     "command": "-workbench.action.toggleMaximizeEditorGroup",
     "when": "maximizedEditorGroup || multipleEditorGroups"
   },
+  {
+    "key": "shift+cmd+x",
+    "command": "workbench.extensions.action.focusExtensionsView"
+  },
+  {
+    "key": "shift+cmd+x",
+    "command": "-workbench.view.extensions",
+    "when": "viewContainer.workbench.view.extensions.enabled"
+  },
 ]
