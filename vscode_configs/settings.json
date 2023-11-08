@@ -57,7 +57,7 @@
         /**************
           * STATUS BAR *
           **************/
-        "statusBar.background": "#da0f0f",
+        "statusBar.background": "#000000",
         "statusBar.foreground": "#ffffff",
         "statusBar.noFolderBackground": "#ff0000",
         "statusBar.debuggingBackground": "#fffb01",
@@ -68,15 +68,15 @@
         //
         "editor.foldBackground": "#65e8002f",
         "titleBar.activeForeground": "#fcfcfc",
-        "titleBar.activeBackground": "#e80000",
-        "titleBar.inactiveBackground": "#ff0000",
+        "titleBar.activeBackground": "#000000",
+        "titleBar.inactiveBackground": "#000000",
         "editor.selectionBackground": "#ff000066",
         "editor.selectionForeground": "#ffffff",
         "editor.selectionHighlightBackground": "#ff000084",
         "editor.lineHighlightBackground": "#ff000057",
         "editor.findMatchBackground": "#ff0000a9",
         "editor.findMatchHighlightBackground": "#00aaffa8",
-        "window.activeBorder": "#ff0000",
+        "window.activeBorder": "#000000",
         "editorRuler.foreground": "#ff636375",
         "list.activeSelectionBackground": "#ff0000",
         "list.focusBackground": "#ff000083",
@@ -453,7 +453,7 @@
     "zenMode.fullScreen": false,
     "zenMode.hideStatusBar": false,
     "gitHistory.showEditorTitleMenuBarIcons": false,
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": "single",
     "terminal.integrated.tabs.enabled": true,
     "terminal.integrated.tabs.location": "left",
     "dart.analysisServerFolding": false,
@@ -565,7 +565,5 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "diffEditor.hideUnchangedRegions.enabled": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "window.zoomLevel": -1,
+    "diffEditor.ignoreTrimWhitespace": false
 }

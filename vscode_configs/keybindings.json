@@ -1104,4 +1104,18 @@
     "command": "-workbench.action.terminal.focusPrevious",
     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
+  {
+    "key": "alt+v",
+    "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "f14",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "maximizedEditorGroup || multipleEditorGroups"
+  },
+  {
+    "key": "cmd+k cmd+m",
+    "command": "-workbench.action.toggleMaximizeEditorGroup",
+    "when": "maximizedEditorGroup || multipleEditorGroups"
+  },
 ]
