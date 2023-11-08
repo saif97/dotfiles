@@ -957,6 +957,20 @@
           "type" : "basic"
         }, {
           "to_if_alone" : [ {
+            "key_code" : "f14"
+          } ],
+          "from" : {
+            "key_code" : "right_option",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_option"
+          } ],
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
             "key_code" : "tab"
           } ],
           "from" : {
