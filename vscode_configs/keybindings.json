@@ -353,14 +353,13 @@
     "command": "multiCommand.hideSidePanels"
   },
   {
-    "key": "f15",
+    "key": "f15 f15",
     "command": "multiCommand.openAndCloseExplorer",
     "when": "filesExplorerFocus"
   },
   {
-    "key": "f15",
-    "command": "multiCommand.EscapeKeyOnEditor",
-    "when": ""
+    "key": "f15 f15",
+    "command": "multiCommand.EscapeKeyOnEditor"
   },
   {
     "key": "ctrl+o",
@@ -1126,5 +1125,13 @@
     "key": "shift+cmd+x",
     "command": "-workbench.view.extensions",
     "when": "viewContainer.workbench.view.extensions.enabled"
+  },
+  {
+    "key": "f15 f14",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
   },
 ]
