@@ -353,12 +353,12 @@
     "command": "multiCommand.hideSidePanels"
   },
   {
-    "key": "f15 f15",
+    "key": "f15",
     "command": "multiCommand.openAndCloseExplorer",
     "when": "filesExplorerFocus"
   },
   {
-    "key": "f15 f15",
+    "key": "f15",
     "command": "multiCommand.EscapeKeyOnEditor"
   },
   {
@@ -1127,7 +1127,7 @@
     "when": "viewContainer.workbench.view.extensions.enabled"
   },
   {
-    "key": "f15 f14",
+    "key": "shift+f14",
     "command": "workbench.action.togglePanel"
   },
   {

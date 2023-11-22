@@ -15,7 +15,7 @@
             "problemMatcher": []
         },
         {
-            "label": "flutter: run builder",
+            "label": "flutter: run build_runner",
             "type": "shell",
             "command": "dart run build_runner build --delete-conflicting-outputs",
             "problemMatcher": []
