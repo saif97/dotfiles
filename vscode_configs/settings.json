@@ -162,7 +162,7 @@
             "command": "multiCommand.EscapeKeyOnEditor",
             "sequence": [
                 "vscode-neovim.escape",
-                "workbench.action.closeSidebar",
+                // "workbench.action.closeSidebar",
                 "workbench.action.focusActiveEditorGroup",
                 // "editor.foldLevel2",
                 // "workbench.action.closePanel"

@@ -1134,4 +1134,8 @@
     "key": "cmd+j",
     "command": "-workbench.action.togglePanel"
   },
+  {
+    "key": "shift+f15",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
 ]
