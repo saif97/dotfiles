@@ -1077,6 +1077,18 @@
             "modifiers" : [ "left_control" ]
           } ],
           "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            },
+            "pointing_button" : "button4"
+          },
+          "to" : [ {
+            "key_code" : "down_arrow",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
         } ]
       }, {
         "description" : "Numpad",

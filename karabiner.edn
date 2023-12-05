@@ -236,7 +236,10 @@
                          [{:pkey :button4 :modi :left_control} :!Tleft_arrow]
                          [{:pkey :button5 :modi :left_control} :!Tright_arrow]
                         ;;  open expose mode in macos
-                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]]}
+                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]
+                         [{:pkey :button4 :modi :left_command} :!Tdown_arrow]
+                        ;;
+                         ]}
 
         {:des "Numpad"
          :rules [:numMode

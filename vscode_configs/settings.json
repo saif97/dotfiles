@@ -70,6 +70,7 @@
         "titleBar.activeForeground": "#fcfcfc",
         "titleBar.activeBackground": "#000000",
         "titleBar.inactiveBackground": "#000000",
+        "titleBar.inactiveForeground": "#7d7d7d",
         "editor.selectionBackground": "#ff000066",
         "editor.selectionForeground": "#ffffff",
         "editor.selectionHighlightBackground": "#ff000084",
@@ -178,7 +179,7 @@
     // "editor.fontFamily": "fira code",
     "editor.fontSize": 14,
     "editor.fontLigatures": true,
-    "window.title": "(☞ﾟヮﾟ)☞ ${rootName}  ☜(ﾟヮﾟ☜) ${separator}   👻👽 ${separator} ${activeEditorMedium} ${separator} ",
+    "window.title": "${rootName} ${separator} ${profileName} Profile",
     "editor.cursorBlinking": "expand",
     "files.trimTrailingWhitespace": true,
     "telemetry.enableCrashReporter": false,
@@ -566,5 +567,8 @@
     },
     "diffEditor.ignoreTrimWhitespace": false,
     "workbench.activityBar.location": "hidden",
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    }
 }
