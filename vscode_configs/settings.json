@@ -570,5 +570,6 @@
     "diffEditor.hideUnchangedRegions.enabled": true,
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
-    }
+    },
+    "jupyter.interactiveWindow.creationMode": "perFile"
 }
