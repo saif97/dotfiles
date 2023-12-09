@@ -189,6 +189,7 @@
 
                  [:##caps_lock :left_command]
                  [:!Cm :!CSm]
+                 [:!Ch :!CSh]
 
                  [:!CSh :##out]
 
