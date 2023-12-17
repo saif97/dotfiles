@@ -48,9 +48,6 @@
         * TAB DECORATION *
       ******************/
         "tab.activeForeground": "#eaff00",
-        "tab.activeBackground": "#00ff0d",
-        "tab.activeBorder": "#00ff62",
-        "tab.activeBorderTop": "#00ff62",
         "tab.unfocusedActiveForeground": "#ffffff",
         "terminal.ansiRed": "#f88",
         //
@@ -571,5 +568,12 @@
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
-    "jupyter.interactiveWindow.creationMode": "perFile"
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "errorLens.excludeWorkspaces": [
+        "/home/c/Desktop/foo/harvester"
+    ],
+    "[dart][python]": {
+        "editor.wordBasedSuggestions": "off"
+    },
+    "window.zoomLevel": 1
 }

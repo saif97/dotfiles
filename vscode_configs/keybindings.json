@@ -109,7 +109,7 @@
     "when": "inFilesPicker && inQuickOpen"
   },
   {
-    "key": "f16",
+    "key": "cmd+shift+a",
     "command": "workbench.action.showCommands"
   },
   {
@@ -1142,6 +1142,11 @@
   {
     "key": "cmd+w",
     "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+w",
+    "command": "-workbench.action.terminal.killEditor",
     "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated && resourceScheme == 'vscode-terminal' || terminalEditorFocus && terminalFocus && terminalProcessSupported && resourceScheme == 'vscode-terminal'"
   },
 ]

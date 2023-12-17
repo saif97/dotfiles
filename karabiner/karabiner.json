@@ -921,7 +921,8 @@
           "type" : "basic"
         }, {
           "to_if_alone" : [ {
-            "key_code" : "f16"
+            "key_code" : "a",
+            "modifiers" : [ "left_command", "left_shift" ]
           } ],
           "from" : {
             "key_code" : "3",
