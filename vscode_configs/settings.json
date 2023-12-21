@@ -562,9 +562,7 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "diffEditor.ignoreTrimWhitespace": false,
     "workbench.activityBar.location": "hidden",
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
@@ -575,5 +573,5 @@
     "[dart][python]": {
         "editor.wordBasedSuggestions": "off"
     },
-    "window.zoomLevel": 1
+    "diffEditor.hideUnchangedRegions.enabled": true
 }
