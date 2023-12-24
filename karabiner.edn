@@ -173,8 +173,8 @@
                  [:r :vk_consumer_brightness_up]
                  [:w :vk_consumer_brightness_down]
 
-                 [:t :!COf16]
-                 [:v :!COf18]
+                 [:t :!Tup_arrow]
+                 [:v :!Tdown_arrow]
 
                  [{:pkey :button5} :volume_up]]}
 

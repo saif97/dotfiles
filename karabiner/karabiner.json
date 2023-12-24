@@ -819,8 +819,8 @@
             "key_code" : "t"
           },
           "to" : [ {
-            "key_code" : "f16",
-            "modifiers" : [ "left_command", "left_option" ]
+            "key_code" : "up_arrow",
+            "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
             "name" : "mediaMode",
@@ -833,8 +833,8 @@
             "key_code" : "v"
           },
           "to" : [ {
-            "key_code" : "f18",
-            "modifiers" : [ "left_command", "left_option" ]
+            "key_code" : "down_arrow",
+            "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
             "name" : "mediaMode",
