@@ -1152,7 +1152,7 @@
   {
     "key": "ctrl+n",
     "command": "workbench.files.action.collapseExplorerFolders",
-    "when": "explorerViewletVisible"
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
   },
   {
     "key": "ctrl+shift+/",
