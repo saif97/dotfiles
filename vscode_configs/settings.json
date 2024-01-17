@@ -297,6 +297,7 @@
         "AUIS",
         "autocorrect",
         "autofocus",
+        "autofold",
         "autovalidate",
         "bitmask",
         "borderize",
@@ -331,18 +332,22 @@
         "iterrows",
         "Jsons",
         "kaggle",
+        "keybind",
         "Kruskal",
         "Langara",
+        "leetcode",
         "macrocell",
         "Milli",
         "neighbour",
         "Neighbours",
+        "neovim",
         "numpy",
         "nums",
         "OPENAI",
         "Pomodoro",
         "Prefs",
         "println",
+        "pubspec",
         "pyplot",
         "readmore",
         "rects",
@@ -371,6 +376,7 @@
         "upvoted",
         "Uuid",
         "Vals",
+        "vsintellicode",
         "widget's",
         "wids",
         "WIFI",
@@ -547,15 +553,14 @@
     "files.watcherExclude": {
         "**/.fvm": true
     },
-    "dart.flutterSdkPaths": [
-        "/Users/saifhakeam/fvm/versions"
-    ],
+    // "dart.flutterSdkPaths": [
+    // "/Users/saifhakeam/fvm/versions"
+    // ],
     "dart.debugExternalPackageLibraries": false,
     "terminal.sourceControlRepositoriesKind": "external",
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
     },
-    "search.useIgnoreFiles": false,
     "diffEditor.codeLens": true,
     "scm.defaultViewMode": "tree",
     "terminal.integrated.defaultProfile.osx": "zsh",
@@ -573,5 +578,29 @@
     "[dart][python]": {
         "editor.wordBasedSuggestions": "off"
     },
-    "diffEditor.hideUnchangedRegions.enabled": true
+    "settings.cycle": [
+        {
+            "id": "toggleGitIgnoreSearch",
+            "overrideWorkspaceSettings": true,
+            "values": [
+                {
+                    "search.useIgnoreFiles": true,
+                    "search.useParentIgnoreFiles": true,
+                },
+                {
+                    "search.useIgnoreFiles": false,
+                    "search.useParentIgnoreFiles": false,
+                }
+            ]
+        }
+    ],
+    "keybind-palette-interop.commands": [
+        {
+            "id": "yourExtension.toggle",
+            "title": "Toggle GitIgnore Search",
+            "keybind_id": "settings.cycle.toggleGitIgnoreSearch"
+        },
+    ],
+    "search.useIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
 }
