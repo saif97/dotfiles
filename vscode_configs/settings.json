@@ -112,7 +112,7 @@
             "command": "multiCommand.format",
             "sequence": [
                 "editor.action.formatDocument",
-                "editor.action.organizeImports",
+                "editor.action.organizeImports"
                 // "dart-import.fix"
             ]
         },
@@ -596,11 +596,10 @@
     ],
     "keybind-palette-interop.commands": [
         {
-            "id": "yourExtension.toggle",
-            "title": "Toggle GitIgnore Search",
-            "keybind_id": "settings.cycle.toggleGitIgnoreSearch"
-        },
+            "keybind_id": "settings.cycle.toggleGitIgnoreSearch",
+            "title": "Toggle GitIgnore Search"
+        }
     ],
-    "search.useIgnoreFiles": true,
-    "search.useParentIgnoreFiles": true,
+    "search.useIgnoreFiles": false,
+    "search.useParentIgnoreFiles": false,
 }
