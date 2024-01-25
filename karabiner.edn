@@ -181,6 +181,9 @@
                  [:z {:input :colemak}]
                  [:x {:input :arabic}]
 
+                 [:1 "osascript -e \"set volume input volume 50\"; afplay /System/Library/Sounds/Ping.aiff"]
+                 [:q "osascript -e \"set volume input volume 0\"; afplay /System/Library/Sounds/Pop.aiff"]
+
                  [{:pkey :button5} :volume_up]]}
 
 

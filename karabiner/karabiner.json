@@ -887,6 +887,32 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "1"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e \"set volume input volume 50\"; afplay /System/Library/Sounds/Ping.aiff"
+          } ],
+          "conditions" : [ {
+            "name" : "mediaMode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "q"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e \"set volume input volume 0\"; afplay /System/Library/Sounds/Pop.aiff"
+          } ],
+          "conditions" : [ {
+            "name" : "mediaMode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "pointing_button" : "button5"
           },
           "to" : [ {
