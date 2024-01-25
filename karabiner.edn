@@ -152,6 +152,7 @@
                  [:o :!S2] ; @
                  [:h :!S3] ; #
                  [:semicolon :!S4] ; $
+                 [:quote :grave_accent_and_tilde]
                  [:p :!S5] ; %
                  [:b :!S7] ; &
                  [:y :!S8] ;/ * mulptiply
