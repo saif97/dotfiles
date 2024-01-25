@@ -54,6 +54,7 @@
   :input-sources {;; define input-source, these data can be founhd in Karabiner EventViewer gui
                 :colemak {:input_source_id "com.apple.keylayout.Colemak"}
                 :abc {:input_source_id "com.apple.keylayout.ABC"}
+                :arabic {:input_source_id "com.apple.keylayout.Arabic"}
                 }
 
  :profiles {:Goku {:default true
@@ -175,6 +176,9 @@
 
                  [:t :!Tup_arrow]
                  [:v :!Tdown_arrow]
+
+                 [:z {:input :colemak}]
+                 [:x {:input :arabic}]
 
                  [{:pkey :button5} :volume_up]]}
 
