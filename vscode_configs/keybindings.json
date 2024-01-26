@@ -349,7 +349,7 @@
     "command": "workbench.debug.action.focusRepl"
   },
   {
-    "key": "ctrl+s",
+    "key": "shift+f18",
     "command": "multiCommand.hideSidePanels"
   },
   {
