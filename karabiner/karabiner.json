@@ -1171,6 +1171,28 @@
             "modifiers" : [ "left_control" ]
           } ],
           "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            },
+            "pointing_button" : "button5"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e \"set volume input volume 50\"; afplay /System/Library/Sounds/Ping.aiff"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            },
+            "pointing_button" : "button4"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e \"set volume input volume 0\"; afplay /System/Library/Sounds/Pop.aiff"
+          } ],
+          "type" : "basic"
         } ]
       }, {
         "description" : "Numpad",
