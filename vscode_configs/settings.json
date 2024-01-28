@@ -567,7 +567,7 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "workbench.activityBar.location": "hidden",
+    "workbench.activityBar.location": "top",
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
