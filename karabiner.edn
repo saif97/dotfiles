@@ -182,8 +182,8 @@
                  [:t :!Tup_arrow]
                  [:v :!Tdown_arrow]
 
-                 [:z {:input :colemak}]
-                 [:x {:input :arabic}]
+                 [:y {:input :colemak}]
+                 [:h {:input :arabic}]
 
                 ;;  Mute & unmute mic
                  [:1 [:muteMic]]
@@ -240,23 +240,23 @@
                 ;;
 
         {:des "Mouse configs"
-                 :rules [
+         :rules [
 
-                        ;; Switch back & forward buttons in mouse.
-                         [{:pkey :button5} {:pkey :button4}]
-                         [{:pkey :button4} {:pkey :button5}]
+                ;; Switch back & forward buttons in mouse.
+                 [{:pkey :button5} {:pkey :button4}]
+                 [{:pkey :button4} {:pkey :button5}]
 
-                        ;; Switch between workspaces.
-                         [{:pkey :button4 :modi :left_control} :!Tleft_arrow]
-                         [{:pkey :button5 :modi :left_control} :!Tright_arrow]
-                        ;;  open expose mode in macos
-                         [{:pkey :button5 :modi :left_command} :!Tup_arrow]
-                         [{:pkey :button4 :modi :left_command} :!Tdown_arrow]
-                        ;;  Mute & unmute mic
-                         [{:pkey :button5 :modi :left_shift}  [:muteMic]]
-                         [{:pkey :button4 :modi :left_shift}  [:unmuteMic]]
-                        ;;
-                         ]}
+                ;; Switch between workspaces.
+                 [{:pkey :button4 :modi :left_control} :!Tleft_arrow]
+                 [{:pkey :button5 :modi :left_control} :!Tright_arrow]
+                ;;  open expose mode in macos
+                 [{:pkey :button5 :modi :left_command} :!Tup_arrow]
+                 [{:pkey :button4 :modi :left_command} :!Tdown_arrow]
+                ;;  Mute & unmute mic
+                 [{:pkey :button5 :modi :left_shift}  [:muteMic]]
+                 [{:pkey :button4 :modi :left_shift}  [:unmuteMic]]
+                ;;
+                 ]}
 
         {:des "Numpad"
          :rules [:numMode
