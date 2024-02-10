@@ -331,7 +331,7 @@
     "when": "inDebugMode"
   },
   {
-    "key": "cmd+]",
+    "key": "cmd+'",
     "command": "workbench.action.debug.stepOver",
     "when": "debugState == 'stopped'"
   },
@@ -373,14 +373,6 @@
   {
     "key": "ctrl+shift+alt+-",
     "command": "workbench.action.terminal.resizePaneRight"
-  },
-  {
-    "key": "cmd+' f",
-    "command": "explorer.newFile"
-  },
-  {
-    "key": "cmd+' d",
-    "command": "explorer.newFolder"
   },
   {
     "key": "ctrl+space",
@@ -1163,5 +1155,25 @@
     "key": "shift+alt+a",
     "command": "-editor.action.blockComment",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "f11",
+    "command": "-workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.debug.stepOut",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "shift+f11",
+    "command": "-workbench.action.debug.stepOut",
+    "when": "debugState == 'stopped'"
   },
 ]
