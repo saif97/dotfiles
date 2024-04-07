@@ -71,7 +71,7 @@
              :vi_visual_mode        {:key :v}
 
              :window-model {:key :w}
-             :application_mode {:key :a}
+             :launch_mode {:key :semicolon :repeat false}
              :new_application_mode {:key :w}}
  :layers {;  :num_mode {:key :3}
 
@@ -91,13 +91,13 @@
 ;
 
  :templates {
-        :launch "osascript -e 'tell application \"Alfred 3\" to run trigger \"launch%s\" in workflow \"yqrashawn.workflow.launcher\" with argument \"%s\"'"
+        :launch "open -b \"%s\""
         :muteMic "osascript -e \"set volume input volume 50\"; afplay /System/Library/Sounds/Ping.aiff"
         :unmuteMic "osascript -e \"set volume input volume 0\"; afplay /System/Library/Sounds/Pop.aiff"
  }
 
- :main [{:des "Vi Mode [D as Trigger Key]"
-         :rules [;;  arrow keys
+ :main [{:des "Vi Mode [left_command as Trigger Key]"
+         :rules [;
                 ;  :vi_mode
                  :fnCommand
 
@@ -161,6 +161,15 @@
                  [:b :!S7] ; &
                  [:y :!S8] ;/ * mulptiply
                  [:spacebar :!Shyphen]]} ; _
+
+        {:des "Launch Mode"
+         :rules [:launch_mode
+                [:c [:launch "com.google.Chrome"]]
+                [:g [:launch "com.microsoft.VSCode"]]
+
+                ;
+                ]
+                }
 
         {:des "media Mode"
          :rules [:mediaMode
