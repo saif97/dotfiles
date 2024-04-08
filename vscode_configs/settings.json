@@ -208,7 +208,7 @@
         "editor.selectionHighlight": false,
         // "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.defaultFormatter": "Dart-Code.dart-code",
         // "editor.inlayHints.enabled": "on",
     },
@@ -268,7 +268,7 @@
     "dart.previewLsp": true,
     "python.pythonPath": "/usr/local/bin/python3",
     "[python]": {
-        "editor.wordBasedSuggestions": false
+        "editor.wordBasedSuggestions": "off"
     },
     "[lua]": {
         "editor.defaultFormatter": "appguru.luafmt"
@@ -301,7 +301,9 @@
         "autovalidate",
         "bitmask",
         "borderize",
+        "Cmds",
         "codegen",
+        "Colemak",
         "concated",
         "consts",
         "conv",
@@ -318,6 +320,7 @@
         "Fluino",
         "flushbar",
         "Fullscreen",
+        "Goku",
         "groupby",
         "hando",
         "Hashlife",
@@ -332,7 +335,9 @@
         "iterrows",
         "Jsons",
         "kaggle",
+        "karabiner",
         "keybind",
+        "keylayout",
         "Kruskal",
         "Langara",
         "leetcode",
@@ -360,6 +365,7 @@
         "Serializable",
         "signin",
         "sklearn",
+        "spacebar",
         "splt",
         "SSID",
         "subarray",
@@ -469,7 +475,6 @@
     "javascript.format.enable": false,
     "editor.wordWrapColumn": 180,
     "prettier.printWidth": 140,
-    "workbench.editor.enablePreview": false,
     "editor.showFoldingControls": "always",
     "editor.cursorSurroundingLines": 5,
     "leetcode.defaultLanguage": "python3",
@@ -600,6 +605,9 @@
             "title": "Toggle GitIgnore Search"
         }
     ],
-    "search.useIgnoreFiles": false,
-    "search.useParentIgnoreFiles": false,
+    "search.useIgnoreFiles": true,
+    "search.useParentIgnoreFiles": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "zenMode.showTabs": "none",
 }

@@ -371,10 +371,6 @@
     "command": "workbench.action.terminal.resizePaneDown"
   },
   {
-    "key": "ctrl+shift+alt+-",
-    "command": "workbench.action.terminal.resizePaneRight"
-  },
-  {
     "key": "ctrl+space",
     "command": "-editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
@@ -636,12 +632,12 @@
   {
     "key": "cmd+n",
     "command": "workbench.action.terminal.resizePaneLeft",
-    "when": "inDebugRepl || terminalFocus"
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "cmd+i",
     "command": "workbench.action.terminal.resizePaneRight",
-    "when": "inDebugRepl || terminalFocus"
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
     "key": "ctrl+y",
@@ -1175,5 +1171,15 @@
     "key": "shift+f11",
     "command": "-workbench.action.debug.stepOut",
     "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "inlineChat.start",
+    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-inlineChat.start",
+    "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
 ]
