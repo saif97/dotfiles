@@ -215,8 +215,6 @@
 
                  [:!CSh :##out]
 
-                 ;[:delete_or_backspace :##out]
-
                  [:##3 :left_shift nil {:alone :!CSa}]
                  [:##9 :right_shift nil {:alone :return_or_enter}]
                  ;[:##return_or_enter :f19]
