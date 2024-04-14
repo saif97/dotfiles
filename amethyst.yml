@@ -22,7 +22,7 @@ layouts:
 # First mod (default option + shift).
 mod1:
   - option
-  - shift
+  - command
 
 
 # Move to the next layout in the list.
