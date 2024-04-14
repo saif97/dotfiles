@@ -418,7 +418,7 @@
                   {
                     "key_code": "f",
                     "modifiers": [
-                      "control",
+                      "command",
                       "shift"
                     ]
                   }
