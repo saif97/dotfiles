@@ -52,7 +52,7 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "key": "alt+h shift",
+    "key": "alt+cmd+a",
     "command": "editor.action.showHover",
     "when": "editorTextFocus"
   },
@@ -345,7 +345,7 @@
     "command": "workbench.action.focusLastEditorGroup"
   },
   {
-    "key": "f13 g",
+    "key": "alt+cmd+g",
     "command": "workbench.debug.action.focusRepl"
   },
   {
@@ -931,7 +931,7 @@
     "when": "workbench.panel.repl.view.active"
   },
   {
-    "key": "alt+d",
+    "key": "alt+cmd+b",
     "command": "workbench.debug.action.toggleRepl",
     "when": "workbench.panel.repl.view.active"
   },
@@ -1059,7 +1059,7 @@
     "when": "editorTextFocus && !gitlens:disabled && config.gitlens.keymap == 'alternate'"
   },
   {
-    "key": "alt+r",
+    "key": "alt+cmd",
     "command": "editor.action.rename",
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
@@ -1069,7 +1069,7 @@
     "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "alt+c",
+    "key": "alt+w",
     "command": "workbench.action.chat.openInEditor"
   },
   {
@@ -1093,7 +1093,7 @@
     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
   {
-    "key": "alt+v",
+    "key": "alt+cmd+v",
     "command": "workbench.panel.chat.view.copilot.focus"
   },
   {
@@ -1173,7 +1173,7 @@
     "when": "debugState == 'stopped'"
   },
   {
-    "key": "ctrl+i",
+    "key": "alt+cmd+c",
     "command": "inlineChat.start",
     "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
   },
@@ -1181,5 +1181,34 @@
     "key": "cmd+i",
     "command": "-inlineChat.start",
     "when": "editorFocus && inlineChatHasProvider && !editorReadonly"
+  },
+  {
+    "key": "alt+cmd+a",
+    "command": "editor.debug.action.showDebugHover",
+    "when": "editorTextFocus && inDebugMode"
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "-editor.debug.action.showDebugHover",
+    "when": "editorTextFocus && inDebugMode"
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "-copyFilePath",
+    "when": "!editorFocus"
+  },
+  {
+    "key": "alt+cmd+v",
+    "command": "-workbench.action.editorDictation.start",
+    "when": "hasSpeechProvider && !editorDictation.inProgress && !editorReadonly"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "-workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "alt+cmd+p",
+    "command": "editor.action.rename",
+    "when": "editorFocus"
   },
 ]
