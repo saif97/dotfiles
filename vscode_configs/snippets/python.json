@@ -20,6 +20,14 @@
 		],
 		"description": "python jupyter cell"
 	},
+	"script main": {
+		"prefix": "main",
+		"body": [
+		  "if __name__ == \"__main__\":",
+		  "  $"
+		],
+		"description": "script main"
+	  },
 	"mark down snippets ": {
 		"prefix": "markdown cell",
 		"body": [
