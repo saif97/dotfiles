@@ -173,12 +173,11 @@
         "strings": "on",
         "other": "on"
     },
-    // "editor.fontFamily": "fira code",
+    "editor.fontFamily": "'Monaspace Neon', monospace",
     "editor.fontSize": 14,
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
     "window.title": "${rootName} ${separator} ${profileName} Profile",
     "editor.cursorBlinking": "expand",
-    "files.trimTrailingWhitespace": true,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "workbench.tree.indent": 10,
@@ -214,11 +213,9 @@
     },
     "editor.columnSelection": false,
     "files.exclude": {
-        ".*": true,
         ".dart_tool": true,
         ".history": true,
         ".idea": true,
-        ".vscode": true,
         "*.iml": true,
         "*.log": true,
         "**/.classpath": true,
@@ -229,11 +226,18 @@
         "**/*.g.dart": true,
         "analysis_options.yaml": true,
         "android": true,
-        "build": true,
         "firebase_emul_saved_data": true,
         "firebase-export-1638059379896WsuaE9": true,
         "gen": true,
         "ios": true,
+        "linux": true,
+        "web": true,
+        "windows": true,
+        "macos": true,
+        "build": true,
+        ".fvm": true,
+        ".flutter-plugins*": true,
+        "_*": true,
         "pubspec.lock": true
     },
     "dart.warnWhenEditingFilesOutsideWorkspace": false,
@@ -268,7 +272,8 @@
     "dart.previewLsp": true,
     "python.pythonPath": "/usr/local/bin/python3",
     "[python]": {
-        "editor.wordBasedSuggestions": "off"
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "ms-python.autopep8"
     },
     "[lua]": {
         "editor.defaultFormatter": "appguru.luafmt"
@@ -297,8 +302,10 @@
         "audioplayers",
         "AUIS",
         "autocorrect",
+        "Autofills",
         "autofocus",
         "autofold",
+        "autopep",
         "autovalidate",
         "bitmask",
         "borderize",
@@ -308,6 +315,7 @@
         "concated",
         "consts",
         "conv",
+        "creds",
         "cupertino",
         "dartpad",
         "dartz",
@@ -378,6 +386,7 @@
         "Tafqeet",
         "tapodoro",
         "Tenda",
+        "termcolor",
         "textfield",
         "tolist",
         "Unies",
@@ -461,7 +470,8 @@
         "ios": true,
         "gen": true,
         "build": true,
-        "analysis_options.yaml": true
+        "linux": true,
+        "analysis_options.yaml": true,
     },
     "zenMode.fullScreen": false,
     "zenMode.hideStatusBar": false,
@@ -608,7 +618,6 @@
             "title": "Toggle GitIgnore Search"
         }
     ],
-    "search.useIgnoreFiles": true,
     "search.useParentIgnoreFiles": true,
     "diffEditor.ignoreTrimWhitespace": false,
     "zenMode.showTabs": "none",
@@ -617,5 +626,17 @@
     "diffEditor.experimental.showMoves": true,
     "diffEditor.experimental.showEmptyDecorations": true,
     "diffEditor.renderMarginRevertIcon": true,
+    "remote.downloadExtensionsLocally": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
+    "accessibility.voice.speechTimeout": 0,
+    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+    "autopep8.args": [
+        "--max-line-length=120"
+    ],
+    "search.useIgnoreFiles": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "editor.smoothScrolling": true,
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }
