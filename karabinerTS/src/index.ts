@@ -142,11 +142,17 @@ writeToProfile(
       .leaderMode({ sticky: false, escape: ["escape", "spacebar"] })
       .notification() // Notification is highly recommanded when use leader mode
       .manipulators([
+        // Personal machine specific
+        withCondition(ifDevice(personalMachine))([
+          map("f").to$(openApp("com.TickTick.task.mac")),
+        ]),
+
+        // Work machine specific
         withCondition(ifDevice(personalMachine).unless())([
-          map("t").to$(openApp("com.microsoft.teams")),
+          map("f").to$(openApp("com.microsoft.teams")),
           map("g").to$(openApp("com.google.android.studio")),
           map("x").to$(openApp("com.apple.dt.Xcode")),
-          map("s").to$(openApp("com.apple.iphonesimulator")),
+          map("d").to$(openApp("com.apple.iphonesimulator")),
         ]),
         map("c").to$(openApp("com.google.Chrome")),
         map("v").to$(openApp("com.microsoft.VSCode")),

@@ -1496,7 +1496,51 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "t",
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -b com.TickTick.task.mac"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "layer-a",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "set_notification_message": {
+                      "id": "layer-layer-a",
+                      "text": ""
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_if",
+                    "identifiers": [
+                      {
+                        "product_id": 832,
+                        "vendor_id": 1452
+                      }
+                    ]
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "layer-a",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1628,7 +1672,7 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "s",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
                       "any"
