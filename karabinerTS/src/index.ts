@@ -149,7 +149,7 @@ writeToProfile(
 
         // Work machine specific
         withCondition(ifDevice(personalMachine).unless())([
-          map("f").to$(openApp("com.microsoft.teams")),
+          map("f").to$(openApp("com.microsoft.teams2")),
           map("g").to$(openApp("com.google.android.studio")),
           map("x").to$(openApp("com.apple.dt.Xcode")),
           map("d").to$(openApp("com.apple.iphonesimulator")),

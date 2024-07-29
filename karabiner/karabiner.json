@@ -1549,7 +1549,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.microsoft.teams"
+                    "shell_command": "open -b com.microsoft.teams2"
                   },
                   {
                     "set_variable": {
