@@ -74,7 +74,7 @@ endif
 
 
 "Map Enter to go to end of line in insert mode then enter to create a new line. That seems the only reliable way
-nnoremap <CR> A <CR>
+nnoremap <CR> o
 
 " map the left and to word and back
 nnoremap n b|onoremap n b|xnoremap n b
