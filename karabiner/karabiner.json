@@ -2217,6 +2217,43 @@
                     "key_code": "f17"
                   }
                 ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_option",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 832,
+                        "vendor_id": 1452
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.raycast.macos"
+                    ]
+                  }
+                ]
               }
             ]
           },

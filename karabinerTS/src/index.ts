@@ -143,9 +143,7 @@ writeToProfile(
       .notification() // Notification is highly recommanded when use leader mode
       .manipulators([
         // Personal machine specific
-        withCondition(ifDevice(personalMachine))([
-          map("f").to$(openApp("com.TickTick.task.mac")),
-        ]),
+        withCondition(ifDevice(personalMachine))([map("f").to$(openApp("com.TickTick.task.mac"))]),
 
         // Work machine specific
         withCondition(ifDevice(personalMachine).unless())([
@@ -185,6 +183,8 @@ writeToProfile(
       mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
 
       map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode
+
+      withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
     ]),
 
     rule("Mouse configs 123").manipulators([

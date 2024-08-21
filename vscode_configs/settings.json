@@ -635,8 +635,10 @@
     ],
     "search.useIgnoreFiles": false,
     "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.experimental.enableNewProfilesUI": true,
     "editor.smoothScrolling": true,
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
-    }
+    },
+    "terminal.integrated.enableMultiLinePasteWarning": false
 }
