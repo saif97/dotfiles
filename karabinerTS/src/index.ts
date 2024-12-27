@@ -1,8 +1,8 @@
 // Docs: https://karabiner.ts.evanliu.dev/
 
 import {
+  duoLayer,
   FromKeyParam,
-  hyperLayer,
   ifApp,
   ifDevice,
   layer,
@@ -136,26 +136,21 @@ writeToProfile(
         map("spacebar").to("0"),
       ]),
 
-    hyperLayer("a")
-      .description("Open App Mode")
-      .leaderMode()
-      .leaderMode({ sticky: false, escape: ["escape", "spacebar"] })
-      .notification() // Notification is highly recommanded when use leader mode
-      .manipulators([
-        // Personal machine specific
-        withCondition(ifDevice(personalMachine))([map("f").to$(openApp("com.TickTick.task.mac"))]),
+    duoLayer("right⌘", "l").manipulators([
+      // Personal machine specific
+      withCondition(ifDevice(personalMachine))([map("f").to$(openApp("com.TickTick.task.mac"))]),
 
-        // Work machine specific
-        withCondition(ifDevice(personalMachine).unless())([
-          map("f").to$(openApp("com.microsoft.teams2")),
-          map("g").to$(openApp("com.google.android.studio")),
-          map("x").to$(openApp("com.apple.dt.Xcode")),
-          map("d").to$(openApp("com.apple.iphonesimulator")),
-        ]),
-        map("c").to$(openApp("com.google.Chrome")),
-        map("v").to$(openApp("com.microsoft.VSCode")),
-        map("e").to$(openApp("com.apple.finder")),
+      // Work machine specific
+      withCondition(ifDevice(personalMachine).unless())([
+        map("f").to$(openApp("com.microsoft.teams2")),
+        map("g").to$(openApp("com.google.android.studio")),
+        map("x").to$(openApp("com.apple.dt.Xcode")),
+        map("d").to$(openApp("com.apple.iphonesimulator")),
       ]),
+      map("c").to$(openApp("com.google.Chrome")),
+      map("v").to$(openApp("com.todesktop.230313mzl4w4u92")), // Cursor AI
+      map("e").to$(openApp("com.apple.finder")),
+    ]),
 
     rule("General").manipulators([
       map("0", ["control", "option"])
