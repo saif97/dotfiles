@@ -2,9 +2,11 @@
 
 import {
   duoLayer,
+  FromAndToKeyCode,
   FromKeyParam,
   ifApp,
   ifDevice,
+  ifVar,
   layer,
   map,
   mapPointingButton,
@@ -29,6 +31,12 @@ const unmuteMic = 'osascript -e "set volume input volume 0"; afplay /System/Libr
 const simlayerTimeout = 5000;
 
 const personalMachine = { product_id: 0x0340, vendor_id: 0x05ac };
+
+const rightLetterPad: FromAndToKeyCode[][] = [
+  ["u", "i", "o", "p"],
+  ["j", "k", "l", "semicolon"],
+  ["n", "m", "comma", "period"],
+];
 
 // writeToProfile("--dry-run", [
 writeToProfile(
@@ -65,48 +73,49 @@ writeToProfile(
       withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
     ]),
 
+    duoLayer("left⌘", "w", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option"]))),
+    duoLayer("left⌘", "e", "amethyst_focus_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))),
+
     layer("left⌘", "VimLayer").manipulators([
-      // Indent & outdent
-      map("q").to("tab", "shift"),
-      map("w").toIfHeldDown("left_shift", ["option"]).toIfAlone("tab"),
+      withCondition(
+        ifVar("amethyst_throw_mode").unless(),
+        ifVar("amethyst_focus_mode").unless()
+      )([
+        // arrow keys
+        mapWithAnyMod("k").to("down_arrow"),
+        mapWithAnyMod("i").to("up_arrow"),
+        mapWithAnyMod("j").to("left_arrow"),
+        mapWithAnyMod("l").to("right_arrow"),
 
-      // close apps
-      map("escape").to("w", ["command", "shift"]),
+        // Modifiers
+        mapWithAnyMod("d").to("left_option"),
+        mapWithAnyMod("s").to("left_shift"),
 
-      // arrow keys
-      mapWithAnyMod("k").to("down_arrow"),
-      mapWithAnyMod("i").to("up_arrow"),
-      mapWithAnyMod("j").to("left_arrow"),
-      mapWithAnyMod("l").to("right_arrow"),
+        // delete & backspace
+        mapWithAnyMod("h").to("delete_forward"),
+        mapWithAnyMod("n").to("delete_or_backspace"),
 
-      // Modifiers
-      mapWithAnyMod("d").to("left_option"),
-      mapWithAnyMod("s").to("left_shift"),
+        // home/ end
+        mapWithAnyMod("u").to("left_arrow", ["command"]),
+        mapWithAnyMod("o").to("right_arrow", ["command"]),
 
-      // delete & backspace
-      mapWithAnyMod("h").to("delete_forward"),
-      mapWithAnyMod("n").to("delete_or_backspace"),
+        // chrome stuff
+        map("/").to("w", ["command"]),
+        map("comma").to("tab", ["control", "shift"]),
+        map("period").to("tab", ["control"]),
+        map("m").to("f", ["command", "shift"]),
 
-      // home/ end
-      mapWithAnyMod("u").to("left_arrow", ["command"]),
-      mapWithAnyMod("o").to("right_arrow", ["command"]),
+        // desktop switching
+        map("open_bracket").to("left_arrow", ["control"]),
+        map("close_bracket").to("right_arrow", ["control"]),
 
-      // chrome stuff
-      map("/").to("w", ["command"]),
-      map("comma").to("tab", ["control", "shift"]),
-      map("period").to("tab", ["control"]),
-      map("m").to("f", ["command", "shift"]),
+        // back & forward in browser & editors
+        map("open_bracket", "shift").to("open_bracket", ["command"]),
+        map("close_bracket", "shift").to("close_bracket", ["command"]),
 
-      // desktop switching
-      map("open_bracket").to("left_arrow", ["control"]),
-      map("close_bracket").to("right_arrow", ["control"]),
-
-      // back & forward in browser & editors
-      map("open_bracket", "shift").to("open_bracket", ["command"]),
-      map("close_bracket", "shift").to("close_bracket", ["command"]),
-
-      // trigger screenshot.
-      map("c").to("semicolon", ["command", "option"]),
+        // trigger screenshot.
+        map("c").to("semicolon", ["command", "option"]),
+      ]),
     ]),
 
     layer("4", "symbolLayer")

@@ -4,24 +4,417 @@
       "complex_modifications": {
         "rules": [
           {
-            "description": "DuoLayer right⌘ l",
+            "description": "General",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "description": "Amethyst Mode"
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "select_input_source": {
+                      "input_source_id": "com.apple.keylayout.ABC"
+                    }
+                  },
+                  {
+                    "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'stock' ; afplay /System/Library/Sounds/Glass.aiff"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "caps_lock"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "hyphen"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option",
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "hyphen"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "right_command"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.google.Chrome",
+                      "com.apple.Safari"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "f15"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "right_command"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_option",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_option",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f14"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.microsoft.VSCode"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_option",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_option"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f14"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "return_or_enter"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": [
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.apple.finder"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to_if_held_down": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "tab"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f18"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "1"
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option"
+                    ]
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "f17"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_option",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "product_id": 832,
+                        "vendor_id": 1452
+                      }
+                    ]
+                  },
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.raycast.macos"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "DuoLayer amethyst_throw_mode",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
                   "simultaneous": [
                     {
-                      "key_code": "right_command"
+                      "key_code": "left_command"
                     },
                     {
-                      "key_code": "l"
+                      "key_code": "w"
                     }
                   ],
                   "simultaneous_options": {
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "duo-layer-right⌘-l",
+                          "name": "amethyst_throw_mode",
                           "value": 0
                         }
                       }
@@ -39,7 +432,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "duo-layer-right⌘-l",
+                      "name": "amethyst_throw_mode",
                       "value": 1
                     }
                   }
@@ -47,7 +440,7 @@
                 "conditions": [
                   {
                     "type": "variable_unless",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_throw_mode",
                     "value": 1
                   }
                 ]
@@ -55,53 +448,314 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "f"
+                  "key_code": "u"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.TickTick.task.mac"
+                    "key_code": "u",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
                   }
                 ],
                 "conditions": [
                   {
-                    "type": "device_if",
-                    "identifiers": [
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "i"
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p"
+                },
+                "to": [
+                  {
+                    "key_code": "p",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": [
+                      "shift",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "DuoLayer amethyst_focus_mode",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "simultaneous": [
+                    {
+                      "key_code": "left_command"
+                    },
+                    {
+                      "key_code": "e"
+                    }
+                  ],
+                  "simultaneous_options": {
+                    "to_after_key_up": [
                       {
-                        "product_id": 832,
-                        "vendor_id": 1452
+                        "set_variable": {
+                          "name": "amethyst_focus_mode",
+                          "value": 0
+                        }
                       }
                     ]
                   },
-                  {
-                    "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f"
-                },
-                "to": [
-                  {
-                    "shell_command": "open -b com.microsoft.teams2"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
+                  "modifiers": {
+                    "optional": [
+                      "any"
                     ]
-                  },
+                  }
+                },
+                "parameters": {
+                  "basic.simultaneous_threshold_milliseconds": 200
+                },
+                "to": [
                   {
-                    "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "set_variable": {
+                      "name": "amethyst_focus_mode",
+                      "value": 1
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -109,26 +763,22 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "g"
+                  "key_code": "u"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.google.android.studio"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
+                    "key_code": "u",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
                     ]
-                  },
+                  }
+                ],
+                "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -136,26 +786,22 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "x"
+                  "key_code": "i"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.apple.dt.Xcode"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
+                    "key_code": "i",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
                     ]
-                  },
+                  }
+                ],
+                "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -163,26 +809,22 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "d"
+                  "key_code": "o"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.apple.iphonesimulator"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
+                    "key_code": "o",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
                     ]
-                  },
+                  }
+                ],
+                "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -190,17 +832,22 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "c"
+                  "key_code": "p"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.google.Chrome"
+                    "key_code": "p",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -208,17 +855,22 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "v"
+                  "key_code": "j"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.todesktop.230313mzl4w4u92"
+                    "key_code": "j",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -226,17 +878,160 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e"
+                  "key_code": "k"
                 },
                 "to": [
                   {
-                    "shell_command": "open -b com.apple.finder"
+                    "key_code": "k",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-right⌘-l",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "l",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "m",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": [
+                      "shift",
+                      "option",
+                      "command"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "amethyst_focus_mode",
                     "value": 1
                   }
                 ]
@@ -283,75 +1078,6 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "q"
-                },
-                "to": [
-                  {
-                    "key_code": "tab",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "VimLayer",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "w"
-                },
-                "to_if_held_down": [
-                  {
-                    "key_code": "left_shift",
-                    "modifiers": [
-                      "option"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "tab"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "VimLayer",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "escape"
-                },
-                "to": [
-                  {
-                    "key_code": "w",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "VimLayer",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
                   "key_code": "k",
                   "modifiers": {
                     "optional": [
@@ -365,6 +1091,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -389,6 +1125,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -411,6 +1157,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -435,6 +1191,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -457,6 +1223,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -481,6 +1257,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -504,6 +1290,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -526,6 +1322,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -553,6 +1359,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -579,6 +1395,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -599,6 +1425,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -622,6 +1458,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -642,6 +1488,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -665,6 +1521,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -686,6 +1552,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -706,6 +1582,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -733,6 +1619,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -759,6 +1655,16 @@
                 ],
                 "conditions": [
                   {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -780,6 +1686,16 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
                   {
                     "type": "variable_if",
                     "name": "VimLayer",
@@ -1683,379 +2599,6 @@
                     "type": "variable_if",
                     "name": "NumLayer",
                     "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "General",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "0",
-                  "modifiers": {
-                    "mandatory": [
-                      "control",
-                      "option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "select_input_source": {
-                      "input_source_id": "com.apple.keylayout.ABC"
-                    }
-                  },
-                  {
-                    "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli --select-profile 'stock' ; afplay /System/Library/Sounds/Glass.aiff"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "caps_lock"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "m",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "m",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "a",
-                    "modifiers": [
-                      "command",
-                      "shift"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "9",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_shift"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "return_or_enter"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "hyphen"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "option",
-                      "control",
-                      "shift"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "hyphen"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.google.Chrome",
-                      "com.apple.Safari"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to_if_alone": [
-                  {
-                    "key_code": "f15"
-                  }
-                ],
-                "to_if_held_down": [
-                  {
-                    "key_code": "right_command"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_option",
-                    "modifiers": [
-                      "left_command"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "f14"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.microsoft.VSCode"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_option",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_option"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "f14"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "return_or_enter"
-                },
-                "to": [
-                  {
-                    "key_code": "semicolon",
-                    "modifiers": [
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.apple.finder"
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "tab",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to_if_held_down": [
-                  {
-                    "key_code": "left_control"
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "tab"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "right_shift",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "option",
-                      "shift"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "f18"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "1"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "option"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "f17"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_option",
-                    "modifiers": [
-                      "control",
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
-                    ]
-                  },
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.raycast.macos"
-                    ]
                   }
                 ]
               }
