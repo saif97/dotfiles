@@ -24,6 +24,9 @@ mod1:
   - option
   - command
 
+mod2:
+  - option
+  - shift
 
 # Move to the next layout in the list.
 cycle-layout:
@@ -105,6 +108,54 @@ reevaluate-windows:
 relaunch-amethyst:
   mod: mod1
   key: x
+
+throw-space-1:
+  mod: mod2
+  key: k
+
+throw-space-2:
+  mod: mod2
+  key: m
+
+throw-space-3:
+  mod: mod2
+  key: ','
+
+throw-space-4:
+  mod: mod2
+  key: '.'
+
+throw-space-5:
+  mod: mod2
+  key: n
+
+throw-space-6:
+  mod: mod2
+  key: e
+
+throw-space-7:
+  mod: mod2
+  key: i
+
+throw-space-8:
+  mod: mod2
+  key: o
+
+throw-space-9:
+  mod: mod2
+  key: l
+
+throw-space-10:
+  mod: mod2
+  key: u
+
+throw-space-11:
+  mod: mod2
+  key: y
+
+throw-space-12:
+  mod: mod2
+  key: ';'
 
 # disable screen padding on builtin display
 disable-padding-on-builtin-display: false
