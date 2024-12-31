@@ -43,7 +43,6 @@ writeToProfile(
   "Goku",
   [
     rule("General").manipulators([
-      map("w", "left_command").to("left_command", ["option"]).description("Amethyst Mode"),
       map("0", ["control", "option"])
         .toInputSource(InputAbc)
         .to$(chainCmds([switchProfile("stock"), getCmdToPlayChime(1)])),
@@ -73,7 +72,7 @@ writeToProfile(
       withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
     ]),
 
-    duoLayer("left⌘", "w", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option"]))),
+    duoLayer("left⌘", "w", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
     duoLayer("left⌘", "e", "amethyst_focus_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))),
 
     layer("left⌘", "VimLayer").manipulators([
@@ -81,6 +80,7 @@ writeToProfile(
         ifVar("amethyst_throw_mode").unless(),
         ifVar("amethyst_focus_mode").unless()
       )([
+        map("escape").to("w", ["command", "shift"]),
         // arrow keys
         mapWithAnyMod("k").to("down_arrow"),
         mapWithAnyMod("i").to("up_arrow"),
