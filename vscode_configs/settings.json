@@ -2,22 +2,6 @@
     /*************
      * AUTO FOLD *
      *************/
-    "autofold.unfold": false,
-    "autofold.pack": true,
-    "autofold.types": [
-        {
-            "ext": ".dart",
-            "level": 2
-        },
-        {
-            "ext": ".ts",
-            "level": 1
-        },
-        {
-            "ext": ".js",
-            "level": 1
-        },
-    ],
     /**********
      * PYTHON *
      **********/
@@ -106,7 +90,6 @@
     "editor.formatOnType": false,
     "editor.cursorSmoothCaretAnimation": "on",
     "git.enableSmartCommit": true,
-    "workbench.iconTheme": "material-icon-theme",
     "multiCommand.commands": [
         {
             "command": "multiCommand.format",
@@ -280,7 +263,6 @@
     },
     "jupyter.askForKernelRestart": false,
     "kite.showWelcomeNotificationOnStartup": false,
-    "workbench.colorTheme": "ƒ - Monokai",
     "[solidity]": {
         "editor.defaultFormatter": "JuanBlanco.solidity"
     },
@@ -336,6 +318,7 @@
         "heapify",
         "Hexa",
         "hombii",
+        "IERC",
         "iloc",
         "imshow",
         "indx",
@@ -556,7 +539,7 @@
         "debug.showScores": true
     },
     "github.copilot.enable": {
-        "*": true,
+        "*": false,
         "plaintext": false,
         "markdown": true,
         "scminput": false
@@ -627,7 +610,6 @@
     "diffEditor.experimental.showEmptyDecorations": true,
     "diffEditor.renderMarginRevertIcon": true,
     "remote.downloadExtensionsLocally": true,
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "accessibility.voice.speechTimeout": 0,
     "files.trimTrailingWhitespaceInRegexAndStrings": false,
     "autopep8.args": [
@@ -640,5 +622,39 @@
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "terminal.integrated.enableMultiLinePasteWarning": false
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "task.problemMatchers.neverPrompt": {
+        "shell": true
+    },
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "github.copilot.chat.customUserInstructions": [
+        "Be concise to the point. don't do more than what I ask for."
+    ],
+    "solidity.telemetry": false,
+    "explorer.confirmPasteNative": false,
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "git-graph.commitDetailsView.location": "Docked to Bottom",
+    "git-graph.maxDepthOfRepoSearch": 1,
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "git.openRepositoryInParentFolders": "never",
 }

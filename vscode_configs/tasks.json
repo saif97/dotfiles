@@ -4,15 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echo",
-            "type": "shell",
-            "command": "echo Hello"
-        },
-        {
             "label": "flutter: Generate Localization",
             "type": "shell",
             "command": "flutter pub run easy_localization:generate -S \"assets/translations\" -O \"lib/generated\" -o \"codegen_loader.g.dart\" -f keys",
-            "problemMatcher": []
+            "problemMatcher": []    
         },
         {
             "label": "flutter: run build_runner",
@@ -30,7 +25,8 @@
             "label": "Firebase: start emulator",
             "type": "shell",
             "command": [
-                "firebase emulators:start --import=firebase_emul_saved_data --export-on-exit=firebase_emul_saved_data"
+                "kill -9 $(lsof -t -i :8080);",
+                "firebase emulators:start --import=./firebase_emul_saved_data --export-on-exit=./firebase_emul_saved_data --log-verbosity INFO"
             ],
             "problemMatcher": []
         },
@@ -43,5 +39,11 @@
             ],
             "problemMatcher": []
         },
+        {
+            "label": "Firebase: kill running process",
+            "type": "shell",
+            "command": "kill -9 $(lsof -t -i :8080)",
+            "problemMatcher": []
+        }
     ]
 }

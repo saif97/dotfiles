@@ -917,11 +917,6 @@
   // editorTextFocus && !editorReadonly
   {
     "key": "ctrl+enter",
-    "command": "-jupyter.runcurrentcell",
-    "when": "editorTextFocus && jupyter.hascodecells && !editorHasSelection && !jupyter.havenativecells && !notebookEditorFocused"
-  },
-  {
-    "key": "ctrl+enter",
     "command": "-notebook.cell.execute",
     "when": "notebookCellListFocused"
   },
@@ -952,11 +947,6 @@
   {
     "key": "cmd+[",
     "command": "-editor.action.outdentLines",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+enter",
-    "command": "jupyter.runcurrentcell",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
@@ -1207,7 +1197,7 @@
     "command": "-workbench.action.toggleAuxiliaryBar"
   },
   {
-    "key": "alt+cmd+p",
+    "key": "alt+p",
     "command": "editor.action.rename",
     "when": "editorFocus"
   },
@@ -1220,5 +1210,29 @@
     "key": "cmd+i",
     "command": "-workbench.action.chat.stopListeningAndSubmit",
     "when": "inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inChatInput && voiceChatInProgress && scopedVoiceChatInProgress == 'view' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'editor' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'inline' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'quick' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'terminal' || inlineChatFocused && voiceChatInProgress && scopedVoiceChatInProgress == 'view'"
+  },
+  {
+    "key": "alt+c",
+    "command": "aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-aipopup.action.modal.generate",
+    "when": "editorFocus && !composerBarIsVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-cursorai.action.generateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+v",
+    "command": "workbench.panel.composerViewPane2.view.focus"
   },
 ]
