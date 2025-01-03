@@ -42,40 +42,12 @@ const rightLetterPad: FromAndToKeyCode[][] = [
 writeToProfile(
   "Goku",
   [
-    rule("General").manipulators([
-      map("0", ["control", "option"])
-        .toInputSource(InputAbc)
-        .to$(chainCmds([switchProfile("stock"), getCmdToPlayChime(1)])),
-      map("caps_lock").to("left_command"),
+    duoLayer("left⌘", "2", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
+    duoLayer("left⌘", "3", "amethyst_focus_mode").manipulators(
+      rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))
+    ),
 
-      // To prevent accidentally hiding windows & minimizing them. Mac doesn't have a way to disable this.
-      map("m", "command").to("m", ["command", "shift"]),
-      map("h", "command").to("m", ["command", "shift"]),
-
-      mapWithAnyMod("3").to("left_shift").toIfAlone("a", ["command", "shift"]),
-      mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
-      map("-").toHyper().toIfAlone("-"),
-
-      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS)),
-      mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
-      mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f14").condition(ifApp(APP_ID_VSCODE)),
-      mapWithAnyMod("right_option").to("right_option").toIfAlone("f14"),
-
-      // in finder make enter open files
-      map("return_or_enter").to("semicolon", ["command"]).condition(ifApp("com.apple.finder")),
-
-      mapWithAnyMod("tab").toIfHeldDown("left_control").toIfAlone("tab"),
-      mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
-
-      map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode
-
-      withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
-    ]),
-
-    duoLayer("left⌘", "w", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
-    duoLayer("left⌘", "e", "amethyst_focus_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))),
-
-    layer("left⌘", "VimLayer").manipulators([
+      layer("left⌘", "VimLayer").manipulators([
       withCondition(
         ifVar("amethyst_throw_mode").unless(),
         ifVar("amethyst_focus_mode").unless()
@@ -191,6 +163,37 @@ writeToProfile(
     //map("v").to$(openApp("com.todesktop.230313mzl4w4u92")), // Cursor AI
     //map("e").to$(openApp("com.apple.finder")),
     //]),
+
+    rule("General").manipulators([
+      map("0", ["control", "option"])
+        .toInputSource(InputAbc)
+        .to$(chainCmds([switchProfile("stock"), getCmdToPlayChime(1)])),
+      map("caps_lock").to("left_command"),
+
+      // To prevent accidentally hiding windows & minimizing them. Mac doesn't have a way to disable this.
+      map("m", "command").to("m", ["command", "shift"]),
+      map("h", "command").to("m", ["command", "shift"]),
+
+      mapWithAnyMod("3").to("left_shift").toIfAlone("a", ["command", "shift"]),
+      mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
+      map("-").toHyper().toIfAlone("-"),
+
+      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS)),
+      mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
+      mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f14").condition(ifApp(APP_ID_VSCODE)),
+      mapWithAnyMod("right_option").to("right_option").toIfAlone("f14"),
+
+      // in finder make enter open files
+      map("return_or_enter").to("semicolon", ["command"]).condition(ifApp("com.apple.finder")),
+
+      mapWithAnyMod("tab").toIfHeldDown("left_control").toIfAlone("tab"),
+      mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
+
+      map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode
+
+      withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
+    ]),
+
     rule("Mouse configs 123").manipulators([
       // Switch back & forward buttons in mouse.
       mapPointingButton("button4").toPointingButton("button5"),
