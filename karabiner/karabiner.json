@@ -685,6 +685,37 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "tab"
+                },
+                "to": [
+                  {
+                    "key_code": "tab",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "escape"
                 },
                 "to": [

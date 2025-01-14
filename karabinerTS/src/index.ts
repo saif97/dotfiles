@@ -52,6 +52,7 @@ writeToProfile(
         ifVar("amethyst_throw_mode").unless(),
         ifVar("amethyst_focus_mode").unless()
       )([
+        map("tab").to("tab", ["shift"]),
         map("escape").to("w", ["command", "shift"]),
         // arrow keys
         mapWithAnyMod("k").to("down_arrow"),
