@@ -125,35 +125,35 @@ throw-space-4:
   mod: mod2
   key: '.'
 
-throw-space-5:
+throw-space-6:
   mod: mod2
   key: n
 
-throw-space-6:
+throw-space-7:
   mod: mod2
   key: e
 
-throw-space-7:
+throw-space-8:
   mod: mod2
   key: i
 
-throw-space-8:
+throw-space-9:
   mod: mod2
   key: o
 
-throw-space-9:
+throw-space-11:
   mod: mod2
   key: l
 
-throw-space-10:
+throw-space-12:
   mod: mod2
   key: u
 
-throw-space-11:
+throw-space-13:
   mod: mod2
   key: y
 
-throw-space-12:
+throw-space-14:
   mod: mod2
   key: ';'
 
