@@ -19,6 +19,7 @@ import {
 const karabinerCliPath = "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli";
 
 const APP_ID_BROWSERS = ["com.google.Chrome", "com.apple.Safari"];
+const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2"];
 
 const APP_ID_VSCODE = "com.microsoft.VSCode";
 
@@ -179,7 +180,7 @@ writeToProfile(
       mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
       map("-").toHyper().toIfAlone("-"),
 
-      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS)),
+      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS))),
       mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
       mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f14").condition(ifApp(APP_ID_VSCODE)),
       mapWithAnyMod("right_option").to("right_option").toIfAlone("f14"),
