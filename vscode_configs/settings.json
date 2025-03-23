@@ -8,7 +8,7 @@
     /**********
       * NEOVIM *
       **********/
-    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.vim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/code_nvim/init.vim",
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     //
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -31,7 +31,7 @@
         /******************
         * TAB DECORATION *
       ******************/
-        "tab.activeForeground": "#eaff00",
+        "   ab.activeForeground": "#eaff00",
         "tab.unfocusedActiveForeground": "#ffffff",
         "terminal.ansiRed": "#f88",
         //
@@ -52,12 +52,12 @@
         "titleBar.activeBackground": "#000000",
         "titleBar.inactiveBackground": "#000000",
         "titleBar.inactiveForeground": "#7d7d7d",
-        "editor.selectionBackground": "#ff000066",
+        "editor.selectionBackground": "#00B3B366",
         "editor.selectionForeground": "#ffffff",
-        "editor.selectionHighlightBackground": "#ff000084",
-        "editor.lineHighlightBackground": "#ff000057",
-        "editor.findMatchBackground": "#ff0000a9",
-        "editor.findMatchHighlightBackground": "#00aaffa8",
+        "editor.selectionHighlightBackground": "#00B3B384",
+        "editor.lineHighlightBackground": "#00B3B357",
+        "editor.findMatchBackground": "#00B3B3a9",
+        "editor.findMatchHighlightBackground": "#00B3B3a8",
         "window.activeBorder": "#000000",
         "editorRuler.foreground": "#ff636375",
         "list.activeSelectionBackground": "#ff0000",
@@ -111,7 +111,8 @@
             "command": "multiCommand.hideSidePanels",
             "sequence": [
                 "workbench.action.closeSidebar",
-                "workbench.action.closePanel"
+                "workbench.action.closePanel",
+                "aichat.newchataction"
                 // "workbench.action.maximizeEditor",
                 // "workbench.action.toggleEditorWidths",
                 // "workbench.action.toggleEditorWidths"
@@ -256,7 +257,7 @@
     "python.pythonPath": "/usr/local/bin/python3",
     "[python]": {
         "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "[lua]": {
         "editor.defaultFormatter": "appguru.luafmt"
@@ -279,6 +280,7 @@
         "Algs",
         "appbar",
         "ARGB",
+        "Asjad",
         "Atoi",
         "audioplayer",
         "audioplayers",
@@ -549,7 +551,6 @@
     /**************
  * FVM CONFIG *
  **************/
-    "dart.flutterSdkPath": ".fvm/flutter_sdk",
     // Remove from file watching
     "files.watcherExclude": {
         "**/.fvm": true
@@ -568,7 +569,6 @@
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    "workbench.activityBar.location": "top",
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     },
@@ -615,7 +615,7 @@
     "autopep8.args": [
         "--max-line-length=120"
     ],
-    "search.useIgnoreFiles": false,
+    "search.useIgnoreFiles": true,
     "github.copilot.editor.enableAutoCompletions": true,
     "workbench.experimental.enableNewProfilesUI": true,
     "editor.smoothScrolling": true,
@@ -655,6 +655,10 @@
     ],
     "git-graph.commitDetailsView.location": "Docked to Bottom",
     "git-graph.maxDepthOfRepoSearch": 1,
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "git.openRepositoryInParentFolders": "never",
+    "jake.autoDetect": "on",
+    "cursor.composer.collapsePaneInputBoxPills": true,
+    "workbench.editor.enablePreview": false,
+    "cursor.cpp.enablePartialAccepts": true,
+    "diffEditor.hideUnchangedRegions.enabled": true,
 }

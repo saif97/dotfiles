@@ -72,11 +72,6 @@
     "when": "editorTextFocus && !editorReadonlye"
   },
   {
-    "key": "cmd+y",
-    "command": "editor.action.deleteLines",
-    "when": "textInputFocus && !editorReadonly"
-  },
-  {
     "key": "ctrl+p",
     "command": "extension.multiCommand.execute",
     "args": {
@@ -345,7 +340,7 @@
     "command": "workbench.action.focusLastEditorGroup"
   },
   {
-    "key": "alt+cmd+g",
+    "key": "alt+d",
     "command": "workbench.debug.action.focusRepl"
   },
   {
@@ -632,7 +627,7 @@
   {
     "key": "cmd+n",
     "command": "workbench.action.terminal.resizePaneLeft",
-    "when": "terminalFocus || inChatInput || inDebugRepl"
+    "when": "terminalFocus || inChatInput || inDebugRepl || "
   },
   {
     "key": "cmd+i",
@@ -686,11 +681,6 @@
     "key": "ctrl+r",
     "command": "-vscode-neovim.send",
     "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.recording && neovim.mode == 'insert'"
-  },
-  {
-    "key": "cmd+y",
-    "command": "editor.toggleFold",
-    "when": "editorTextFocus && foldingEnabled"
   },
   {
     "key": "ctrl+k ctrl+l",
@@ -1083,10 +1073,6 @@
     "when": "terminalFocus && terminalHasBeenCreated && !terminalEditorFocus || terminalFocus && terminalProcessSupported && !terminalEditorFocus"
   },
   {
-    "key": "alt+cmd+v",
-    "command": "workbench.panel.chat.view.copilot.focus"
-  },
-  {
     "key": "f14",
     "command": "workbench.action.toggleMaximizeEditorGroup",
     "when": "maximizedEditorGroup || multipleEditorGroups"
@@ -1235,4 +1221,41 @@
     "key": "alt+v",
     "command": "workbench.panel.composerViewPane2.view.focus"
   },
+  {
+    "key": "alt+b",
+    "command": "workbench.panel.chat.view.edits.focus"
+  },
+  {
+    "key": "alt+d",
+    "command": "-aidebug.autodebugterminal",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "alt+b",
+    "command": "-gitlens.toggleFileBlame",
+    "when": "editorTextFocus && config.gitlens.keymap == 'alternate' && resource in 'gitlens:tabs:blameable'"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-composer.createNew",
+    "when": "focusedView == 'workbench.panel.composerViewPane2.view'"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-composer.createNewChat",
+    "when": "focusedView == 'workbench.panel.aichat.view'"
+  },
+  {
+    "key": "alt+t",
+    "command": "aichat.newfollowupaction"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-aichat.newfollowupaction"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "-workbench.action.chat.applyInEditor",
+    "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+  }
 ]
