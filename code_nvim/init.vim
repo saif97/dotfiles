@@ -93,7 +93,6 @@ nnoremap y $|onoremap y $|xnoremap y $
 
 " copy
 nnoremap c y|onoremap c y|xnoremap c y
-nnoremap c y|onoremap c y|xnoremap c y
 
 " cut
 nnoremap x d
