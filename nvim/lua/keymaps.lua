@@ -6,16 +6,17 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+require ("utils")
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map_key({'n'}, '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search when pressing <Esc> in normal mode' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+map_key({'n'}, '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -23,7 +24,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+map_key({'t'}, '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -41,25 +42,26 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 
-local function map_key(modes, from, to, options)
-    for _, mode in ipairs(modes) do
-        vim.keymap.set(mode, from, to, options)
-    end
-end
-
-
 -- Up & down
-map_key({'n', 'x'}, 'e', 'j', { desc = 'Move down' })
-map_key({'n', 'x'}, 'u', 'k', { desc = 'Move up' })
-map_key({'n', 'x'}, 'o', 'i', { desc = 'Move to the end of the line' })
+map_key({'n', 'x', 'v'}, 'e', 'j', { desc = 'Move down' })
+map_key({'n', 'x', 'v'}, 'u', 'k', { desc = 'Move up' })
+map_key({'n', 'x', 'v'}, 'E', '5j', { desc = 'Move down 5X' })
+map_key({'n', 'x', 'v'}, 'U', '5k', { desc = 'Move up 5X' })
+
+map_key({'n', 'x', 'v'}, 'o', 'i', { desc = 'Insert mode' })
 
 -- Map Enter to go to end of line in insert mode then enter to create a new line. That seems the only reliable way
 map_key({'n'}, '<CR>', 'o', { desc = 'Create a new line' })
 
 -- map the left and to word and back
-map_key({'n', 'x'}, 'n', 'b', { desc = 'Move to the previous word' })
-map_key({'n', 'x'}, 'i', 'w', { desc = 'Move to the next word' })
-map_key({'n', 'x'}, 'b', 'n', { desc = 'Move to the previous word' })
+map_key({'n', 'x', 'v'}, 'n', 'b', { desc = 'Move to the previous word [left]' })
+map_key({'n', 'x', 'v'}, 'i', 'w', { desc = 'Move to the next word [right]' })
+
+map_key({'n', 'x', 'v'}, 'l', '0', { desc = 'Move to the beginning of the line' })
+map_key({'n', 'x', 'v'}, 'y', '$', { desc = 'Move to the end of the line' })
+
+map_key({'n', 'x', 'v'}, 'b', 'n', { desc = 'Next occurrence of searched word' })
+map_key({'n', 'x', 'v'}, 'B', 'N', { desc = 'Previous occurrence of searched word' })
 
 -- source the vimrc file
-map_key({'n'}, '<leader>sv', ':source $MYVIMRC<CR>', { desc = 'Source the vimrc file' })
+map_key({'n'}, '<leader>sv', ':source $MYVIMRC<CR>', { desc = '[S]ource the [V]imrc file' })
