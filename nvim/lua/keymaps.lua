@@ -26,42 +26,51 @@ map_key({'n'}, '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic
 -- or just use <C-\><C-n> to exit terminal mode
 map_key({'t'}, '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+local allModes = {'n', 'x', 'v', 'o'}
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- Up & down
-map_key({'n', 'x', 'v'}, 'e', 'j', { desc = 'Move down' })
-map_key({'n', 'x', 'v'}, 'u', 'k', { desc = 'Move up' })
-map_key({'n', 'x', 'v'}, 'E', '5j', { desc = 'Move down 5X' })
-map_key({'n', 'x', 'v'}, 'U', '5k', { desc = 'Move up 5X' })
+map_key(allModes, 'e', 'j', { desc = 'Move down' })
+map_key(allModes, 'u', 'k', { desc = 'Move up' })
+map_key(allModes, 'E', '5j', { desc = 'Move down 5X' })
+map_key(allModes, 'U', '5k', { desc = 'Move up 5X' })
 
-map_key({'n', 'x', 'v'}, 'o', 'i', { desc = 'Insert mode' })
+map_key(allModes, 'o', 'i', { desc = 'Insert mode' })
 
 -- Map Enter to go to end of line in insert mode then enter to create a new line. That seems the only reliable way
 map_key({'n'}, '<CR>', 'o', { desc = 'Create a new line' })
 
 -- map the left and to word and back
-map_key({'n', 'x', 'v'}, 'n', 'b', { desc = 'Move to the previous word [left]' })
-map_key({'n', 'x', 'v'}, 'i', 'w', { desc = 'Move to the next word [right]' })
+map_key(allModes, 'n', 'b', { desc = 'Move to the previous word [left]' })
+map_key(allModes, 'i', 'w', { desc = 'Move to the next word [right]' })
 
-map_key({'n', 'x', 'v'}, 'l', '0', { desc = 'Move to the beginning of the line' })
-map_key({'n', 'x', 'v'}, 'y', '$', { desc = 'Move to the end of the line' })
+map_key(allModes, 'N', '0', { desc = 'Move to the beginning of the line' })
+map_key(allModes, 'I', '$', { desc = 'Move to the end of the line' })
 
-map_key({'n', 'x', 'v'}, 'b', 'n', { desc = 'Next occurrence of searched word' })
-map_key({'n', 'x', 'v'}, 'B', 'N', { desc = 'Previous occurrence of searched word' })
+map_key(allModes, 'l', 'u', { desc = 'Undo' })
+map_key(allModes, 'L', '<C-r>', { desc = 'Redo' })
+
+map_key(allModes, 'b', 'n', { desc = 'Next occurrence of searched word' })
+map_key(allModes, 'B', 'N', { desc = 'Previous occurrence of searched word' })
+
+map_key({'n', 'v'}, 'd', '"_d', { desc = 'Delete without copying' })
+map_key({'n', 'v'}, '<Del>', '"_x', { desc = 'Delete without copying' })
+
+map_key(allModes, 'w', '"_c', { desc = 'Change w/o buffering' })
+map_key(allModes, 'W', '"_c', { desc = 'Change w/o buffering' })
+
+map_key(allModes, 'c', 'y', { desc = 'Copy' })
+map_key(allModes, 'x', 'd', { desc = 'Cut' })
 
 -- source the vimrc file
 map_key({'n'}, '<leader>sv', ':source $MYVIMRC<CR>', { desc = '[S]ource the [V]imrc file' })
+
+map_key({'n'}, '<leader>e', ':Neotree filesystem reveal left<CR>', { desc = 'Move to the end of the line' })
+
+
