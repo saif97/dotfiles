@@ -34,6 +34,9 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+map_key(allModes, '<Tab>', '>>', { desc = 'Indent' })
+map_key(allModes, '<S-Tab>', '<<', { desc = 'Unindent' })
+
 
 -- Up & down
 map_key(allModes, 'e', 'j', { desc = 'Move down' })
@@ -50,11 +53,11 @@ map_key({'n'}, '<CR>', 'o', { desc = 'Create a new line' })
 map_key(allModes, 'n', 'b', { desc = 'Move to the previous word [left]' })
 map_key(allModes, 'i', 'w', { desc = 'Move to the next word [right]' })
 
-map_key(allModes, 'N', '0', { desc = 'Move to the beginning of the line' })
-map_key(allModes, 'I', '$', { desc = 'Move to the end of the line' })
+map_key(allModes, 'l', '0', { desc = 'Move to the beginning of the line' })
+map_key(allModes, 'y', '$', { desc = 'Move to the end of the line' })
 
-map_key(allModes, 'l', 'u', { desc = 'Undo' })
-map_key(allModes, 'L', '<C-r>', { desc = 'Redo' })
+map_key(allModes, 'L', 'u', { desc = 'Undo' })
+map_key(allModes, 'Y', '<C-r>', { desc = 'Redo' })
 
 map_key(allModes, 'b', 'n', { desc = 'Next occurrence of searched word' })
 map_key(allModes, 'B', 'N', { desc = 'Previous occurrence of searched word' })
