@@ -11,6 +11,22 @@ return {
   ---@module "neo-tree"
   ---@type neotree.Config?
   opts = {
-    -- fill any relevant options here
+  window = {
+    mappings = {
+      ["<BS>"] = "", -- Disables backspace navigation
+      -- Map 'u' to move up
+      -- ["u"] = "navigate_up", -- Moves the cursor up in the tree
+
+      -- Map 'e' to move down
+      ["e"] = "navigate_down", -- Moves the cursor down in the tree
+
+      -- Map 'i' to go inside (expand directory or open file)
+      ["i"] = "toggle_node", -- Expands a directory or opens a file
+
+      -- Map 'n' to go outside (parent directory)
+      ["n"] = "navigate_up_dir", -- Goes to the parent directory
+    },
+  },
+
   },
 }
