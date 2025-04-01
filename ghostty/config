@@ -1,0 +1,50 @@
+
+confirm-close-surface = false
+quit-after-last-window-closed = false
+window-decoration = none
+
+# Source: https://gist.github.com/adibhanna/c552c452fb244b3b721e3c2432e85cde
+#font-family = Iosevka Nerd Font
+# font-family = SFMono Nerd Font 
+theme = GruvboxDarkHard
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+adjust-cell-height = 10%
+background-opacity = 0.50
+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
+
+window-padding-balance = true 
+window-save-state = always
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+background = 1C2021
+# foreground = d4be98
+
+# keybindings
+keybind = cmd+s>r=reload_config
+keybind = cmd+s>x=close_surface
+
+keybind = cmd+s>n=new_window
+
+# tabs 
+keybind = cmd+s>c=new_tab
+keybind = cmd+s>shift+l=next_tab
+keybind = cmd+s>shift+h=previous_tab
+keybind = cmd+s>comma=move_tab:-1
+keybind = cmd+s>period=move_tab:1
+#
+# # split not working for some reasoin 
+# keybind = cmd/s>\=new_split:right
+# keybind = cmd+s>-=new_split:down
+#
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
+
+keybind = cmd+s>z=toggle_split_zoom
+
+keybind = cmd+s>e=equalize_splits
+

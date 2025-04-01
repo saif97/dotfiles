@@ -19,7 +19,7 @@ import {
 const karabinerCliPath = "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli";
 
 const APP_ID_BROWSERS = ["com.google.Chrome", "com.apple.Safari"];
-const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2"];
+const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2", "dev.warp.Warp-Stable"];
 
 const APP_ID_VSCODE = "com.microsoft.VSCode";
 

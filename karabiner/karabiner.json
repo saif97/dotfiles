@@ -2444,7 +2444,8 @@
                       "com.google.Chrome",
                       "com.apple.Safari",
                       "com.mitchellh.ghostty",
-                      "com.googlecode.iterm2"
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
                     ]
                   }
                 ]

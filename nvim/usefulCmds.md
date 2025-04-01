@@ -1,0 +1,2 @@
+- (*) to puts the current word to search & b to iter over it
+- you can combine this with dot to replay the last cmd to next occurance

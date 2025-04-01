@@ -11,22 +11,29 @@ return {
   ---@module "neo-tree"
   ---@type neotree.Config?
   opts = {
-  window = {
-    mappings = {
-      ["<BS>"] = "", -- Disables backspace navigation
-      -- Map 'u' to move up
-      -- ["u"] = "navigate_up", -- Moves the cursor up in the tree
+    window = {
+      mappings = {
+        ["<BS>"] = "", -- Disables backspace navigation
+        -- Map 'u' to move up
+        -- ["u"] = "navigate_up", -- Moves the cursor up in the tree
+        ["n"] = "close_node",
 
-      -- Map 'e' to move down
-      ["e"] = "navigate_down", -- Moves the cursor down in the tree
+        -- Map 'e' to move down
+        ["e"] = "navigate_down", -- Moves the cursor down in the tree
 
-      -- Map 'i' to go inside (expand directory or open file)
-      ["i"] = "toggle_node", -- Expands a directory or opens a file
-
-      -- Map 'n' to go outside (parent directory)
-      ["n"] = "navigate_up_dir", -- Goes to the parent directory
+        -- Map 'i' to go inside (expand directory or open file)
+        ["i"] = "open",         -- Expands a directory or opens a file
+        ["<Esc>"] = "close_window", -- Closes Neo-tree when pressing Escape twice
+        ["f"] = "",
+      },
     },
-  },
-
+    filesystem = {
+      follow_current_file = true,          -- Optional: Automatically focus the current file
+      hijack_netrw_behavior = "open_current", -- Optional: Adjusts netrw behavior
+      filtered_items = {
+        -- hide_dotfiles = false,             -- Set to true to hide dotfiles
+        -- hide_gitignored = false,           -- Set to true to hide files in .gitignore
+      },
+    },
   },
 }

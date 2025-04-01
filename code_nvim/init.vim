@@ -65,8 +65,8 @@ endif
     "nnoremap z2 <Cmd>call VSCodeNotify('editor.foldLevel2')<CR>
 
     nnoremap / <Cmd>call VSCodeNotify('actions.find')<CR>
-    nnoremap k <Cmd>call VSCodeNotify('editor.action.nextMatchFindAction')<CR>
-    nnoremap K <Cmd>call VSCodeNotify('editor.action.previousMatchFindAction')<CR>
+    nnoremap b <Cmd>call VSCodeNotify('editor.action.nextMatchFindAction')<CR>
+    nnoremap B <Cmd>call VSCodeNotify('editor.action.previousMatchFindAction')<CR>
 
 else
     " Uncomment to enable
@@ -91,7 +91,12 @@ nnoremap b n|onoremap b n|xnoremap b n
 nnoremap l 0|onoremap l 0|xnoremap l 0
 nnoremap y $|onoremap y $|xnoremap y $
 
+" Undo & Redo
+nnoremap L u|onoremap L u|xnoremap L u
+nnoremap Y <C-r>|onoremap Y <C-r>|xnoremap Y <C-r>
+
 " copy
+nnoremap c y|onoremap c y|xnoremap c y
 nnoremap c y|onoremap c y|xnoremap c y
 
 " cut
@@ -99,11 +104,11 @@ nnoremap x d
 vnoremap x d
 
 "paste
-nnoremap v p | vnoremap v p|xnoremap v p
+" nnoremap v p | vnoremap v p|xnoremap v p
 
 " map b to visiual moade
-nnoremap b v | vnoremap b v|xnoremap b v
-nnoremap B V | vnoremap B V|xnoremap B V
+" nnoremap b v | vnoremap b v|xnoremap b v
+" nnoremap B V | vnoremap B V|xnoremap B V
 
 " Change w/o buffering
 nnoremap w "_c
