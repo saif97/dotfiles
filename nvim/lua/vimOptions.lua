@@ -88,5 +88,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Always show the status line for all windows and tabs
-vim.opt.laststatus = 3  
-

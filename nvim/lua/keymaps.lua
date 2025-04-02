@@ -12,7 +12,6 @@ require("utils")
 --  See `:help vim.keymap.set()`
 --
 
-map_key({"i", "v"}, "tn", "<Esc>", {})
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
