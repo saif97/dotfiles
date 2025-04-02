@@ -25,6 +25,7 @@ background = 1C2021
 # keybindings
 keybind = cmd+s>r=reload_config
 keybind = cmd+s>x=close_surface
+keybind = cmd+n=unbind
 
 keybind = cmd+s>n=new_window
 

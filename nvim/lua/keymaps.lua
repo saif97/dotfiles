@@ -18,7 +18,7 @@ require("utils")
 map_key({ "n" },"<Esc>","<cmd>nohlsearch<CR>",{ desc = "Clear highlights on search when pressing <Esc> in normal mode" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which 
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
@@ -95,10 +95,11 @@ vim.keymap.set("n", "<C-u>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<C-u>", "gcc", {desc = "Comment line / multi-line"})
 
 --  resize windows
-vim.keymap.set("n", "<D-n>", "<C-w><", { desc = "Decrease window width" })
-vim.keymap.set("n", "<D-i>", "<C-w>>", { desc = "Increase window width" })
-vim.keymap.set("n", "<D-e>", "<C-w>-", { desc = "Decrease window height" })
-vim.keymap.set("n", "<D-u>", "<C-w>+", { desc = "Increase window height" })
+local resizeMultiplier = 2
+vim.keymap.set("n", "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width" })
+vim.keymap.set("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width" })
+vim.keymap.set("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
+vim.keymap.set("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
 
 vim.keymap.set("n", "<leader>wsh", "<C-w><C-s>", { desc = "[W]indow [s]plit [h]orizontal" })
 vim.keymap.set("n", "<leader>wsv", "<C-w><C-v>", { desc = "[W]indow [s]plit [v]orizontal" })
@@ -115,13 +116,11 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 map_key({ "n" }, "<leader>cd", vim.diagnostic.setloclist, { desc = "Open [c]ode [d]iagnostic quickfix list" })
 
 -- Insert mode mappings
-vim.api.nvim_set_keymap('i', '<A-Left>', '<C-o>b', { noremap = true })  -- Alt+Left: Move word left
-vim.api.nvim_set_keymap('i', '<A-Right>', '<C-o>w', { noremap = true }) -- Alt+Right: Move word right
-vim.api.nvim_set_keymap('i', '<S-Left>', '<C-o>vh', { noremap = true })   -- Shift+Left: Select left
-vim.api.nvim_set_keymap('i', '<S-Right>', '<C-o>vl', { noremap = true })  -- Shift+Right: Select right
-vim.api.nvim_set_keymap('i', '<S-Up>', '<C-o>vk', { noremap = true })     -- Shift+Up: Select up
-vim.api.nvim_set_keymap('i', '<S-Down>', '<C-o>vj', { noremap = true })    -- Shift+Down: Select down
-vim.api.nvim_set_keymap('i', '<S-Home>', '<C-o>v0', { noremap = true })   -- Shift+Home: Select to line start
-vim.api.nvim_set_keymap('i', '<S-End>', '<C-o>v$', { noremap = true })     -- Shift+End: Select to line end
-
-
+vim.api.nvim_set_keymap('i', '<A-Left>', '<C-o>b', { noremap = true })   -- Alt+Left: Move word left
+vim.api.nvim_set_keymap('i', '<A-Right>', '<C-o>w', { noremap = true })  -- Alt+Right: Move word right
+vim.api.nvim_set_keymap('i', '<S-Left>', '<C-o>vh', { noremap = true })  -- Shift+Left: Select left
+vim.api.nvim_set_keymap('i', '<S-Right>', '<C-o>vl', { noremap = true }) -- Shift+Right: Select right
+vim.api.nvim_set_keymap('i', '<S-Up>', '<C-o>vk', { noremap = true })    -- Shift+Up: Select up
+vim.api.nvim_set_keymap('i', '<S-Down>', '<C-o>vj', { noremap = true })  -- Shift+Down: Select down
+vim.api.nvim_set_keymap('i', '<S-Home>', '<C-o>v0', { noremap = true })  -- Shift+Home: Select to line start
+vim.api.nvim_set_keymap('i', '<S-End>', '<C-o>v$', { noremap = true })   -- Shift+End: Select to line end
