@@ -2,6 +2,9 @@
 confirm-close-surface = false
 quit-after-last-window-closed = false
 window-decoration = none
+window-padding-y = 0,0
+window-padding-x = 0,0
+background-opacity = 0.5
 
 # Source: https://gist.github.com/adibhanna/c552c452fb244b3b721e3c2432e85cde
 #font-family = Iosevka Nerd Font
