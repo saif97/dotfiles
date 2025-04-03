@@ -1,5 +1,5 @@
 
 todo
 []- normal text editing in insert mode & normal. 
-[]- Toggle window mode similar to vscode
-[]- 
+[X]- Toggle window mode similar to vscode
+[X]- Avante shouldn't expand 
