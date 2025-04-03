@@ -31,8 +31,9 @@ return {
       follow_current_file = true,          -- Optional: Automatically focus the current file
       hijack_netrw_behavior = "open_current", -- Optional: Adjusts netrw behavior
       filtered_items = {
-        -- hide_dotfiles = false,             -- Set to true to hide dotfiles
-        -- hide_gitignored = false,           -- Set to true to hide files in .gitignore
+        visible = true,                    -- This will show hidden items by default
+        hide_dotfiles = false,             -- This will show dotfiles
+        hide_gitignored = false,           -- This will show gitignored files
       },
     },
   },

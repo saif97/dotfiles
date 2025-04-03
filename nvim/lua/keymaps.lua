@@ -23,7 +23,7 @@ map_key({ "n" },"<Esc>","<cmd>nohlsearch<CR>",{ desc = "Clear highlights on sear
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-map_key({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+map_key({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 local allModes = { "n", "x", "v", "o" }
 
@@ -37,6 +37,8 @@ map_key("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 map_key("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 map_key("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 map_key("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+map_key({"n"},  "<leader>sp", ":SessionSearch<CR>", { desc = '[S]earch [p]rojects' })
+map_key({"n"},  "<leader>sc", ":Telescope commands<CR>", { desc = '[S]earch [c]mmands' })
 map_key("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
@@ -101,9 +103,6 @@ vim.keymap.set("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase wi
 vim.keymap.set("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
 vim.keymap.set("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
 
-vim.keymap.set("n", "<leader>wsh", "<C-w><C-s>", { desc = "[W]indow [s]plit [h]orizontal" })
-vim.keymap.set("n", "<leader>wsv", "<C-w><C-v>", { desc = "[W]indow [s]plit [v]orizontal" })
-
 -- Buffer stuff
 -- map_key(allModes, "<C-n>", ":bnext<CR>")
 -- map_key(allModes, "<C-i>", ":bprevious<CR>")
@@ -116,11 +115,12 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 map_key({ "n" }, "<leader>cd", vim.diagnostic.setloclist, { desc = "Open [c]ode [d]iagnostic quickfix list" })
 
 -- Insert mode mappings
-vim.api.nvim_set_keymap('i', '<A-Left>', '<C-o>b', { noremap = true })   -- Alt+Left: Move word left
-vim.api.nvim_set_keymap('i', '<A-Right>', '<C-o>w', { noremap = true })  -- Alt+Right: Move word right
-vim.api.nvim_set_keymap('i', '<S-Left>', '<C-o>vh', { noremap = true })  -- Shift+Left: Select left
-vim.api.nvim_set_keymap('i', '<S-Right>', '<C-o>vl', { noremap = true }) -- Shift+Right: Select right
-vim.api.nvim_set_keymap('i', '<S-Up>', '<C-o>vk', { noremap = true })    -- Shift+Up: Select up
-vim.api.nvim_set_keymap('i', '<S-Down>', '<C-o>vj', { noremap = true })  -- Shift+Down: Select down
-vim.api.nvim_set_keymap('i', '<S-Home>', '<C-o>v0', { noremap = true })  -- Shift+Home: Select to line start
-vim.api.nvim_set_keymap('i', '<S-End>', '<C-o>v$', { noremap = true })   -- Shift+End: Select to line end
+-- vim.api.nvim_set_keymap('i', '<A-Left>', '<C-o>b', { noremap = true })   -- Alt+Left: Move word left
+-- vim.api.nvim_set_keymap('i', '<A-Right>', '<C-o>w', { noremap = true })  -- Alt+Right: Move word right
+-- vim.api.nvim_set_keymap('i', '<S-Left>', '<C-o>vh', { noremap = true })  -- Shift+Left: Select left
+-- vim.api.nvim_set_keymap('i', '<S-Right>', '<C-o>vl', { noremap = true }) -- Shift+Right: Select right
+-- vim.api.nvim_set_keymap('i', '<S-Up>', '<C-o>vk', { noremap = true })    -- Shift+Up: Select up
+-- vim.api.nvim_set_keymap('i', '<S-Down>', '<C-o>vj', { noremap = true })  -- Shift+Down: Select down
+-- vim.api.nvim_set_keymap('i', '<S-Home>', '<C-o>v0', { noremap = true })  -- Shift+Home: Select to line start
+-- vim.api.nvim_set_keymap('i', '<S-End>', '<C-o>v$', { noremap = true })   -- Shift+End: Select to line end
+--
