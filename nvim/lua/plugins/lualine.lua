@@ -16,6 +16,13 @@ return {
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = {
 					{
+						function()
+							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						end,
+						icon = "󱧽", -- Customize the icon if needed
+						color = { fg = "#8aadf4"},
+					},
+					{
 						"filename",
 						path = 1,
 					},
@@ -26,7 +33,7 @@ return {
 			},
 
 			inactive_winbar = {
-				lualine_a = { { "filename", color = { fg = "#232634"} } }, -- customize font and background color
+				lualine_a = { { "filename", color = { fg = "#232634" } } }, -- customize font and background color
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
