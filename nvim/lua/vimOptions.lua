@@ -11,7 +11,6 @@ vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set backspace=indent,eol,start")
 
 vim.cmd("set autoindent")
-vim.cmd("set smartindent")
 
 
 vim.opt.autowriteall = true
@@ -86,5 +85,4 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 

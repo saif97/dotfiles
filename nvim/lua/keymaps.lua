@@ -37,8 +37,8 @@ map_key("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 map_key("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 map_key("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 map_key("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-map_key({"n"},  "<leader>sp", ":SessionSearch<CR>", { desc = '[S]earch [p]rojects' })
-map_key({"n"},  "<leader>sc", ":Telescope commands<CR>", { desc = '[S]earch [c]mmands' })
+map_key({ "n" }, "<leader>sp", ":SessionSearch<CR>", { desc = "[S]earch [p]rojects" })
+map_key({ "n" }, "<leader>sc", ":Telescope commands<CR>", { desc = "[S]earch [c]mmands" })
 map_key("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
@@ -110,8 +110,7 @@ vim.keymap.set("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase wi
 map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[q]uit all buffers" })
 
 -- LSP config
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+map_key("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Open [c]ode [a]ction" })
 map_key({ "n" }, "<leader>cd", vim.diagnostic.setloclist, { desc = "Open [c]ode [d]iagnostic quickfix list" })
 
 -- Insert mode mappings
