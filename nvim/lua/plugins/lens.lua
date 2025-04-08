@@ -9,7 +9,7 @@ return {
 		vim.g["lens#width_resize_max"] = vim.o.columns - 2
 
 		-- Exclude Avante and help windows from lens.vim
-		vim.g["lens#disabled_filetypes"] = { "Avante"}
-		vim.g["lens#disabled_filenames"] = { "avante.lua"}
+		vim.g["lens#disabled_filetypes"] = { "Avante", "codecompanion" }
+		vim.g["lens#disabled_filenames"] = { "avante.lua", "\\[CodeCompanion\\].*" }
 	end,
 }

@@ -12,7 +12,6 @@ require("utils")
 --  See `:help vim.keymap.set()`
 --
 
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 map_key({ "n" },"<Esc>","<cmd>nohlsearch<CR>",{ desc = "Clear highlights on search when pressing <Esc> in normal mode" })
@@ -91,7 +90,7 @@ end, { desc = "Hides all open panes" })
 
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-n>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-i>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+	vim.keymap.set("n", "<C-i>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-e>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-u>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 -- vim.keymap.set("n", "<C-u>", "gcc", {desc = "Comment line / multi-line"})
@@ -112,6 +111,14 @@ map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[q]uit all buffers" })
 -- LSP config
 map_key("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Open [c]ode [a]ction" })
 map_key({ "n" }, "<leader>cd", vim.diagnostic.setloclist, { desc = "Open [c]ode [d]iagnostic quickfix list" })
+
+-- back & forth to files in the same window
+map_key({ "n", "i" }, "<C-.>", ":bnext<CR>", { desc = "Open [c]ode [d]iagnostic quickfix list" })
+map_key({ "n", "i"  }, "<C-,>",  ":bprevious<CR>", { desc = "Open [c]ode [d]iagnostic quickfix list" })
+
+map_key({ "n"}, "<leader>cp",  ":CodeCompanionActions<CR>", { desc = "Open the [C]ode companions action [p]alette" })
+map_key({ "n"}, "<leader>cc",  ":CodeCompanionChat Toggle<CR>", { desc = "Open the [C]ode companions [c]hat" })
+
 
 -- Insert mode mappings
 -- vim.api.nvim_set_keymap('i', '<A-Left>', '<C-o>b', { noremap = true })   -- Alt+Left: Move word left
