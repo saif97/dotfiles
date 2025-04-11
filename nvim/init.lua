@@ -6,6 +6,7 @@ if vim.g.vscode then
 else
     -- Neovim-only configurations
     require("config.lazy")
-    require("autoCmd")
+    
 end
 require("keymaps")
+require("autoCmd")
