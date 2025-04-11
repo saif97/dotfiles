@@ -2,6 +2,7 @@ require("vimOptions")
 
 if vim.g.vscode then
     -- VSCode-specific configurations
+    -- 
     
 else
     -- Neovim-only configurations

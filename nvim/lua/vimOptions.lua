@@ -6,8 +6,17 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+
 if vim.g.vscode then
-  -- VSCode-specific configurations
+  -- to fix https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
+  vim.keymap.set("", "<Space>", "<Nop>")
+
 else -- Neovim-only configurations
   -- The below 2 lines enable vim & system copy pasting to interwork.
   vim.cmd("set clipboard=unnamed")

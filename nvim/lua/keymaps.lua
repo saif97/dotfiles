@@ -50,9 +50,8 @@ map_key(allModes, "B", "N", { desc = "Previous search match" })
 
 
 if vim.g.vscode then
-
-
-
+	local vscode = require('vscode')
+	callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
 else -- Neovim only Configs
 	-- Clear highlights and close panels
 	map_key({ "n" }, "<Esc>", function()
