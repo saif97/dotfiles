@@ -8,7 +8,7 @@
     /**********
       * NEOVIM *
       **********/
-    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/code_nvim/init.vim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
     //
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -100,7 +100,7 @@
             ]
         },
         {
-            "command": "multiCommand.multiComSuggest",
+                "command": "multiCommand.multiComSuggest",
             "sequence": [
                 "editor.action.triggerSuggest",
                 "editor.action.triggerParameterHints",
@@ -110,9 +110,9 @@
         {
             "command": "multiCommand.hideSidePanels",
             "sequence": [
+                "composer.closeComposerTab",
                 "workbench.action.closeSidebar",
                 "workbench.action.closePanel",
-                "aichat.newchataction"
                 // "workbench.action.maximizeEditor",
                 // "workbench.action.toggleEditorWidths",
                 // "workbench.action.toggleEditorWidths"
@@ -144,6 +144,7 @@
             "command": "multiCommand.EscapeKeyOnEditor",
             "sequence": [
                 "vscode-neovim.escape",
+                "composer.closeComposerTab",
                 // "workbench.action.closeSidebar",
                 "workbench.action.focusActiveEditorGroup",
                 // "editor.foldLevel2",
@@ -260,7 +261,7 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "[lua]": {
-        "editor.defaultFormatter": "appguru.luafmt"
+        "editor.defaultFormatter": "sumneko.lua"
     },
     "jupyter.askForKernelRestart": false,
     "kite.showWelcomeNotificationOnStartup": false,
@@ -541,7 +542,7 @@
         "debug.showScores": true
     },
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": true,
         "scminput": false
@@ -661,4 +662,6 @@
     "workbench.editor.enablePreview": false,
     "cursor.cpp.enablePartialAccepts": true,
     "diffEditor.hideUnchangedRegions.enabled": true,
+    "chat.agent.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
 }

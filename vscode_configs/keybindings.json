@@ -1183,7 +1183,7 @@
     "command": "-workbench.action.toggleAuxiliaryBar"
   },
   {
-    "key": "alt+p",
+    "key": "alt+cmd+p",
     "command": "editor.action.rename",
     "when": "editorFocus"
   },
@@ -1257,5 +1257,9 @@
     "key": "ctrl+enter",
     "command": "-workbench.action.chat.applyInEditor",
     "when": "accessibleViewInCodeBlock && chatIsEnabled || chatIsEnabled && inChat && !inChatInput"
+  },
+  {
+    "key": "cmd+i",
+    "command": "-composer.startComposerPrompt"
   }
 ]

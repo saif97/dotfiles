@@ -14,15 +14,34 @@ end
 if vim.g.vscode then
     local vscode = require('vscode')
     
-    function callVscodeAction(modes, from, actionName, vscodeOptions)
+    function callVscodeActions(modes, from, actionsList, isAsync, optionsList)
+        isAsync = isAsync or true
+        optionsList = optionsList or {}
         if type(modes) == "string" then
             modes = { modes }
         end
 
+        if type(actionsList) == "string" then
+            actionsList = { actionsList }
+        end
+
+
         for _, mode in ipairs(modes) do
-            vim.keymap.set(mode, from, function() vscode.action(actionName, vscodeOptions) end, {})
+            vim.keymap.set(mode, from,
+                 function() 
+                    for i, actionName in ipairs(actionsList) do
+                        if isAsync then
+                            vscode.action(actionName, optionsList[i] or {})
+                        else
+                            vscode.call(actionName, optionsList[i] or {})
+                        end
+                    end
+                end,
+             {})
         end
     end
+
+    
 else
     -- Neovim-only configurations
 end

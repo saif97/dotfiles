@@ -51,7 +51,22 @@ map_key(allModes, "B", "N", { desc = "Previous search match" })
 
 if vim.g.vscode then
 	local vscode = require('vscode')
-	callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
+	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
+	--
+	--[[ Cursor AI keymaps  ]]
+	callVscodeActions(allModes, "<leader>ai", "composerMode.agent")        -- Cursor AI Agent
+	callVscodeActions(allModes, "<leader>an", "composer.startComposerPrompt") -- Cursor AI Agent
+
+	callVscodeActions(allModes, "<Esc><Esc>",
+		{
+			"composer.closeComposerTab",
+			"workbench.action.closeSidebar",
+			"workbench.action.closePanel",
+		}, true) -- Cursor AI Edit
+
+	callVscodeActions(allModes, "/", "actions.find")
+	callVscodeActions(allModes, "b", "editor.action.nextMatchFindAction")
+	callVscodeActions(allModes, "B", "editor.action.previousMatchFindAction")
 else -- Neovim only Configs
 	-- Clear highlights and close panels
 	map_key({ "n" }, "<Esc>", function()
