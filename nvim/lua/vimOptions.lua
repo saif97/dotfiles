@@ -27,6 +27,8 @@ else -- Neovim-only configurations
 
 
   vim.opt.autowriteall = true
+  vim.opt.wrap = false
+
 
   -- Make line numbers default
   vim.opt.number = true
