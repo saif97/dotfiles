@@ -72,6 +72,13 @@ else -- Neovim only Configs
     vim.cmd("Neotree close")
     vim.cmd("fc") -- close open floating windows like Lazy
   end, { desc = "Clear highlights and close panels" })
+	
+	map_key(
+		"n",
+		"<leader>ah",
+		function () pcall(function() require("codecompanion").last_chat().ui:hide() end) end, -- This hurts - please fix it :(  
+		{ desc = "[a]i [h]ide" }
+	)
 
   -- Exit terminal mode with Escape
   map_key({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
