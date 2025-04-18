@@ -1,4 +1,5 @@
 return {
+	enabled=false,
 	"camspiers/lens.vim",
 	config = function()
 		-- Set the maximum height for the focused window to a large value
