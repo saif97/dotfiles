@@ -6,6 +6,9 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+vim.cmd("let $NVIM_LOG_FILE='/tmp/nvim.log'")
+-- Set the log level to debug
+
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
