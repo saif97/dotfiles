@@ -43,10 +43,6 @@ else -- Neovim-only configurations
   -- Don't show the mode, since it's already in the status line
   vim.opt.showmode = false
 
-  -- Enable break indent
-  vim.opt.breakindent = true
-
-
   -- Save undo history
   vim.opt.undofile = true
 
@@ -72,6 +68,12 @@ else -- Neovim-only configurations
   --  and `:help 'listchars'`
   vim.opt.list = true
   vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+  local tabSize = 2
+  vim.opt.tabstop = tabSize
+  vim.opt.shiftwidth = tabSize
+  vim.opt.expandtab = true
+
 
   -- Preview substitutions live, as you type!
   vim.opt.inccommand = 'split'
