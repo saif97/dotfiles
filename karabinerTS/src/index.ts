@@ -22,7 +22,7 @@ const APP_ID_BROWSERS = ["com.google.Chrome", "com.apple.Safari"];
 const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2", "dev.warp.Warp-Stable"];
 
 const APP_ID_VSCODE = "com.microsoft.VSCode";
-
+const APP_ID_CURSOR = "com.todesktop.230313mzl4w4u92";
 const inputColemak: ToInputSource = { input_source_id: "com.apple.keylayout.Colemak" };
 const InputAbc: ToInputSource = { input_source_id: "com.apple.keylayout.ABC" };
 const inputArabic: ToInputSource = { input_source_id: "com.apple.keylayout.Arabic" };
@@ -180,7 +180,7 @@ writeToProfile(
       mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
       map("-").toHyper().toIfAlone("-"),
 
-      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS))),
+      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS).concat(APP_ID_CURSOR))),
       mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
       mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f14").condition(ifApp(APP_ID_VSCODE)),
       mapWithAnyMod("right_option").to("right_option").toIfAlone("f14"),

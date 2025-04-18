@@ -54,8 +54,8 @@ if vim.g.vscode then
 	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
 	--
 	--[[ Cursor AI keymaps  ]]
-	callVscodeActions(allModes, "<leader>ai", "composerMode.agent")        -- Cursor AI Agent
-	callVscodeActions(allModes, "<leader>an", "composer.startComposerPrompt") -- Cursor AI Agent
+	callVscodeActions(allModes, "<leader>an", "composerMode.agent")        -- Cursor AI Agent
+	callVscodeActions(allModes, "<leader>ac", "composerMode.chat")        -- Cursor AI Ask mode
 
 	callVscodeActions(allModes, "<Esc><Esc>",
 		{
@@ -73,6 +73,7 @@ else -- Neovim only Configs
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
+
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
@@ -93,11 +94,15 @@ else -- Neovim only Configs
 	vim.keymap.set("n", "<C-u>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 	-- Window resizing
-	local resizeMultiplier = 2
+	local resizeMultiplier = 10
 	vim.keymap.set("n", "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width" })
 	vim.keymap.set("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width" })
 	vim.keymap.set("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
 	vim.keymap.set("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
+
+	vim.keymap.set("n", "<leader>wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
+	vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
+	vim.keymap.set("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
 	-- [[ Section: Buffer Navigation ]]
 
@@ -136,4 +141,7 @@ else -- Neovim only Configs
 	-- Code Companion
 	map_key({ "n" }, "<leader>ap", ":CodeCompanionActions<CR>", { desc = "[A]i Command [P]allet" })
 	map_key({ "n" }, "<leader>ac", ":CodeCompanionChat Toggle<CR>", { desc = "[C]ode [C]ompanion chat" })
+
+
+	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
 end
