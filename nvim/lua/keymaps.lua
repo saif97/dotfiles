@@ -70,6 +70,7 @@ else -- Neovim only Configs
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
+    vim.cmd("fc")   -- close open floating windows like Lazy
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
@@ -138,7 +139,7 @@ else -- Neovim only Configs
 	map_key({ "n" }, "<leader>ac", ":CodeCompanionChat Toggle<CR>", { desc = "[C]ode [C]ompanion chat" })
 
 	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
-	map_key({ "n" }, "<leader>ot", "", { desc = "[r]eload [c]onfigs" })
+	map_key({ "n" }, "<leader>ot", "terminal<CR>", { desc = "[O]pen [t]erminal" })
 
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
@@ -149,6 +150,6 @@ else -- Neovim only Configs
 	map_key("i", "<M-Del>", "<C-o>dw", { desc = "" })
 
 	-- support for option + arrows to move words 
-	map_key({"i", "v", "n"}, "<M-f>", "<C-right>", { desc = "" })
-	map_key({"i", "v", "n"}, "<M-b>", "<C-left>", { desc = "" })
+	map_key("i", "<M-f>", "<C-right>", { desc = "" })
+	map_key("i", "<M-b>", "<C-left>", { desc = "" })
 end
