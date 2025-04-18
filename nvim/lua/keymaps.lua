@@ -76,7 +76,7 @@ else -- Neovim only Configs
 	map_key(
 		"n",
 		"<leader>ah",
-		function () pcall(function() require("codecompanion").last_chat().ui:hide() end) end, -- This hurts - please fix it :(  
+		function () pcall(function() require("codecompanion").last_chat().ui:hide() end) end, -- This hurts - please fix it :(  There must be a way to hide it or contribute
 		{ desc = "[a]i [h]ide" }
 	)
 
