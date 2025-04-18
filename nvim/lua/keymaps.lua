@@ -5,7 +5,6 @@ require("utils")
 -- Helper to define keymappings for all commonly used modes
 local allModes = { "n", "x", "v", "o" }
 
-
 -- [[ Section: Colemak-inspired Navigation ]]
 
 -- Basic movement (Colemak-inspired)
@@ -48,21 +47,19 @@ map_key({ "n", "v" }, "<Del>", '"_x', { desc = "Delete without copying" })
 map_key(allModes, "b", "n", { desc = "Next search match" })
 map_key(allModes, "B", "N", { desc = "Previous search match" })
 
-
 if vim.g.vscode then
-	local vscode = require('vscode')
+	local vscode = require("vscode")
 	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
 	--
 	--[[ Cursor AI keymaps  ]]
-	callVscodeActions(allModes, "<leader>an", "composerMode.agent")        -- Cursor AI Agent
-	callVscodeActions(allModes, "<leader>ac", "composerMode.chat")        -- Cursor AI Ask mode
+	callVscodeActions(allModes, "<leader>an", "composerMode.agent") -- Cursor AI Agent
+	callVscodeActions(allModes, "<leader>ac", "composerMode.chat") -- Cursor AI Ask mode
 
-	callVscodeActions(allModes, "<Esc><Esc>",
-		{
-			"composer.closeComposerTab",
-			"workbench.action.closeSidebar",
-			"workbench.action.closePanel",
-		}, true) -- Cursor AI Edit
+	callVscodeActions(allModes, "<Esc><Esc>", {
+		"composer.closeComposerTab",
+		"workbench.action.closeSidebar",
+		"workbench.action.closePanel",
+	}, true) -- Cursor AI Edit
 
 	callVscodeActions(allModes, "/", "actions.find")
 	callVscodeActions(allModes, "b", "editor.action.nextMatchFindAction")
@@ -73,7 +70,6 @@ else -- Neovim only Configs
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
-
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
@@ -111,7 +107,6 @@ else -- Neovim only Configs
 	map_key({ "n", "i" }, "<C-,>", ":bprevious<CR>", { desc = "Previous buffer" })
 	map_key("n", "<leader><leader>", require("telescope.builtin").buffers, { desc = "Find buffers" })
 
-
 	-- [[ Section: File Explorer and Projects ]]
 
 	map_key({ "n" }, "<leader>e", ":Neotree filesystem reveal left<CR>", { desc = "Open file explorer" })
@@ -142,6 +137,18 @@ else -- Neovim only Configs
 	map_key({ "n" }, "<leader>ap", ":CodeCompanionActions<CR>", { desc = "[A]i Command [P]allet" })
 	map_key({ "n" }, "<leader>ac", ":CodeCompanionChat Toggle<CR>", { desc = "[C]ode [C]ompanion chat" })
 
-
 	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
+	map_key({ "n" }, "<leader>ot", "", { desc = "[r]eload [c]onfigs" })
+
+	-- [[ Section: Insert mode text editing ]]
+	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
+	map_key({ "i" }, "<D-y>", "<End>", { desc = "" })
+
+	-- support for option + backspace & delete
+	map_key("i", "<M-BS>", "<C-w>", { desc = "" })
+	map_key("i", "<M-Del>", "<C-o>dw", { desc = "" })
+
+	-- support for option + arrows to move words 
+	map_key({"i", "v", "n"}, "<M-f>", "<C-right>", { desc = "" })
+	map_key({"i", "v", "n"}, "<M-b>", "<C-left>", { desc = "" })
 end

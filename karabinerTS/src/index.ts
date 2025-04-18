@@ -48,7 +48,7 @@ writeToProfile(
       rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))
     ),
 
-      layer("left⌘", "VimLayer").manipulators([
+    layer("left⌘", "VimLayer").manipulators([
       withCondition(
         ifVar("amethyst_throw_mode").unless(),
         ifVar("amethyst_focus_mode").unless()
@@ -70,8 +70,10 @@ writeToProfile(
         mapWithAnyMod("n").to("delete_or_backspace"),
 
         // home/ end
-        mapWithAnyMod("u").to("left_arrow", ["command"]),
-        mapWithAnyMod("o").to("right_arrow", ["command"]),
+        mapWithAnyMod("u").to("left_arrow", ["command"]).condition(ifApp(APP_ID_TERMINALS).unless()),
+        mapWithAnyMod("o").to("right_arrow", ["command"]).condition(ifApp(APP_ID_TERMINALS).unless()),
+        mapWithAnyMod("u").to("home").condition(ifApp(APP_ID_TERMINALS)),
+        mapWithAnyMod("o").to("end").condition(ifApp(APP_ID_TERMINALS)),
 
         // chrome stuff
         map("/").to("w", ["command"]),
@@ -180,7 +182,10 @@ writeToProfile(
       mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
       map("-").toHyper().toIfAlone("-"),
 
-      mapWithAnyMod("right_command").toIfAlone("escape").toIfHeldDown("right_command").condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS).concat(APP_ID_CURSOR))),
+      mapWithAnyMod("right_command")
+        .toIfAlone("escape")
+        .toIfHeldDown("right_command")
+        .condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS).concat(APP_ID_CURSOR))),
       mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
       mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f14").condition(ifApp(APP_ID_VSCODE)),
       mapWithAnyMod("right_option").to("right_option").toIfAlone("f14"),
