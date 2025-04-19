@@ -77,9 +77,13 @@ writeToProfile(
 
         // chrome stuff
         map("/").to("w", ["command"]),
-        map("comma").to("tab", ["control", "shift"]),
-        map("period").to("tab", ["control"]),
+        map("comma").to("tab", ["control", "shift"]).condition(ifApp(APP_ID_TERMINALS).unless()),
+        map("period").to("tab", ["control"]).condition(ifApp(APP_ID_TERMINALS).unless()),
         map("m").to("f", ["command", "shift"]),
+        
+        // Nvim stuff
+        map("comma").to("comma", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
+        map("period").to("period", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
 
         // desktop switching
         map("open_bracket").to("left_arrow", ["control"]),

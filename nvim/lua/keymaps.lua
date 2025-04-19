@@ -159,4 +159,8 @@ else -- Neovim only Configs
   -- support for option + arrows to move words
   map_key("i", "<M-f>", "<C-right>", { desc = "" })
   map_key("i", "<M-b>", "<C-left>", { desc = "" })
+
+  -- Back & worth in jumplist
+  map_key(allModes, "<C-,>", "<C-o>", {desc = "Go back"})
+  map_key(allModes, "<C-.>", "<C-i>", {desc = "Go back"})
 end
