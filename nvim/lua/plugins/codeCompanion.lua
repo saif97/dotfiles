@@ -29,9 +29,32 @@ return {
     opts = {
       --Refer to: https://github.com/olimorris/codecompanion.nvim/blob/main/lua/codecompanion/config.lua
       strategies = {
-        --NOTE: Change the adapter as required
-        chat = { adapter = "copilot" },
-        inline = { adapter = "copilot" },
+        -- CHAT STRATEGY ----------------------------------------------------------
+        chat = {
+          adapter = "copilot",
+          roles = {
+            ---The header name for the LLM's messages
+            ---@type string|fun(adapter: CodeCompanion.Adapter): string
+            llm = function(adapter)
+              return "CodeCompanion (" .. adapter.formatted_name .. ")"
+            end,
+
+          ---The header name for your messages
+            ---@type string
+            user = "🚀🚀🚀 Saifinator 🚀🚀🚀",
+          },
+          keymaps = {
+            send = {
+              modes = {
+                n = { "<CR>", "<C-s>" },
+                i = "<CR>",
+              },
+              index = 2,
+              callback = "keymaps.send",
+              description = "Send",
+            },
+          },
+        },
       },
       opts = {
         log_level = "DEBUG",
