@@ -166,4 +166,6 @@ else -- Neovim only Configs
   -- Back & worth in jumplist
   map_key(allModes, "<C-,>", "<C-o>", {desc = "Go back"})
   map_key(allModes, "<C-.>", "<C-i>", {desc = "Go back"})
+
+  map_key(allModes, "<F17>", ":OverseerRun<CR>", {desc = "Run Overseer"})
 end
