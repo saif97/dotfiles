@@ -1,5 +1,10 @@
 require("config.codeCompanionConfigs")
 
+local selected_adapter = "ollama"
+if os.getenv("IS_PERSONAL_MACHINE") then
+  selected_adapter = "copilot"
+end
+
 return {
   {
     "olimorris/codecompanion.nvim",
@@ -31,7 +36,7 @@ return {
       strategies = {
         -- CHAT STRATEGY ----------------------------------------------------------
         chat = {
-          adapter = "copilot",
+          adapter = selected_adapter,
           roles = {
             ---The header name for the LLM's messages
             ---@type string|fun(adapter: CodeCompanion.Adapter): string
@@ -39,7 +44,7 @@ return {
               return "CodeCompanion (" .. adapter.formatted_name .. ")"
             end,
 
-          ---The header name for your messages
+            ---The header name for your messages
             ---@type string
             user = "🚀🚀🚀 Saifinator 🚀🚀🚀",
           },
@@ -47,7 +52,7 @@ return {
             send = {
               modes = {
                 n = { "<CR>", "<C-s>" },
-                i = "<CR>",
+                i = "<C-CR>",
               },
               index = 2,
               callback = "keymaps.send",
