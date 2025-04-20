@@ -108,6 +108,9 @@ else -- Neovim only Configs
   vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
   vim.keymap.set("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
+  -- [[ Section: Tab Management ]]
+  map_key("n", "<leader>tn", ":tabnew<CR>", {desc = "[T]ab [n]ew"})
+
   -- [[ Section: Buffer Navigation ]]
 
   -- Buffer switching
@@ -146,7 +149,7 @@ else -- Neovim only Configs
   map_key({ "n" }, "<leader>ac", ":CodeCompanionChat Toggle<CR>", { desc = "[C]ode [C]ompanion chat" })
 
   map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
-  map_key({ "n" }, "<leader>ot", "terminal<CR>", { desc = "[O]pen [t]erminal" })
+  map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "[O]pen [t]erminal" })
 
   -- [[ Section: Insert mode text editing ]]
   map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })

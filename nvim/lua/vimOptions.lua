@@ -26,6 +26,9 @@ else -- Neovim-only configurations
   vim.cmd("set clipboard=unnamedplus")
   vim.cmd("set backspace=indent,eol,start")
 
+  vim.cmd("set winwidth=90")
+  vim.cmd("set winheight=50")
+
   vim.cmd("set autoindent")
 
 
