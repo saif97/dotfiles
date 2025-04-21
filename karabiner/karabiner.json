@@ -1029,6 +1029,14 @@
                 ],
                 "conditions": [
                   {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
                     "value": 1
@@ -1064,6 +1072,96 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "home"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "end"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
@@ -1128,6 +1226,14 @@
                 ],
                 "conditions": [
                   {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
                     "value": 1
@@ -1158,6 +1264,14 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
@@ -1190,6 +1304,84 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "comma"
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
