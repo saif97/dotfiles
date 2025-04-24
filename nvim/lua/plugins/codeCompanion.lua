@@ -46,7 +46,7 @@ return {
 
             ---The header name for your messages
             ---@type string
-            user = "🚀🚀🚀 Saifinator 🚀🚀🚀",
+            user = "🚀🚀🚀 Saifinator 🚀🚀🚀" .. selected_adapter,
           },
           keymaps = {
             send = {

@@ -3,7 +3,7 @@
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.cmd("let $NVIM_LOG_FILE='/tmp/nvim.log'")
@@ -15,33 +15,30 @@ vim.cmd("let $NVIM_LOG_FILE='/tmp/nvim.log'")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-
 if vim.g.vscode then
   -- to fix https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
   vim.keymap.set("", "<Space>", "<Nop>")
-
 else -- Neovim-only configurations
   -- The below 2 lines enable vim & system copy pasting to interwork.
   vim.cmd("set clipboard=unnamed")
   vim.cmd("set clipboard=unnamedplus")
   vim.cmd("set backspace=indent,eol,start")
 
-  vim.cmd("set winwidth=90")
-  vim.cmd("set winheight=60")
+  vim.o.winwidth = 120
+  vim.o.winheight = 70
+  vim.o.winminwidth = 20
+  vim.o.winminheight = 1
 
   vim.cmd("set autoindent")
-
 
   vim.opt.autowriteall = true
   vim.opt.wrap = false
 
-
   -- Make line numbers default
   vim.opt.number = true
 
-
   -- Enable mouse mode, can be useful for resizing splits for example!
-  vim.opt.mouse = 'a'
+  vim.opt.mouse = "a"
 
   -- Don't show the mode, since it's already in the status line
   vim.opt.showmode = false
@@ -54,7 +51,7 @@ else -- Neovim-only configurations
   vim.opt.smartcase = true
 
   -- Keep signcolumn on by default
-  vim.opt.signcolumn = 'yes'
+  vim.opt.signcolumn = "yes"
 
   -- Decrease update time
   vim.opt.updatetime = 250
@@ -70,16 +67,15 @@ else -- Neovim-only configurations
   --  See `:help 'list'`
   --  and `:help 'listchars'`
   vim.opt.list = true
-  vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+  vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
   local tabSize = 2
   vim.opt.tabstop = tabSize
   vim.opt.shiftwidth = tabSize
-  vim.opt.expandtab = true
-
+  vim.opt.expandtab = false
 
   -- Preview substitutions live, as you type!
-  vim.opt.inccommand = 'split'
+  vim.opt.inccommand = "split"
 
   -- Show which line your cursor is on
   vim.opt.cursorline = true
@@ -97,8 +93,10 @@ else -- Neovim-only configurations
 
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
-  vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+  vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
   -- Diagnostic keymaps
-  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+  vim.o.mousescroll = "ver:3,hor:0"
 end

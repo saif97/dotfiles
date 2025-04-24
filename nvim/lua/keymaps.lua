@@ -66,19 +66,13 @@ if vim.g.vscode then
   callVscodeActions(allModes, "B", "editor.action.previousMatchFindAction")
 else -- Neovim only Configs
   -- Clear highlights and close panels
-  map_key({ "n" }, "<Esc>", function()
+  map_key({ "n" }, "<Esc><Esc>", function()
+    hideCodeCompanion()
     vim.cmd("nohlsearch")
     vim.diagnostic.hide()
     vim.cmd("Neotree close")
     vim.cmd("fc") -- close open floating windows like Lazy
   end, { desc = "Clear highlights and close panels" })
-	
-	map_key(
-		"n",
-		"<leader>ah",
-		function () pcall(function() require("codecompanion").last_chat().ui:hide() end) end, -- This hurts - please fix it :(  There must be a way to hide it or contribute
-		{ desc = "[a]i [h]ide" }
-	)
 
   -- Exit terminal mode with Escape
   map_key({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -109,14 +103,13 @@ else -- Neovim only Configs
   vim.keymap.set("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
   -- [[ Section: Tab Management ]]
-  map_key("n", "<leader>tn", ":tabnew<CR>", {desc = "[T]ab [n]ew"})
+  map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "[T]ab [n]ew" })
 
   -- [[ Section: Buffer Navigation ]]
 
   -- Buffer switching
   map_key({ "n", "i" }, "<C-.>", ":bnext<CR>", { desc = "Next buffer" })
   map_key({ "n", "i" }, "<C-,>", ":bprevious<CR>", { desc = "Previous buffer" })
-  map_key("n", "<leader><leader>", require("telescope.builtin").buffers, { desc = "Find buffers" })
 
   -- [[ Section: File Explorer and Projects ]]
 
@@ -164,8 +157,8 @@ else -- Neovim only Configs
   map_key("i", "<M-b>", "<C-left>", { desc = "" })
 
   -- Back & worth in jumplist
-  map_key(allModes, "<C-,>", "<C-o>", {desc = "Go back"})
-  map_key(allModes, "<C-.>", "<C-i>", {desc = "Go back"})
+  map_key(allModes, "<C-,>", "<C-o>", { desc = "Go back" })
+  map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
 
-  map_key(allModes, "<F17>", ":OverseerRun<CR>", {desc = "Run Overseer"})
+  map_key(allModes, "<F17>", ":OverseerRun<CR>", { desc = "Run Overseer" })
 end
