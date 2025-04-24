@@ -1,63 +1,68 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    local custom_gruvbox = require("lualine.themes.catppuccin")
-    custom_gruvbox.inactive.a.bg = "#8bd5ca"
-    custom_gruvbox.inactive.a.fg = "#181926"
+	"nvim-lualine/lualine.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		local custom_gruvbox = require("lualine.themes.catppuccin")
+		custom_gruvbox.inactive.a.bg = "#8bd5ca"
+		custom_gruvbox.inactive.a.fg = "#181926"
 
-    require("lualine").setup({
-      options = {
-        theme = custom_gruvbox,
-        globalstatus = false,
-      },
-      sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = {
-          {
-            function()
-              return vim.fn.expand("%:t")
-            end,
-            color = { fg = "#8aadf4" },
-          },
-          {
-            "filename",
-            path = 1,
-            shorting_target = 40, -- leavse 40 chars in the window so left & right don't overlap
-          },
-        },
-        lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = { "progress" },
-        lualine_z = {
-          function()
-            return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-          end,
-        },
-      },
+		require("lualine").setup({
+			options = {
+				theme = custom_gruvbox,
+				globalstatus = false,
+			},
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_c = {
+					{
+						function()
+							return vim.fn.expand("%:t")
+						end,
+						color = { fg = "#8aadf4" },
+					},
+					{
+						"filename",
+						path = 1,
+						shorting_target = 40, -- leavse 40 chars in the window so left & right don't overlap
+					},
+				},
+				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_y = {
+					function()
+						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+					end,
+				},
+				lualine_z = {
+					{
+						"filename",
+						path = 0, -- 0: Just the filename
+					},
+				},
+			},
 
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          {
-            "filename",
-            color = { fg = "#f2cdcd" }, -- Set the text color (fg) and background color (bg)
-          },
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {
+					{
+						"filename",
+						color = { fg = "#f2cdcd" }, -- Set the text color (fg) and background color (bg)
+					},
+				},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
 
-      -- inactive_winbar = {
-      -- 	lualine_a = { { "filename", color = { fg = "#232634" } } }, -- customize font and background color
-      -- 	lualine_b = {},
-      -- 	lualine_c = {},
-      -- 	lualine_x = {},
-      -- 	lualine_y = {},
-      -- 	lualine_z = {},
-      -- },
-    })
-  end,
+			-- inactive_winbar = {
+			-- 	lualine_a = { { "filename", color = { fg = "#232634" } } }, -- customize font and background color
+			-- 	lualine_b = {},
+			-- 	lualine_c = {},
+			-- 	lualine_x = {},
+			-- 	lualine_y = {},
+			-- 	lualine_z = {},
+			-- },
+		})
+	end,
 }
