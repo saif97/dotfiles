@@ -16,7 +16,5 @@ return {
 				-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 			},
 		})
-
-		vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[c]ode [f]ormate" })
-	end,
+		end,
 }

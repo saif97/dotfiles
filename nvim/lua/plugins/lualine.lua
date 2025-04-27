@@ -5,6 +5,7 @@ return {
 		local custom_gruvbox = require("lualine.themes.catppuccin")
 		custom_gruvbox.inactive.a.bg = "#8bd5ca"
 		custom_gruvbox.inactive.a.fg = "#181926"
+		custom_gruvbox.inactive.c.bg = "#292c3c"
 
 		require("lualine").setup({
 			options = {
@@ -12,15 +13,18 @@ return {
 				globalstatus = false,
 			},
 			sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = {
+				lualine_a = {
+					function()
+						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+					end,
+				},
+				lualine_b = {
 					{
-						function()
-							return vim.fn.expand("%:t")
-						end,
-						color = { fg = "#8aadf4" },
+						"filename",
+						path = 0, -- 0: Just the filename
 					},
+				},
+				lualine_c = {
 					{
 						"filename",
 						path = 1,
@@ -28,16 +32,9 @@ return {
 					},
 				},
 				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = {
-					function()
-						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-					end,
-				},
+				lualine_y = { "branch", "diff", "diagnostics" },
 				lualine_z = {
-					{
-						"filename",
-						path = 0, -- 0: Just the filename
-					},
+					"mode",
 				},
 			},
 
