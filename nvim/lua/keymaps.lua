@@ -128,6 +128,7 @@ else -- Neovim only Configs
 	map_key("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 	map_key("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	map_key("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+	map_key("n", "<leader>sn", require('telescope').extensions.notify.notify, { desc = "[S]earch [n]otify" })
 	map_key({ "n" }, "<leader>sc", ":Telescope commands<CR>", { desc = "[S]earch [C]ommands" })
 
 	-- [[ Section: LSP Integration ]]
@@ -161,5 +162,9 @@ else -- Neovim only Configs
 	map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
 
 	map_key(allModes, "<F17>", ":OverseerRun<CR>", { desc = "Run Overseer" })
-	map_key({ "n", "v" }, "<leader>fd", require("conform").format, { desc = "[F]ormate [f]ormate" })
+	map_key({ "n", "v" }, "<leader>fd", function()
+		vim.lsp.buf.format({ async = true })
+	end, { desc = "[F]ormate [f]ormate" })
+
+	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "[W]indow go to [N]ext window - switches back & forth" })
 end
