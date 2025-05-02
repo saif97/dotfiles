@@ -946,6 +946,50 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "w",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "h",
                   "modifiers": {
                     "optional": [
@@ -992,6 +1036,14 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable"
+                    ]
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",

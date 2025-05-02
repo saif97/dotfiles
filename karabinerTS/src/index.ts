@@ -65,9 +65,11 @@ writeToProfile(
         mapWithAnyMod("d").to("left_option"),
         mapWithAnyMod("s").to("left_shift"),
 
+				map("n", "option").to("w", "control").condition(ifApp(APP_ID_TERMINALS)),
+
         // delete & backspace
         mapWithAnyMod("h").to("delete_forward"),
-        mapWithAnyMod("n").to("delete_or_backspace"),
+        mapWithAnyMod("n").to("delete_or_backspace").condition(ifApp(APP_ID_TERMINALS).unless()),
 
         // home/ end
         mapWithAnyMod("u").to("left_arrow", ["command"]).condition(ifApp(APP_ID_TERMINALS).unless()),
