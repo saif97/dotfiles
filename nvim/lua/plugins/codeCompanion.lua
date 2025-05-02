@@ -9,9 +9,9 @@ return {
 	{
 		"olimorris/codecompanion.nvim",
 		dependencies = {
-			{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+			{ "nvim-treesitter/nvim-treesitter",           build = ":TSUpdate" },
 			{ "nvim-lua/plenary.nvim" },
-			{ "MeanderingProgrammer/render-markdown.nvim" },
+			{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
 		},
 		opts = {
 			--Refer to: https://github.com/olimorris/codecompanion.nvim/blob/main/lua/codecompanion/config.lua
@@ -41,6 +41,12 @@ return {
 							description = "Send",
 						},
 					},
+				},
+				inline = {
+					adapter = selected_adapter,
+				},
+				cmd = {
+					adapter = selected_adapter,
 				},
 			},
 			opts = {
