@@ -5,7 +5,8 @@ return {
 		local custom_gruvbox = require("lualine.themes.catppuccin")
 		custom_gruvbox.inactive.a.bg = "#8bd5ca"
 		custom_gruvbox.inactive.a.fg = "#181926"
-		custom_gruvbox.inactive.c.bg = "#292c3c"
+		custom_gruvbox.inactive.c.fg = "#303446"
+		custom_gruvbox.inactive.c.bg = "#babbf1"
 
 		require("lualine").setup({
 			options = {
@@ -34,7 +35,12 @@ return {
 				lualine_x = { "encoding", "fileformat", "filetype" },
 				lualine_y = { "branch", "diff", "diagnostics" },
 				lualine_z = {
-					"mode",
+					{
+						"mode",
+						fmt = function (str)
+							return str:sub(1,1)
+						end
+					},
 				},
 			},
 
@@ -44,7 +50,7 @@ return {
 				lualine_c = {
 					{
 						"filename",
-						color = { fg = "#f2cdcd" }, -- Set the text color (fg) and background color (bg)
+						color = { fg = "#303446" }, -- Set the text color (fg) and background color (bg)
 					},
 				},
 				lualine_x = {},
