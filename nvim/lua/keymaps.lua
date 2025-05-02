@@ -64,9 +64,6 @@ function M.setupNvim()
 	-- Exit terminal mode with Escape
 	map_key({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
-	-- Source config file
-	map_key({ "n" }, "<leader>sv", ":source $MYVIMRC<CR>", { desc = "[S]ource the [V]imrc file" })
-
 	-- Quick exit
 	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[Q]uit all buffers" })
 
@@ -126,11 +123,31 @@ function M.setupNvim()
 	-- [[ Section: Plugin-specific ]]
 
 	-- Code Companion
-	map_key({ "n" }, "<leader>ap", ":CodeCompanionActions<CR>", { desc = "[A]i Command [P]allet" })
-	map_key({ "n" }, "<leader>ac", ":CodeCompanionChat Toggle<CR>", { desc = "[C]ode [C]ompanion chat" })
+	map_key({ "n" }, "<leader>lp", ":CodeCompanionActions<CR>", { desc = "[l]LM Command [P]allet" })
+	map_key({ "n" }, "<leader>lb", ":CodeCompanionChat Toggle<CR>", { desc = "[l]LM current [b]uffer" })
 
 	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
+	map_key({ "n" }, "<leader>rs", function()
+		require("luasnip").cleanup()
+		vim.cmd("luafile %")
+		require("config.snippets.mySnippets").setup()
+	end, { desc = "[r]eload [s]nippets" })
+
 	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "[O]pen [t]erminal" })
+	map_key({ "n" }, "<leader>oc", function()
+		vim.fn.system("code " .. vim.fn.getcwd())
+	end, { desc = "[O]pen project in [v]scode" })
+
+	map_key({ "n" }, "<leader>od", function()
+		file_dir = vim.fn.expand("%:h")
+		vim.fn.system("open " .. file_dir)
+	end, { desc = "[O]pen [d]irectory of the current file" })
+
+	map_key({ "n" }, "<leader>pd", function()
+		file_dir = vim.fn.expand("%:p:h")
+		vim.fn.setreg("+", file_dir)
+		vim.notify("Copied: " .. file_dir)
+	end, { desc = "copy current file [p]ath [d]irectory" })
 
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
@@ -154,6 +171,11 @@ function M.setupNvim()
 	end, { desc = "[F]ormate [f]ormate" })
 
 	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "[W]indow go to [N]ext window - switches back & forth" })
+
+	map_key({ "n", "i" }, "<M-Up>", ":m .-2<CR>==", { desc = "move line up" })
+	map_key({ "n", "i" }, "<M-Down>", ":m .+1<CR>==", { desc = "move line down" })
+
+	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
 end
 
 function M.setupVScode()
