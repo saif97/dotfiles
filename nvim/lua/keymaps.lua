@@ -4,67 +4,54 @@ require("utils")
 
 -- Helper to define keymappings for all commonly used modes
 local allModes = { "n", "x", "v", "o" }
+local M = {}
 
--- [[ Section: Colemak-inspired Navigation ]]
+-- This is common keymaps between VScode & Nvim
+function M.setup()
+	-- [[ Section: Colemak-inspired Navigation ]]
 
--- Basic movement (Colemak-inspired)
-map_key(allModes, "e", "j", { desc = "Move down" })
-map_key(allModes, "u", "k", { desc = "Move up" })
-map_key(allModes, "n", "b", { desc = "Move to the previous word" })
-map_key(allModes, "i", "w", { desc = "Move to the next word" })
-map_key(allModes, "l", "0", { desc = "Move to the beginning of the line" })
-map_key(allModes, "y", "$", { desc = "Move to the end of the line" })
+	-- Basic movement (Colemak-inspired)
+	map_key(allModes, "e", "j", { desc = "Move down" })
+	map_key(allModes, "u", "k", { desc = "Move up" })
+	map_key(allModes, "n", "b", { desc = "Move to the previous word" })
+	map_key(allModes, "i", "w", { desc = "Move to the next word" })
+	map_key(allModes, "l", "0", { desc = "Move to the beginning of the line" })
+	map_key(allModes, "y", "$", { desc = "Move to the end of the line" })
 
--- Fast movement
-map_key(allModes, "E", "5j", { desc = "Move down 5 lines" })
-map_key(allModes, "U", "5k", { desc = "Move up 5 lines" })
+	-- Fast movement
+	map_key(allModes, "E", "5j", { desc = "Move down 5 lines" })
+	map_key(allModes, "U", "5k", { desc = "Move up 5 lines" })
 
--- Insert mode access
-map_key(allModes, "o", "i", { desc = "Enter insert mode" })
-map_key({ "n" }, "<CR>", "o", { desc = "Create a new line" })
+	-- Insert mode access
+	map_key(allModes, "o", "i", { desc = "Enter insert mode" })
+	map_key({ "n" }, "<CR>", "o", { desc = "Create a new line" })
 
--- [[ Section: Editing ]]
+	-- [[ Section: Editing ]]
 
--- Indentation
-map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
-map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent" })
+	-- Indentation
+	map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
+	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent" })
 
--- Undo/Redo
-map_key(allModes, "L", "u", { desc = "Undo" })
-map_key(allModes, "Y", "<C-r>", { desc = "Redo" })
+	-- Undo/Redo
+	map_key(allModes, "L", "u", { desc = "Undo" })
+	map_key(allModes, "Y", "<C-r>", { desc = "Redo" })
 
--- Copy/Cut/Change
-map_key(allModes, "c", "y", { desc = "Copy" })
-map_key(allModes, "x", "d", { desc = "Cut" })
-map_key(allModes, "w", '"_c', { desc = "Change w/o copying to register" })
-map_key(allModes, "W", '"_c', { desc = "Change w/o copying to register" })
+	-- Copy/Cut/Change
+	map_key(allModes, "c", "y", { desc = "Copy" })
+	map_key(allModes, "x", "d", { desc = "Cut" })
+	map_key(allModes, "w", '"_c', { desc = "Change w/o copying to register" })
+	map_key(allModes, "W", '"_c', { desc = "Change w/o copying to register" })
 
--- Delete without copying to register
-map_key({ "n", "v" }, "d", '"_d', { desc = "Delete without copying" })
-map_key({ "n", "v" }, "<Del>", '"_x', { desc = "Delete without copying" })
+	-- Delete without copying to register
+	map_key({ "n", "v" }, "d", '"_d', { desc = "Delete without copying" })
+	map_key({ "n", "v" }, "<Del>", '"_x', { desc = "Delete without copying" })
 
--- Search navigation
-map_key(allModes, "b", "n", { desc = "Next search match" })
-map_key(allModes, "B", "N", { desc = "Previous search match" })
+	-- Search navigation
+	map_key(allModes, "b", "n", { desc = "Next search match" })
+	map_key(allModes, "B", "N", { desc = "Previous search match" })
+end
 
-if vim.g.vscode then
-	local vscode = require("vscode")
-	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
-	--
-	--[[ Cursor AI keymaps  ]]
-	callVscodeActions(allModes, "<leader>an", "composerMode.agent") -- Cursor AI Agent
-	callVscodeActions(allModes, "<leader>ac", "composerMode.chat") -- Cursor AI Ask mode
-
-	callVscodeActions(allModes, "<Esc><Esc>", {
-		"composer.closeComposerTab",
-		"workbench.action.closeSidebar",
-		"workbench.action.closePanel",
-	}, true) -- Cursor AI Edit
-
-	callVscodeActions(allModes, "/", "actions.find")
-	callVscodeActions(allModes, "b", "editor.action.nextMatchFindAction")
-	callVscodeActions(allModes, "B", "editor.action.previousMatchFindAction")
-else -- Neovim only Configs
+function M.setupNvim()
 	-- Clear highlights and close panels
 	map_key({ "n" }, "<Esc><Esc>", function()
 		hideCodeCompanion()
@@ -128,7 +115,7 @@ else -- Neovim only Configs
 	map_key("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 	map_key("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	map_key("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-	map_key("n", "<leader>sn", require('telescope').extensions.notify.notify, { desc = "[S]earch [n]otify" })
+	map_key("n", "<leader>sn", require("telescope").extensions.notify.notify, { desc = "[S]earch [n]otify" })
 	map_key({ "n" }, "<leader>sc", ":Telescope commands<CR>", { desc = "[S]earch [C]ommands" })
 
 	-- [[ Section: LSP Integration ]]
@@ -168,3 +155,77 @@ else -- Neovim only Configs
 
 	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "[W]indow go to [N]ext window - switches back & forth" })
 end
+
+function M.setupVScode()
+	local vscode = require("vscode")
+	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
+	--
+	--[[ Cursor AI keymaps  ]]
+	callVscodeActions(allModes, "<leader>an", "composerMode.agent") -- Cursor AI Agent
+	callVscodeActions(allModes, "<leader>ac", "composerMode.chat") -- Cursor AI Ask mode
+
+	callVscodeActions(allModes, "<Esc><Esc>", {
+		"composer.closeComposerTab",
+		"workbench.action.closeSidebar",
+		"workbench.action.closePanel",
+	}, true) -- Cursor AI Edit
+
+	callVscodeActions(allModes, "/", "actions.find")
+	callVscodeActions(allModes, "b", "editor.action.nextMatchFindAction")
+	callVscodeActions(allModes, "B", "editor.action.previousMatchFindAction")
+end
+
+function M.setupLsp(event)
+	-- NOTE: Remember that Lua is a real programming language, and as such it is possible
+	-- to define small helper and utility functions so you don't have to repeat yourself.
+	--
+	-- In this case, we create a function that lets us more easily define mappings specific
+	-- for LSP related items. It sets the mode, buffer and description for us each time.
+	local map = function(keys, func, desc, mode)
+		mode = mode or "n"
+		vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+	end
+
+	-- Jump to the definition of the word under your cursor.
+	--  This is where a variable was first declared, or where a function is defined, etc.
+	--  To jump back, press <C-t>.
+	map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+
+	-- Find references for the word under your cursor.
+	map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+
+	-- Jump to the implementation of the word under your cursor.
+	--  Useful when your language has ways of declaring types without an actual implementation.
+	map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+
+	-- Jump to the type of the word under your cursor.
+	--  Useful when you're not sure what type a variable is and you want to see
+	--  the definition of its *type*, not where it was *defined*.
+	map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+
+	-- Fuzzy find all the symbols in your current document.
+	--  Symbols are things like variables, functions, types, etc.
+	map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+
+	-- Fuzzy find all the symbols in your current workspace.
+	--  Similar to document symbols, except searches over your entire project.
+	map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+
+	-- Rename the variable under your cursor.
+	--  Most Language Servers support renaming across files, etc.
+	map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+	-- Execute a code action, usually your cursor needs to be on top of an error
+	-- or a suggestion from your LSP for this to activate.
+	map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+
+	-- WARN: This is not Goto Definition, this is Goto Declaration.
+	--  For example, in C this would take you to the header.
+	map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+	map("<leader>th", function()
+		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+	end, "[T]oggle Inlay [H]ints")
+end
+
+return M

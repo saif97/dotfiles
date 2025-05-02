@@ -1,12 +1,13 @@
+local keymaps = require("keymaps")
+keymaps.setup()
 require("vimOptions")
 
 if vim.g.vscode then
-    -- VSCode-specific configurations
+	keymaps.setupVScode()
 else
-    -- Neovim-only configurations
-    require("config.lazy")
+	-- Neovim-only configurations
+	require("config.lazy")
+	keymaps.setupNvim()
 end
-require("keymaps")
 require("autoCmd")
 require("playground")
-
