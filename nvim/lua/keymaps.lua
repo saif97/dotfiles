@@ -154,7 +154,6 @@ function M.setupNvim()
 	map_key({ "i" }, "<D-y>", "<End>", { desc = "" })
 
 	-- support for option + backspace & delete
-	map_key("i", "<M-BS>", "<C-w>", { desc = "" })
 	map_key("i", "<M-Del>", "<C-o>dw", { desc = "" })
 
 	-- support for option + arrows to move words
