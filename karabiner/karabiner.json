@@ -1037,14 +1037,6 @@
                 ],
                 "conditions": [
                   {
-                    "type": "frontmost_application_unless",
-                    "bundle_identifiers": [
-                      "com.mitchellh.ghostty",
-                      "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
-                    ]
-                  },
-                  {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
                     "value": 1

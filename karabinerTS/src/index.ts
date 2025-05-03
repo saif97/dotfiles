@@ -69,7 +69,7 @@ writeToProfile(
 
         // delete & backspace
         mapWithAnyMod("h").to("delete_forward"),
-        mapWithAnyMod("n").to("delete_or_backspace").condition(ifApp(APP_ID_TERMINALS).unless()),
+        mapWithAnyMod("n").to("delete_or_backspace"),
 
         // home/ end
         mapWithAnyMod("u").to("left_arrow", ["command"]).condition(ifApp(APP_ID_TERMINALS).unless()),
