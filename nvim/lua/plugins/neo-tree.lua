@@ -20,7 +20,7 @@ return {
 
 				-- Map 'e' to move down
 				["e"] = "", -- Moves the cursor down in the tree
-				["d"] = "toggle_auto_expand_width",
+				["X"] = "toggle_auto_expand_width",
 
 				-- Map 'i' to go inside (expand directory or open file)
 				["i"] = "open",         -- Expands a directory or opens a file
@@ -42,6 +42,16 @@ return {
 						local filename = node:get_id()
 						vim.fn.setreg("+", filename)
 						vim.notify("Copied: " .. filename)
+					end,
+				},
+				["<leader>pr"] = {
+					desc = "Copy [p]ath [r]elative to the selected file",
+					function(state)
+						local node = state.tree:get_node()
+						local filepath = node:get_id()
+						local relative_path = vim.fn.fnamemodify(filepath, ":~:.")
+						vim.fn.setreg("+", relative_path)
+						vim.notify("Copied: " .. relative_path)
 					end,
 				},
 				["<leader>od"] = {

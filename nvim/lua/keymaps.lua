@@ -138,6 +138,7 @@ function M.setupNvim()
 		vim.fn.system("code " .. vim.fn.getcwd())
 	end, { desc = "[O]pen project in [v]scode" })
 
+	-- TODO: Extract this along with neo-tree since they're pretty similar
 	map_key({ "n" }, "<leader>od", function()
 		file_dir = vim.fn.expand("%:h")
 		vim.fn.system("open " .. file_dir)
@@ -147,7 +148,13 @@ function M.setupNvim()
 		file_dir = vim.fn.expand("%:p:h")
 		vim.fn.setreg("+", file_dir)
 		vim.notify("Copied: " .. file_dir)
-	end, { desc = "copy current file [p]ath [d]irectory" })
+	end, { desc = "copy abosulte file [p]ath [d]irectory" })
+
+	map_key({ "n" }, "<leader>pr", function()
+		file_dir = vim.fn.expand("%:~:.")
+		vim.fn.setreg("+", file_dir)
+		vim.notify("Copied: " .. file_dir)
+	end, { desc = "Copy [p]ath [r]elative to the selected file" })
 
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
