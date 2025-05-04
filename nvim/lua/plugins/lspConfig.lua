@@ -165,7 +165,7 @@ return {
 			},
 
 			-- Python Land
-			require("lspconfig").pyright.setup({
+			pyright = {
 				settings = {
 					pyright = {
 						-- Using Ruff's import organizer
@@ -179,7 +179,7 @@ return {
 						-- },
 					},
 				},
-			}),
+			},
 
 			-- ruff = {
 			-- 	init_options = {
