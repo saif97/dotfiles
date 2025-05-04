@@ -99,6 +99,9 @@ else -- Neovim-only configurations
 	vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 	vim.o.mousescroll = "ver:3,hor:0"
-	vim.opt.termguicolors = true 
-end
+	vim.opt.termguicolors = true
 
+	vim.g.bullets_custom_mappings = {
+		{ "nmap", "<CR>", "<Plug>(bullets-newline)" },
+	}
+end

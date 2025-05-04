@@ -29,8 +29,20 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 function M.setup()
+	addall()
 	addShell()
 	addMarkdown()
+end
+
+function addall()
+	ls.add_snippets("all", {
+		s(
+			"checkbox",
+			t({
+				"- [ ] ",
+			})
+		),
+	})
 end
 
 function addShell()
@@ -58,7 +70,7 @@ function addMarkdown()
 				get_date(),
 				"",
 			})
-		)
+		),
 	})
 end
 
@@ -69,7 +81,7 @@ function addPython()
 			t({
 				"# type: ignore",
 			})
-		)
+		),
 	})
 end
 
