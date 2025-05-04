@@ -124,14 +124,25 @@ function M.setupNvim()
 
 	-- Code Companion
 	map_key({ "n" }, "<leader>lp", ":CodeCompanionActions<CR>", { desc = "[l]LM Command [P]allet" })
-	map_key({ "n" }, "<leader>lb", ":CodeCompanionChat Toggle<CR>", { desc = "[l]LM current [b]uffer" })
+	map_key({ "n" }, "<leader>lc", ":CodeCompanion <CR>", { desc = "[l]LM Command [P]allet" })
+	map_key({ "n" }, "<leader>lb", ":CodeCompanion  #buffer ", { desc = "[l]LM current [b]uffer" })
 
-	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload [c]onfigs" })
+	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload f]ile" })
+
 	map_key({ "n" }, "<leader>rs", function()
 		require("luasnip").cleanup()
 		vim.cmd("luafile %")
 		require("config.snippets.mySnippets").setup()
+		vim.notify("Reloaded Snippets")
 	end, { desc = "[r]eload [s]nippets" })
+
+	map_key({ "n" }, "<leader>rk", function()
+		vim.cmd("luafile %")
+		local keymaps = require("keymaps")
+		keymaps.setup()
+		keymaps.setupNvim()
+		vim.notify("Reloaded Keymaps")
+	end, { desc = "[r]eload [k]eymaps" })
 
 	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "[O]pen [t]erminal" })
 	map_key({ "n" }, "<leader>oc", function()
@@ -182,6 +193,8 @@ function M.setupNvim()
 	map_key({ "n", "i" }, "<M-Down>", ":m .+1<CR>==", { desc = "move line down" })
 
 	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
+	map_key("n", "<leader>or", ":OverseerRun<CR>", { desc = "[o]verseer [r]un" })
+	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "[o]verseer [p]annel" })
 end
 
 function M.setupVScode()

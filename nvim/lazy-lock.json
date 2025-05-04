@@ -6,7 +6,7 @@
   "avante.nvim": { "branch": "main", "commit": "06757e8bf57175da45180a26840c5db1f38cb4d9" },
   "blink.cmp": { "branch": "main", "commit": "cb5e346d9e0efa7a3eee7fd4da0b690c48d2a98e" },
   "catppuccin": { "branch": "main", "commit": "5b5e3aef9ad7af84f463d17b5479f06b87d5c429" },
-  "codecompanion.nvim": { "branch": "main", "commit": "88111765a8d7d1f9b359f74bb6ec44e4c0f5f0b2" },
+  "codecompanion.nvim": { "branch": "main", "commit": "080e8c9324ce40dd6b5e9aaf4ea27450707a55a7" },
   "copilot.vim": { "branch": "release", "commit": "a9228e015528c9307890c48083c925eb98a64a79" },
   "dashboard-nvim": { "branch": "master", "commit": "000448d837f6e7a47f8f342f29526c4d7e49e9ce" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
