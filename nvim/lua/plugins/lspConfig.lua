@@ -164,13 +164,30 @@ return {
 				filetypes = { "bash", "sh" },
 			},
 
-			ruff = {
-				init_options = {
-					settings = {
-						lineLength = 100,
+			-- Python Land
+			require("lspconfig").pyright.setup({
+				settings = {
+					pyright = {
+						-- Using Ruff's import organizer
+						-- disableOrganizeImports = true,
+					},
+					python = {
+						pythonPath = "./.venv/bin/python",
+						-- analysis = {
+						-- 	-- Ignore all files for analysis to exclusively use Ruff for linting
+						-- 	ignore = { "*" },
+						-- },
 					},
 				},
-			},
+			}),
+
+			-- ruff = {
+			-- 	init_options = {
+			-- 		settings = {
+			-- 			lineLength = 100,
+			-- 		},
+			-- 	},
+			-- },
 
 			lua_ls = {
 				-- cmd = { ... },
@@ -206,11 +223,12 @@ return {
 			-- lua
 			"stylua", -- Used to format Lua code
 			"lua-language-server",
-			-- bash 
+			-- bash
 			"bash-language-server",
 			"shellcheck",
 			-- python
-			"ruff",
+			-- "ruff",
+			"pyright",
 			-- JS/TS
 			"typescript-language-server",
 		})

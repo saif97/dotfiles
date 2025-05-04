@@ -62,4 +62,15 @@ function addMarkdown()
 	})
 end
 
+function addPython()
+	ls.add_snippets("python", {
+		s(
+			"ignore type",
+			t({
+				"# type: ignore",
+			})
+		)
+	})
+end
+
 return M
