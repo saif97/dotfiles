@@ -32,6 +32,7 @@ function M.setup()
 	addall()
 	addShell()
 	addMarkdown()
+	addLua()
 end
 
 function addall()
@@ -54,6 +55,16 @@ function addShell()
 				"set -xe",
 			})
 		),
+	})
+end
+
+function addLua()
+	ls.add_snippets("lua", {
+		s("notify - print", {
+			t([[vim.notify("]]),
+			i(1),
+			t([[")]]),
+		}),
 	})
 end
 

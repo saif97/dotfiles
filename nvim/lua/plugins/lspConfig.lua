@@ -14,6 +14,7 @@ return {
 						install_package = "<D-i>",
 						update_package = "<D-u>",
 						update_all_packages = "<D-p>",
+						check_package_version = "v",
 					},
 				},
 			},
@@ -29,6 +30,8 @@ return {
 		-- "hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
+		local lspconfig = require("lspconfig")
+
 		-- Brief aside: **What is LSP?**
 		--
 		-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -193,6 +196,19 @@ return {
 				},
 			},
 
+			-- solidity_ls = {
+			-- 	cmd = { "vscode-solidity-server", "--stdio" },
+			-- 	filetypes = { "solidity" },
+			-- 	root_dir = lspconfig.util.root_pattern("hardhat.config.js", "foundry.toml", ".git"),
+			-- 	settings = {
+			-- 		solidity = {
+			-- 			compileUsingRemoteVersion = "latest",
+			-- 			defaultCompiler = "remote",
+			-- 			enabledAsYouTypeCompilationErrorCheck = true,
+			-- 		},
+			-- 	},
+			-- },
+
 			-- ruff = {
 			-- 	init_options = {
 			-- 		settings = {
@@ -244,6 +260,11 @@ return {
 			-- JS/TS
 			"typescript-language-server",
 		})
+		if os.getenv("IS_PERSONAL_MACHINE") then
+			vim.list_extend(ensure_installed, {
+				"solidity_ls_nomicfoundation",
+			})
+		end
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
