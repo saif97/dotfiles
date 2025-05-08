@@ -32,7 +32,7 @@ return {
 				insert = "<C-CR>",
 			},
 			cancel = {
-				normal = { "<C-s>"}, -- S for Stop
+				normal = { "<C-s>" }, -- S for Stop
 				insert = { "<C-s>" },
 			},
 			sidebar = {
@@ -42,10 +42,20 @@ return {
 			focus = "<leader>lf",
 			stop = "<leader>ls",
 			select_history = "<leader>lh",
+			files = {
+				add_current = "<leader>lb", -- Add current buffer to selected files
+				add_all_buffers = "<leader>lB", -- Add all buffer files to selected files
+			},
 		},
 
 		windows = {
 			width = 50, -- default % based on available width
+			edit = {
+				start_insert = false, -- Start insert mode when opening the edit window
+			},
+			ask = {
+				start_insert = false, -- Start insert mode when opening the ask window
+			},
 		},
 	},
 
