@@ -68,7 +68,9 @@ return {
 			},
 		},
 		filesystem = {
-			follow_current_file = true,          -- Optional: Automatically focus the current file
+			follow_current_file = {
+				enabled = true,
+			},
 			hijack_netrw_behavior = "open_current", -- Optional: Adjusts netrw behavior
 			filtered_items = {
 				visible = true,                    -- This will show hidden items by default
