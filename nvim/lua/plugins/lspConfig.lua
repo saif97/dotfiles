@@ -86,12 +86,12 @@ return {
 				-- When you move your cursor, the highlights will be cleared (the second autocommand).
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if
-						client
-						and client_supports_method(
-							client,
-							vim.lsp.protocol.Methods.textDocument_documentHighlight,
-							event.buf
-						)
+					client
+					and client_supports_method(
+						client,
+						vim.lsp.protocol.Methods.textDocument_documentHighlight,
+						event.buf
+					)
 				then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -261,9 +261,19 @@ return {
 			"typescript-language-server",
 		})
 		if os.getenv("IS_PERSONAL_MACHINE") then
-			vim.list_extend(ensure_installed, {
-				"solidity_ls_nomicfoundation",
-			})
+			local lspconfig = require("lspconfig")
+			local configs = require("lspconfig.configs")
+
+			configs.solidity = {
+				default_config = {
+					cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+					filetypes = { "solidity" },
+					root_dir = lspconfig.util.find_git_ancestor,
+					single_file_support = true,
+				},
+			}
+
+			lspconfig.solidity.setup({})
 		end
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

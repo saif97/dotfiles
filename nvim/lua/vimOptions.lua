@@ -24,7 +24,7 @@ else -- Neovim-only configurations
 	vim.cmd("set clipboard=unnamedplus")
 	vim.cmd("set backspace=indent,eol,start")
 
-	vim.o.winwidth = 180
+	vim.o.winwidth = 100
 	vim.o.winheight = 70
 	vim.o.winminwidth = 20
 	vim.o.winminheight = 3

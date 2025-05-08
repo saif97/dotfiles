@@ -1,13 +1,15 @@
 require("config.codeCompanionConfigs")
+require("utils")
 
 local selected_adapter = "ollama"
-if os.getenv("IS_PERSONAL_MACHINE") then
+if isPersonalMachine() then
 	selected_adapter = "copilot"
 end
 
 return {
 	{
 		"olimorris/codecompanion.nvim",
+		enabled = false,
 		dependencies = {
 			{ "nvim-treesitter/nvim-treesitter",           build = ":TSUpdate" },
 			{ "nvim-lua/plenary.nvim" },
@@ -51,16 +53,6 @@ return {
 			},
 			opts = {
 				log_level = "DEBUG",
-			},
-
-			display = {
-				chat = {
-					separator = "───────────────────────────────────────────────────────────────", -- The separator between the different messages in the chat buffer
-					show_references = true, -- Show references (from slash commands and variables) in the chat buffer?
-					show_settings = true, -- Show LLM settings at the top of the chat buffer?
-					show_token_count = true, -- Show the token count for each response?
-					start_in_insert_mode = true, -- Open the chat buffer in insert mode?
-				},
 			},
 		},
 	},

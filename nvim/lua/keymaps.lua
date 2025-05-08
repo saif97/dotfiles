@@ -195,6 +195,7 @@ function M.setupNvim()
 	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
 	map_key("n", "<leader>or", ":OverseerRun<CR>", { desc = "[o]verseer [r]un" })
 	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "[o]verseer [p]annel" })
+
 	map_key("n", "<D-d>", "yyp", { desc = "Dublicate line at cursor" })
 end
 
