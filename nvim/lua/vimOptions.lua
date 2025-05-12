@@ -24,7 +24,7 @@ else -- Neovim-only configurations
 	vim.cmd("set clipboard=unnamedplus")
 	vim.cmd("set backspace=indent,eol,start")
 
-	vim.o.winwidth = 100
+	vim.o.winwidth = 120
 	vim.o.winheight = 70
 	vim.o.winminwidth = 20
 	vim.o.winminheight = 3
@@ -104,4 +104,7 @@ else -- Neovim-only configurations
 	vim.g.bullets_custom_mappings = {
 		{ "nmap", "<CR>", "<Plug>(bullets-newline)" },
 	}
+
+	vim.opt.spell = true
+	vim.opt.spelllang = "en_us"
 end

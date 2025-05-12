@@ -147,7 +147,7 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "[O]pen [t]erminal" })
 	map_key({ "n" }, "<leader>oc", function()
 		vim.fn.system("code " .. vim.fn.getcwd())
-	end, { desc = "[O]pen project in [v]scode" })
+	end, { desc = "[O]pen project in vs[c]ode" })
 
 	-- TODO: Extract this along with neo-tree since they're pretty similar
 	map_key({ "n" }, "<leader>od", function()

@@ -35,8 +35,8 @@ return {
 						vim.notify("Copied: " .. filename)
 					end,
 				},
-				["<leader>pf"] = {
-					desc = "Copy [p]ath [f]ully for the selected file",
+				["<leader>pa"] = {
+					desc = "Copy [p]ath [a]bsolute for the selected file",
 					function(state)
 						local node = state.tree:get_node()
 						local filename = node:get_id()
