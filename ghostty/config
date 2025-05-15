@@ -29,6 +29,7 @@ keybind = cmd+t=unbind
 keybind = cmd+n=unbind
 keybind = cmd+w=unbind
 keybind = cmd+d=unbind
+keybind = cmd+a=unbind
 
 keybind = cmd+t>r=reload_config
 keybind = cmd+t>w=close_surface

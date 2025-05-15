@@ -197,6 +197,8 @@ function M.setupNvim()
 	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "[o]verseer [p]annel" })
 
 	map_key("n", "<D-d>", "yyp", { desc = "Dublicate line at cursor" })
+
+	map_key(allModes, "<D-a>", "<Esc>ggVG", { desc = "Select all text" })
 end
 
 function M.setupVScode()
