@@ -4,7 +4,7 @@ eval "$(starship init zsh)"
 
 alias l='lsd -ali'
 alias cat='bat'
-# alias cd='z'
+alias cd='z'
 alias ci='zi'
 alias nv='nvim'
 alias python='python3'
@@ -12,6 +12,7 @@ alias py='python3'
 alias pysour='source ./venv/bin/activate'
 alias pip='pip3'
 alias v='nvim'
+alias tmux="tmux -f '$DOT_FILES/tmux/tmux.conf'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
