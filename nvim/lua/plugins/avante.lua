@@ -2,7 +2,7 @@
 
 return {
 	"yetone/avante.nvim",
-	enabled = true, -- Disable this plugin
+	enabled = false, -- Disable this plugin
 
 	event = "VeryLazy",
 	version = false, -- Never set this value to "*"! Never!

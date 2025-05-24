@@ -13,6 +13,7 @@ alias pysour='source ./venv/bin/activate'
 alias pip='pip3'
 alias v='nvim'
 alias tmux="tmux -f '$DOT_FILES/tmux/tmux.conf'"
+alias cld="claude --continue"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 

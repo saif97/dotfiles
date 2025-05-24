@@ -65,6 +65,14 @@ function addLua()
 			i(1),
 			t([[")]]),
 		}),
+		s("nvim require", {
+			-- require("catppuccin").setup({}),
+			t([[require("]]),
+			i(1),
+			t([[").setup({]]),
+			i(2),
+			t("})"),
+		}),
 	})
 end
 
