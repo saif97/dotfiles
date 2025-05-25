@@ -1634,7 +1634,14 @@
                     "value": 1
                   }
                 ],
-                "to_if_alone": [],
+                "to_if_alone": [
+                  {
+                    "key_code": "b",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
                 "to_after_key_up": [
                   {
                     "set_variable": {
@@ -2663,27 +2670,6 @@
                 "to_if_alone": [
                   {
                     "key_code": "return_or_enter"
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "hyphen"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "option",
-                      "control",
-                      "shift"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "hyphen"
                   }
                 ]
               },

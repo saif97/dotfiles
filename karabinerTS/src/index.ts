@@ -101,7 +101,7 @@ writeToProfile(
     ]),
 
     layer("4", "symbolLayer")
-      .configKey((v) => v.toIfAlone("4"), true)
+      .configKey((v) => v.toIfAlone("b", ["control"]), true)
       .manipulators([
         map("j").to("9", ["shift"]), // (
         map("k").to("0", ["shift"]), // )
@@ -187,7 +187,7 @@ writeToProfile(
 			mapWithAnyMod("3").to("left_shift").toIfAlone("b", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
       mapWithAnyMod("3").to("left_shift").toIfAlone("a", ["command", "shift"]),
       mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
-      map("-").toHyper().toIfAlone("-"),
+      // map("-").toHyper().toIfAlone("-"),
 
       mapWithAnyMod("right_command")
         .toIfAlone("escape")

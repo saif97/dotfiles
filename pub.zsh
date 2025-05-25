@@ -7,13 +7,22 @@ alias cat='bat'
 alias cd='z'
 alias ci='zi'
 alias nv='nvim'
+
+# ── python stuff ──────────────────────────────────────────────────────
 alias python='python3'
 alias py='python3'
 alias pysour='source ./venv/bin/activate'
 alias pip='pip3'
 alias v='nvim'
-alias tmux="tmux -f '$DOT_FILES/tmux/tmux.conf'"
+
+# ── Tmux stuff ────────────────────────────────────────────────────────
+# alias tmux="tmux -f '$DOT_FILES/tmux/tmux.conf'"
+alias tm="tmux"
+alias tms="tmux source-file '$DOT_FILES/tmux/tmux.conf'"
+alias tmk="tmux kill-server"
+
 alias cld="claude --continue"
+alias lg="lazygit"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
