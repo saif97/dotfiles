@@ -62,7 +62,8 @@ function M.setupNvim()
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
-	map_key({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+	map_key({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
 
 	-- Quick exit
 	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[Q]uit all buffers" })
@@ -199,6 +200,13 @@ function M.setupNvim()
 	map_key("n", "<D-d>", "yyp", { desc = "Dublicate line at cursor" })
 
 	map_key(allModes, "<D-a>", "<Esc>ggVG", { desc = "Select all text" })
+
+	map_key({ "n", "v" }, "<Leader>cb", "<Cmd>CBccbox<CR>", { desc = "[c]ode [b]ox" })
+	map_key({ "n", "v" }, "<Leader>ct", "<Cmd>CBllline<CR>", { desc = "[c]ode [t]able" })
+	-- Simple line
+	map_key("n", "<Leader>cl", "<Cmd>CBline<CR>", { desc = "[c]ode [l]ine" })
+	-- Marked comments
+	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "[c]ode [m]arked comments" })
 end
 
 function M.setupVScode()
