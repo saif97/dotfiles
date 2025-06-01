@@ -1,19 +1,17 @@
-
-! May 14, 2025 https://www.youtube.com
-www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(1)
-www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(2)
-
 ! May 18, 2025 https://www.instagram.com
 www.instagram.com##div.xl56j7k.xh8yej3.xgv127d.x1bhewko.xqmdsaz.x1xfsgkm.xg7h5cd.x78zum5.x9f619.x1qjc9v5:nth-of-type(55)
 www.instagram.com##.xjx87ck.x1yqm8si.xfk6m8.x168l2et.x1p6e16i.x1rohswg.x1miatn0.x1odjw0f.x1dr59a3.x9f619.xvbhtw8.x1pq812k
 
-
 ! May 19, 2025 https://www.instagram.com
 www.instagram.com##.xh8yej3.xl56j7k.x1q0g3np.x78zum5.x1qjc9v5
 
-! May 25, 2025 https://www.youtube.com
+! YT's shorts
 www.youtube.com###shorts-container
+www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(1)
+www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(2)
 
-! May 27, 2025 https://www.youtube.com
+! YT's videos in the home page
 www.youtube.com##.grid-disabled.grid.ytd-browse.style-scope > .ytd-two-column-browse-results-renderer.style-scope
 
+! YT side recommendation column
+www.youtube.com###secondary
