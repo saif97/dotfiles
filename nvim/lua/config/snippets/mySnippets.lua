@@ -81,6 +81,34 @@ function addMarkdown()
 		return os.date("%B %dth %I:%M %p") -- May 2nd 5:35 AM
 	end
 
+	-- Day org
+	-- What I have for the day
+	-- What I did for each hour 
+	
+	ls.add_snippets("markdown", {
+		s(
+			"day",
+			t({
+				"* ",
+				get_date(),
+				"",
+				"** What I have for the day",
+				"",
+				"** What I did for each hour",
+				"",
+				"10:00: ",
+				"11:00: ",
+				"12:00: ",
+				"1:00: Lunch",
+				"2:00: ",
+				"3:00: ",
+				"4:00: ",
+				"5:00: ",
+				"6:00: ",
+			})
+		),
+	})
+
 	ls.add_snippets("markdown", {
 		s(
 			"date",
