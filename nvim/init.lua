@@ -7,6 +7,8 @@ if vim.g.vscode then
 else
 	-- Neovim-only configurations
 	require("config.lazy")
+	require("config.lsp")
+	require("userCmds")
 	keymaps.setupNvim()
 end
 require("autoCmd")
