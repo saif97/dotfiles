@@ -15,3 +15,7 @@ www.youtube.com##.grid-disabled.grid.ytd-browse.style-scope > .ytd-two-column-br
 
 ! YT side recommendation column
 www.youtube.com###secondary
+
+! Reddit home page
+www.reddit.com###subgrid-container
+
