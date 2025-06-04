@@ -29,8 +29,8 @@ function M.setup()
 	-- [[ Section: Editing ]]
 
 	-- Indentation
-	map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
-	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent" })
+	map_key(allModes, "<Tab>", ">>", { desc = "Indent", noremap = false })
+	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent", noremap = false })
 
 	-- Undo/Redo
 	map_key(allModes, "L", "u", { desc = "Undo" })
@@ -49,6 +49,25 @@ function M.setup()
 	-- Search navigation
 	map_key(allModes, "b", "n", { desc = "Next search match" })
 	map_key(allModes, "B", "N", { desc = "Previous search match" })
+end
+
+function setupNvimPreLazy()
+	vim.g.bullets_set_mappings = 0
+	vim.g.bullets_delete_last_bullet_if_empty = 2
+	vim.g.bullets_checkbox_markers = " ○◐●✓"
+	vim.g.bullets_custom_mappings = {
+		{ "nmap", "<CR>",      "<Plug>(bullets-newline)" },
+		{ "imap", "<CR>",      "<Plug>(bullets-newline)" },
+		{ "nmap", "<leader>x", "<Plug>(bullets-toggle-checkbox)" },
+
+		{ "nmap", "<TAB>",     "<Plug>(bullets-demote)" },
+		{ "imap", "<TAB>",     "<Plug>(bullets-demote)" },
+		{ "vmap", "<TAB>",     "<Plug>(bullets-demote)" },
+
+		{ "nmap", "<TAB>",     "<Plug>(bullets-promote)" },
+		{ "imap", "<TAB>",     "<Plug>(bullets-promote)" },
+		{ "vmap", "<TAB>",     "<Plug>(bullets-promote)" },
+	}
 end
 
 function M.setupNvim()
@@ -104,7 +123,9 @@ function M.setupNvim()
 	-- [[ Section: Telescope Integration ]]
 
 	local builtin = require("telescope.builtin")
-	map_key("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+	map_key("n", "<leader>sf", function()
+		builtin.find_files({ hidden = true, no_ignore = false, no_ignore_parent = false })
+	end, { desc = "[S]earch [F]iles" })
 	map_key("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 	map_key("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 	map_key("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })

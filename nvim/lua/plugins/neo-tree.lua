@@ -76,6 +76,9 @@ return {
 				visible = true,                    -- This will show hidden items by default
 				hide_dotfiles = false,             -- This will show dotfiles
 				hide_gitignored = false,           -- This will show gitignored files
+				hide_by_name = {
+					".DS_Store",                      -- Hides .DS_Store files
+				},
 			},
 		},
 	},

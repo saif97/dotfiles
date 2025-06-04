@@ -57,5 +57,5 @@ function hideCodeCompanion()
 end
 
 function isPersonalMachine()
-	return os.getenv("IS_PERSONAL_MACHINE")
+	return os.getenv("IS_PERSONAL_MACHINE") ~= nil
 end
