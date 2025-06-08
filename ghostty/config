@@ -35,7 +35,7 @@ keybind = cmd+n=unbind
 keybind = ctrl+n=unbind
 
 keybind = cmd+t>r=reload_config
-keybind = cmd+t>w=close_surface
+keybind = cmd+t>q=close_surface
 keybind = cmd+t>n=new_window
 
 cursor-style = bar
