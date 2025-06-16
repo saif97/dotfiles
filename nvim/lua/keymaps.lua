@@ -29,8 +29,8 @@ function M.setup()
 	-- [[ Section: Editing ]]
 
 	-- Indentation
-	map_key(allModes, "<Tab>", ">>", { desc = "Indent"})
-	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent"})
+	map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
+	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent" })
 
 	-- Undo/Redo
 	map_key(allModes, "L", "u", { desc = "Undo" })
@@ -64,9 +64,9 @@ function M.setupNvimPreLazy()
 		{ "imap", "<TAB>",     "<Plug>(bullets-demote)" },
 		{ "vmap", "<TAB>",     "<Plug>(bullets-demote)" },
 
-		{ "nmap", "<S-TAB>",     "<Plug>(bullets-promote)" },
-		{ "imap", "<S-TAB>",     "<Plug>(bullets-promote)" },
-		{ "vmap", "<S-TAB>",     "<Plug>(bullets-promote)" },
+		{ "nmap", "<S-TAB>",   "<Plug>(bullets-promote)" },
+		{ "imap", "<S-TAB>",   "<Plug>(bullets-promote)" },
+		{ "vmap", "<S-TAB>",   "<Plug>(bullets-promote)" },
 	}
 end
 
@@ -90,7 +90,7 @@ function M.setupNvim()
 	-- [[ Section: Window Management ]]
 	-- Window navigation
 	map_key("n", "<C-n>", "<C-w><C-h>", { desc = "Focus left window" })
-	map_key("n", "<C-8>", "<C-w><C-l>", { desc = "Focus right window" })
+	map_key("n", "<C-i>", "<C-w><C-l>", { desc = "Focus right window" })
 	map_key("n", "<C-e>", "<C-w><C-j>", { desc = "Focus lower window" })
 	map_key("n", "<C-u>", "<C-w><C-k>", { desc = "Focus upper window" })
 
@@ -227,6 +227,11 @@ function M.setupNvim()
 	map_key("n", "<Leader>cl", "<Cmd>CBline<CR>", { desc = "[c]ode [l]ine" })
 	-- Marked comments
 	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "[c]ode [m]arked comments" })
+
+	map_key({ "n" }, "g,", "gt", { desc = "Go to next tab [>]" })
+	map_key({ "n" }, "g.", "gT", { desc = "Go to previous tab [<]" })
+	map_key({ "n" }, "<leader>nt", ":tabnew<CR>", { desc = "[n]ew [t]ab" })
+	map_key({ "n" }, "<leader>qt", ":tabclose<CR>", { desc = "[q]uit [t]ab" })
 end
 
 function M.setupVScode()
