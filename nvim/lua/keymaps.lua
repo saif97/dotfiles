@@ -29,8 +29,8 @@ function M.setup()
 	-- [[ Section: Editing ]]
 
 	-- Indentation
-	map_key(allModes, "<Tab>", ">>", { desc = "Indent", noremap = false })
-	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent", noremap = false })
+	map_key(allModes, "<Tab>", ">>", { desc = "Indent"})
+	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent"})
 
 	-- Undo/Redo
 	map_key(allModes, "L", "u", { desc = "Undo" })
@@ -51,7 +51,7 @@ function M.setup()
 	map_key(allModes, "B", "N", { desc = "Previous search match" })
 end
 
-function setupNvimPreLazy()
+function M.setupNvimPreLazy()
 	vim.g.bullets_set_mappings = 0
 	vim.g.bullets_delete_last_bullet_if_empty = 2
 	vim.g.bullets_checkbox_markers = " ○◐●✓"
@@ -64,9 +64,9 @@ function setupNvimPreLazy()
 		{ "imap", "<TAB>",     "<Plug>(bullets-demote)" },
 		{ "vmap", "<TAB>",     "<Plug>(bullets-demote)" },
 
-		{ "nmap", "<TAB>",     "<Plug>(bullets-promote)" },
-		{ "imap", "<TAB>",     "<Plug>(bullets-promote)" },
-		{ "vmap", "<TAB>",     "<Plug>(bullets-promote)" },
+		{ "nmap", "<S-TAB>",     "<Plug>(bullets-promote)" },
+		{ "imap", "<S-TAB>",     "<Plug>(bullets-promote)" },
+		{ "vmap", "<S-TAB>",     "<Plug>(bullets-promote)" },
 	}
 end
 
@@ -88,23 +88,22 @@ function M.setupNvim()
 	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[Q]uit all buffers" })
 
 	-- [[ Section: Window Management ]]
-
 	-- Window navigation
-	vim.keymap.set("n", "<C-n>", "<C-w><C-h>", { desc = "Focus left window" })
-	vim.keymap.set("n", "<C-i>", "<C-w><C-l>", { desc = "Focus right window" })
-	vim.keymap.set("n", "<C-e>", "<C-w><C-j>", { desc = "Focus lower window" })
-	vim.keymap.set("n", "<C-u>", "<C-w><C-k>", { desc = "Focus upper window" })
+	map_key("n", "<C-n>", "<C-w><C-h>", { desc = "Focus left window" })
+	map_key("n", "<C-8>", "<C-w><C-l>", { desc = "Focus right window" })
+	map_key("n", "<C-e>", "<C-w><C-j>", { desc = "Focus lower window" })
+	map_key("n", "<C-u>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 	-- Window resizing
 	local resizeMultiplier = 10
-	vim.keymap.set("n", "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width" })
-	vim.keymap.set("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width" })
-	vim.keymap.set("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
-	vim.keymap.set("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
+	map_key("n", "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width" })
+	map_key("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width" })
+	map_key("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
+	map_key("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
 
-	vim.keymap.set("n", "<leader>wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
-	vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
-	vim.keymap.set("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
+	map_key("n", "<leader>wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
+	map_key("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
+	map_key("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
 	-- [[ Section: Tab Management ]]
 	map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "[T]ab [n]ew" })
@@ -149,7 +148,7 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>lc", ":CodeCompanion <CR>", { desc = "[l]LM Command [P]allet" })
 	map_key({ "n" }, "<leader>lb", ":CodeCompanion  #buffer ", { desc = "[l]LM current [b]uffer" })
 
-	map_key({ "n" }, "<leader>rc", ":luafile %<CR>", { desc = "[r]eload f]ile" })
+	map_key({ "n" }, "<leader>rf", ":luafile %<CR>", { desc = "[r]eload [f]ile" })
 
 	map_key({ "n" }, "<leader>rs", function()
 		require("luasnip").cleanup()

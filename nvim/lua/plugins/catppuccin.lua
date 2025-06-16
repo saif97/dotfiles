@@ -4,6 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
+			flavour = "macchiato", -- latte, frappe, macchiato, mocha
 			transparent_background = isPersonalMachine(),
 			term_colors = true,
 		})
