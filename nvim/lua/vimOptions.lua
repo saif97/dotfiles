@@ -24,7 +24,7 @@ else -- Neovim-only configurations
 	vim.cmd("set clipboard=unnamedplus")
 	vim.cmd("set backspace=indent,eol,start")
 
-	vim.o.winwidth = 999
+	vim.o.winwidth = 120
 	vim.o.winheight = 70
 	vim.o.winminwidth = 20
 	vim.o.winminheight = 3
@@ -106,4 +106,5 @@ else -- Neovim-only configurations
 
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
+	vim.opt.sessionoptions = "blank,buffers,curdir,folds,globals,help,localoptions,options,tabpages,winsize,terminal"
 end

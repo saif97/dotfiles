@@ -228,10 +228,14 @@ function M.setupNvim()
 	-- Marked comments
 	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "[c]ode [m]arked comments" })
 
-	map_key({ "n" }, "g,", "gt", { desc = "Go to next tab [>]" })
-	map_key({ "n" }, "g.", "gT", { desc = "Go to previous tab [<]" })
-	map_key({ "n" }, "<leader>nt", ":tabnew<CR>", { desc = "[n]ew [t]ab" })
-	map_key({ "n" }, "<leader>qt", ":tabclose<CR>", { desc = "[q]uit [t]ab" })
+-- ── Tab stuff ───────────────────────────────────────────────────────
+	map_key({ "n" }, "t]", "gt", { desc = "Go to next tab [>]" })
+	map_key({ "n" }, "t[", "gT", { desc = "Go to previous tab [<]" })
+	map_key({ "n" }, "<leader>tn", ":tabnew<CR>", { desc = "[n]ew [t]ab" })
+	map_key({ "n" }, "<leader>tq", ":tabclose<CR>", { desc = "[t]ab [q]uit" })
+	map_key("n", "<leader>tm[", ":-tabmove<CR>", {desc = "[t]ab [m]ove back" })
+	map_key("n", "<leader>tm]", ":+tabmove<CR>", {desc = "[t]ab [m]ove forward" })
+	map_key("n", "<leader>tr", ":Tabby rename_tab ", {desc = "[t]ab [n]ame" })
 end
 
 function M.setupVScode()
