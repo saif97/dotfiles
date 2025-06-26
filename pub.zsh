@@ -16,10 +16,13 @@ alias pip='pip3'
 alias v='nvim'
 
 # ── Tmux stuff ────────────────────────────────────────────────────────
-alias tm="tmux attach"
+alias zellij="zellij -c $DOT_FILES/zellij/zellij.kdl"
+alias tm="zellij"
+alias tml="tm attach --create --index 0"
 alias tms="tmux source-file '$DOT_FILES/tmux/tmux.conf'"
 alias tmk="tmux kill-server"
 
+alias gm="gemini"
 alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
@@ -40,9 +43,9 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # ── Android studio stuff ──────────────────────────────────────────────
-  export ANDROID_HOME=~/Library/Android/sdk
-  export PATH=$PATH:$ANDROID_HOME/platform-tools
-  export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3 # Change this to latest version.
-  export PATH=$PATH:$ANDROID_HOME/tools
-  export PATH=$PATH:$ANDROID_HOME/tools/bin
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3 # Change this to latest version.
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 
