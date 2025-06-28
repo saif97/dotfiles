@@ -4,7 +4,7 @@ quit-after-last-window-closed = false
 window-decoration = none
 window-padding-y = 0,0
 window-padding-x = 0,0
-background-opacity = 0.95
+background-opacity = 0.75
 
 # Source: https://gist.github.com/adibhanna/c552c452fb244b3b721e3c2432e85cde
 #font-family = Iosevka Nerd Font
@@ -39,3 +39,6 @@ keybind = cmd+t>q=close_surface
 keybind = cmd+t>n=new_window
 
 cursor-style = bar
+
+# Claude Code
+keybind = shift+enter=text:\n

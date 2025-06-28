@@ -13,4 +13,3 @@ else
 	keymaps.setupNvim()
 end
 require("autoCmd")
-require("playground")

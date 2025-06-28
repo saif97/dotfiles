@@ -1,4 +1,4 @@
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/code_nvim/vim-plug/plugins.vim
 
 " autocmd FileType python :setlocal tabstop=1
 " autocmd FileType * ...
@@ -29,6 +29,7 @@ map  <leader>i <Plug>(easymotion-f)
 map  <leader>n <Plug>(easymotion-F)
 map  <leader>u <Plug>(easymotion-k)
 map  <leader>e <Plug>(easymotion-j)
+
 
 nnoremap o i|onoremap o i|xnoremap o i
 
