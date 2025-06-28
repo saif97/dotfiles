@@ -1,3 +1,6 @@
+# Disable vim mode in zsh for now.
+bindkey -e
+
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
 eval "$(starship init zsh)"
