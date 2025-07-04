@@ -251,8 +251,8 @@ neogit.setup {
   mappings = {
     commit_editor = {
       ["q"] = "Close",
-      ["<c-c><c-c>"] = "Submit",
-      ["<c-c><c-k>"] = "Abort",
+      ["<c-CR>"] = "Submit",
+      ["<c-b>"] = "Abort",
       ["<m-p>"] = "PrevMessage",
       ["<m-n>"] = "NextMessage",
       ["<m-r>"] = "ResetMessage",
