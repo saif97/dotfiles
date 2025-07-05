@@ -44,7 +44,7 @@ return {
 			commit_date_format = nil,
 			log_date_format = nil,
 			-- Show message with spinning animation when a git command is running.
-			process_spinner = false,
+			process_spinner = true,
 			-- Used to generate URL's for branch popup action "pull request".
 			git_services = {
 				["github.com"] = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
@@ -70,7 +70,7 @@ return {
 				underline = true
 			},
 			-- Set to false if you want to be responsible for creating _ALL_ keymappings
-			use_default_keymaps = true,
+			use_default_keymaps = false,
 			-- Neogit refreshes its internal state after specific events, which can be expensive depending on the repository size.
 			-- Disabling `auto_refresh` will make it so you have to manually refresh the status after you open it.
 			auto_refresh = true,
@@ -135,7 +135,7 @@ return {
 				-- "split_above" Like :top split
 				-- "vsplit_left" like :vsplit, but open to the left
 				-- "auto" "vsplit" if window would have 80 cols, otherwise "split"
-				staged_diff_split_kind = "split",
+				staged_diff_split_kind = "vsplit",
 				spell_check = true,
 			},
 			commit_select_view = {
@@ -184,7 +184,7 @@ return {
 				-- The diffview integration enables the diff popup.
 				--
 				-- Requires you to have `sindrets/diffview.nvim` installed.
-				diffview = nil,
+				diffview = true,
 
 				-- If enabled, uses fzf-lua for menu selection. If the telescope integration
 				-- is also selected then telescope is used instead
@@ -312,7 +312,7 @@ return {
 					["P"] = "PushPopup",
 					["X"] = "ResetPopup",
 					["Z"] = "StashPopup",
-					["i"] = "IgnorePopup",
+					["<c-i>"] = "IgnorePopup",
 					["t"] = "TagPopup",
 					["b"] = "BranchPopup",
 					["B"] = "BisectPopup",
@@ -345,7 +345,6 @@ return {
 					["<c-s>"] = "StageAll",
 					["<C-u>"] = "Unstage",
 					["K"] = "Untrack",
-					["U"] = false,
 					["<c-U>"] = "UnstageStaged",
 					["y"] = "ShowRefs",
 					["$"] = "CommandHistory",
