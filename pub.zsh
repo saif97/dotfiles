@@ -20,10 +20,8 @@ alias v='nvim'
 
 # ── Tmux stuff ────────────────────────────────────────────────────────
 alias zellij="zellij -c $DOT_FILES/zellij/zellij.kdl"
-alias tm="zellij"
-alias tml="tm attach --create --index 0"
-alias tms="tmux source-file '$DOT_FILES/tmux/tmux.conf'"
-alias tmk="tmux kill-server"
+alias tm="zellij attach --create --index 0" # attach to existing or create a new session
+alias tmn="zellij" # tm new
 
 alias gm="gemini"
 alias cld="claude --continue"
