@@ -105,11 +105,13 @@ function M.setupNvim()
 	map_key("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
 	map_key("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
-	-- [[ Section: Tab Management ]]
-	map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "[T]ab [n]ew" })
+-- ── tab stuff ───────────────────────────────────────────────────────
+	map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "Tab New" })
+	map_key("n", "<leader>tq", ":tabclose<CR>", { desc = "Tab Quit" })
+	map_key("n", "<leader>t.", ":tabNext<CR>", { desc = "Tab next" })
+	map_key("n", "<leader>t,", ":tabp<CR>", { desc = "Tab previous" })
 
 	-- [[ Section: Buffer Navigation ]]
-
 	-- Buffer switching
 	map_key({ "n", "i" }, "<C-.>", ":bnext<CR>", { desc = "Next buffer" })
 	map_key({ "n", "i" }, "<C-,>", ":bprevious<CR>", { desc = "Previous buffer" })
