@@ -106,5 +106,4 @@ else -- Neovim-only configurations
 
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
-	vim.opt.sessionoptions = "blank,buffers,curdir,folds,globals,help,localoptions,options,tabpages,winsize,terminal"
 end
