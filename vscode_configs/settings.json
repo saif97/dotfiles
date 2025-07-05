@@ -31,7 +31,7 @@
         /******************
         * TAB DECORATION *
       ******************/
-        "   ab.activeForeground": "#eaff00",
+        "ab.activeForeground": "#eaff00",
         "tab.unfocusedActiveForeground": "#ffffff",
         "terminal.ansiRed": "#f88",
         //
@@ -100,7 +100,7 @@
             ]
         },
         {
-                "command": "multiCommand.multiComSuggest",
+            "command": "multiCommand.multiComSuggest",
             "sequence": [
                 "editor.action.triggerSuggest",
                 "editor.action.triggerParameterHints",
@@ -661,7 +661,9 @@
     "cursor.composer.collapsePaneInputBoxPills": true,
     "workbench.editor.enablePreview": false,
     "cursor.cpp.enablePartialAccepts": true,
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "chat.agent.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": true,
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "diffEditor.hideUnchangedRegions.enabled": true,
 }
