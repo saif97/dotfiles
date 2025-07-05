@@ -1,7 +1,11 @@
 vim.lsp.enable({
-	"lua-ls",
-	"ts-ls",
+	"lua_ls",
+	"ts_ls",
+
+	-- ── Python stuff ────────────────────────────────────────────────────
 	"pyright",
+	"ruff",
+	-- "pyrefly", -- This might not be available
 })
 
 -- Diagnostic Config
