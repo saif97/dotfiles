@@ -8,7 +8,6 @@ else
 	-- Neovim-only configurations
 	keymaps.setupNvimPreLazy()
 	require("config.lazy")
-	require("config.lsp")
 	require("userCmds")
 	keymaps.setupNvim()
 end
