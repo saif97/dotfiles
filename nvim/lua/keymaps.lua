@@ -125,7 +125,7 @@ function M.setupNvim()
 
 	local builtin = require("telescope.builtin")
 	map_key("n", "<leader>sf", function()
-		builtin.find_files({ hidden = true, no_ignore = false, no_ignore_parent = false })
+		require("snacks").picker.files()
 	end, { desc = "[S]earch [F]iles" })
 	map_key("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 	map_key("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
