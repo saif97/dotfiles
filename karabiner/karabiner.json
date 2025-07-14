@@ -1257,6 +1257,38 @@
               {
                 "type": "basic",
                 "from": {
+                  "key_code": "m"
+                },
+                "to": [
+                  {
+                    "key_code": "f",
+                    "modifiers": [
+                      "command",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
                   "key_code": "comma"
                 },
                 "to": [
@@ -1274,7 +1306,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "org.mozilla.firefox"
                     ]
                   },
                   {
@@ -1313,7 +1346,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "org.mozilla.firefox"
                     ]
                   },
                   {
@@ -1336,18 +1370,60 @@
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "m"
+                  "key_code": "comma"
                 },
                 "to": [
                   {
-                    "key_code": "f",
+                    "key_code": "page_up",
                     "modifiers": [
-                      "command",
-                      "shift"
+                      "control"
                     ]
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "org.mozilla.firefox"
+                    ]
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period"
+                },
+                "to": [
+                  {
+                    "key_code": "page_down",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "org.mozilla.firefox"
+                    ]
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
@@ -2699,6 +2775,7 @@
                     "bundle_identifiers": [
                       "com.google.Chrome",
                       "com.apple.Safari",
+                      "org.mozilla.firefox",
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
                       "dev.warp.Warp-Stable",
