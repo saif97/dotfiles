@@ -50,3 +50,7 @@ export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3 # Change this to latest versi
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 
+# ── Key bindings ───────────────────────────────────────────────────────
+# Bind Alt+Delete to forward delete word
+bindkey '^[[3;3~' kill-word
+

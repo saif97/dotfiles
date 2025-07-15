@@ -42,3 +42,7 @@ cursor-style = bar
 
 # Claude Code
 keybind = shift+enter=text:\n
+
+# Quality of life
+# sets delete forward a word
+keybind = alt+delete=text:\x1b[3;3~ 
