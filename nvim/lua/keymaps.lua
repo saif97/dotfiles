@@ -190,6 +190,12 @@ function M.setupNvim()
 		vim.notify("Copied: " .. file_dir)
 	end, { desc = "Copy [p]ath [r]elative to the selected file" })
 
+	map_key({ "n" }, "<leader>pp", function()
+		local cwd = vim.fn.getcwd()
+		vim.fn.setreg("+", cwd)
+		vim.notify("Copied: " .. cwd)
+	end, { desc = "copy Path to Project directory" })
+
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
 	map_key({ "i" }, "<D-y>", "<End>", { desc = "" })
