@@ -121,22 +121,23 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>e", ":Neotree filesystem focus left<CR>", { desc = "Open file explorer" })
 	map_key({ "n" }, "<leader>sp", ":SessionSearch<CR>", { desc = "[S]earch [P]rojects" })
 
-	-- [[ Section: Telescope Integration ]]
+	-- [[ Section: Snacks Integration ]]
 
-	local builtin = require("telescope.builtin")
-	map_key("n", "<leader>sf", function()
-		require("snacks").picker.files()
-	end, { desc = "[S]earch [F]iles" })
-	map_key("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-	map_key("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-	map_key("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-	map_key("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-	map_key("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
-	map_key("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-	map_key("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-	map_key("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-	map_key("n", "<leader>sn", require("telescope").extensions.notify.notify, { desc = "[S]earch [n]otify" })
-	map_key({ "n" }, "<leader>sc", ":Telescope commands<CR>", { desc = "[S]earch [C]ommands" })
+	local picker = require("snacks").picker
+	map_key("n", "<leader>sf", picker.files, { desc = "[S]earch [F]iles" })
+	map_key("n", "<leader>sg", picker.grep, { desc = "[S]earch by [G]rep" })
+	map_key("n", "<leader>sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
+	map_key("n", "<leader>s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
+	map_key("n", "<leader>ss", function() -- builtin picker is not implemented in snacks
+		vim.notify("Snacks does not have a builtin picker.", vim.log.levels.WARN)
+	end, { desc = "[S]earch [S]elect Telescope" })
+	map_key("n", "<leader>sh", picker.help, { desc = "[S]earch [H]elp" })
+	map_key("n", "<leader>sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
+	map_key("n", "<leader>sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
+	map_key("n", "<leader>sr", picker.resume, { desc = "[S]earch [R]esume" })
+	map_key("n", "<leader>sn", picker.notifications
+	, { desc = "[S]earch [n]otify" })
+	map_key({ "n" }, "<leader>sc", picker.commands, { desc = "[S]earch [C]ommands" })
 
 	-- [[ Section: LSP Integration ]]
 
@@ -270,31 +271,32 @@ function M.setupLsp(event)
 	-- Jump to the definition of the word under your cursor.
 	--  This is where a variable was first declared, or where a function is defined, etc.
 	--  To jump back, press <C-t>.
-	map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+	local picker = require("snacks").picker
+	map("gd", picker.lsp_definitions, "Goto Definition")
 
 	-- Find references for the word under your cursor.
-	map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+	map("gr", picker.lsp_references, "Goto References")
 
 	-- Jump to the implementation of the word under your cursor.
 	--  Useful when your language has ways of declaring types without an actual implementation.
-	map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+	map("gI", picker.lsp_implementations, "Goto Implementation")
 
 	-- Jump to the type of the word under your cursor.
 	--  Useful when you're not sure what type a variable is and you want to see
 	--  the definition of its *type*, not where it was *defined*.
-	map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+	map("<leader>D", picker.lsp_type_definitions, "Type Definition")
 
 	-- Fuzzy find all the symbols in your current document.
 	--  Symbols are things like variables, functions, types, etc.
-	map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+	map("<leader>ds", picker.lsp_symbols, "Document Symbols")
 
 	-- Fuzzy find all the symbols in your current workspace.
 	--  Similar to document symbols, except searches over your entire project.
-	map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+	map("<leader>ws", picker.lsp_workspace_symbols, "Workspace Symbols")
 
 	-- Rename the variable under your cursor.
 	--  Most Language Servers support renaming across files, etc.
-	map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+	map("<leader>rn", vim.lsp.buf.rename, "Rename")
 
 	-- Execute a code action, usually your cursor needs to be on top of an error
 	-- or a suggestion from your LSP for this to activate.
