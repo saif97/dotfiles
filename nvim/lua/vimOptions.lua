@@ -106,4 +106,8 @@ else -- Neovim-only configurations
 
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
+
+	vim.g.copilot_filetypes = {
+		{ "xml", "false" }
+	}
 end
