@@ -51,7 +51,8 @@ return {
 
 			-- Setup mason-lspconfig
 			require("mason-lspconfig").setup({
-				automatic_installation = false,
+				automatic_installation = true,
+				ensure_installed = servers,
 			})
 
 			-- Enable LSP servers using Neovim 0.11+ API
@@ -85,16 +86,5 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"mason-org/mason-lspconfig.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-		},
-		---@class MasonLspConfigSettings
-		opts = {
-			ensure_installed = servers,
-			automatic_installation = true,
-		},
 	},
 }
