@@ -9,6 +9,8 @@ local servers = {
 	"html",
 	"cssls",
 	"jsonls",
+	"bashls",
+	"dockerls",
 }
 
 local personal_servers = {
