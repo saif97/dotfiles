@@ -23,11 +23,11 @@ alias zellij="zellij -c $DOT_FILES/zellij/zellij.kdl"
 alias tm="zellij attach --create --index 0" # attach to existing or create a new session
 alias tmn="zellij" # tm new
 
-alias gm="gemini"
 alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
 alias cpy="pbcopy <"
+alias dcr="docker"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
