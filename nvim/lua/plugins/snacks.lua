@@ -27,6 +27,36 @@ return {
 				frecency = true,  -- frecency bonus
 				history_bonus = true, -- give more weight to chronological order
 			},
+			win = {
+				-- input window
+				input = {
+					keys = {
+						-- to close the picker on ESC instead of going to normal mode,
+						-- add the following keymap to your config
+						["<Esc>"] = { "close", mode = { "n", "i" } },
+						["<D-Down>"] = { "history_forward", mode = { "i", "n" } },
+						["<D-Up>"] = { "history_back", mode = { "i", "n" } },
+						["<D-f>"] = { "toggle_follow", mode = { "i", "n" } },
+						["<D-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+						["<D-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+						["<D-m>"] = { "toggle_maximize", mode = { "i", "n" } },
+						["<D-p>"] = { "toggle_preview", mode = { "i", "n" } },
+					},
+					b = {
+						minipairs_disable = true,
+					},
+				},
+				-- result list window
+				list = {
+					keys = {
+						["<D-f>"] = "toggle_follow",
+						["<D-h>"] = "toggle_hidden",
+						["<D-i>"] = "toggle_ignored",
+						["<D-m>"] = "toggle_maximize",
+						["<D-p>"] = "toggle_preview",
+					},
+				},
+			},
 		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },

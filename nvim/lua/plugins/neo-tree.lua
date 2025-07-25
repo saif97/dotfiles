@@ -73,12 +73,19 @@ return {
 			},
 			hijack_netrw_behavior = "open_current", -- Optional: Adjusts netrw behavior
 			filtered_items = {
-				visible = true,                    -- This will show hidden items by default
-				hide_dotfiles = false,             -- This will show dotfiles
-				hide_gitignored = false,           -- This will show gitignored files
+				visible = false,
+				hide_dotfiles = false,
+				hide_gitignored = false,
 				hide_by_name = {
-					".DS_Store",                      -- Hides .DS_Store files
+					-- ".DS_Store",
+					"node_modules",
+					"__pycache__",
+					".pytest_cache",
+
 				},
+				never_show = {
+					".DS_Store",
+				}
 			},
 		},
 	},

@@ -8,7 +8,8 @@ local M = {}
 
 -- This is common keymaps between VScode & Nvim
 function M.setup()
-	-- [[ Section: Colemak-inspired Navigation ]]
+	map_key("n", "q", "<Nop>", { desc = "Disable 'q' key in normal mode" })
+	map_key("n", "Q", "q", { desc = "Record macro" })
 
 	-- Basic movement (Colemak-inspired)
 	map_key(allModes, "e", "j", { desc = "Move down" })
@@ -105,7 +106,7 @@ function M.setupNvim()
 	map_key("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
 	map_key("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
--- ── tab stuff ───────────────────────────────────────────────────────
+	-- ── tab stuff ───────────────────────────────────────────────────────
 	map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "Tab New" })
 	map_key("n", "<leader>tq", ":tabclose<CR>", { desc = "Tab Quit" })
 	map_key("n", "<leader>t.", ":tabNext<CR>", { desc = "Tab next" })
@@ -124,7 +125,13 @@ function M.setupNvim()
 	-- [[ Section: Snacks Integration ]]
 
 	local picker = require("snacks").picker
-	map_key("n", "<leader>sf", picker.files, { desc = "[S]earch [F]iles" })
+	map_key("n", "<leader>sf", function()
+		picker.files({
+			hidden = true,
+			follow = true,
+		})
+	end, { desc = "[S]earch [F]iles" })
+
 	map_key("n", "<leader>sg", picker.grep, { desc = "[S]earch by [G]rep" })
 	map_key("n", "<leader>sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
 	map_key("n", "<leader>s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -132,6 +139,7 @@ function M.setupNvim()
 	map_key("n", "<leader>sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
 	map_key("n", "<leader>sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	map_key("n", "<leader>sr", picker.resume, { desc = "[S]earch [R]esume" })
+	map_key("n", "<leader>sb", picker.git_branches, { desc = "Search Branches" })
 	map_key("n", "<leader>ss", Snacks.picker.spelling, { desc = "Search Spell" })
 	map_key("n", "<leader>sn", picker.notifications
 	, { desc = "[S]earch [n]otify" })
