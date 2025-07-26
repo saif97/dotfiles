@@ -107,10 +107,10 @@ function M.setupNvim()
 	map_key("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
 
 	-- ── tab stuff ───────────────────────────────────────────────────────
-	map_key("n", "<leader>tn", ":tabnew<CR>", { desc = "Tab New" })
-	map_key("n", "<leader>tq", ":tabclose<CR>", { desc = "Tab Quit" })
-	map_key("n", "<leader>t.", ":tabNext<CR>", { desc = "Tab next" })
-	map_key("n", "<leader>t,", ":tabp<CR>", { desc = "Tab previous" })
+	map_key("n", "tn", ":tabnew<CR>", { desc = "Tab New" })
+	map_key("n", "tq", ":tabclose<CR>", { desc = "Tab Quit" })
+	map_key("n", "t.", ":tabNext<CR>", { desc = "Tab next" })
+	map_key("n", "t,", ":tabp<CR>", { desc = "Tab previous" })
 
 	-- [[ Section: Buffer Navigation ]]
 	-- Buffer switching
@@ -201,6 +201,12 @@ function M.setupNvim()
 		local cwd = vim.fn.getcwd()
 		vim.fn.setreg("+", cwd)
 		vim.notify("Copied: " .. cwd)
+	end, { desc = "copy Path to Project directory" })
+
+	map_key({ "n" }, "<leader>pf", function()
+		local file_path = vim.fn.expand("%:p")
+		vim.fn.setreg("+", file_path)
+		vim.notify("Copied: " .. file_path)
 	end, { desc = "copy Path to Project directory" })
 
 	-- [[ Section: Insert mode text editing ]]
