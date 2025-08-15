@@ -2,6 +2,8 @@
 - [✓] NeoGit picks up the commit name 
 - [✓] Given the word under cursor, use picker to find its right spelling 
 - [✓] Togglable Terminal 
+- [✓] setup DiffView
+- [ ] A better way for Git Actions
 - [ ] selecting multiple words selects the entire paragraph
 - [ ] In NeoGit, a better way to show commit Diffs 
 - [ ] remove cmd bar

@@ -37,7 +37,7 @@ return {
 						["<D-Down>"] = { "history_forward", mode = { "i", "n" } },
 						["<D-Up>"] = { "history_back", mode = { "i", "n" } },
 						["<D-f>"] = { "toggle_follow", mode = { "i", "n" } },
-						["<D-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+						["<D-d>"] = { "toggle_hidden", mode = { "i", "n" } },
 						["<D-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 						["<D-m>"] = { "toggle_maximize", mode = { "i", "n" } },
 						["<D-p>"] = { "toggle_preview", mode = { "i", "n" } },
@@ -50,7 +50,7 @@ return {
 				list = {
 					keys = {
 						["<D-f>"] = "toggle_follow",
-						["<D-h>"] = "toggle_hidden",
+						["<D-d>"] = "toggle_hidden",
 						["<D-i>"] = "toggle_ignored",
 						["<D-m>"] = "toggle_maximize",
 						["<D-p>"] = "toggle_preview",

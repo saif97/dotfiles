@@ -82,7 +82,7 @@ return {
 			-- Default for new branch name prompts
 			initial_branch_name = "",
 			-- Change the default way of opening neogit
-			kind = "tab",
+			kind = "replace",
 			-- Floating window style
 			floating = {
 				relative = "editor",
@@ -250,7 +250,7 @@ return {
 			},
 			mappings = {
 				commit_editor = {
-					["q"] = "Close",
+					["q"] = "Abort",
 					["<c-CR>"] = "Submit",
 					["<c-b>"] = "Abort",
 					["<m-p>"] = "PrevMessage",

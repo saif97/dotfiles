@@ -29,6 +29,14 @@ alias lg="lazygit"
 alias cpy="pbcopy <"
 alias dcr="docker"
 
+
+if [[ -n "$IS_PERSONAL" ]]; then
+	echo "Using personal configuration"
+	alias flutter="fvm flutter"
+	alias f="flutter"
+fi
+
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Locale settings

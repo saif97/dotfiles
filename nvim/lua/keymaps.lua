@@ -102,13 +102,13 @@ function M.setupNvim()
 	map_key("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
 	map_key("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
 
-	map_key("n", "<leader>wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
-	map_key("n", "<leader>wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
-	map_key("n", "<leader>wq", "<C-w>q", { desc = "[W]indow Close" })
+	map_key("n", "wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
+	map_key("n", "wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
+	map_key("n", "w/", "<C-w>q", { desc = "[W]indow Close" })
 
 	-- ── tab stuff ───────────────────────────────────────────────────────
 	map_key("n", "tn", ":tabnew<CR>", { desc = "Tab New" })
-	map_key("n", "tq", ":tabclose<CR>", { desc = "Tab Quit" })
+	map_key("n", "t/", ":tabclose<CR>", { desc = "Tab Quit" })
 	map_key("n", "t.", ":tabNext<CR>", { desc = "Tab next" })
 	map_key("n", "t,", ":tabp<CR>", { desc = "Tab previous" })
 
@@ -125,24 +125,27 @@ function M.setupNvim()
 	-- [[ Section: Snacks Integration ]]
 
 	local picker = require("snacks").picker
-	map_key("n", "<leader>sf", function()
-		picker.files({
-			hidden = true,
-			follow = true,
-		})
-	end, { desc = "[S]earch [F]iles" })
-
-	map_key("n", "<leader>sg", picker.grep, { desc = "[S]earch by [G]rep" })
+	local defaultPickerConfig = {
+		follow = true,
+		hidden = true,
+	}
+	map_key("n", "<leader>sf", function() picker.files(defaultPickerConfig) end, { desc = "[S]earch [F]iles" })
+	map_key("n", "<leader>sg", function() picker.grep(defaultPickerConfig) end, { desc = "[S]earch by [G]rep" })
 	map_key("n", "<leader>sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
 	map_key("n", "<leader>s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
 	map_key("n", "<leader>sh", picker.help, { desc = "[S]earch [H]elp" })
 	map_key("n", "<leader>sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
 	map_key("n", "<leader>sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	map_key("n", "<leader>sr", picker.resume, { desc = "[S]earch [R]esume" })
-	map_key("n", "<leader>sb", picker.git_branches, { desc = "Search Branches" })
+	map_key("n", "<leader>sb", function()
+		picker.git_branches({
+			layout = {
+				preset = "vscode"
+			}
+		})
+	end, { desc = "Search Branches" })
 	map_key("n", "<leader>ss", Snacks.picker.spelling, { desc = "Search Spell" })
-	map_key("n", "<leader>sn", picker.notifications
-	, { desc = "[S]earch [n]otify" })
+	map_key("n", "<leader>sn", picker.notifications, { desc = "[S]earch [n]otify" })
 	map_key({ "n" }, "<leader>sc", picker.commands, { desc = "[S]earch [C]ommands" })
 
 	-- [[ Section: LSP Integration ]]
@@ -248,6 +251,18 @@ function M.setupNvim()
 	map_key("n", "<Leader>cl", "<Cmd>CBline<CR>", { desc = "[c]ode [l]ine" })
 	-- Marked comments
 	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "[c]ode [m]arked comments" })
+
+	-- ── DiffView stuff ─────────────────────────────────────────────────
+	map_key({ "n" }, "<leader>dv", ":DiffviewFileHistory<CR>", { desc = "DiffView file history" })
+	map_key({ "n" }, "<leader>df", ":DiffviewFileHistory %<CR>", { desc = "Diffview File history" })
+	map_key({ "n" }, "<leader>dc", ":DiffviewOpen<CR>", { desc = "Diff local Changes" })
+
+
+	vim.keymap.set('i', "<C-y>", 'copilot#Accept("\\<CR>")', {
+		expr = true,
+		replace_keycodes = false
+	})
+	vim.g.copilot_no_tab_map = true
 end
 
 function M.setupVScode()
