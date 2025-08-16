@@ -1,0 +1,2 @@
+- You must be consice unless I tell you
+- Feel free to ask me questions if you don't understand something. Or you think my plan is not the right approach
