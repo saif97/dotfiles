@@ -129,24 +129,24 @@ function M.setupNvim()
 		follow = true,
 		hidden = true,
 	}
-	map_key("n", "<leader>sf", function() picker.files(defaultPickerConfig) end, { desc = "[S]earch [F]iles" })
-	map_key("n", "<leader>sg", function() picker.grep(defaultPickerConfig) end, { desc = "[S]earch by [G]rep" })
-	map_key("n", "<leader>sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
-	map_key("n", "<leader>s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
-	map_key("n", "<leader>sh", picker.help, { desc = "[S]earch [H]elp" })
-	map_key("n", "<leader>sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
-	map_key("n", "<leader>sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
-	map_key("n", "<leader>sr", picker.resume, { desc = "[S]earch [R]esume" })
-	map_key("n", "<leader>sb", function()
+	map_key("n", "sf", function() picker.files(defaultPickerConfig) end, { desc = "[S]earch [F]iles" })
+	map_key("n", "sg", function() picker.grep(defaultPickerConfig) end, { desc = "[S]earch by [G]rep" })
+	map_key("n", "sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
+	map_key("n", "s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
+	map_key("n", "sh", picker.help, { desc = "[S]earch [H]elp" })
+	map_key("n", "sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
+	map_key("n", "sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
+	map_key("n", "sr", picker.resume, { desc = "[S]earch [R]esume" })
+	map_key("n", "sb", function()
 		picker.git_branches({
 			layout = {
 				preset = "vscode"
 			}
 		})
 	end, { desc = "Search Branches" })
-	map_key("n", "<leader>ss", Snacks.picker.spelling, { desc = "Search Spell" })
-	map_key("n", "<leader>sn", picker.notifications, { desc = "[S]earch [n]otify" })
-	map_key({ "n" }, "<leader>sc", picker.commands, { desc = "[S]earch [C]ommands" })
+	map_key("n", "ss", Snacks.picker.spelling, { desc = "Search Spell" })
+	map_key("n", "sn", picker.notifications, { desc = "[S]earch [n]otify" })
+	map_key({ "n" }, "sc", picker.commands, { desc = "[S]earch [C]ommands" })
 
 	-- [[ Section: LSP Integration ]]
 

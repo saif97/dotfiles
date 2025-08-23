@@ -37,48 +37,42 @@ keybinds clear-defaults=true {
         bind "c" { NewTab; SwitchToMode "Normal"; }
         bind "," { GoToPreviousTab; SwitchToMode "Normal"; } // <
         bind "." { GoToNextTab; SwitchToMode "Normal"; } // >
-        bind "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "Up" { MoveFocus "Up"; SwitchToMode "Normal"; }
-        bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
-        bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }
-        bind "j" { MoveFocus "Down"; SwitchToMode "Normal"; }
-        bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
+
+				// ── pane movement ────────────────────────────────────────────────────
+        bind "n" { MoveFocus "Left"; SwitchToMode "Normal"; }
+        bind "i" { MoveFocus "Right"; SwitchToMode "Normal"; }
+        bind "e" { MoveFocus "Down"; SwitchToMode "Normal"; }
+        bind "u" { MoveFocus "Up"; SwitchToMode "Normal"; }
+				bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
         bind "q" { CloseFocus; SwitchToMode "Normal"; }
         bind "q" { Detach; }
     }
 
-    resize {
-        bind "h" "Left" { Resize "Increase Left"; }
-        bind "j" "Down" { Resize "Increase Down"; }
-        bind "k" "Up" { Resize "Increase Up"; }
-        bind "l" "Right" { Resize "Increase Right"; }
-        bind "H" { Resize "Decrease Left"; }
-        bind "J" { Resize "Decrease Down"; }
-        bind "K" { Resize "Decrease Up"; }
-        bind "L" { Resize "Decrease Right"; }
-        bind "=" "+" { Resize "Increase"; }
-        bind "-" { Resize "Decrease"; }
-    }
     pane {
-        bind "h" "Left" { MoveFocus "Left"; }
-        bind "l" "Right" { MoveFocus "Right"; }
-        bind "j" "Down" { MoveFocus "Down"; }
-        bind "k" "Up" { MoveFocus "Up"; }
+        bind "n" "Left" { MoveFocus "Left"; }
+        bind "i" "Right" { MoveFocus "Right"; }
+        bind "e" "Down" { MoveFocus "Down"; }
+        bind "u" "Up" { MoveFocus "Up"; }
+
+        bind "N" "Left" { Resize "Increase Left"; }
+        bind "E" "Down" { Resize "Increase Down"; }
+        bind "U" "Up" { Resize "Increase Up"; }
+        bind "I" "Right" { Resize "Increase Right"; }
+
         bind "p" { SwitchFocus; }
-        bind "n" { NewPane; SwitchToMode "Normal"; }
-        bind "d" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
-        bind "q" { CloseFocus; SwitchToMode "Normal"; }
+        bind "t" { NewPane; SwitchToMode "Normal"; }
+        bind "h" { NewPane "Down"; }
+        bind "v" { NewPane "Right"; }
+        bind "/" { CloseFocus;}
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
-        bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
-        bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
+        bind "l" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+        bind "L" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
-        bind "i" { TogglePanePinned; SwitchToMode "Normal"; }
+        // bind "" { TogglePanePinned; SwitchToMode "Normal"; }
     }
     move {
         bind "n" "Tab" { MovePane; }

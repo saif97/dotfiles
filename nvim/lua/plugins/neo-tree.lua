@@ -17,6 +17,8 @@ return {
 				-- Map 'u' to move up
 				-- ["u"] = "navigate_up", -- Moves the cursor up in the tree
 				["n"] = "close_node",
+				["<Left>"] = "close_node",
+				
 
 				-- Map 'e' to move down
 				["e"] = "", -- Moves the cursor down in the tree
@@ -24,7 +26,9 @@ return {
 
 				-- Map 'i' to go inside (expand directory or open file)
 				["i"] = "open",         -- Expands a directory or opens a file
+				["<Right>"] = "open",         -- Expands a directory or opens a file
 				["<Esc>"] = "close_window", -- Closes Neo-tree when pressing Escape twice
+				["p"] = "focus_preview", -- Closes Neo-tree when pressing Escape twice
 
 				["<leader>pn"] = {
 					desc = "Copy [p]ath but [f]ilename only",
