@@ -5,7 +5,7 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 
-HISTORY_IGNORE="(ls|cd|pwd|exit|cd|v|nvim)*"
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd|v|nvim|tm)*"
 
 
 # https://zsh.sourceforge.io/Doc/Release/Options.html (16.2.4 History)

@@ -43,7 +43,7 @@ keybinds clear-defaults=true {
         bind "i" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "e" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "u" { MoveFocus "Up"; SwitchToMode "Normal"; }
-				bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+				bind "l" { ToggleFocusFullscreen; SwitchToMode "Normal"; } // fuLlscreen
 
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }

@@ -110,22 +110,17 @@ writeToProfile(
 		layer("4", "symbolLayer")
 			.configKey((v) => v.toIfAlone("b", ["control"]), true)
 			.manipulators([
+				map("u").to("4", ['shift']), // $ doLlar
+				map("i").to("7", ["shift"]), // & aNd
 				map("j").to("9", ["shift"]), // (
 				map("k").to("0", ["shift"]), // )
-				map("n").to("open_bracket"), // [
-				map("m").to("close_bracket"), // ]
-				map("u").to("open_bracket", ["shift"]), // {
-				map("i").to("close_bracket", ["shift"]), // }
-				map("semicolon").to("comma", ["shift"]), // <
-				map("period").to("period", ["shift"]), // >
-				map("l").to("1", ["shift"]), // !
-				map("o").to("2", ["shift"]), // @
+				map("l").to("1", ["shift"]), // ! i for !
+				map("semicolon").to("2", ["shift"]), // @ O for @
 				map("h").to("3", ["shift"]), // #
-				map("semicolon").to("4", ["shift"]), // $
+				map("r").to("5", ["shift"]), // % Percent
+				map("period").to("8", ["shift"]), // . for times 
+				map("m").to("grave_accent_and_tilde", ["shift"]), // hoMe ~
 				map("quote").to("grave_accent_and_tilde"), // `
-				map("p").to("5", ["shift"]), // %
-				map("b").to("7", ["shift"]), // &
-				map("y").to("8", ["shift"]), // *
 				map("spacebar").to("hyphen", ["shift"]), // _
 			]),
 
@@ -208,8 +203,8 @@ writeToProfile(
 			map("return_or_enter").to("semicolon", ["command"]).condition(ifApp("com.apple.finder")),
 
 			mapWithAnyMod("tab").toIfHeldDown("left_control").toIfAlone("tab"),
-			map("l", ["control"]).to("tab",["control"]).condition(ifApp(APP_ID_FIREFOX)),
-			map("j", ["control"]).to("tab",["control", "shift"]).condition(ifApp(APP_ID_FIREFOX)),
+			map("l", ["control"]).to("tab", ["control"]).condition(ifApp(APP_ID_FIREFOX)),
+			map("j", ["control"]).to("tab", ["control", "shift"]).condition(ifApp(APP_ID_FIREFOX)),
 			mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
 
 			map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode

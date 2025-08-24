@@ -93,8 +93,8 @@ end
 -- Automatically reload files when they change on disk externally.
 vim.opt.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-  desc = "Check for external file changes",
-  group = vim.api.nvim_create_augroup("auto-checktime", { clear = true }),
-  pattern = "*",
-  command = "checktime",
+	desc = "Check for external file changes",
+	group = vim.api.nvim_create_augroup("auto-checktime", { clear = true }),
+	pattern = "*",
+	command = "checktime",
 })

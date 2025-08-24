@@ -82,7 +82,7 @@ return {
 			-- Default for new branch name prompts
 			initial_branch_name = "",
 			-- Change the default way of opening neogit
-			kind = "replace",
+			kind = "tab",
 			-- Floating window style
 			floating = {
 				relative = "editor",
@@ -313,10 +313,10 @@ return {
 					["X"] = "ResetPopup",
 					["Z"] = "StashPopup",
 					["<c-i>"] = "IgnorePopup",
-					["t"] = "TagPopup",
+					["T"] = "TagPopup",
 					["b"] = "BranchPopup",
 					["B"] = "BisectPopup",
-					["w"] = "WorktreePopup",
+					["W"] = "WorktreePopup",
 					["c"] = "CommitPopup",
 					["f"] = "FetchPopup",
 					["l"] = "LogPopup",
