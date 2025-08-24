@@ -109,7 +109,7 @@ function M.setupNvim()
 	-- ── tab stuff ───────────────────────────────────────────────────────
 	map_key("n", "tn", ":tabnew<CR>", { desc = "Tab New" })
 	map_key("n", "t/", ":tabclose<CR>", { desc = "Tab Quit" })
-	map_key("n", "t.", ":tabNext<CR>", { desc = "Tab next" })
+	map_key("n", "t.", ":tabn<CR>", { desc = "Tab next" })
 	map_key("n", "t,", ":tabp<CR>", { desc = "Tab previous" })
 
 	-- [[ Section: Buffer Navigation ]]
