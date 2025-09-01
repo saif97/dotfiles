@@ -206,11 +206,11 @@ function M.setupNvim()
 		vim.notify("Copied: " .. cwd)
 	end, { desc = "copy Path to Project directory" })
 
-	map_key({ "n" }, "<leader>pf", function()
+	map_key({ "n" }, "<leader>pa", function()
 		local file_path = vim.fn.expand("%:p")
 		vim.fn.setreg("+", file_path)
 		vim.notify("Copied: " .. file_path)
-	end, { desc = "copy Path to Project directory" })
+	end, { desc = "copy Path Abosulte to file" })
 
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
@@ -300,6 +300,10 @@ function M.setupLsp(event)
 	--  To jump back, press <C-t>.
 	local picker = require("snacks").picker
 	map("gd", picker.lsp_definitions, "Goto Definition")
+	map("ge", function()
+		vim.diagnostic.open_float()
+		vim.cmd('wincmd w')
+	end, "Goto Errors")
 
 	-- Find references for the word under your cursor.
 	map("gr", picker.lsp_references, "Goto References")
