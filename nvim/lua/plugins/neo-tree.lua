@@ -14,6 +14,7 @@ return {
 		window = {
 			mappings = {
 				["<BS>"] = "", -- Disables backspace navigation
+				["."] = "", -- Disables backspace navigation
 				-- Map 'u' to move up
 				-- ["u"] = "navigate_up", -- Moves the cursor up in the tree
 				["n"] = "close_node",

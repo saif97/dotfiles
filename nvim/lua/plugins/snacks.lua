@@ -31,8 +31,8 @@ return {
 						-- to close the picker on ESC instead of going to normal mode,
 						-- add the following keymap to your config
 						["<Esc>"] = { "close", mode = { "n", "i" } },
-						["<D-Down>"] = { "history_forward", mode = { "i", "n" } },
-						["<D-Up>"] = { "history_back", mode = { "i", "n" } },
+						["<D-e>"] = { "history_forward", mode = { "i", "n" } },
+						["<D-u>"] = { "history_back", mode = { "i", "n" } },
 						["<D-f>"] = { "toggle_follow", mode = { "i", "n" } },
 						["<D-d>"] = { "toggle_hidden", mode = { "i", "n" } },
 						["<D-i>"] = { "toggle_ignored", mode = { "i", "n" } },

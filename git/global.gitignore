@@ -1,0 +1,6 @@
+# git config --global core.excludefiles $DOT_FILES/git/global.gitignore
+
+*.log
+logs
+
+**/.DS_Store
