@@ -34,6 +34,10 @@ alias lg="lazygit"
 alias cpy="pbcopy <"
 alias dcr="docker"
 
+mkcd(){
+	mkdir -p "$1" && cd "$1"
+	pwd
+}
 
 if [[ -n "$IS_PERSONAL" ]]; then
 	echo "Using personal configuration"

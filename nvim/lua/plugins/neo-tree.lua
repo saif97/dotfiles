@@ -29,7 +29,6 @@ return {
 				["i"] = "open",         -- Expands a directory or opens a file
 				["<Right>"] = "open",         -- Expands a directory or opens a file
 				["<Esc>"] = "close_window", -- Closes Neo-tree when pressing Escape twice
-				["p"] = "focus_preview", -- Closes Neo-tree when pressing Escape twice
 
 				["<leader>pn"] = {
 					desc = "Copy [p]ath but [f]ilename only",
