@@ -43,6 +43,13 @@ return {
 						minipairs_disable = true,
 					},
 				},
+				preview = {
+					keys = {
+						["i"] = false,
+						["<Esc>"] = "focus_input",
+					},
+				},
+
 				-- result list window
 				list = {
 					keys = {

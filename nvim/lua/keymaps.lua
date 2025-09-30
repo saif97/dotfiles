@@ -82,7 +82,7 @@ function M.setupNvim()
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
-	map_key({ "t" }, "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+	map_key({ "t" }, "<F14>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
 
 	-- Quick exit
@@ -256,13 +256,6 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>dv", ":DiffviewFileHistory<CR>", { desc = "DiffView file history" })
 	map_key({ "n" }, "<leader>df", ":DiffviewFileHistory %<CR>", { desc = "Diffview File history" })
 	map_key({ "n" }, "<leader>dc", ":DiffviewOpen<CR>", { desc = "Diff local Changes" })
-
-
-	vim.keymap.set('i', "<C-y>", 'copilot#Accept("\\<CR>")', {
-		expr = true,
-		replace_keycodes = false
-	})
-	vim.g.copilot_no_tab_map = true
 end
 
 function M.setupVScode()
