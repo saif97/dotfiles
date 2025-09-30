@@ -110,11 +110,13 @@ writeToProfile(
 		layer("4", "symbolLayer")
 			.configKey((v) => v.toIfAlone("b", ["control"]), true)
 			.manipulators([
-				map("u").to("4", ['shift']), // $ doLlar
-				map("i").to("7", ["shift"]), // & aNd
+				map("u").to("[", ['shift']), // {
+				map("i").to("]", ["shift"]), // }
 				map("j").to("9", ["shift"]), // (
 				map("k").to("0", ["shift"]), // )
 				map("l").to("1", ["shift"]), // ! i for !
+				map("n").to("7", ["shift"]), // &
+				map("o").to("5", ["shift"]), // %
 				map("semicolon").to("2", ["shift"]), // @ O for @
 				map("h").to("3", ["shift"]), // #
 				map("r").to("5", ["shift"]), // % Percent

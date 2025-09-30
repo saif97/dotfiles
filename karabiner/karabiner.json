@@ -1734,7 +1734,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "4",
+                    "key_code": "open_bracket",
                     "modifiers": [
                       "shift"
                     ]
@@ -1755,7 +1755,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "7",
+                    "key_code": "close_bracket",
                     "modifiers": [
                       "shift"
                     ]
@@ -1819,6 +1819,48 @@
                 "to": [
                   {
                     "key_code": "1",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "symbolLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "symbolLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "5",
                     "modifiers": [
                       "shift"
                     ]
