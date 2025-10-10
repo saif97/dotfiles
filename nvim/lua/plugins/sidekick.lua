@@ -1,6 +1,6 @@
 return {
 	"folke/sidekick.nvim",
-	dependencies = { "zbirenbaum/copilot.lua" },
+	-- dir = "/Users/saifhakeam/dev/openSourcing/sidekick.nvim",
 	opts = {
 		-- add any options here
 		cli = {
@@ -42,7 +42,7 @@ return {
 		{
 			"<leader>ac",
 			function()
-				require("sidekick.cli").toggle({ name = "gemini", focus = true })
+				require("sidekick.cli").toggle({ name = "amazon_q", focus = true })
 			end,
 			desc = "Sidekick Claude Toggle",
 			mode = { "n", "v" },
@@ -58,7 +58,7 @@ return {
 		{
 			"<leader>ap",
 			function()
-				require("sidekick.cli").select_prompt()
+				require("sidekick.cli").prompt()
 			end,
 			desc = "Sidekick Ask Prompt",
 			mode = { "n", "v" },

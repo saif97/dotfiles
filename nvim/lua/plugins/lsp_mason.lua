@@ -15,6 +15,31 @@ local servers = {
 
 local personal_servers = {
 	"solidity",
+	"copilot",
+}
+
+if os.getenv("IS_PERSONAL_MACHINE") then
+	vim.list_extend(servers, personal_servers)
+end
+
+-- Consolidated LSP configuration
+-- Combines mason.nvim, mason-lspconfig.nvim, and nvim-lspconfig setup
+
+local servers = {
+	"lua_ls",
+	"pyright",
+	"ruff",
+	"ts_ls",
+	"html",
+	"cssls",
+	"jsonls",
+	"bashls",
+	"dockerls",
+}
+
+local personal_servers = {
+	"solidity",
+	"copilot",
 }
 
 if os.getenv("IS_PERSONAL_MACHINE") then
@@ -24,37 +49,36 @@ end
 return {
 	{
 		"williamboman/mason.nvim",
-		---@class MasonSettings
-		opts = {
-			ui = {
-				keymaps = {
-					install_package = "<D-i>",
-					update_package = "<D-u>",
-					update_all_packages = "<D-p>",
-					check_package_version = "v",
+		config = function()
+			require("mason").setup({
+				ui = {
+					keymaps = {
+						install_package = "<D-i>",
+						update_package = "<D-u>",
+						update_all_packages = "<D-p>",
+						check_package_version = "v",
+					},
 				},
-			},
-		},
-		dependencies = {
-			"mason-org/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
-		},
+			})
+		end,
 	},
 	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "j-hui/fidget.nvim", opts = {} },
-		},
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = { "williamboman/mason.nvim" },
 		config = function()
-			-- LSP capabilities for completion
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-			-- Setup mason-lspconfig
 			require("mason-lspconfig").setup({
 				automatic_installation = true,
 				ensure_installed = servers,
 			})
-
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			"mason-org/mason-lspconfig.nvim",
+			{ "j-hui/fidget.nvim", opts = {} },
+		},
+		config = function()
 			-- Enable LSP servers using Neovim 0.11+ API
 			vim.lsp.enable(servers)
 

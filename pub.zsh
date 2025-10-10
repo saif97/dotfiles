@@ -6,6 +6,11 @@ source "$DOT_FILES/zsh/history.zsh"
 # Disable vim mode in zsh for now.
 bindkey -e
 
+if [[ -n "$IS_PERSONAL" ]]; then
+	echo "Using personal configuration"
+	alias flutter="fvm flutter"
+fi
+
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
 eval "$(starship init zsh)"
@@ -15,6 +20,7 @@ alias cat='bat'
 alias cd='z'
 alias ci='zi'
 alias nv='nvim'
+alias f='flutter'
 
 # ── python stuff ──────────────────────────────────────────────────────
 alias python='python3'
@@ -39,11 +45,6 @@ mkcd(){
 	pwd
 }
 
-if [[ -n "$IS_PERSONAL" ]]; then
-	echo "Using personal configuration"
-	alias flutter="fvm flutter"
-	alias f="flutter"
-fi
 
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -71,3 +72,6 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 # Bind Alt+Delete to forward delete word
 bindkey '^[[3;3~' kill-word
 
+
+# ── Java stuff ──────────────────────────────────────────────────────
+export JAVA_HOME="/Users/saifhakeam/Library/Java/JavaVirtualMachines/ms-11.0.28/Contents/Home"

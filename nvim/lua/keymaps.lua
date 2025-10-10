@@ -136,6 +136,7 @@ function M.setupNvim()
 	map_key("n", "sh", picker.help, { desc = "[S]earch [H]elp" })
 	map_key("n", "sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
 	map_key("n", "sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
+	map_key("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "[S]earch [D]iagnostics" })
 	map_key("n", "sr", picker.resume, { desc = "[S]earch [R]esume" })
 	map_key("n", "sb", function()
 		picker.git_branches({

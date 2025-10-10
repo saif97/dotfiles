@@ -1,3 +1,16 @@
+local function poop()
+	local Config = require("sidekick.config")
+	local clients = Config.get_clients()
+	for _, client in ipairs(clients) do
+		vim.notify("Pooping on " .. client.name, vim.log.levels.INFO)
+	end
+	
+end
+
+vim.api.nvim_create_user_command('Poop', function()
+	poop()
+end, {})
+
 local function restart_lsp(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local clients
@@ -235,7 +248,7 @@ local function lsp_status_short()
 			vim.lsp.get_active_clients({ bufnr = bufnr })
 
 	if #clients == 0 then
-		return ""     -- Return empty string when no LSP
+		return "" -- Return empty string when no LSP
 	end
 
 	local names = {}
@@ -275,12 +288,12 @@ _G.lsp_status = safe_lsp_status
 
 -- THEN set the statusline
 vim.opt.statusline = table.concat({
-	"%{v:lua.git_branch()}",   -- Git branch
-	"%f",                      -- File name
-	"%m",                      -- Modified flag
-	"%r",                      -- Readonly flag
-	"%=",                      -- Right align
-	"%{v:lua.lsp_status()}",   -- LSP status
-	" %l:%c",                  -- Line:Column
-	" %p%%"                    -- Percentage through file
+	"%{v:lua.git_branch()}", -- Git branch
+	"%f",                   -- File name
+	"%m",                   -- Modified flag
+	"%r",                   -- Readonly flag
+	"%=",                   -- Right align
+	"%{v:lua.lsp_status()}", -- LSP status
+	" %l:%c",               -- Line:Column
+	" %p%%"                 -- Percentage through file
 }, " ")

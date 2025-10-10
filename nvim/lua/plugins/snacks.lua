@@ -34,7 +34,7 @@ return {
 						["<D-e>"] = { "history_forward", mode = { "i", "n" } },
 						["<D-u>"] = { "history_back", mode = { "i", "n" } },
 						["<D-f>"] = { "toggle_follow", mode = { "i", "n" } },
-						["<D-d>"] = { "toggle_hidden", mode = { "i", "n" } },
+						["<D-M>"] = { "toggle_hidden", mode = { "i", "n" } },
 						["<D-i>"] = { "toggle_ignored", mode = { "i", "n" } },
 						["<D-m>"] = { "toggle_maximize", mode = { "i", "n" } },
 						["<D-p>"] = { "toggle_preview", mode = { "i", "n" } },

@@ -1,5 +1,5 @@
 return {
---[[
+	--[[
 
 		cr = ChaR	
 		crs -> snake_case
@@ -9,5 +9,8 @@ return {
 		cr- -> dash-case
 		cr. -> dot.case
 	]]
-	{ "tpope/vim-abolish" }
+	{ "tpope/vim-abolish" },
+	{
+		'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+	}
 }

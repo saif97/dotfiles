@@ -1,669 +1,670 @@
 {
-    /*************
+  /*************
      * AUTO FOLD *
      *************/
-    /**********
+  /**********
      * PYTHON *
      **********/
-    /**********
+  /**********
       * NEOVIM *
       **********/
-    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
-    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-    //
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "console": "externalTerminal", // rather than integratedTerminal
-    "workbench.panel.defaultLocation": "right",
-    "terminal.integrated.rendererType": "dom",
-    "files.autoSave": "afterDelay",
-    "sync.gist": "60be92b8abd00564cc49e9f39dee9088",
-    "window.menuBarVisibility": "default",
-    "workbench.startupEditor": "newUntitledFile",
-    "dart.previewFlutterUiGuides": true,
-    "dart.previewFlutterUiGuidesCustomTracking": true,
-    "search.defaultViewMode": "tree",
-    "search.mode": "view",
-    "explorer.confirmDelete": false,
-    "extensions.ignoreRecommendations": false,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "zenMode.hideLineNumbers": false,
-    "workbench.colorCustomizations": {
-        /******************
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  //
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "console": "externalTerminal", // rather than integratedTerminal
+  "workbench.panel.defaultLocation": "right",
+  "terminal.integrated.rendererType": "dom",
+  "files.autoSave": "afterDelay",
+  "sync.gist": "60be92b8abd00564cc49e9f39dee9088",
+  "window.menuBarVisibility": "default",
+  "workbench.startupEditor": "newUntitledFile",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "search.defaultViewMode": "tree",
+  "search.mode": "view",
+  "explorer.confirmDelete": false,
+  "extensions.ignoreRecommendations": false,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "zenMode.hideLineNumbers": false,
+  "workbench.colorCustomizations": {
+    /******************
         * TAB DECORATION *
       ******************/
-        "ab.activeForeground": "#eaff00",
-        "tab.unfocusedActiveForeground": "#ffffff",
-        "terminal.ansiRed": "#f88",
-        //
-        /**************
+    "ab.activeForeground": "#eaff00",
+    "tab.unfocusedActiveForeground": "#ffffff",
+    "terminal.ansiRed": "#f88",
+    //
+    /**************
           * STATUS BAR *
           **************/
-        "statusBar.background": "#000000",
-        "statusBar.foreground": "#ffffff",
-        "statusBar.noFolderBackground": "#ff0000",
-        "statusBar.debuggingBackground": "#fffb01",
-        "statusBar.debuggingForeground": "#000000",
-        "statusBarItem.hoverBackground": "#252525",
-        "editorStickyScroll.background": "#241c0085",
-        "gitDecoration.ignoredResourceForeground": "#ff6a6a",
-        //
-        "editor.foldBackground": "#65e8002f",
-        "titleBar.activeForeground": "#fcfcfc",
-        "titleBar.activeBackground": "#000000",
-        "titleBar.inactiveBackground": "#000000",
-        "titleBar.inactiveForeground": "#7d7d7d",
-        "editor.selectionBackground": "#00B3B366",
-        "editor.selectionForeground": "#ffffff",
-        "editor.selectionHighlightBackground": "#00B3B384",
-        "editor.lineHighlightBackground": "#00B3B357",
-        "editor.findMatchBackground": "#00B3B3a9",
-        "editor.findMatchHighlightBackground": "#00B3B3a8",
-        "window.activeBorder": "#000000",
-        "editorRuler.foreground": "#ff636375",
-        "list.activeSelectionBackground": "#ff0000",
-        "list.focusBackground": "#ff000083",
-        "editorLineNumber.foreground": "#ff0000b8",
-        "peekView.border": "#610000",
-        "panel.border": "#610000",
-        "focusBorder": "#610000",
-        "editorGroup.border": "#b51313",
-        "sideBar.border": "#704343",
-        "editorHint.border": "#610000",
-        "peekViewResult.selectionBackground": "#ff0000",
-        /**************
+    "statusBar.background": "#000000",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.noFolderBackground": "#ff0000",
+    "statusBar.debuggingBackground": "#fffb01",
+    "statusBar.debuggingForeground": "#000000",
+    "statusBarItem.hoverBackground": "#252525",
+    "editorStickyScroll.background": "#241c0085",
+    "gitDecoration.ignoredResourceForeground": "#ff6a6a",
+    //
+    "editor.foldBackground": "#65e8002f",
+    "titleBar.activeForeground": "#fcfcfc",
+    "titleBar.activeBackground": "#000000",
+    "titleBar.inactiveBackground": "#000000",
+    "titleBar.inactiveForeground": "#7d7d7d",
+    "editor.selectionBackground": "#00B3B366",
+    "editor.selectionForeground": "#ffffff",
+    "editor.selectionHighlightBackground": "#00B3B384",
+    "editor.lineHighlightBackground": "#00B3B357",
+    "editor.findMatchBackground": "#00B3B3a9",
+    "editor.findMatchHighlightBackground": "#00B3B3a8",
+    "window.activeBorder": "#000000",
+    "editorRuler.foreground": "#ff636375",
+    "list.activeSelectionBackground": "#ff0000",
+    "list.focusBackground": "#ff000083",
+    "editorLineNumber.foreground": "#ff0000b8",
+    "peekView.border": "#610000",
+    "panel.border": "#610000",
+    "focusBorder": "#610000",
+    "editorGroup.border": "#b51313",
+    "sideBar.border": "#704343",
+    "editorHint.border": "#610000",
+    "peekViewResult.selectionBackground": "#ff0000",
+    /**************
           * TERMINAL *
           **************/
-        "terminalCursor.background": "#ffffff",
-        "terminalCursor.foreground": "#ff0000",
-        /**************
+    "terminalCursor.background": "#ffffff",
+    "terminalCursor.foreground": "#ff0000",
+    /**************
           * SUGGESTION *
           **************/
-        "editorSuggestWidget.selectedBackground": "#ff00005b",
-        "editorSuggestWidget.border": "#ff0000b2",
-        "tree.indentGuidesStroke": "#ff0000",
-        "tree.inactiveIndentGuidesStroke": "#fe7c7c",
+    "editorSuggestWidget.selectedBackground": "#ff00005b",
+    "editorSuggestWidget.border": "#ff0000b2",
+    "tree.indentGuidesStroke": "#ff0000",
+    "tree.inactiveIndentGuidesStroke": "#fe7c7c",
+  },
+  "explorer.confirmDragAndDrop": false,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.formatOnType": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "git.enableSmartCommit": true,
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.format",
+      "sequence": [
+        "editor.action.formatDocument",
+        "editor.action.organizeImports"
+        // "dart-import.fix"
+      ]
     },
-    "explorer.confirmDragAndDrop": false,
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "command": "multiCommand.multiComSuggest",
+      "sequence": [
+        "editor.action.triggerSuggest",
+        "editor.action.triggerParameterHints",
+        // "dart-import.fix"
+      ]
     },
-    "editor.formatOnType": false,
-    "editor.cursorSmoothCaretAnimation": "on",
-    "git.enableSmartCommit": true,
-    "multiCommand.commands": [
-        {
-            "command": "multiCommand.format",
-            "sequence": [
-                "editor.action.formatDocument",
-                "editor.action.organizeImports"
-                // "dart-import.fix"
-            ]
-        },
-        {
-            "command": "multiCommand.multiComSuggest",
-            "sequence": [
-                "editor.action.triggerSuggest",
-                "editor.action.triggerParameterHints",
-                // "dart-import.fix"
-            ]
-        },
-        {
-            "command": "multiCommand.hideSidePanels",
-            "sequence": [
-                "composer.closeComposerTab",
-                "workbench.action.closeSidebar",
-                "workbench.action.closePanel",
-                // "workbench.action.maximizeEditor",
-                // "workbench.action.toggleEditorWidths",
-                // "workbench.action.toggleEditorWidths"
-            ]
-        },
-        {
-            "command": "multiCommand.run",
-            "sequence": [
-                "workbench.action.debug.run"
-                // "flutter.hotRestart",
-                // "workbench.debug.panel.action.clearReplAction"
-            ]
-        },
-        {
-            "command": "multiCommand.comment",
-            "sequence": [
-                "editor.action.commentLine",
-                "cursorDown"
-            ]
-        },
-        {
-            "command": "multiCommand.openAndCloseExplorer",
-            "sequence": [
-                "filesExplorer.openFilePreserveFocus",
-                "workbench.action.closeSidebar"
-            ]
-        },
-        {
-            "command": "multiCommand.EscapeKeyOnEditor",
-            "sequence": [
-                "vscode-neovim.escape",
-                "composer.closeComposerTab",
-                // "workbench.action.closeSidebar",
-                "workbench.action.focusActiveEditorGroup",
-                // "editor.foldLevel2",
-                // "workbench.action.closePanel"
-            ]
-        }
-    ],
-    "git.autofetch": true,
-    "editor.quickSuggestions": {
-        "comments": "on",
-        "strings": "on",
-        "other": "on"
+    {
+      "command": "multiCommand.hideSidePanels",
+      "sequence": [
+        "composer.closeComposerTab",
+        "workbench.action.closeSidebar",
+        "workbench.action.closePanel",
+        // "workbench.action.maximizeEditor",
+        // "workbench.action.toggleEditorWidths",
+        // "workbench.action.toggleEditorWidths"
+      ]
     },
-    "editor.fontFamily": "'Monaspace Neon', monospace",
-    "editor.fontSize": 14,
-    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
-    "window.title": "${rootName} ${separator} ${profileName} Profile",
-    "editor.cursorBlinking": "expand",
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "workbench.tree.indent": 10,
-    "workbench.settings.enableNaturalLanguageSearch": false,
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "command": "multiCommand.run",
+      "sequence": [
+        "workbench.action.debug.run"
+        // "flutter.hotRestart",
+        // "workbench.debug.panel.action.clearReplAction"
+      ]
     },
-    "cSpell.enableFiletypes": [
-        "!plaintext",
-        "!yaml",
-        "!json",
-        "dart"
-    ],
-    "dart.previewHotReloadOnSaveWatcher": true,
-    "editor.tokenColorCustomizations": {
-        "comments": "#4ea146"
+    {
+      "command": "multiCommand.comment",
+      "sequence": [
+        "editor.action.commentLine",
+        "cursorDown"
+      ]
     },
-    "cSpell.logLevel": "Debug",
-    "vscode-neovim.textDecorationsAtTop": true,
-    "editor.lineNumbers": "on",
-    "debug.openDebug": "openOnDebugBreak",
-    "dart.analyzerAdditionalArgs": [
-        "--enable-completion-model"
-    ],
-    "[dart]": {
-        "editor.formatOnType": true,
-        "editor.selectionHighlight": false,
-        // "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "Dart-Code.dart-code",
-        // "editor.inlayHints.enabled": "on",
+    {
+      "command": "multiCommand.openAndCloseExplorer",
+      "sequence": [
+        "filesExplorer.openFilePreserveFocus",
+        "workbench.action.closeSidebar"
+      ]
     },
-    "editor.columnSelection": false,
-    "files.exclude": {
-        ".dart_tool": true,
-        ".history": true,
-        ".idea": true,
-        "*.iml": true,
-        "*.log": true,
-        "**/.classpath": true,
-        "**/.factorypath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/*.freezed.dart": true,
-        "**/*.g.dart": true,
-        "analysis_options.yaml": true,
-        "android": true,
-        "firebase_emul_saved_data": true,
-        "firebase-export-1638059379896WsuaE9": true,
-        "gen": true,
-        "ios": true,
-        "linux": true,
-        "web": true,
-        "windows": true,
-        "macos": true,
-        "build": true,
-        ".fvm": true,
-        ".flutter-plugins*": true,
-        "_*": true,
-        "pubspec.lock": true
+    {
+      "command": "multiCommand.EscapeKeyOnEditor",
+      "sequence": [
+        "vscode-neovim.escape",
+        "composer.closeComposerTab",
+        // "workbench.action.closeSidebar",
+        "workbench.action.focusActiveEditorGroup",
+        // "editor.foldLevel2",
+        // "workbench.action.closePanel"
+      ]
+    }
+  ],
+  "git.autofetch": true,
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "strings": "on",
+    "other": "on"
+  },
+  "editor.fontFamily": "'Monaspace Neon', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+  "window.title": "${rootName} ${separator} ${profileName} Profile",
+  "editor.cursorBlinking": "expand",
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "workbench.tree.indent": 10,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cSpell.enableFiletypes": [
+    "!plaintext",
+    "!yaml",
+    "!json",
+    "dart"
+  ],
+  "dart.previewHotReloadOnSaveWatcher": true,
+  "editor.tokenColorCustomizations": {
+    "comments": "#4ea146"
+  },
+  "cSpell.logLevel": "Debug",
+  "vscode-neovim.textDecorationsAtTop": true,
+  "editor.lineNumbers": "on",
+  "debug.openDebug": "openOnDebugBreak",
+  "dart.analyzerAdditionalArgs": [
+    "--enable-completion-model"
+  ],
+  "[dart]": {
+    "editor.formatOnType": true,
+    "editor.selectionHighlight": false,
+    // "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off",
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    // "editor.inlayHints.enabled": "on",
+  },
+  "editor.columnSelection": false,
+  "files.exclude": {
+    ".dart_tool": true,
+    ".history": true,
+    ".idea": true,
+    "*.iml": true,
+    "*.log": true,
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "analysis_options.yaml": true,
+    "android": true,
+    "firebase_emul_saved_data": true,
+    "firebase-export-1638059379896WsuaE9": true,
+    "gen": true,
+    "ios": true,
+    "linux": true,
+    "web": true,
+    "windows": true,
+    "macos": true,
+    "build": true,
+    ".fvm": true,
+    ".flutter-plugins*": true,
+    "_*": true,
+    "pubspec.lock": true
+  },
+  "dart.warnWhenEditingFilesOutsideWorkspace": false,
+  "editor.suggestSelection": "first",
+  "java.semanticHighlighting.enabled": true,
+  "local-history.maxDisplay": 100,
+  "local-history.saveDelay": 3600,
+  "problems.autoReveal": false,
+  "dart.debugExternalLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "workbench.list.automaticKeyboardNavigation": false,
+  "python.showStartPage": false,
+  "editor.formatOnSave": true,
+  // "editor.insertSpaces": false,
+  // The number of spaces a tab is equal to.
+  "editor.tabSize": 4,
+  // Insert spaces when pressing Tab.
+  "editor.insertSpaces": true,
+  // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+  "editor.detectIndentation": true,
+  // ===================== TO USE OLD DART VERSIONS =====================
+  // "dart.sdkPath": "~/dev/sdks/dart-sdk-old",
+  // "dart.checkForSdkUpdates": false,
+  // =====================
+  "python.languageServer": "Pylance",
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "zenMode.silentNotifications": false,
+  // "java.home": "C:\\Program Files (x86)\\Java\\jdk1.8.0_261",
+  "editor.trimAutoWhitespace": false,
+  "editor.renderWhitespace": "none",
+  "git.confirmSync": false,
+  "dart.previewLsp": true,
+  "python.pythonPath": "/usr/local/bin/python3",
+  "[python]": {
+    "editor.wordBasedSuggestions": "off",
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[lua]": {
+    "editor.defaultFormatter": "sumneko.lua"
+  },
+  "jupyter.askForKernelRestart": false,
+  "kite.showWelcomeNotificationOnStartup": false,
+  "[solidity]": {
+    "editor.defaultFormatter": "JuanBlanco.solidity"
+  },
+  "python.autoComplete.addBrackets": true,
+  "python.analysis.completeFunctionParens": true,
+  "arduino.additionalUrls": [
+    "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+  ],
+  "jupyter.alwaysScrollOnNewCell": true,
+  "cSpell.userWords": [
+    "afplay",
+    "Algo",
+    "Algorithmi",
+    "Algs",
+    "appbar",
+    "ARGB",
+    "Asjad",
+    "Atoi",
+    "audioplayer",
+    "audioplayers",
+    "AUIS",
+    "autocorrect",
+    "Autofills",
+    "autofocus",
+    "autofold",
+    "autopep",
+    "autovalidate",
+    "bitmask",
+    "borderize",
+    "Cmds",
+    "codegen",
+    "Colemak",
+    "concated",
+    "consts",
+    "conv",
+    "creds",
+    "cupertino",
+    "dartpad",
+    "dartz",
+    "datetime",
+    "deque",
+    "dotfiles",
+    "dtype",
+    "dtypes",
+    "firestore",
+    "firmata",
+    "Fluino",
+    "flushbar",
+    "Fullscreen",
+    "Goku",
+    "groupby",
+    "hando",
+    "Hashlife",
+    "heapify",
+    "Hexa",
+    "hombii",
+    "IERC",
+    "iloc",
+    "imshow",
+    "indx",
+    "injaz",
+    "isdigit",
+    "iterrows",
+    "Jsons",
+    "kaggle",
+    "karabiner",
+    "keybind",
+    "keylayout",
+    "Kruskal",
+    "Langara",
+    "leetcode",
+    "macrocell",
+    "Milli",
+    "neighbour",
+    "Neighbours",
+    "neovim",
+    "numpy",
+    "nums",
+    "OPENAI",
+    "osascript",
+    "Pomodoro",
+    "Prefs",
+    "println",
+    "pubspec",
+    "pyplot",
+    "readmore",
+    "rects",
+    "relu",
+    "Reorderable",
+    "roboto",
+    "saif",
+    "saifhakeam",
+    "scipy",
+    "Serializable",
+    "signin",
+    "Simlayer",
+    "sklearn",
+    "spacebar",
+    "splt",
+    "SSID",
+    "subarray",
+    "subarrays",
+    "sublist",
+    "subscreen",
+    "Tafqeet",
+    "tapodoro",
+    "Tenda",
+    "termcolor",
+    "textfield",
+    "tolist",
+    "Unies",
+    "unregister",
+    "upvoted",
+    "Uuid",
+    "Vals",
+    "vsintellicode",
+    "widget's",
+    "wids",
+    "WIFI",
+    "xcworkspace",
+    "Youtube"
+  ],
+  "local-history.exclude": [
+    "**/.history/**",
+    "**/.vscode/**",
+    "**/node_modules/**",
+    "**/typings/**",
+    "**/out/**",
+    "**/Code/User/**",
+    "**/*.freezed.dart",
+    "**/*.g.dart",
+    ".dart_tool",
+    ".history",
+    ".idea",
+    ".vscode",
+    ".*",
+    "pubspec.lock",
+    "*.log",
+    "*.iml",
+    "android",
+    "ios",
+    "gen",
+    "build",
+    "analysis_options.yaml",
+    "**/.classpath",
+    "**/.project",
+    "**/.settings",
+    "**/.factorypath"
+  ],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter-notebook",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "editor.accessibilitySupport": "off",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "dart.automaticCommentSlashes": "all",
+  "dart.showInspectorNotificationsForWidgetErrors": false,
+  "calva.showDocstringInParameterHelp": true,
+  "dart.previewCommitCharacters": true,
+  "dart.enableCompletionCommitCharacters": true,
+  "dart.cliConsole": "terminal",
+  "debug.onTaskErrors": "debugAnyway",
+  "terminal.explorerKind": "external",
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.allowMnemonics": true,
+  "debug.console.wordWrap": false,
+  "debug.showBreakpointsInOverviewRuler": true,
+  "dart.allowTestsOutsideTestFolder": true,
+  "search.exclude": {
+    "**/.fvm": true,
+    "~/dev/sdks/**": true,
+    "**/*.freezed.dart": true,
+    "/macos": true,
+    "**/*.g.dart": true,
+    ".dart_tool": true,
+    ".history": true,
+    ".idea": true,
+    ".vscode": true,
+    ".*": true,
+    "pubspec.lock": true,
+    "*.log": true,
+    "*.iml": true,
+    "android": true,
+    "ios": true,
+    "gen": true,
+    "build": true,
+    "linux": true,
+    "analysis_options.yaml": true,
+  },
+  "zenMode.fullScreen": false,
+  "zenMode.hideStatusBar": false,
+  "gitHistory.showEditorTitleMenuBarIcons": false,
+  "workbench.editor.showTabs": "single",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.location": "left",
+  "dart.analysisServerFolding": false,
+  "editor.rulers": [
+    140
+  ],
+  "dart.lineLength": 140,
+  "git.ignoreRebaseWarning": true,
+  "javascript.format.enable": false,
+  "editor.wordWrapColumn": 180,
+  "prettier.printWidth": 140,
+  "editor.showFoldingControls": "always",
+  "editor.cursorSurroundingLines": 5,
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.filePath": {
+    "default": {
+      "folder": "./",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  },
+  "leetcode.hideSolved": true,
+  "leetcode.showLocked": true,
+  "leetcode.useEndpointTranslation": false,
+  // "leetcode.workspaceFolder": "~/dev/Leetcode_problems",
+  "leetcode.hint.configWebviewMarkdown": true,
+  "leetcode.enableStatusBar": true,
+  "leetcode.": true,
+  "leetcode.workspaceFolder": "~/dev/Leetcode_problems",
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
+  "sourcekit-lsp.serverArguments": [
+    "-Xswiftc",
+    "-sdk",
+    "-Xswiftc",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk",
+    "-Xswiftc",
+    "-target",
+    "-Xswiftc",
+    "x86_64-apple-ios15.5-simulator",
+  ],
+  "editor.stickyScroll.enabled": true,
+  "window.commandCenter": false,
+  "vscode-neovim.highlightGroups.highlights": {
+    "Directory": "vim",
+    "IncSearch": {
+      "backgroundColor": "theme.editor.findMatchBackground",
+      "borderColor": "theme.editor.findMatchBorder"
     },
-    "dart.warnWhenEditingFilesOutsideWorkspace": false,
-    "editor.suggestSelection": "first",
-    "java.semanticHighlighting.enabled": true,
-    "local-history.maxDisplay": 100,
-    "local-history.saveDelay": 3600,
-    "problems.autoReveal": false,
-    "dart.debugExternalLibraries": false,
-    "dart.debugSdkLibraries": false,
-    "workbench.list.automaticKeyboardNavigation": false,
-    "python.showStartPage": false,
-    "editor.formatOnSave": true,
-    // "editor.insertSpaces": false,
-    // The number of spaces a tab is equal to.
-    "editor.tabSize": 4,
-    // Insert spaces when pressing Tab.
-    "editor.insertSpaces": true,
-    // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
-    "editor.detectIndentation": true,
-    // ===================== TO USE OLD DART VERSIONS =====================
-    // "dart.sdkPath": "~/dev/sdks/dart-sdk-old",
-    // "dart.checkForSdkUpdates": false,
-    // =====================
-    "python.languageServer": "Pylance",
-    "java.project.importOnFirstTimeStartup": "automatic",
-    "zenMode.silentNotifications": false,
-    // "java.home": "C:\\Program Files (x86)\\Java\\jdk1.8.0_261",
-    "editor.trimAutoWhitespace": false,
-    "editor.renderWhitespace": "none",
-    "git.confirmSync": false,
-    "dart.previewLsp": true,
-    "python.pythonPath": "/usr/local/bin/python3",
-    "[python]": {
-        "editor.wordBasedSuggestions": "off",
-        "editor.defaultFormatter": "ms-python.black-formatter"
+    "Search": {
+      "backgroundColor": "theme.editor.findMatchHighlightBackground",
+      "borderColor": "theme.editor.findMatchHighlightBorder"
     },
-    "[lua]": {
-        "editor.defaultFormatter": "sumneko.lua"
+    "Visual": {
+      "backgroundColor": "theme.editor.selectionBackground"
     },
-    "jupyter.askForKernelRestart": false,
-    "kite.showWelcomeNotificationOnStartup": false,
-    "[solidity]": {
-        "editor.defaultFormatter": "JuanBlanco.solidity"
-    },
-    "python.autoComplete.addBrackets": true,
-    "python.analysis.completeFunctionParens": true,
-    "arduino.additionalUrls": [
-        "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
-    ],
-    "jupyter.alwaysScrollOnNewCell": true,
-    "cSpell.userWords": [
-        "afplay",
-        "Algo",
-        "Algorithmi",
-        "Algs",
-        "appbar",
-        "ARGB",
-        "Asjad",
-        "Atoi",
-        "audioplayer",
-        "audioplayers",
-        "AUIS",
-        "autocorrect",
-        "Autofills",
-        "autofocus",
-        "autofold",
-        "autopep",
-        "autovalidate",
-        "bitmask",
-        "borderize",
-        "Cmds",
-        "codegen",
-        "Colemak",
-        "concated",
-        "consts",
-        "conv",
-        "creds",
-        "cupertino",
-        "dartpad",
-        "dartz",
-        "datetime",
-        "deque",
-        "dotfiles",
-        "dtype",
-        "dtypes",
-        "firestore",
-        "firmata",
-        "Fluino",
-        "flushbar",
-        "Fullscreen",
-        "Goku",
-        "groupby",
-        "hando",
-        "Hashlife",
-        "heapify",
-        "Hexa",
-        "hombii",
-        "IERC",
-        "iloc",
-        "imshow",
-        "indx",
-        "injaz",
-        "isdigit",
-        "iterrows",
-        "Jsons",
-        "kaggle",
-        "karabiner",
-        "keybind",
-        "keylayout",
-        "Kruskal",
-        "Langara",
-        "leetcode",
-        "macrocell",
-        "Milli",
-        "neighbour",
-        "Neighbours",
-        "neovim",
-        "numpy",
-        "nums",
-        "OPENAI",
-        "osascript",
-        "Pomodoro",
-        "Prefs",
-        "println",
-        "pubspec",
-        "pyplot",
-        "readmore",
-        "rects",
-        "relu",
-        "Reorderable",
-        "roboto",
-        "saif",
-        "saifhakeam",
-        "scipy",
-        "Serializable",
-        "signin",
-        "Simlayer",
-        "sklearn",
-        "spacebar",
-        "splt",
-        "SSID",
-        "subarray",
-        "subarrays",
-        "sublist",
-        "subscreen",
-        "Tafqeet",
-        "tapodoro",
-        "Tenda",
-        "termcolor",
-        "textfield",
-        "tolist",
-        "Unies",
-        "unregister",
-        "upvoted",
-        "Uuid",
-        "Vals",
-        "vsintellicode",
-        "widget's",
-        "wids",
-        "WIFI",
-        "xcworkspace",
-        "Youtube"
-    ],
-    "local-history.exclude": [
-        "**/.history/**",
-        "**/.vscode/**",
-        "**/node_modules/**",
-        "**/typings/**",
-        "**/out/**",
-        "**/Code/User/**",
-        "**/*.freezed.dart",
-        "**/*.g.dart",
-        ".dart_tool",
-        ".history",
-        ".idea",
-        ".vscode",
-        ".*",
-        "pubspec.lock",
-        "*.log",
-        "*.iml",
-        "android",
-        "ios",
-        "gen",
-        "build",
-        "analysis_options.yaml",
-        "**/.classpath",
-        "**/.project",
-        "**/.settings",
-        "**/.factorypath"
-    ],
-    "workbench.editorAssociations": [
-        {
-            "viewType": "jupyter-notebook",
-            "filenamePattern": "*.ipynb"
-        }
-    ],
-    "editor.accessibilitySupport": "off",
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "dart.automaticCommentSlashes": "all",
-    "dart.showInspectorNotificationsForWidgetErrors": false,
-    "calva.showDocstringInParameterHelp": true,
-    "dart.previewCommitCharacters": true,
-    "dart.enableCompletionCommitCharacters": true,
-    "dart.cliConsole": "terminal",
-    "debug.onTaskErrors": "debugAnyway",
-    "terminal.explorerKind": "external",
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.allowChords": false,
-    "terminal.integrated.allowMnemonics": true,
-    "debug.console.wordWrap": false,
-    "debug.showBreakpointsInOverviewRuler": true,
-    "dart.allowTestsOutsideTestFolder": true,
-    "search.exclude": {
-        "**/.fvm": true,
-        "~/dev/sdks/**": true,
-        "**/*.freezed.dart": true,
-        "/macos": true,
-        "**/*.g.dart": true,
-        ".dart_tool": true,
-        ".history": true,
-        ".idea": true,
-        ".vscode": true,
-        ".*": true,
-        "pubspec.lock": true,
-        "*.log": true,
-        "*.iml": true,
-        "android": true,
-        "ios": true,
-        "gen": true,
-        "build": true,
-        "linux": true,
-        "analysis_options.yaml": true,
-    },
-    "zenMode.fullScreen": false,
-    "zenMode.hideStatusBar": false,
-    "gitHistory.showEditorTitleMenuBarIcons": false,
-    "workbench.editor.showTabs": "single",
-    "terminal.integrated.tabs.enabled": true,
-    "terminal.integrated.tabs.location": "left",
-    "dart.analysisServerFolding": false,
-    "editor.rulers": [
-        140
-    ],
-    "dart.lineLength": 140,
-    "git.ignoreRebaseWarning": true,
-    "javascript.format.enable": false,
-    "editor.wordWrapColumn": 180,
-    "prettier.printWidth": 140,
-    "editor.showFoldingControls": "always",
-    "editor.cursorSurroundingLines": 5,
-    "leetcode.defaultLanguage": "python3",
-    "leetcode.filePath": {
-        "default": {
-            "folder": "./",
-            "filename": "${id}.${kebab-case-name}.${ext}"
-        }
-    },
-    "leetcode.hideSolved": true,
-    "leetcode.showLocked": true,
-    "leetcode.useEndpointTranslation": false,
-    // "leetcode.workspaceFolder": "~/dev/Leetcode_problems",
-    "leetcode.hint.configWebviewMarkdown": true,
-    "leetcode.enableStatusBar": true,
-    "leetcode.": true,
-    "leetcode.workspaceFolder": "~/dev/Leetcode_problems",
-    "editor.minimap.enabled": false,
-    "breadcrumbs.enabled": false,
-    "workbench.layoutControl.enabled": false,
-    "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-    "sourcekit-lsp.serverPath": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp",
-    "sourcekit-lsp.serverArguments": [
-        "-Xswiftc",
-        "-sdk",
-        "-Xswiftc",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk",
-        "-Xswiftc",
-        "-target",
-        "-Xswiftc",
-        "x86_64-apple-ios15.5-simulator",
-    ],
-    "editor.stickyScroll.enabled": true,
-    "window.commandCenter": false,
-    "vscode-neovim.highlightGroups.highlights": {
-        "Directory": "vim",
-        "IncSearch": {
-            "backgroundColor": "theme.editor.findMatchBackground",
-            "borderColor": "theme.editor.findMatchBorder"
-        },
-        "Search": {
-            "backgroundColor": "theme.editor.findMatchHighlightBackground",
-            "borderColor": "theme.editor.findMatchHighlightBorder"
-        },
-        "Visual": {
-            "backgroundColor": "theme.editor.selectionBackground"
-        },
-        "Conceal": "vim",
-        "Substitute": "vim"
-    },
-    "[clojure]": {
-        "editor.defaultFormatter": "avli.clojure"
-    },
-    "window.titleBarStyle": "custom",
-    "vscode_custom_css.imports": [
-        "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.css",
-        "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.js"
-    ],
-    "vscode_custom_css.policy": true,
-    "redhat.telemetry.enabled": false,
-    "i18n-ally.enabledFrameworks": [
-        "flutter"
-    ],
-    "editor.inlineSuggest.enabled": true,
-    "github.copilot.advanced": {
-        "debug.showScores": true
-    },
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": true,
-        "scminput": false
-    },
-    "lldb.launch.expressions": "native",
-    // "editor.inlineSuggest.enabled": true,
-    /**************
+    "Conceal": "vim",
+    "Substitute": "vim"
+  },
+  "[clojure]": {
+    "editor.defaultFormatter": "avli.clojure"
+  },
+  "window.titleBarStyle": "custom",
+  "vscode_custom_css.imports": [
+    "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.css",
+    "file:///Users/saifhakeam/dotfiles/vscode_configs/custom.js"
+  ],
+  "vscode_custom_css.policy": true,
+  "redhat.telemetry.enabled": false,
+  "i18n-ally.enabledFrameworks": [
+    "flutter"
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.advanced": {
+    "debug.showScores": true
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "lldb.launch.expressions": "native",
+  // "editor.inlineSuggest.enabled": true,
+  /**************
  * FVM CONFIG *
  **************/
-    // Remove from file watching
-    "files.watcherExclude": {
-        "**/.fvm": true
-    },
-    // "dart.flutterSdkPaths": [
-    // "/Users/saifhakeam/fvm/versions"
-    // ],
-    "dart.debugExternalPackageLibraries": false,
-    "terminal.sourceControlRepositoriesKind": "external",
-    "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1"
-    },
-    "diffEditor.codeLens": true,
-    "scm.defaultViewMode": "tree",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "[java]": {
-        "editor.defaultFormatter": "redhat.java"
-    },
-    "jupyter.interactiveWindow.creationMode": "perFile",
-    "errorLens.excludeWorkspaces": [
-        "/home/c/Desktop/foo/harvester"
-    ],
-    "[dart][python]": {
-        "editor.wordBasedSuggestions": "off"
-    },
-    "settings.cycle": [
+  // Remove from file watching
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  // "dart.flutterSdkPaths": [
+  // "/Users/saifhakeam/fvm/versions"
+  // ],
+  "dart.debugExternalPackageLibraries": false,
+  "terminal.sourceControlRepositoriesKind": "external",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1",
+    "Q_NEW_SESSION": "1"
+  },
+  "diffEditor.codeLens": true,
+  "scm.defaultViewMode": "tree",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "[java]": {
+    "editor.defaultFormatter": "Oracle.oracle-java"
+  },
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "errorLens.excludeWorkspaces": [
+    "/home/c/Desktop/foo/harvester"
+  ],
+  "[dart][python]": {
+    "editor.wordBasedSuggestions": "off"
+  },
+  "settings.cycle": [
+    {
+      "id": "toggleGitIgnoreSearch",
+      "overrideWorkspaceSettings": true,
+      "values": [
         {
-            "id": "toggleGitIgnoreSearch",
-            "overrideWorkspaceSettings": true,
-            "values": [
-                {
-                    "search.useIgnoreFiles": true,
-                    "search.useParentIgnoreFiles": true,
-                },
-                {
-                    "search.useIgnoreFiles": false,
-                    "search.useParentIgnoreFiles": false,
-                }
-            ]
-        }
-    ],
-    "keybind-palette-interop.commands": [
+          "search.useIgnoreFiles": true,
+          "search.useParentIgnoreFiles": true,
+        },
         {
-            "keybind_id": "settings.cycle.toggleGitIgnoreSearch",
-            "title": "Toggle GitIgnore Search"
+          "search.useIgnoreFiles": false,
+          "search.useParentIgnoreFiles": false,
         }
-    ],
-    "search.useParentIgnoreFiles": true,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "zenMode.showTabs": "none",
-    "diffEditor.renderGutterMenu": true,
-    "multiDiffEditor.experimental.enabled": true,
-    "diffEditor.experimental.showMoves": true,
-    "diffEditor.experimental.showEmptyDecorations": true,
-    "diffEditor.renderMarginRevertIcon": true,
-    "remote.downloadExtensionsLocally": true,
-    "accessibility.voice.speechTimeout": 0,
-    "files.trimTrailingWhitespaceInRegexAndStrings": false,
-    "autopep8.args": [
-        "--max-line-length=120"
-    ],
-    "search.useIgnoreFiles": true,
-    "github.copilot.editor.enableAutoCompletions": true,
-    "workbench.experimental.enableNewProfilesUI": true,
-    "editor.smoothScrolling": true,
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "task.problemMatchers.neverPrompt": {
-        "shell": true
-    },
-    "explorer.fileNesting.patterns": {
-        "*.ts": "${capture}.js",
-        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
-        "*.jsx": "${capture}.js",
-        "*.tsx": "${capture}.ts",
-        "tsconfig.json": "tsconfig.*.json",
-        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
-        "*.sqlite": "${capture}.${extname}-*",
-        "*.db": "${capture}.${extname}-*",
-        "*.sqlite3": "${capture}.${extname}-*",
-        "*.db3": "${capture}.${extname}-*",
-        "*.sdb": "${capture}.${extname}-*",
-        "*.s3db": "${capture}.${extname}-*"
-    },
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust-analyzer"
-    },
-    "github.copilot.chat.customUserInstructions": [
-        "Be concise to the point. don't do more than what I ask for."
-    ],
-    "solidity.telemetry": false,
-    "explorer.confirmPasteNative": false,
-    "cmake.showOptionsMovedNotification": false,
-    "cmake.pinnedCommands": [
-        "workbench.action.tasks.configureTaskRunner",
-        "workbench.action.tasks.runTask"
-    ],
-    "git-graph.commitDetailsView.location": "Docked to Bottom",
-    "git-graph.maxDepthOfRepoSearch": 1,
-    "git.openRepositoryInParentFolders": "never",
-    "jake.autoDetect": "on",
-    "cursor.composer.collapsePaneInputBoxPills": true,
-    "workbench.editor.enablePreview": false,
-    "cursor.cpp.enablePartialAccepts": true,
-    "chat.agent.enabled": true,
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-    "diffEditor.hideUnchangedRegions.enabled": true,
+      ]
+    }
+  ],
+  "keybind-palette-interop.commands": [
+    {
+      "keybind_id": "settings.cycle.toggleGitIgnoreSearch",
+      "title": "Toggle GitIgnore Search"
+    }
+  ],
+  "search.useParentIgnoreFiles": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "zenMode.showTabs": "none",
+  "diffEditor.renderGutterMenu": true,
+  "multiDiffEditor.experimental.enabled": true,
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.experimental.showEmptyDecorations": true,
+  "diffEditor.renderMarginRevertIcon": true,
+  "remote.downloadExtensionsLocally": true,
+  "accessibility.voice.speechTimeout": 0,
+  "files.trimTrailingWhitespaceInRegexAndStrings": false,
+  "autopep8.args": [
+    "--max-line-length=120"
+  ],
+  "search.useIgnoreFiles": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "workbench.experimental.enableNewProfilesUI": true,
+  "editor.smoothScrolling": true,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "task.problemMatchers.neverPrompt": {
+    "shell": true
+  },
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.s3db": "${capture}.${extname}-*"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "github.copilot.chat.customUserInstructions": [
+    "Be concise to the point. don't do more than what I ask for."
+  ],
+  "solidity.telemetry": false,
+  "explorer.confirmPasteNative": false,
+  "cmake.showOptionsMovedNotification": false,
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "git-graph.commitDetailsView.location": "Docked to Bottom",
+  "git-graph.maxDepthOfRepoSearch": 1,
+  "git.openRepositoryInParentFolders": "never",
+  "jake.autoDetect": "on",
+  "cursor.composer.collapsePaneInputBoxPills": true,
+  "workbench.editor.enablePreview": false,
+  "cursor.cpp.enablePartialAccepts": true,
+  "chat.agent.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "diffEditor.hideUnchangedRegions.enabled": true,
 }

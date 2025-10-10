@@ -19,7 +19,7 @@ return {
 				-- ["u"] = "navigate_up", -- Moves the cursor up in the tree
 				["n"] = "close_node",
 				["<Left>"] = "close_node",
-				
+
 
 				-- Map 'e' to move down
 				["e"] = "", -- Moves the cursor down in the tree
@@ -27,8 +27,10 @@ return {
 
 				-- Map 'i' to go inside (expand directory or open file)
 				["i"] = "open",         -- Expands a directory or opens a file
-				["<Right>"] = "open",         -- Expands a directory or opens a file
+				["<Right>"] = "open",   -- Expands a directory or opens a file
 				["<Esc>"] = "close_window", -- Closes Neo-tree when pressing Escape twice
+				["l"] = "close_all_nodes",
+
 
 				["<leader>pn"] = {
 					desc = "Copy [p]ath but [f]ilename only",
@@ -75,7 +77,8 @@ return {
 			follow_current_file = {
 				enabled = true,
 			},
-			hijack_netrw_behavior = "open_current", -- Optional: Adjusts netrw behavior
+			hijack_netrw_behavior = "open_current",
+			find_by_full_path_words = true,  -- space means ".*"`, so `fi init` will match: `./sources/filesystem/init.lua`
 			filtered_items = {
 				visible = false,
 				hide_dotfiles = false,
