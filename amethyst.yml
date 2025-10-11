@@ -1,9 +1,9 @@
-# Default settings for amethyst
+# Default settings for Amethyst
 # Repo: `https://github.com/ianyh/Amethyst`
 #
 # Note due to issue 1419 (https://github.com/ianyh/Amethyst/issues/1419) some
 # config values may conflict and not work if they are the same as the default
-# values for amathyst. You can see these values on github at
+# values for Amethyst. You can see these values on GitHub at
 # https://github.com/ianyh/Amethyst/blob/development/Amethyst/default.amethyst
 # If you're experiencing conflicts and the settings are the same as the default,
 # comment out the commands in this file.
@@ -17,7 +17,7 @@
 layouts:
   - tall
   - fullscreen
-  - middle-wide # The legacy name of "3column-middle"
+  - 3column-left
 
 # First mod (default option + shift).
 mod1:
@@ -27,6 +27,11 @@ mod1:
 mod2:
   - control
   - shift
+
+# Automatically quit and reopen Amethyst.
+relaunch-amethyst:
+  mod: mod1
+  key: x
 
 # Move to the next layout in the list.
 cycle-layout:
@@ -104,10 +109,10 @@ reevaluate-windows:
   mod: mod1
   key: /
 
-# Automatically quit and reopen Amethyst.
-relaunch-amethyst:
-  mod: mod1
-  key: x
+# # Automatically quit and reopen Amethyst.
+# relaunch-amethyst:
+#   mod: mod1
+#   key: x
 
 throw-space-1:
   mod: mod2

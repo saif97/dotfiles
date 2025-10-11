@@ -69,7 +69,6 @@ else -- Neovim-only configurations
 	vim.opt.list = true
 	vim.opt.listchars = {
 		tab = "→ ",
-		space = "·",
 		trail = "•",
 		nbsp = "␣",
 		extends = "▶",
