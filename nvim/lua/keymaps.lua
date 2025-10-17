@@ -90,18 +90,18 @@ function M.setupNvim()
 
 	-- [[ Section: Window Management ]]
 	-- Window navigation
-	map_key("n", "<C-n>", "<C-w><C-h>", { desc = "Focus left window" })
-	map_key("n", "<C-i>", "<C-w><C-l>", { desc = "Focus right window" })
-	map_key("n", "<C-e>", "<C-w><C-j>", { desc = "Focus lower window" })
-	map_key("n", "<C-u>", "<C-w><C-k>", { desc = "Focus upper window" })
-
+	local mode = { "n", "i", "t" }
+	map_key(mode, "<C-n>", "<C-w><C-h>", { desc = "Focus left window", escape_insert_terminal = true })
+	map_key(mode, "<D-I>", "<C-w><C-l>", { desc = "Focus right window", escape_insert_terminal = true })
+	map_key(mode, "<C-e>", "<C-w><C-j>", { desc = "Focus lower window", escape_insert_terminal = true })
+	map_key(mode, "<C-u>", "<C-w><C-k>", { desc = "Focus upper window", escape_insert_terminal = true })
 	-- Window resizing
 	local resizeMultiplier = 10
-	map_key("n", "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width" })
-	map_key("n", "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width" })
-	map_key("n", "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height" })
-	map_key("n", "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height" })
-
+	local modes = { "n", "i", "t" }
+	map_key(modes, "<D-n>", resizeMultiplier .. "<C-w><", { desc = "Decrease window width", stay_in_insert = true })
+	map_key(modes, "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width", stay_in_insert = true })
+	map_key(modes, "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height", stay_in_insert = true })
+	map_key(modes, "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height", stay_in_insert = true })
 	map_key("n", "wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
 	map_key("n", "wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
 	map_key("n", "w/", "<C-w>q", { desc = "[W]indow Close" })
@@ -151,7 +151,6 @@ function M.setupNvim()
 
 	-- [[ Section: LSP Integration ]]
 
-	map_key("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
 	map_key("n", "<leader>cd", vim.diagnostic.setloclist, { desc = "[C]ode [D]iagnostic list" })
 
 	-- [[ Section: Plugin-specific ]]
@@ -229,9 +228,6 @@ function M.setupNvim()
 	map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
 
 	map_key(allModes, "<F17>", ":OverseerRun<CR>", { desc = "Run Overseer" })
-	map_key({ "n", "v" }, "<leader>fd", function()
-		vim.lsp.buf.format({ async = true })
-	end, { desc = "[F]ormate [f]ormate" })
 
 	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "[W]indow go to [N]ext window - switches back & forth" })
 
@@ -257,8 +253,24 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>dv", ":DiffviewFileHistory<CR>", { desc = "DiffView file history" })
 	map_key({ "n" }, "<leader>df", ":DiffviewFileHistory %<CR>", { desc = "Diffview File history" })
 	map_key({ "n" }, "<leader>dc", ":DiffviewOpen<CR>", { desc = "Diff local Changes" })
-end
 
+	-- ── Git stuff ───────────────────────────────────────────────────────
+	local gs = require("gitsigns")
+	map_key({ "n", "v" }, "<leader>fD", function() vim.lsp.buf.format({ async = true }) end,
+		{ desc = "Formate full Document" })
+
+	map_key({ "n", "v" }, "<leader>fd", function()
+			for _, hunk in ipairs(gs.get_hunks() or {}) do
+				vim.lsp.buf.format({
+					range = {
+						start = { hunk.added.start, 0 },
+						["end"] = { hunk.added.start + hunk.added.count, 0 }
+					}
+				})
+			end
+		end,
+		{ desc = "Formate full Document" })
+end
 function M.setupVScode()
 	local vscode = require("vscode")
 	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})

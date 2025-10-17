@@ -7,7 +7,24 @@ function map_key(modes, from, to, options)
 	end
 
 	for _, mode in ipairs(modes) do
-		vim.keymap.set(mode, from, to, merged_options)
+		local prefixed_to = to
+		if options.stay_in_insert then
+			if mode == "i" then
+				prefixed_to = "<C-o>" .. to
+			elseif mode == "t" then
+				prefixed_to = "<C-\\><C-n>" .. to .. "i"
+			end
+			merged_options.stay_in_insert = nil
+		end
+		if options.escape_insert_terminal then
+			if mode == "i" then
+				prefixed_to = "<Esc>" .. to 
+			elseif mode == "t" then
+				prefixed_to = "<C-\\><C-n>" .. to 
+			end
+			merged_options.escape_insert_terminal = nil
+		end
+		vim.keymap.set(mode, from, prefixed_to, merged_options)
 	end
 end
 

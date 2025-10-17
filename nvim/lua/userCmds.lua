@@ -172,11 +172,21 @@ local function lsp_info()
 		print(string.format("󰌘 Client %d: %s", i, client.name))
 		print("  ID: " .. client.id)
 		print("  Root dir: " .. (client.config.root_dir or "Not set"))
-		print("  Command: " .. table.concat(client.config.cmd or {}, " "))
-		print("  Filetypes: " .. table.concat(client.config.filetypes or {}, ", "))
+		local cmd = client.config.cmd
+		if type(cmd) == "table" then
+			print("  Command: " .. table.concat(cmd, " "))
+		else
+			print("  Command: " .. (cmd or "Not set"))
+		end
+		local filetypes = client.config.filetypes
+		if type(filetypes) == "table" then
+			print("  Filetypes: " .. table.concat(filetypes, ", "))
+		else
+			print("  Filetypes: " .. (filetypes or "Not set"))
+		end
 
 		-- Server status
-		if client.is_stopped() then
+		if client.is_stopped then
 			print("  Status: 󰅚 Stopped")
 		else
 			print("  Status: 󰄬 Running")
