@@ -1,16 +1,7 @@
-source $HOME/.config/code_nvim/vim-plug/plugins.vim
-
 " autocmd FileType python :setlocal tabstop=1
 " autocmd FileType * ...
 " autocmd WinEnter,WinNew,BufAdd * ...
 " let g:python_recommended_style = 0
-
-" " easymotion
-" map  k <Plug>(easymotion-prefix)p<leader><leader>
-"
-
-" for NERD Commenter
-filetype plugin on
 
 
 let mapleader = "p"
@@ -24,11 +15,6 @@ imap <C-/> <leader>c<space>
 
 map <Tab> >>
 map <S-Tab> <<
-
-map  <leader>i <Plug>(easymotion-f)
-map  <leader>n <Plug>(easymotion-F)
-map  <leader>u <Plug>(easymotion-k)
-map  <leader>e <Plug>(easymotion-j)
 
 
 nnoremap o i|onoremap o i|xnoremap o i
@@ -81,12 +67,6 @@ nnoremap <CR> o
 nnoremap n b|onoremap n b|xnoremap n b
 nnoremap i w|onoremap i w|xnoremap i w
 nnoremap b n|onoremap b n|xnoremap b n
-
-" disalbe movement keys to force use easymotion
-" noremap n <NOP>
-" noremap e <NOP>
-" noremap i <NOP>
-" noremap u <NOP>
 
 " l & y to behaive as home and end
 nnoremap l 0|onoremap l 0|xnoremap l 0
