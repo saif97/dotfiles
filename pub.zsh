@@ -40,6 +40,10 @@ alias lg="lazygit"
 alias cpy="pbcopy <"
 alias dcr="docker"
 
+# ── AI stuff ──────────────────────────────────────────────────────────
+alias qr="q chat --resume"
+alias ql="q login"
+
 mkcd(){
 	mkdir -p "$1" && cd "$1"
 	pwd

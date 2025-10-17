@@ -92,6 +92,8 @@ function addMarkdown()
 					"",
 					"## What I have for the day",
 					"- [ ] ",
+					"------------------------",
+					"## Playground",
 					"",
 				})
 			}
