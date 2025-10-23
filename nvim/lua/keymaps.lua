@@ -72,6 +72,15 @@ function M.setupNvimPreLazy()
 end
 
 function M.setupNvim()
+	-- Smart comment deletion: delete empty comment line before inserting newline
+	-- Now works since blink-cmp uses <C-y> instead of <CR>
+	vim.keymap.set('i', '<CR>', function()
+		if is_empty_comment_line() then
+			return '<C-u><CR>'
+		end
+		return '<CR>'
+	end, { expr = true, desc = "Smart comment deletion" })
+
 	-- Clear highlights and close panels
 	map_key({ "n" }, "<Esc><Esc>", function()
 		hideCodeCompanion()

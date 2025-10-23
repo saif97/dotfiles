@@ -115,6 +115,17 @@ else -- Neovim-only configurations
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
 
+	-- Smart comment continuation (VSCode-like)
+	-- formatoptions flags:
+	--   j: Remove comment leader when joining lines with J
+	--   q: Allow formatting of comments with gq
+	--   l: Don't break long lines that were already long in insert mode
+	--   n: Recognize numbered lists when formatting
+	--   r: Auto-insert comment leader after Enter in insert mode
+	--   o: Auto-insert comment leader after o/O in normal mode
+	-- Excluded: t/c (auto-wrap), a (auto-format paragraphs)
+	vim.opt.formatoptions = "jqlnro"
+
 	vim.g.copilot_filetypes = {
 		{ "xml", "false" }
 	}

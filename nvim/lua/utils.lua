@@ -76,3 +76,12 @@ end
 function isPersonalMachine()
 	return os.getenv("IS_PERSONAL_MACHINE") ~= nil
 end
+
+-- Check if current line is an empty comment (only whitespace + comment marker)
+function is_empty_comment_line()
+	local line = vim.api.nvim_get_current_line()
+	return line:match('^%s*///?%s*$') or   -- C-style and doc comments
+	       line:match('^%s*#%s*$') or      -- Shell/Python
+	       line:match('^%s*%-%-%s*$') or   -- Lua
+	       line:match('^%s*";%s*$')        -- Clojure
+end
