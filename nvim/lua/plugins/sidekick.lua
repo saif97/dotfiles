@@ -60,7 +60,7 @@ return {
 		},
 		{
 			"<leader>if",
-			function() require("sidekick.cli").send({ msg = "{file}" }) end,
+			function() require("sidekick.cli").send({ msg = "{line}" }) end,
 			desc = "Send File",
 		},
 		{
