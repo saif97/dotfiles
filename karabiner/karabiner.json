@@ -1660,10 +1660,11 @@
                 },
                 "to": [
                   {
-                    "key_code": "semicolon",
+                    "key_code": "4",
                     "modifiers": [
                       "command",
-                      "option"
+                      "control",
+                      "shift"
                     ]
                   }
                 ],

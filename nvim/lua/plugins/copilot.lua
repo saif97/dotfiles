@@ -13,7 +13,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<C-y>",
+          accept = "<C-l>",
           accept_word = false,
           accept_line = false,
           next = "<C-j>",

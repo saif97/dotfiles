@@ -103,7 +103,7 @@ writeToProfile(
 				map("close_bracket", "shift").to("close_bracket", ["command"]),
 
 				// trigger screenshot.
-				map("c").to("semicolon", ["command", "option"]),
+				map("c").to("4", ["command", "control", "shift"]),
 			]),
 		]),
 
