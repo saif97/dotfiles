@@ -14,7 +14,7 @@
                       "key_code": "left_command"
                     },
                     {
-                      "key_code": "2"
+                      "key_code": "e"
                     }
                   ],
                   "simultaneous_options": {
@@ -319,7 +319,7 @@
             ]
           },
           {
-            "description": "DuoLayer amethyst_focus_mode",
+            "description": "DuoLayer desktop_switch_mode",
             "manipulators": [
               {
                 "type": "basic",
@@ -329,14 +329,14 @@
                       "key_code": "left_command"
                     },
                     {
-                      "key_code": "3"
+                      "key_code": "w"
                     }
                   ],
                   "simultaneous_options": {
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "amethyst_focus_mode",
+                          "name": "desktop_switch_mode",
                           "value": 0
                         }
                       }
@@ -354,7 +354,7 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "amethyst_focus_mode",
+                      "name": "desktop_switch_mode",
                       "value": 1
                     }
                   }
@@ -362,191 +362,7 @@
                 "conditions": [
                   {
                     "type": "variable_unless",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "u"
-                },
-                "to": [
-                  {
-                    "key_code": "u",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "i"
-                },
-                "to": [
-                  {
-                    "key_code": "i",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "o"
-                },
-                "to": [
-                  {
-                    "key_code": "o",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "p"
-                },
-                "to": [
-                  {
-                    "key_code": "p",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "j"
-                },
-                "to": [
-                  {
-                    "key_code": "j",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "k"
-                },
-                "to": [
-                  {
-                    "key_code": "k",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l"
-                },
-                "to": [
-                  {
-                    "key_code": "l",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "semicolon"
-                },
-                "to": [
-                  {
-                    "key_code": "semicolon",
-                    "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "amethyst_focus_mode",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   }
                 ]
@@ -558,18 +374,16 @@
                 },
                 "to": [
                   {
-                    "key_code": "n",
+                    "key_code": "1",
                     "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
+                      "control"
                     ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "amethyst_focus_mode",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   }
                 ]
@@ -581,18 +395,16 @@
                 },
                 "to": [
                   {
-                    "key_code": "m",
+                    "key_code": "2",
                     "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
+                      "control"
                     ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "amethyst_focus_mode",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   }
                 ]
@@ -604,18 +416,16 @@
                 },
                 "to": [
                   {
-                    "key_code": "comma",
+                    "key_code": "3",
                     "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
+                      "control"
                     ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "amethyst_focus_mode",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   }
                 ]
@@ -627,18 +437,186 @@
                 },
                 "to": [
                   {
-                    "key_code": "period",
+                    "key_code": "4",
                     "modifiers": [
-                      "shift",
-                      "option",
-                      "command"
+                      "control"
                     ]
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "amethyst_focus_mode",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u"
+                },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "i"
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "modifiers": [
+                      "control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p"
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "modifiers": [
+                      "control",
+                      "option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   }
                 ]
@@ -707,6 +685,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -736,6 +719,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -772,6 +760,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -802,6 +795,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -838,6 +836,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -868,6 +871,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -904,6 +912,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -934,6 +947,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -981,6 +999,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1014,6 +1037,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1044,6 +1072,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1091,6 +1124,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1132,6 +1170,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1176,6 +1219,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1217,6 +1265,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1245,6 +1298,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1277,6 +1335,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1321,6 +1384,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1361,6 +1429,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1398,6 +1471,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1432,6 +1510,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1474,6 +1557,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1513,6 +1601,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1544,6 +1637,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1572,6 +1670,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {
@@ -1611,6 +1714,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1647,6 +1755,11 @@
                     "value": 1
                   },
                   {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
+                    "value": 1
+                  },
+                  {
                     "type": "variable_if",
                     "name": "VimLayer",
                     "value": 1
@@ -1677,6 +1790,11 @@
                   {
                     "type": "variable_unless",
                     "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "desktop_switch_mode",
                     "value": 1
                   },
                   {

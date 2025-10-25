@@ -119,9 +119,14 @@ swap-screen-ccw:
 # ============================================================================
 # KEYBINDINGS - SPACE/DESKTOP MANAGEMENT
 # ============================================================================
+# Numpad layout mapping:
+# u  i  o  p     →  Space 9, 10, 11, 12
+# j  k  l  ;     →  Space 5, 6, 7, 8
+# n  m  ,  .     →  Space 1, 2, 3, 4
+
 throw-space-1:
   mod: mod2
-  key: k
+  key: n
 
 throw-space-2:
   mod: mod2
@@ -135,37 +140,37 @@ throw-space-4:
   mod: mod2
   key: '.'
 
+throw-space-5:
+  mod: mod2
+  key: j
+
 throw-space-6:
   mod: mod2
-  key: n
+  key: k
 
 throw-space-7:
   mod: mod2
-  key: e
+  key: l
 
 throw-space-8:
   mod: mod2
-  key: i
+  key: ';'
 
 throw-space-9:
   mod: mod2
-  key: o
+  key: u
+
+throw-space-10:
+  mod: mod2
+  key: i
 
 throw-space-11:
   mod: mod2
-  key: l
+  key: o
 
 throw-space-12:
   mod: mod2
-  key: u
-
-throw-space-13:
-  mod: mod2
-  key: y
-
-throw-space-14:
-  mod: mod2
-  key: ';'
+  key: p
 
 # ============================================================================
 # KEYBINDINGS - WINDOW STATE

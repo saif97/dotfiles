@@ -44,15 +44,32 @@ const rightLetterPad: FromAndToKeyCode[][] = [
 writeToProfile(
 	"Goku",
 	[
-		duoLayer("left⌘", "2", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
-		duoLayer("left⌘", "3", "amethyst_focus_mode").manipulators(
-			rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "option", "command"]))
-		),
+		duoLayer("left⌘", "e", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
+
+		duoLayer("left⌘", "w", "desktop_switch_mode").manipulators([
+			// u  i  o  p     →  Desktop 9, 10, 11, 12
+			// j  k  l  ;     →  Desktop 5, 6, 7, 8
+			// n  m  ,  .     →  Desktop 1, 2, 3, 4
+			
+			map("n").to("1", ["control"]), // Desktop 1
+			map("m").to("2", ["control"]), // Desktop 2
+			map("comma").to("3", ["control"]), // Desktop 3
+			map("period").to("4", ["control"]), // Desktop 4
+			map("j").to("5", ["control"]), // Desktop 5
+			map("k").to("6", ["control"]), // Desktop 6
+			map("l").to("7", ["control"]), // Desktop 7
+			map("semicolon").to("8", ["control"]), // Desktop 8
+			map("u").to("9", ["control"]), // Desktop 9
+			map("i").to("0", ["control"]), // Desktop 10
+			map("o").to("1", ["control", "option"]), // Desktop 11
+			map("p").to("2", ["control", "option"]), // Desktop 12
+		]),
 
 		layer("left⌘", "VimLayer").manipulators([
 			withCondition(
 				ifVar("amethyst_throw_mode").unless(),
-				ifVar("amethyst_focus_mode").unless()
+				ifVar("amethyst_focus_mode").unless(),
+				ifVar("desktop_switch_mode").unless()
 			)([
 				map("tab").to("tab", ["shift"]),
 				map("escape").to("w", ["command", "shift"]),
