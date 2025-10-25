@@ -47,11 +47,17 @@ return {
 					["<c-CR>"] = "Submit",
 					["q"] = "Abort",
 				},
+				popup = {
+					["t"] = false,
+					["T"] = "TagPopup",
+				},
 				status = {
-					["e"] = "MoveDown",  -- Colemak: e instead of j
-					["u"] = "MoveUp",    -- Colemak: u instead of k
-					["i"] = "Toggle",    -- Colemak: i for toggle
-					["n"] = "Toggle",    -- Colemak: n for toggle
+					["e"] = "MoveDown",
+					["u"] = "MoveUp",
+					["f"] = "Unstage",
+					["<tab>"] = false,
+					["i"] = "Toggle",
+					["n"] = "Toggle",
 				},
 			},
 		}
