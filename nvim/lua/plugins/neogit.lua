@@ -43,6 +43,10 @@ return {
 			},
 			-- Custom Colemak-inspired keybindings (overrides defaults)
 			mappings = {
+				commit_editor = {
+					["<c-CR>"] = "Submit",
+					["q"] = "Abort",
+				},
 				status = {
 					["e"] = "MoveDown",  -- Colemak: e instead of j
 					["u"] = "MoveUp",    -- Colemak: u instead of k
