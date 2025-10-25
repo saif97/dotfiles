@@ -13,12 +13,18 @@
 # If you experience issues pulling in the changes you can also quit Amethyst and run: `defaults delete com.amethyst.Amethyst.plist`
 # This removes the current preferences and causes Amethyst to restart with default preferences and pull configs from this file.
 
-# layouts - Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
+# ============================================================================
+# LAYOUTS
+# ============================================================================
+# Ordered list of layouts to use by layout key (default tall, wide, fullscreen, and column).
 layouts:
   - tall
   - fullscreen
   - 3column-left
 
+# ============================================================================
+# MODIFIER KEYS
+# ============================================================================
 # First mod (default option + shift).
 mod1:
   - option
@@ -28,26 +34,47 @@ mod2:
   - control
   - shift
 
-# Automatically quit and reopen Amethyst.
-relaunch-amethyst:
-  mod: mod1
-  key: x
-
+# ============================================================================
+# KEYBINDINGS - LAYOUT MANAGEMENT
+# ============================================================================
 # Move to the next layout in the list.
 cycle-layout:
   mod: mod1
   key: space
 
-# Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
+# Select tall layout
+select-tall-layout:
+  mod: mod1
+  key: "]"
+
+# Select fullscreen layout
+select-fullscreen-layout:
+  mod: mod1
+  key: ;
+
+# Select middle-wide layout
+select-middle-wide-layout:
+  mod: mod1
+  key: "["
+
+# Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step.
 shrink-main:
   mod: mod1
   key: e
 
-# Expand the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
+# Expand the main pane by a percentage of the screen dimension as defined by window-resize-step.
 expand-main:
   mod: mod1
   key: u
 
+# Rerun the current layout's algorithm.
+reevaluate-windows:
+  mod: mod1
+  key: /
+
+# ============================================================================
+# KEYBINDINGS - WINDOW FOCUS & NAVIGATION
+# ============================================================================
 # Focus the next window in the list going counter-clockwise.
 focus-ccw:
   mod: mod1
@@ -63,11 +90,9 @@ focus-screen-ccw:
   mod: mod1
   key: o
 
-# Move the currently focused window onto the next screen in the list going counter-clockwise.
-swap-screen-ccw:
-  mod: mod1
-  key: h
-
+# ============================================================================
+# KEYBINDINGS - WINDOW SWAPPING
+# ============================================================================
 # Swap the position of the currently focused window with the next window in the list going counter-clockwise.
 swap-ccw:
   mod: mod1
@@ -83,37 +108,17 @@ swap-main:
   mod: mod1
   key: enter
 
-# Select wide layout
-select-tall-layout:
+# ============================================================================
+# KEYBINDINGS - SCREEN MANAGEMENT
+# ============================================================================
+# Move the currently focused window onto the next screen in the list going counter-clockwise.
+swap-screen-ccw:
   mod: mod1
-  key: "]"
+  key: h
 
-# Select fullscreen layout
-select-fullscreen-layout:
-  mod: mod1
-  key: ;
-
-# Select fullscreen layout
-select-middle-wide-layout:
-  mod: mod1
-  key: "["
-
-
-# Toggle the floating state of the currently focused window; i.e., if it was floating make it tiled and if it was tiled make it floating.
-toggle-float:
-  mod: mod1
-  key: \
-
-# Rerun the current layout's algorithm.
-reevaluate-windows:
-  mod: mod1
-  key: /
-
-# # Automatically quit and reopen Amethyst.
-# relaunch-amethyst:
-#   mod: mod1
-#   key: x
-
+# ============================================================================
+# KEYBINDINGS - SPACE/DESKTOP MANAGEMENT
+# ============================================================================
 throw-space-1:
   mod: mod2
   key: k
@@ -162,24 +167,33 @@ throw-space-14:
   mod: mod2
   key: ';'
 
-# disable screen padding on builtin display
-disable-padding-on-builtin-display: false
+# ============================================================================
+# KEYBINDINGS - WINDOW STATE
+# ============================================================================
+# Toggle the floating state of the currently focused window.
+toggle-float:
+  mod: mod1
+  key: \
 
+# ============================================================================
+# KEYBINDINGS - SYSTEM
+# ============================================================================
+# Automatically quit and reopen Amethyst.
+relaunch-amethyst:
+  mod: mod1
+  key: x
+
+# ============================================================================
+# WINDOW APPEARANCE SETTINGS
+# ============================================================================
 # Boolean flag for whether or not to add margins betwen windows (default false).
 window-margins: false
 
 # Boolean flag for whether or not to set window margins if there is only one window on the screen, assuming window margins are enabled (default false).
 smart-window-margins: false
 
-# # Add 10px margin between windows
-# window-margins: true
-# window-margin-size: 5
 # The size of the margins between windows (in px, default 0).
 window-margin-size: 0
-
-# The max number of windows that may be visible on a screen at one time before
-# additional windows are minimized. A value of 0 disables the feature.
-window-max-count: 0
 
 # The smallest height that a window can be sized to regardless of its layout frame (in px, default 0).
 window-minimum-height: 0
@@ -187,14 +201,20 @@ window-minimum-height: 0
 # The smallest width that a window can be sized to regardless of its layout frame (in px, default 0)
 window-minimum-width: 0
 
+# The max number of windows that may be visible on a screen at one time before additional windows are minimized. A value of 0 disables the feature.
+window-max-count: 0
+
+# The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
+window-resize-step: 5
+
+# ============================================================================
+# BEHAVIOR SETTINGS
+# ============================================================================
 # List of bundle identifiers for applications to either be automatically floating or automatically tiled based on floating-is-blacklist (default []).
 floating: ["com.apple.iphonesimulator"]
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).
 floating-is-blacklist: true
-
-# true if screen frames should exclude the status bar. false if the screen frames should include the status bar (default false).
-ignore-menu-bar: false
 
 # true if windows smaller than a 500px square should be floating by default (default true)
 float-small-windows: true
@@ -211,24 +231,36 @@ mouse-swaps-windows: false
 # true if changing the frame of a window with the mouse should update the layout to accommodate the change (default false). Note that not all layouts will be able to respond to the change.
 mouse-resizes-windows: false
 
-# true to display the name of the layout when a new layout is selected (default true).
-enables-layout-hud: true
-
-# true to display the name of the layout when moving to a new space (default true).
-enables-layout-hud-on-space-change: false
-
-# true to get updates to beta versions of the software (default false).
-use-canary-build: false
-
 # true to insert new windows into the first position and false to insert new windows into the last position (default false).
 new-windows-to-main: false
 
 # true to automatically move to a space when throwing a window to it (default true).
 follow-space-thrown-windows: true
 
-# The integer percentage of the screen dimension to increment and decrement main pane ratios by (default 5).
-window-resize-step: 5
+# true to maintain layout state across application executions (default true).
+restore-layouts-on-launch: true
 
+# ============================================================================
+# DISPLAY SETTINGS
+# ============================================================================
+# true if screen frames should exclude the status bar. false if the screen frames should include the status bar (default false).
+ignore-menu-bar: false
+
+# disable screen padding on builtin display
+disable-padding-on-builtin-display: false
+
+# true to display the name of the layout when a new layout is selected (default true).
+enables-layout-hud: true
+
+# true to display the name of the layout when moving to a new space (default true).
+enables-layout-hud-on-space-change: false
+
+# true to display some optional debug information in the layout HUD (default false).
+debug-layout-info: false
+
+# ============================================================================
+# SCREEN PADDING
+# ============================================================================
 # Padding to apply between windows and the left edge of the screen (in px, default 0).
 screen-padding-left: 0
 
@@ -241,8 +273,8 @@ screen-padding-top: 0
 # Padding to apply between windows and the bottom edge of the screen (in px, default 0).
 screen-padding-bottom: 0
 
-# true to maintain layout state across application executions (default true).
-restore-layouts-on-launch: true
-
-# true to display some optional debug information in the layout HUD (default false).
-debug-layout-info: false
+# ============================================================================
+# ADVANCED SETTINGS
+# ============================================================================
+# true to get updates to beta versions of the software (default false).
+use-canary-build: false
