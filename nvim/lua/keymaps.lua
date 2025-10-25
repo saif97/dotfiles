@@ -191,6 +191,9 @@ function M.setupNvim()
 		vim.fn.system("code " .. vim.fn.getcwd())
 	end, { desc = "[O]pen project in vs[c]ode" })
 
+	map_key({ "n" }, "<leader>ox", openXCodeProject, { desc = "[O]pen project in [x]code" })
+	map_key({ "n" }, "<leader>oa", openAndroidStudioProject, { desc = "[O]pen project in [a]ndroid studio" })
+
 	-- TODO: Extract this along with neo-tree since they're pretty similar
 	map_key({ "n" }, "<leader>od", function()
 		file_dir = vim.fn.expand("%:h")

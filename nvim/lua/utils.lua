@@ -85,3 +85,57 @@ function is_empty_comment_line()
 	       line:match('^%s*%-%-%s*$') or   -- Lua
 	       line:match('^%s*";%s*$')        -- Clojure
 end
+
+function openXCodeProject()
+	local cwd = vim.fn.getcwd()
+	-- Search order: workspace files first (preferred), then project files
+	-- Check common framework locations: ios/, macos/, root
+	local search_patterns = {
+		"ios/*.xcworkspace",
+		"ios/*.xcodeproj",
+		"macos/*.xcworkspace",
+		"macos/*.xcodeproj",
+		"example/*.xcworkspace",
+		"example/*.xcodeproj",
+		"*.xcworkspace",
+		"*.xcodeproj",
+	}
+	for _, pattern in ipairs(search_patterns) do
+		local matches = vim.fn.glob(cwd .. "/" .. pattern, false, true)
+		if #matches > 0 then
+			-- Use the first match found
+			vim.fn.system("open " .. vim.fn.shellescape(matches[1]))
+			vim.notify("Opening: " .. vim.fn.fnamemodify(matches[1], ":t"))
+			return
+		end
+	end
+
+	vim.notify("No Xcode project found", vim.log.levels.WARN)
+end
+
+function openAndroidStudioProject()
+	local cwd = vim.fn.getcwd()
+	-- Search for Android project directories (look for gradle files)
+	-- Check common framework locations: android/, example/android/, root
+	local search_paths = {
+		"android/build.gradle*",
+		"android/settings.gradle*",
+		"example/android/build.gradle*",
+		"example/android/settings.gradle*",
+		"build.gradle*",
+		"settings.gradle*",
+	}
+
+	for _, pattern in ipairs(search_paths) do
+		local matches = vim.fn.glob(cwd .. "/" .. pattern, false, true)
+		if #matches > 0 then
+			-- Get the directory containing the gradle file
+			local project_dir = vim.fn.fnamemodify(matches[1], ":h")
+			vim.fn.system("open -a 'Android Studio' " .. vim.fn.shellescape(project_dir))
+			vim.notify("Opening: " .. vim.fn.fnamemodify(project_dir, ":t"))
+			return
+		end
+	end
+
+	vim.notify("No Android project found", vim.log.levels.WARN)
+end
