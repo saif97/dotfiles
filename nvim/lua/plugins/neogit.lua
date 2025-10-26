@@ -49,8 +49,11 @@ return {
 				},
 				popup = {
 					["t"] = false,
+					["f"] = false,
+					["i"] = false,
 					["T"] = "TagPopup",
 					["g"] = "IgnorePopup",
+					["F"] = "FetchPopup",
 				},
 				status = {
 					["e"] = "MoveDown",
