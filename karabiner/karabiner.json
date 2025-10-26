@@ -2917,7 +2917,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f14"
+                    "key_code": "f16"
                   }
                 ],
                 "conditions": [
@@ -2946,7 +2946,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f14"
+                    "key_code": "f16"
                   }
                 ]
               },

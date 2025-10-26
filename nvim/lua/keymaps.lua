@@ -91,7 +91,7 @@ function M.setupNvim()
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
-	map_key({ "t" }, "<F14>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+	map_key({ "t" }, "<F16>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
 
 	-- Quick exit
