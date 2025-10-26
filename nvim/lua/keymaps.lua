@@ -95,7 +95,7 @@ function M.setupNvim()
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
 
 	-- Quick exit
-	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "[Q]uit all buffers" })
+	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "Quit all buffers" })
 
 	-- [[ Section: Window Management ]]
 	-- Window navigation
@@ -111,9 +111,9 @@ function M.setupNvim()
 	map_key(modes, "<D-i>", resizeMultiplier .. "<C-w>>", { desc = "Increase window width", stay_in_insert = true })
 	map_key(modes, "<D-e>", resizeMultiplier .. "<C-w>-", { desc = "Decrease window height", stay_in_insert = true })
 	map_key(modes, "<D-u>", resizeMultiplier .. "<C-w>+", { desc = "Increase window height", stay_in_insert = true })
-	map_key("n", "wh", "<C-w>s", { desc = "[W]indow split [H]orizontally" })
-	map_key("n", "wv", "<C-w>v", { desc = "[W]indow split [V]ertically" })
-	map_key("n", "w/", "<C-w>q", { desc = "[W]indow Close" })
+	map_key("n", "wh", "<C-w>s", { desc = "Window split Horizontally" })
+	map_key("n", "wv", "<C-w>v", { desc = "Window split Vertically" })
+	map_key("n", "w/", "<C-w>q", { desc = "Window close" })
 
 	-- ── tab stuff ───────────────────────────────────────────────────────
 	map_key("n", "tn", ":tabnew<CR>", { desc = "Tab New" })
@@ -129,7 +129,7 @@ function M.setupNvim()
 	-- [[ Section: File Explorer and Projects ]]
 
 	map_key({ "n" }, "<leader>e", ":Neotree filesystem focus left<CR>", { desc = "Open file explorer" })
-	map_key({ "n" }, "<leader>sp", ":SessionSearch<CR>", { desc = "[S]earch [P]rojects" })
+	map_key({ "n" }, "<leader>sp", ":SessionSearch<CR>", { desc = "Search Projects" })
 
 	-- [[ Section: Snacks Integration ]]
 
@@ -138,15 +138,15 @@ function M.setupNvim()
 		follow = true,
 		hidden = true,
 	}
-	map_key("n", "sf", function() picker.files(defaultPickerConfig) end, { desc = "[S]earch [F]iles" })
-	map_key("n", "sg", function() picker.grep(defaultPickerConfig) end, { desc = "[S]earch by [G]rep" })
-	map_key("n", "sw", picker.grep_word, { desc = "[S]earch current [W]ord" })
-	map_key("n", "s.", picker.recent, { desc = '[S]earch Recent Files ("." for repeat)' })
-	map_key("n", "sh", picker.help, { desc = "[S]earch [H]elp" })
-	map_key("n", "sk", picker.keymaps, { desc = "[S]earch [K]eymaps" })
-	map_key("n", "sd", picker.diagnostics, { desc = "[S]earch [D]iagnostics" })
-	map_key("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "[S]earch [D]iagnostics" })
-	map_key("n", "sr", picker.resume, { desc = "[S]earch [R]esume" })
+	map_key("n", "sf", function() picker.files(defaultPickerConfig) end, { desc = "Search Files" })
+	map_key("n", "sg", function() picker.grep(defaultPickerConfig) end, { desc = "Search by Grep" })
+	map_key("n", "sw", picker.grep_word, { desc = "Search current Word" })
+	map_key("n", "s.", picker.recent, { desc = 'Search recent files ("." for repeat)' })
+	map_key("n", "sh", picker.help, { desc = "Search Help" })
+	map_key("n", "sk", picker.keymaps, { desc = "Search Keymaps" })
+	map_key("n", "sd", picker.diagnostics, { desc = "Search Diagnostics" })
+	map_key("n", "<leader>sd", function() Snacks.picker.diagnostics() end, { desc = "Search Diagnostics" })
+	map_key("n", "sr", picker.resume, { desc = "Search Resume" })
 	map_key("n", "sb", function()
 		picker.git_branches({
 			layout = {
@@ -155,28 +155,23 @@ function M.setupNvim()
 		})
 	end, { desc = "Search Branches" })
 	map_key("n", "ss", Snacks.picker.spelling, { desc = "Search Spell" })
-	map_key("n", "sn", picker.notifications, { desc = "[S]earch [n]otify" })
-	map_key({ "n" }, "sc", picker.commands, { desc = "[S]earch [C]ommands" })
+	map_key("n", "sn", picker.notifications, { desc = "Search notify" })
+	map_key({ "n" }, "sc", picker.commands, { desc = "Search Commands" })
 
 	-- [[ Section: LSP Integration ]]
 
-	map_key("n", "<leader>cd", vim.diagnostic.setloclist, { desc = "[C]ode [D]iagnostic list" })
+	map_key("n", "<leader>cd", vim.diagnostic.setloclist, { desc = "Code Diagnostic list" })
 
 	-- [[ Section: Plugin-specific ]]
 
-	-- Code Companion
-	map_key({ "n" }, "<leader>lp", ":CodeCompanionActions<CR>", { desc = "[l]LM Command [P]allet" })
-	map_key({ "n" }, "<leader>lc", ":CodeCompanion <CR>", { desc = "[l]LM Command [P]allet" })
-	map_key({ "n" }, "<leader>lb", ":CodeCompanion  #buffer ", { desc = "[l]LM current [b]uffer" })
-
-	map_key({ "n" }, "<leader>rf", ":luafile %<CR>", { desc = "[r]eload [f]ile" })
+	map_key({ "n" }, "<leader>rf", ":luafile %<CR>", { desc = "Reload File" })
 
 	map_key({ "n" }, "<leader>rs", function()
 		require("luasnip").cleanup()
 		vim.cmd("luafile %")
 		require("config.snippets.mySnippets").setup()
 		vim.notify("Reloaded Snippets")
-	end, { desc = "[r]eload [s]nippets" })
+	end, { desc = "Reload Snippets" })
 
 	map_key({ "n" }, "<leader>rk", function()
 		vim.cmd("luafile %")
@@ -184,45 +179,45 @@ function M.setupNvim()
 		keymaps.setup()
 		keymaps.setupNvim()
 		vim.notify("Reloaded Keymaps")
-	end, { desc = "[r]eload [k]eymaps" })
+	end, { desc = "Reload Keymaps" })
 
-	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "[O]pen [t]erminal" })
+	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "Open Terminal" })
 	map_key({ "n" }, "<leader>oc", function()
 		vim.fn.system("code " .. vim.fn.getcwd())
-	end, { desc = "[O]pen project in vs[c]ode" })
+	end, { desc = "Open project in vsCode" })
 
-	map_key({ "n" }, "<leader>ox", openXCodeProject, { desc = "[O]pen project in [x]code" })
-	map_key({ "n" }, "<leader>oa", openAndroidStudioProject, { desc = "[O]pen project in [a]ndroid studio" })
+	map_key({ "n" }, "<leader>ox", openXCodeProject, { desc = "Open project in Xcode" })
+	map_key({ "n" }, "<leader>oa", openAndroidStudioProject, { desc = "Open project in Android studio" })
 
 	-- TODO: Extract this along with neo-tree since they're pretty similar
 	map_key({ "n" }, "<leader>od", function()
 		file_dir = vim.fn.expand("%:h")
 		vim.fn.system("open " .. file_dir)
-	end, { desc = "[O]pen [d]irectory of the current file" })
+	end, { desc = "Open Directory of the current file" })
 
 	map_key({ "n" }, "<leader>pd", function()
 		file_dir = vim.fn.expand("%:p:h")
 		vim.fn.setreg("+", file_dir)
 		vim.notify("Copied: " .. file_dir)
-	end, { desc = "copy abosulte file [p]ath [d]irectory" })
+	end, { desc = "copy absolute file Path Directory" })
 
 	map_key({ "n" }, "<leader>pr", function()
 		file_dir = vim.fn.expand("%:~:.")
 		vim.fn.setreg("+", file_dir)
 		vim.notify("Copied: " .. file_dir)
-	end, { desc = "Copy [p]ath [r]elative to the selected file" })
+	end, { desc = "copy Path Relative to the selected file" })
 
 	map_key({ "n" }, "<leader>pp", function()
 		local cwd = vim.fn.getcwd()
 		vim.fn.setreg("+", cwd)
 		vim.notify("Copied: " .. cwd)
-	end, { desc = "copy Path to Project directory" })
+	end, { desc = "copy Path to project directory" })
 
 	map_key({ "n" }, "<leader>pa", function()
 		local file_path = vim.fn.expand("%:p")
 		vim.fn.setreg("+", file_path)
 		vim.notify("Copied: " .. file_path)
-	end, { desc = "copy Path Abosulte to file" })
+	end, { desc = "copy Path Absolute to file" })
 
 	-- [[ Section: Insert mode text editing ]]
 	map_key({ "i" }, "<D-l>", "<Home>", { desc = "" })
@@ -241,25 +236,25 @@ function M.setupNvim()
 
 	map_key(allModes, "<F17>", ":OverseerRun<CR>", { desc = "Run Overseer" })
 
-	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "[W]indow go to [N]ext window - switches back & forth" })
+	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "Window go to Next window - switches back & forth" })
 
 	map_key({ "n", "i" }, "<M-Up>", ":m .-2<CR>==", { desc = "move line up" })
 	map_key({ "n", "i" }, "<M-Down>", ":m .+1<CR>==", { desc = "move line down" })
 
 	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
-	map_key("n", "<leader>or", ":OverseerRun<CR>", { desc = "[o]verseer [r]un" })
-	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "[o]verseer [p]annel" })
+	map_key("n", "<leader>or", ":OverseerRun<CR>", { desc = "Overseer Run" })
+	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "Overseer Pannel" })
 
 	map_key("n", "<D-d>", "<Cmd>co.<Cr>", { desc = "Dublicate line at cursor" })
 
 	map_key(allModes, "<D-a>", "<Esc>ggVG", { desc = "Select all text" })
 
-	map_key({ "n", "v" }, "<Leader>cb", "<Cmd>CBccbox<CR>", { desc = "[c]ode [b]ox" })
-	map_key({ "n", "v" }, "<Leader>ct", "<Cmd>CBllline<CR>", { desc = "[c]ode [t]able" })
+	map_key({ "n", "v" }, "<Leader>cb", "<Cmd>CBccbox<CR>", { desc = "Code Box" })
+	map_key({ "n", "v" }, "<Leader>ct", "<Cmd>CBllline<CR>", { desc = "Code Table" })
 	-- Simple line
-	map_key("n", "<Leader>cl", "<Cmd>CBline<CR>", { desc = "[c]ode [l]ine" })
+	map_key("n", "<Leader>cl", "<Cmd>CBline<CR>", { desc = "Code Line" })
 	-- Marked comments
-	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "[c]ode [m]arked comments" })
+	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "Code Marked comments" })
 
 	-- ── DiffView stuff ─────────────────────────────────────────────────
 	map_key({ "n" }, "<leader>dv", ":DiffviewFileHistory<CR>", { desc = "DiffView file history" })
@@ -349,15 +344,15 @@ function M.setupLsp(event)
 
 	-- Execute a code action, usually your cursor needs to be on top of an error
 	-- or a suggestion from your LSP for this to activate.
-	map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+	map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 
 	-- WARN: This is not Goto Definition, this is Goto Declaration.
 	--  For example, in C this would take you to the header.
-	map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+	map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
 	map("<leader>th", function()
 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-	end, "[T]oggle Inlay [H]ints")
+	end, "Toggle inlay Hints")
 end
 
 return M

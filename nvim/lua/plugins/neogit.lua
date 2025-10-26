@@ -50,6 +50,7 @@ return {
 				popup = {
 					["t"] = false,
 					["T"] = "TagPopup",
+					["g"] = "IgnorePopup",
 				},
 				status = {
 					["e"] = "MoveDown",
