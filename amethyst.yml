@@ -216,7 +216,13 @@ window-resize-step: 5
 # BEHAVIOR SETTINGS
 # ============================================================================
 # List of bundle identifiers for applications to either be automatically floating or automatically tiled based on floating-is-blacklist (default []).
-floating: ["com.apple.iphonesimulator"]
+floating:
+  - com.apple.iphonesimulator
+  - id: "*"
+    window-titles:
+      - "Android Emulator"
+      - "emulator-.*"        # matches titles like emulator-5554, emulator-5556, etc.
+      - ".*Android.*"        # any title containing "Android"
 
 # Boolean flag determining behavior of the floating list. true if the applications should be floating and all others tiled. false if the applications should be tiled and all others floating (default true).
 floating-is-blacklist: true
