@@ -60,6 +60,7 @@ return {
 					["u"] = "MoveUp",
 					["f"] = "Unstage",
 					["<tab>"] = false,
+					["U"] = false,
 					["i"] = "Toggle",
 					["n"] = "Toggle",
 				},
