@@ -6,6 +6,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.o.winwidth = 180
+		vim.o.winheight = 999
+		vim.o.winminwidth = 20
+		vim.o.winminheight = 2
+	end,
+})
+
+
 if vim.g.vscode then
 	-- VSCode-specific configurations
 else

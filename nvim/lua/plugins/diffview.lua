@@ -95,7 +95,13 @@ return {
 				DiffviewOpen = {},
 				DiffviewFileHistory = {},
 			},
-			hooks = {},            -- See |diffview-config-hooks|
+			hooks = {
+				-- Disable auto-resizing for diffview windows
+				diff_buf_win_enter = function(bufnr, winid, ctx)
+					vim.wo[winid].winfixwidth = true
+					vim.wo[winid].winfixheight = true
+				end,
+			},
 			keymaps = {
 				disable_defaults = true, -- Disable the default keymaps
 				view = {
