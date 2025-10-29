@@ -90,6 +90,9 @@ focus-screen-ccw:
   mod: mod1
   key: o
 
+# Disable numbered screen focus shortcuts to prevent conflicts
+focus-screen-2: false
+
 # ============================================================================
 # KEYBINDINGS - WINDOW SWAPPING
 # ============================================================================
