@@ -1,3 +1,5 @@
+local is_floating = (vim.o.columns < 260) and true or false
+
 return {
 	"folke/sidekick.nvim",
 	-- dir = "/Users/saifhakeam/dev/openSourcing/sidekick.nvim",
@@ -8,6 +10,41 @@ return {
 				backend = "zellij",
 				enabled = true,
 			},
+			win = {
+				--- This is run when a new terminal is created, before starting it.
+				--- Here you can change window options `terminal.opts`.
+				---@param terminal sidekick.cli.Terminal
+				config = function(terminal)
+					terminal.opts.layout = is_floating and "float" or "right"
+				end,
+				-- layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"  -- Now set dynamically in config()
+				--- Options used when layout is "float"
+				---@type vim.api.keyset.win_config
+				float = {
+					width = 0.9,
+					height = 0.85,
+					border = "rounded",
+				},
+				--- CLI Tool Keymaps (default mode is `t`)
+				---@type table<string, sidekick.cli.Keymap|false>
+				keys = {
+					buffers       = { "<D-b>", "buffers", mode = "nt", desc = "open buffer picker" },
+					files         = { "<D-f>", "files", mode = "nt", desc = "open file picker" },
+					prompt        = { "<D-p>", "prompt", mode = "t", desc = "insert prompt or context" },
+					hide_ctrl_dot = {
+						"<c-y>",
+						function()
+							if is_floating then
+								require("sidekick.cli").hide()
+							else
+								vim.cmd("wincmd p")
+							end
+						end,
+						mode = "nt",
+						desc = "hide the terminal window"
+					},
+				},
+			}
 		},
 	},
 	keys = {
@@ -24,13 +61,7 @@ return {
 		},
 		{
 			"<c-y>",
-			function()
-				if vim.bo.filetype == "sidekick_terminal" then
-					vim.cmd("wincmd p")
-				else
-					require("sidekick.cli").focus()
-				end
-			end,
+			function() require("sidekick.cli").focus() end,
 			desc = "Sidekick Toggle Focus",
 			mode = { "n", "v", "i", "t", "x" },
 
