@@ -22,11 +22,12 @@ return {
 					{ "n", "-", actions.toggle_stage_entry, { desc = "Stage / unstage the selected entry" } },
 				},
 				file_panel = {
-					{ "n", "e",      actions.select_next_entry, { desc = "Bring the cursor to the next file entry" } },
-					{ "n", "<down>", actions.select_next_entry, { desc = "Bring the cursor to the next file entry" } },
-					{ "n", "u",      actions.select_prev_entry, { desc = "Bring the cursor to the previous file entry" } },
-					{ "n", "<up>",   actions.select_prev_entry, { desc = "Bring the cursor to the previous file entry" } },
-					{ "n", "i",      actions.select_entry,      { desc = "Open the diff for the selected entry" } },
+					{ "n", "E",      actions.select_next_entry, { desc = "Bring the cursor to the next file entry" } },
+					{ "n", "e",      actions.next_entry,        { desc = "Bring the cursor to the next file entry" } },
+					{ "n", "<down>", actions.next_entry,        { desc = "Bring the cursor to the next file entry" } },
+					{ "n", "U",      actions.select_prev_entry, { desc = "Bring the cursor to the previous file entry" } },
+					{ "n", "<up>",   actions.prev_entry,        { desc = "Bring the cursor to the previous file entry" } },
+					{ "n", "i",      actions.prev_entry,        { desc = "Open the diff for the selected entry" } },
 				},
 			},
 		})
