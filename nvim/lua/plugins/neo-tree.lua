@@ -26,9 +26,9 @@ return {
 				["X"] = "toggle_auto_expand_width",
 
 				-- Map 'i' to go inside (expand directory or open file)
-				["i"] = "open",         -- Expands a directory or opens a file
-				["<Right>"] = "open",   -- Expands a directory or opens a file
-				["<Esc>"] = "close_window", -- Closes Neo-tree when pressing Escape twice
+				["i"] = { "open", config = { expand_nested_files = true } }, -- Expands a directory or opens a file
+				["<Right>"] = "open",                                    -- Expands a directory or opens a file
+				["<Esc>"] = "close_window",                              -- Closes Neo-tree when pressing Escape twice
 				["l"] = "close_all_nodes",
 
 
@@ -79,6 +79,8 @@ return {
 			},
 			hijack_netrw_behavior = "open_current",
 			find_by_full_path_words = true,  -- space means ".*"`, so `fi init` will match: `./sources/filesystem/init.lua`
+			group_empty_dirs = true,
+			scan_mode = "deep",
 			filtered_items = {
 				visible = false,
 				hide_dotfiles = false,
