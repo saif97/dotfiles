@@ -13,28 +13,9 @@ local servers = {
 	"dockerls",
 }
 
-local personal_servers = {
-	"solidity",
-	"copilot",
-}
-
-if os.getenv("IS_PERSONAL_MACHINE") then
-	vim.list_extend(servers, personal_servers)
-end
-
--- Consolidated LSP configuration
--- Combines mason.nvim, mason-lspconfig.nvim, and nvim-lspconfig setup
-
-local servers = {
-	"lua_ls",
-	"pyright",
-	"ruff",
-	"ts_ls",
-	"html",
-	"cssls",
-	"jsonls",
-	"bashls",
-	"dockerls",
+-- Additional tools to install via Mason (formatters, linters, etc.)
+local additional_tools = {
+	"shfmt",
 }
 
 local personal_servers = {
@@ -60,6 +41,15 @@ return {
 					},
 				},
 			})
+
+			-- Ensure additional tools are installed
+			local mr = require("mason-registry")
+			for _, tool in ipairs(additional_tools) do
+				local p = mr.get_package(tool)
+				if not p:is_installed() then
+					p:install()
+				end
+			end
 		end,
 	},
 	{
