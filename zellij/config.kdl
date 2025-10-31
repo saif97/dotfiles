@@ -395,4 +395,4 @@ default_layout "compact"
 // Whether to show startup tips on session start
 // Default: true
 //
-// show_startup_tips false
+show_startup_tips false

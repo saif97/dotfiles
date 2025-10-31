@@ -1,5 +1,16 @@
 # git config --global core.excludesfile ~/dotfiles/global.gitignore
 
+node_modules
+__pycache__
+
+*.log
+**/logs
+tmp
+
+.env
+
+.idea
+
 *.log
 logs
 
