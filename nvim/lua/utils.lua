@@ -95,8 +95,8 @@ function openXCodeProject()
 		"ios/*.xcodeproj",
 		"macos/*.xcworkspace",
 		"macos/*.xcodeproj",
-		"example/*.xcworkspace",
-		"example/*.xcodeproj",
+		"example/ios/*.xcworkspace",
+		"example/ios/*.xcodeproj",
 		"*.xcworkspace",
 		"*.xcodeproj",
 	}
@@ -118,10 +118,10 @@ function openAndroidStudioProject()
 	-- Search for Android project directories (look for gradle files)
 	-- Check common framework locations: android/, example/android/, root
 	local search_paths = {
-		"android/build.gradle*",
-		"android/settings.gradle*",
 		"example/android/build.gradle*",
 		"example/android/settings.gradle*",
+		"android/build.gradle*",
+		"android/settings.gradle*",
 		"build.gradle*",
 		"settings.gradle*",
 	}

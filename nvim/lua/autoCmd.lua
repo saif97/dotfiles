@@ -27,26 +27,14 @@ else
 		end,
 	})
 
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "Avante*" },
-		callback = function()
-			vim.api.nvim_win_set_option(0, "winfixwidth", false)
-			vim.api.nvim_win_set_option(0, "winfixheight", true)
-		end,
-	})
 	vim.api.nvim_create_autocmd("TermOpen", {
 		pattern = "*",
 		callback = function()
 			vim.wo.spell = false
-		end,
-	})
-
-	vim.api.nvim_create_autocmd("TermOpen", {
-		pattern = "*",
-		callback = function()
 			vim.opt_local.wrap = false
 		end,
 	})
+
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 		callback = function(event)

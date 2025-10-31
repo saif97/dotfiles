@@ -24,8 +24,11 @@ function M.setup()
 	map_key(allModes, "U", "5k", { desc = "Move up 5 lines" })
 
 	-- Insert mode access
-	map_key(allModes, "o", "i", { desc = "Enter insert mode" })
-	map_key({ "n" }, "<CR>", "o", { desc = "Create a new line" })
+	map_key("n", "o", "i", { desc = "Enter insert mode" })
+	map_key("v", "o", "<Esc>i", { desc = "Enter insert mode" })
+	map_key({ "n", "x", "v" }, "<CR>", function ()
+		return vim.bo.buftype == "terminal" and "<C-\\><C-n>" or "o"
+	end, { desc = "" })
 
 	-- [[ Section: Editing ]]
 
@@ -74,20 +77,21 @@ end
 function M.setupNvim()
 	-- Smart comment deletion: delete empty comment line before inserting newline
 	-- Now works since blink-cmp uses <C-y> instead of <CR>
-	vim.keymap.set('i', '<CR>', function()
-		if is_empty_comment_line() then
-			return '<C-u><CR>'
-		end
-		return '<CR>'
-	end, { expr = true, desc = "Smart comment deletion" })
+	-- vim.keymap.set('i', '<CR>', function()
+	-- 	if is_empty_comment_line() then
+	-- 		return '<C-u><CR>'
+	-- 	end
+	-- 	return '<CR>'
+	-- end, { expr = true, desc = "Smart comment deletion" })
 
 	-- Clear highlights and close panels
-	map_key({ "n" }, "<Esc><Esc>", function()
+	map_key(allModes, "<F16>", function()
 		hideCodeCompanion()
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
 		vim.cmd("fc") -- close open floating windows like Lazy
+		require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape
