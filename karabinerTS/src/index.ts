@@ -46,7 +46,9 @@ writeToProfile(
 	[
 		duoLayer("left⌘", "e", "amethyst_throw_mode").manipulators(rightLetterPad.flat().map((key) => map(key).to(key, ["shift", "control"]))),
 
-		duoLayer("left⌘", "w", "desktop_switch_mode").manipulators([
+		layer("f1", "desktop_switch_mode")
+			.configKey((v) => v.toIfAlone("f1"), true)
+			.manipulators([
 			// u  i  o  p     →  Desktop 9, 10, 11, 12
 			// j  k  l  ;     →  Desktop 5, 6, 7, 8
 			// n  m  ,  .     →  Desktop 1, 2, 3, 4
@@ -69,7 +71,6 @@ writeToProfile(
 			withCondition(
 				ifVar("amethyst_throw_mode").unless(),
 				ifVar("amethyst_focus_mode").unless(),
-				ifVar("desktop_switch_mode").unless()
 			)([
 				map("tab").to("tab", ["shift"]),
 				map("escape").to("w", ["command", "shift"]),
