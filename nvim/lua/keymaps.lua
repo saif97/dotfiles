@@ -3,6 +3,13 @@
 require("utils")
 
 -- Helper to define keymappings for all commonly used modes
+-- Mode letters:
+--   "n" = normal mode (default mode for navigation and commands)
+--   "x" = visual mode (character-wise selection)
+--   "v" = visual mode (includes visual block mode)
+--   "o" = operator-pending mode (waiting for motion after operator like d, c, y)
+--   "i" = insert mode
+--   "t" = terminal mode
 local allModes = { "n", "x", "v", "o" }
 local M = {}
 
@@ -24,7 +31,7 @@ function M.setup()
 	map_key(allModes, "U", "5k", { desc = "Move up 5 lines" })
 
 	-- Insert mode access
-	map_key("n", "o", "i", { desc = "Enter insert mode" })
+	map_key({ "n", "o" }, "o", "i", { desc = "Enter insert mode" })
 	map_key("v", "o", "<Esc>i", { desc = "Enter insert mode" })
 	map_key({ "n", "x", "v" }, "<CR>", function ()
 		return vim.bo.buftype == "terminal" and "<C-\\><C-n>" or "o"
