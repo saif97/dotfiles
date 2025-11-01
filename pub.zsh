@@ -8,7 +8,7 @@ bindkey -e
 
 if [[ -n "$IS_PERSONAL" ]]; then
 	echo "Using personal configuration"
-	alias flutter="fvm flutter"
+	# alias flutter="fvm flutter"
 fi
 
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
@@ -49,7 +49,8 @@ mkcd(){
 	pwd
 }
 
-
+export GEM_HOME=$HOME/.gem
+export PATH=$GEM_HOME/bin:$PATH
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
