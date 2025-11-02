@@ -341,7 +341,11 @@
                     "value": 1
                   }
                 ],
-                "to_if_alone": [],
+                "to_if_alone": [
+                  {
+                    "key_code": "vk_consumer_brightness_down"
+                  }
+                ],
                 "to_after_key_up": [
                   {
                     "set_variable": {
@@ -2902,15 +2906,6 @@
                     ]
                   }
                 },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "option",
-                      "shift"
-                    ]
-                  }
-                ],
                 "to_if_alone": [
                   {
                     "key_code": "f18"
