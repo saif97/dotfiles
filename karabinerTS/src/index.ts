@@ -228,7 +228,7 @@ writeToProfile(
 			mapWithAnyMod("tab").toIfHeldDown("left_control").toIfAlone("tab"),
 			map("l", ["control"]).to("tab", ["control"]).condition(ifApp(APP_ID_FIREFOX)),
 			map("j", ["control"]).to("tab", ["control", "shift"]).condition(ifApp(APP_ID_FIREFOX)),
-			mapWithAnyMod("right_shift").toIfAlone("f18"),
+			mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
 			// map("v", "right_shift").to("f18").to("4"),
 
 			map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode

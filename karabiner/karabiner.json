@@ -341,11 +341,7 @@
                     "value": 1
                   }
                 ],
-                "to_if_alone": [
-                  {
-                    "key_code": "vk_consumer_brightness_down"
-                  }
-                ],
+                "to_if_alone": [],
                 "to_after_key_up": [
                   {
                     "set_variable": {
@@ -2906,9 +2902,37 @@
                     ]
                   }
                 },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": [
+                      "option",
+                      "shift"
+                    ]
+                  }
+                ],
                 "to_if_alone": [
                   {
                     "key_code": "f18"
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f18"
+                  },
+                  {
+                    "key_code": "4"
                   }
                 ]
               },
