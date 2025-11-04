@@ -8,12 +8,12 @@ return {
 					["<Esc>"] = "Close",
 				},
 			},
-			require("config.overseerTemplates.overseerTemplateInit").setup(),
-
 			templates = {
-				-- Load global templates
 				"builtin",
 			},
 		})
+
+		-- Register custom templates after setup
+		require("config.overseerTemplates.overseerTemplateInit").setup()
 	end,
 }
