@@ -5,7 +5,7 @@ return {
 		'nvim-lua/plenary.nvim',
 	},
 	config = function()
-		local flutterPath = isPersonalMachine() and "$HOME/fvm/versions/stable/bin/flutter" or nil;
+		local flutterPath = isPersonalMachine() and "$HOME/dev/Flutter/sdk/flutter/bin/flutter" or nil;
 
 		require('flutter-tools').setup({
 			-- fvm = true,
