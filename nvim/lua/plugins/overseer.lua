@@ -4,6 +4,7 @@ return {
 	config = function()
 		require("overseer").setup({
 			task_list = {
+				direction = "right",
 				bindings = {
 					["<Esc>"] = "Close",
 				},
