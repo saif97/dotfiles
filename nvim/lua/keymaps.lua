@@ -35,8 +35,7 @@ function M.setup()
 	map_key("v", "o", "<Esc>i", { desc = "Enter insert mode" })
 	map_key({ "n", "x", "v" }, "<CR>", function ()
 		return vim.bo.buftype == "terminal" and "<C-\\><C-n>" or "o"
-	end, { desc = "" })
-
+	end, { desc = "", expr = true })
 	-- [[ Section: Editing ]]
 
 	-- Indentation
