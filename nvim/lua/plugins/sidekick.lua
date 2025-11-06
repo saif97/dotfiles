@@ -25,6 +25,12 @@ return {
 					height = 0.85,
 					border = "rounded",
 				},
+				-- Options used when layout is "left"|"bottom"|"top"|"right"
+				---@type vim.api.keyset.win_config
+				split = {
+					width = 80, -- static width in columns (set to 0 for default adaptive width)
+					height = 0, -- set to 0 for default split height
+				},
 				--- CLI Tool Keymaps (default mode is `t`)
 				---@type table<string, sidekick.cli.Keymap|false>
 				keys = {

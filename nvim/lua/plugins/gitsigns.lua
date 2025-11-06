@@ -4,7 +4,7 @@ return {
 	"lewis6991/gitsigns.nvim",
 	config = function()
 		map_key("n", "gs", "<Cmd>Gitsigns stage_hunk<CR>", { desc = "Git Stage hunk" })
-		map_key("n", "gR", "<Cmd>Gitsigns reset_hunk<CR>", { desc = "Git Reset hunk" })
+		map_key({"n", "v"}, "gR", "<Cmd>Gitsigns reset_hunk<CR>", { desc = "Git Reset hunk" })
 		map_key("n", "gP", "<Cmd>Gitsigns preview_hunk_inline<CR>", { desc = "Git Preview hunk" })
 		map_key("n", "gB", "<Cmd>Gitsigns blame_line<CR>", { desc = "Git Blame line" })
 

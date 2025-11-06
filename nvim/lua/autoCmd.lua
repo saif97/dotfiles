@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		vim.o.winwidth = 90
+		vim.o.winwidth = 120
 		vim.o.winheight = 999
 		vim.o.winminwidth = 20
 		vim.o.winminheight = 2
