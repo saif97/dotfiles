@@ -1,8 +1,21 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
 # Defaults
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#default
 
 git:
-  paging:
-    # https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md#delta
-    colorArg: always
-    pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - # https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md#delta
+      colorArg: always
+      pager: delta --dark --paging=never
+  mainBranches:
+    - master
+    - main
+    - develop
+keybinding:
+  universal:
+    prevItem: u
+    nextItem: e
+    edit: I
+  status:
+    checkForUpdate: ''

@@ -11,6 +11,8 @@ if [[ -n "$IS_PERSONAL" ]]; then
 	# alias flutter="fvm flutter"
 fi
 
+export BAT_CONFIG_DIR="$DOT_FILES/bat"
+
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
 eval "$(starship init zsh)"

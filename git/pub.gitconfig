@@ -1,0 +1,28 @@
+# To include this in your global ~/.gitconfig, add:
+#   [include]
+#       path = ~/dotfiles/git/pub.gitconfig
+#
+# Or via command line:
+#   git config --global include.path ~/dotfiles/git/pub.gitconfig
+
+
+# Delta setup
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
+
+[include]
+	path = ./catppuccin.gitconfig
+
+[delta]
+	features = catppuccin-macchiato
+
