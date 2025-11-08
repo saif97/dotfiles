@@ -2,6 +2,7 @@
 
 # Defaults
 # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#default
+# https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md
 
 git:
   pagers:
