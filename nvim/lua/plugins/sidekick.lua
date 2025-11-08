@@ -1,5 +1,10 @@
-local is_floating = (vim.o.columns < 260) and true or false
-
+-- Helper function to check if we should use floating layout based on window size
+local function get_cli_position()
+	return vim.o.columns < 260 and "float" or "right"
+end
+-- Track the current layout state and terminal reference
+local last_cli_position = nil
+local terminal_ref = nil
 return {
 	"folke/sidekick.nvim",
 	-- dir = "/Users/saifhakeam/dev/openSourcing/sidekick.nvim",
@@ -15,7 +20,10 @@ return {
 				--- Here you can change window options `terminal.opts`.
 				---@param terminal sidekick.cli.Terminal
 				config = function(terminal)
-					terminal.opts.layout = is_floating and "float" or "right"
+					local cli_position = get_cli_position()
+					terminal.opts.layout = cli_position
+					last_cli_position = cli_position
+					terminal_ref = terminal -- save reference for later
 				end,
 				-- layout = "float", ---@type "float"|"left"|"bottom"|"top"|"right"  -- Now set dynamically in config()
 				--- Options used when layout is "float"
@@ -40,14 +48,14 @@ return {
 					hide_ctrl_dot = {
 						"<c-y>",
 						function()
-							if is_floating then
+							if get_cli_position() == "float" then
 								require("sidekick.cli").hide()
 							else
 								vim.cmd("wincmd p")
 							end
 						end,
 						mode = "nt",
-						desc = "hide the terminal window"
+						desc = "hide or switch to the terminal window"
 					},
 				},
 			}
@@ -67,10 +75,24 @@ return {
 		},
 		{
 			"<c-y>",
-			function() require("sidekick.cli").focus() end,
+			function()
+				local cli = require("sidekick.cli")
+				local new_cli_position = get_cli_position()
+
+				-- If layout state changed, hide and update layout before showing
+				if last_cli_position ~= nil and last_cli_position ~= new_cli_position and terminal_ref then
+					cli.hide()
+					terminal_ref.opts.layout = new_cli_position
+					cli.toggle() -- show it back
+				end
+
+				-- Update the saved state
+				last_cli_position = new_cli_position
+
+				cli.focus()
+			end,
 			desc = "Sidekick Toggle Focus",
 			mode = { "n", "v", "i", "t", "x" },
-
 		},
 		{
 			"<leader>ia",
