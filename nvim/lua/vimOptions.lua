@@ -106,6 +106,7 @@ else -- Neovim-only configurations
 	vim.opt.spelllang = "en_us"
 
 	vim.opt.fillchars:append("diff:╱")
+	vim.opt.fillchars:append("eob: ")
 
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
