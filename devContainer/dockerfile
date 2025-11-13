@@ -1,0 +1,32 @@
+# Gemini-cli: https://github.com/google-gemini/gemini-cli/blob/main/Dockerfile
+# docker run --rm -it contract_auditor_docker_gemini
+# docker build -t dev_container .
+
+FROM fedora:latest
+
+ARG USERNAME=auditor
+
+RUN dnf install -y \
+	python3 \
+	python3-pip \
+	make \
+	curl \
+	git \
+	ripgrep \
+	ca-certificates \
+	zsh \
+	nodejs && \
+	dnf clean all
+
+
+# Install TypeScript globally
+RUN npm install -g typescript @google/gemini-cli
+
+RUN groupadd ${USERNAME} && useradd -ms /bin/zsh -g ${USERNAME} ${USERNAME}
+ENV USER_HOME="/home/${USERNAME}"
+USER ${USERNAME}
+
+# Set a working directory
+WORKDIR $USER_HOME
+
+COPY  ../ "$USER_HOME/.config"
