@@ -1,12 +1,20 @@
 # Gemini-cli: https://github.com/google-gemini/gemini-cli/blob/main/Dockerfile
 # docker run --rm -it contract_auditor_docker_gemini
-# docker build -t dev_container .
+# docker build -t dev_container . --network=host
+# For Podman/Apple containers: container build --platform linux/amd64 --network=host -t dev_container -f devContainer/dockerfile .
 
-FROM fedora:latest
+FROM ubuntu:22.04
 
-ARG USERNAME=auditor
+ARG USERNAME=dev_in_a_box
 
-RUN dnf install -y \
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Configure apt to use main Ubuntu archive instead of ports
+RUN sed -i 's|http://ports.ubuntu.com/ubuntu-ports|http://archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list 2>/dev/null || true
+
+# Install packages
+RUN apt-get update && apt-get install -y \
 	python3 \
 	python3-pip \
 	make \
@@ -15,8 +23,15 @@ RUN dnf install -y \
 	ripgrep \
 	ca-certificates \
 	zsh \
-	nodejs && \
-	dnf clean all
+	software-properties-common \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
+
+# Install Node.js from NodeSource
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+	&& apt-get install -y nodejs \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 
 # Install TypeScript globally
