@@ -41,6 +41,8 @@ alias cldn="claude" # claude new
 alias lg="lazygit"
 alias cpy="pbcopy <"
 alias dcr="docker"
+alias cont="container"
+
 
 # ── AI stuff ──────────────────────────────────────────────────────────
 alias qr="q chat --resume"

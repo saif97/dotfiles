@@ -1,0 +1,16 @@
+# Dev Container .zshrc
+# This file is used for VMs and dev containers
+
+# Source zsh history configuration
+source ~/.config/zsh/history.zsh
+
+# Source custom zsh scripts
+source ~/chime.zsh
+source ~/.config/pub.zsh
+
+# Source zsh plugins
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Initialize starship prompt
+eval "$(starship init zsh)"
