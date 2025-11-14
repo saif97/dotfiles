@@ -6,16 +6,13 @@ source "$DOT_FILES/zsh/history.zsh"
 # Disable vim mode in zsh for now.
 bindkey -e
 
-if [[ -n "$IS_PERSONAL" ]]; then
-	echo "Using personal configuration"
-	# alias flutter="fvm flutter"
-fi
-
 export BAT_CONFIG_DIR="$DOT_FILES/bat"
 
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
-eval "$(starship init zsh)"
+if command -v starship &> /dev/null; then
+	eval "$(starship init zsh)"
+fi
 
 alias l='lsd -ali'
 alias cat='bat'
@@ -67,20 +64,36 @@ export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conve
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -n "$IS_PERSONAL" ]]; then
+	echo "Using personal configuration"
+	# alias flutter="fvm flutter"
+fi
 
-# ── Android studio stuff ──────────────────────────────────────────────
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3 # Change this to latest version.
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+# Source zsh plugins - different locations for macOS (brew) vs Linux
+if command -v brew &> /dev/null; then
+	# macOS with Homebrew
+	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ -d "$HOME/.zsh" ]]; then
+	# Linux/Dev container
+	source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# ── macOS-specific stuff ──────────────────────────────────────────────
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	# Android studio stuff
+	export ANDROID_HOME=~/Library/Android/sdk
+	export PATH=$PATH:$ANDROID_HOME/platform-tools
+	export PATH=$PATH:$ANDROID_HOME/build-tools/30.0.3 # Change this to latest version.
+	export PATH=$PATH:$ANDROID_HOME/tools
+	export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+	# Java stuff
+	export JAVA_HOME="/Users/saifhakeam/Library/Java/JavaVirtualMachines/ms-11.0.28/Contents/Home"
+fi
 
 # ── Key bindings ───────────────────────────────────────────────────────
 # Bind Alt+Delete to forward delete word
 bindkey '^[[3;3~' kill-word
-
-
-# ── Java stuff ──────────────────────────────────────────────────────
-export JAVA_HOME="/Users/saifhakeam/Library/Java/JavaVirtualMachines/ms-11.0.28/Contents/Home"

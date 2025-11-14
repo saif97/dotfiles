@@ -11,6 +11,9 @@ fi
 
 echo "Installing dotfiles..."
 
+# Create symlink from ~/dotfiles to ~/.config for compatibility with pub.zsh
+ln -sf $HOME/.config $HOME/dotfiles
+
 cd $HOME/.config
 
 # Setup global gitignore
@@ -29,4 +32,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.zsh/zsh-sy
 
 # Setup .zshrc using dev container template
 echo "Configuring .zshrc..."
-cp $HOME/.config/devContainer/zshrc $HOME/.zshrc
+cp $HOME/.config/devContainer/dev_container.zshrc $HOME/.zshrc
