@@ -5,7 +5,6 @@
 source ~/.config/zsh/history.zsh
 
 # Source custom zsh scripts
-source ~/chime.zsh
 source ~/.config/pub.zsh
 
 # Source zsh plugins

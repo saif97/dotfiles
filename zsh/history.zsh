@@ -24,5 +24,5 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 
 
 # Start typing then up/down to search history
-bindkey "^[[A" up-line-or-beginning-search    # Arrow up
-bindkey "^[[B" down-line-or-beginning-search  # Arrow down
+# bindkey "^[[A" up-line-or-beginning-search    # Arrow up
+# bindkey "^[[B" down-line-or-beginning-search  # Arrow down

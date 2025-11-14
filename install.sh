@@ -21,9 +21,6 @@ git config --global core.excludesfile $HOME/.gitignore_global
 mkdir -p $HOME/.gemini
 ln -sf $HOME/.config/ai/aiSystemInstructions.md $HOME/.gemini/GEMINI.md
 
-# Symlink zsh config files to home directory
-ln -sf $HOME/.config/chime.zsh $HOME/chime.zsh
-
 # Install zsh plugins
 echo "Installing zsh plugins..."
 mkdir -p $HOME/.zsh
