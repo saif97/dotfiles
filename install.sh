@@ -11,10 +11,6 @@ fi
 
 echo "Installing dotfiles..."
 
-# Clone dotfiles directly into ~/.config
-echo "Cloning dotfiles into ~/.config..."
-git clone https://github.com/saif97/dotfiles $HOME/.config
-
 cd $HOME/.config
 
 # Setup global gitignore
