@@ -1,0 +1,31 @@
+services:
+  dev:
+    image: dev_container
+    container_name: dev_container
+    build:
+      context: ..
+      dockerfile: devContainer/dockerfile
+      platforms:
+        - linux/amd64
+    stdin_open: true
+    tty: true
+    volumes:
+      # Persist Neovim plugins and data
+      - nvim_data:/home/dev_in_a_box/.local/share/nvim
+      - nvim_cache:/home/dev_in_a_box/.cache/nvim
+      - nvim_state:/home/dev_in_a_box/.local/state/nvim
+
+      # Persist zsh history
+      - zsh_history:/home/dev_in_a_box/.zsh_history
+
+      # Optional: mount a workspace directory from your host
+      # - ~/code:/home/dev_in_a_box/workspace
+
+    working_dir: /home/dev_in_a_box
+    command: zsh
+
+volumes:
+  nvim_data:
+  nvim_cache:
+  nvim_state:
+  zsh_history:

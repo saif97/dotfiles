@@ -27,4 +27,8 @@ RUN groupadd ${USERNAME} && useradd -ms /bin/zsh -g ${USERNAME} ${USERNAME}
 USER ${USERNAME}
 WORKDIR ${USER_HOME}
 
-COPY  ../ "$USER_HOME/.config"
+# Copy dotfiles from local machine
+COPY --chown=${USERNAME}:${USERNAME} ../ ${USER_HOME}/dotfiles
+
+# Run install script to set up symlinks and plugins
+RUN cd ${USER_HOME}/dotfiles && bash install.sh

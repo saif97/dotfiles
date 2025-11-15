@@ -12,7 +12,7 @@ fi
 echo "Installing dotfiles..."
 
 # Create symlink from ~/dotfiles to ~/.config for compatibility with pub.zsh
-ln -sf $HOME/.config $HOME/dotfiles
+ln -sf $HOME/dotfiles $HOME/.config 
 
 cd $HOME/.config
 
