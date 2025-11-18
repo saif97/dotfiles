@@ -96,6 +96,7 @@ function M.setupNvim()
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
+		
 		vim.cmd("fc") -- close open floating windows like Lazy
 		require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
@@ -273,6 +274,9 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>dc", ":DiffviewOpen<CR>", { desc = "Diff local Changes" })
 
 	-- ── Git stuff ───────────────────────────────────────────────────────
+	map_key({ "n" }, "<leader>owr", openGitRemote, { desc = "Open Web Remote" })
+	map_key({ "n" }, "<leader>owu", openGitUpstream, { desc = "Open Web Upstream" })
+
 	local gs = require("gitsigns")
 	map_key({ "n", "v" }, "<leader>fD", function() vim.lsp.buf.format({ async = true }) end,
 		{ desc = "Formate full Document" })

@@ -139,3 +139,44 @@ function openAndroidStudioProject()
 
 	vim.notify("No Android project found", vim.log.levels.WARN)
 end
+
+-- ── Git & URL helpers ───────────────────────────────────────────────
+
+-- Get git remote URL and convert to web URL
+local function getGitRemoteUrl(remote_name)
+	remote_name = remote_name or "origin"
+	local remote_url = vim.fn.system("git config --get remote." .. remote_name .. ".url"):gsub("%s+", "")
+
+	if remote_url == "" or vim.v.shell_error ~= 0 then
+		vim.notify("No " .. remote_name .. " remote found", vim.log.levels.WARN)
+		return nil
+	end
+
+	-- Convert SSH URL to HTTPS
+	-- git@github.com:user/repo.git -> https://github.com/user/repo
+	remote_url = remote_url:gsub("git@([^:]+):(.+)%.git", "https://%1/%2")
+	remote_url = remote_url:gsub("git@([^:]+):(.+)", "https://%1/%2")
+	-- Also handle https URLs that end with .git
+	remote_url = remote_url:gsub("%.git$", "")
+
+	return remote_url
+end
+
+-- Open URL in browser
+local function openUrl(url)
+	if not url then return end
+	vim.fn.system("open " .. vim.fn.shellescape(url))
+	vim.notify("Opening: " .. url)
+end
+
+-- Open git remote in browser
+function openGitRemote()
+	local url = getGitRemoteUrl("origin")
+	openUrl(url)
+end
+
+-- Open git upstream in browser
+function openGitUpstream()
+	local url = getGitRemoteUrl("upstream")
+	openUrl(url)
+end
