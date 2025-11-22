@@ -2,6 +2,7 @@ services:
   dev:
     image: dev_container
     container_name: dev_container
+    hostname: dev_container
     build:
       context: ..
       dockerfile: devContainer/dockerfile
@@ -18,11 +19,10 @@ services:
       # Persist zsh history
       - zsh_history:/home/dev_in_a_box/.zsh_history
 
-      # Optional: mount a workspace directory from your host
-      # - ~/code:/home/dev_in_a_box/workspace
+      # Mount current working directory into container
+      - ${PWD}:/home/dev_in_a_box/workspace
 
-    working_dir: /home/dev_in_a_box
-    command: zsh
+    working_dir: /home/dev_in_a_box/workspace
 
 volumes:
   nvim_data:

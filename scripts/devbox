@@ -1,0 +1,15 @@
+#!/bin/bash
+# devbox - Launch dev container with current directory mounted
+
+set -e
+
+COMPOSE_FILE="$HOME/dotfiles/devContainer/docker-compose.yml"
+
+# Export PWD for docker-compose to use
+export PWD=$(pwd)
+
+# Start container in detached mode
+docker compose -f "$COMPOSE_FILE" up -d
+
+# Attach to container
+docker exec -it dev_container zsh

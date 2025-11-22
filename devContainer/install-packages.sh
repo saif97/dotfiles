@@ -22,9 +22,12 @@ apt-get install -y \
     make \
     neovim \
     fzf \
+    just \
     fd-find \
     bat \
-    zoxide
+    zoxide \
+    lsd \
+    sudo
 
 
 # Clean up
