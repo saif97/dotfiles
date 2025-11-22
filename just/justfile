@@ -1,0 +1,8 @@
+default:
+    @just --list
+
+hello:
+    echo "Hello from global justfile!"
+
+ensure-ai:
+    @./sync_ai_md.sh
