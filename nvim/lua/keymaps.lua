@@ -16,6 +16,7 @@ local M = {}
 -- This is common keymaps between VScode & Nvim
 function M.setup()
 	map_key("n", "q", "<Nop>", { desc = "Disable 'q' key in normal mode" })
+	map_key("n", "s", "<Nop>", { desc = "Disable default 's' behavior" })
 	map_key("n", "Q", "q", { desc = "Record macro" })
 
 	-- Basic movement (Colemak-inspired)
