@@ -37,8 +37,11 @@ alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
 alias cpy="pbcopy <"
-alias dcr="docker"
+alias dk="docker"
+alias dc="docker compose"
 alias cont="container"
+alias j="just"
+alias jg="just --justfile $DOT_FILES/just/justfile"
 
 
 # ── AI stuff ──────────────────────────────────────────────────────────
@@ -53,6 +56,9 @@ mkcd(){
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
+# Add dotfiles scripts to PATH
+export PATH="$HOME/dotfiles/scripts:$PATH"
+
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Locale settings
@@ -66,19 +72,23 @@ export VISUAL="nvim"
 
 if [[ -n "$IS_PERSONAL" ]]; then
 	echo "Using personal configuration"
-	# alias flutter="fvm flutter"
+	# alias flutter="fvm flutter
 fi
 
 
 # Source zsh plugins - different locations for macOS (brew) vs Linux
+ZSH_PLUGINS_DIR="$HOME/.zsh"
+
+# macOS with Homebrew
 if command -v brew &> /dev/null; then
-	# macOS with Homebrew
-	source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [[ -d "$HOME/.zsh" ]]; then
-	# Linux/Dev container
-	source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+	BREW_PREFIX="$(brew --prefix)"
+	ZSH_PLUGINS_DIR="$BREW_PREFIX/share"
+	fpath+=("$BREW_PREFIX/share/zsh/site-functions")
+fi
+
+if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
+	source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+	source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
 # ── macOS-specific stuff ──────────────────────────────────────────────
