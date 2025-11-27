@@ -7,6 +7,7 @@ return {
   ---@type AutoSession.Config
   opts = {
     suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+    bypass_session_save_file_types = { "alpha", "dashboard", "gitcommit", "gitrebase", "help" },
     -- log_level = 'debug',
 
     -- Close sidekick CLI before saving session to avoid Zellij session issues

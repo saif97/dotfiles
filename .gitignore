@@ -1,0 +1,11 @@
+karabiner/assets
+karabiner/automatic_backups
+stuff/
+nvim/lua/aiPlayground.lua
+nvim/lua/playground.lua
+tmux-client*
+ghostty/config.*
+playground
+.history
+.lsp/.cache
+.vscode

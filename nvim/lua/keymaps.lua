@@ -247,16 +247,13 @@ function M.setupNvim()
 	map_key(allModes, "<C-,>", "<C-o>", { desc = "Go back" })
 	map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
 
-	map_key(allModes, "<F17>", ":OverseerRun<CR>", { desc = "Run Overseer" })
-
 	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "Window go to Next window - switches back & forth" })
 
 	map_key({ "n", "i" }, "<M-Up>", ":m .-2<CR>==", { desc = "move line up" })
 	map_key({ "n", "i" }, "<M-Down>", ":m .+1<CR>==", { desc = "move line down" })
 
 	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
-	map_key("n", "<leader>or", ":OverseerRun<CR>", { desc = "Overseer Run" })
-	map_key("n", "<leader>op", ":OverseerToggle<CR>", { desc = "Overseer Pannel" })
+	map_key("n", "<leader>or", require("justice").select, { desc = "Open just Runner" })
 
 	map_key("n", "<D-d>", "<Cmd>co.<Cr>", { desc = "Dublicate line at cursor" })
 
