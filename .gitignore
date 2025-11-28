@@ -9,3 +9,5 @@ playground
 .history
 .lsp/.cache
 .vscode
+.claude
+.devcontainer

@@ -4,5 +4,7 @@ default:
 hello:
     echo "Hello from global justfile!"
 
-ensure-ai:
+
+sync-ai-markedown-files:
     @./sync_ai_md.sh
+
