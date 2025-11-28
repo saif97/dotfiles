@@ -26,3 +26,6 @@
 [delta]
 	features = catppuccin-macchiato
 
+[rebase]
+	autoStash = true
+

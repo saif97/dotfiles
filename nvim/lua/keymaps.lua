@@ -274,6 +274,8 @@ function M.setupNvim()
 	-- ── Git stuff ───────────────────────────────────────────────────────
 	map_key({ "n" }, "<leader>owr", openGitRemote, { desc = "Open Web Remote" })
 	map_key({ "n" }, "<leader>owu", openGitUpstream, { desc = "Open Web Upstream" })
+	map_key({ "n" }, "<leader>owb", openGitBranch, { desc = "Open Web Branch" })
+
 
 	local gs = require("gitsigns")
 	map_key({ "n", "v" }, "<leader>fD", function() vim.lsp.buf.format({ async = true }) end,

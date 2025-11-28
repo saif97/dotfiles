@@ -180,3 +180,18 @@ function openGitUpstream()
 	local url = getGitRemoteUrl("upstream")
 	openUrl(url)
 end
+
+-- Open current git branch in browser
+function openGitBranch()
+	local branch = vim.fn.system("git branch --show-current"):gsub("%s+", "")
+	if branch == "" or vim.v.shell_error ~= 0 then
+		vim.notify("Not on a git branch", vim.log.levels.WARN)
+		return
+	end
+
+	local base_url = getGitRemoteUrl("origin")
+	if base_url then
+		local url = base_url .. "/tree/" .. branch
+		openUrl(url)
+	end
+end
