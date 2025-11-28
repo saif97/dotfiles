@@ -2939,43 +2939,6 @@
                     "key_code": "f17"
                   }
                 ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "v",
-                  "modifiers": {
-                    "mandatory": [
-                      "command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_option",
-                    "modifiers": [
-                      "control",
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "device_unless",
-                    "identifiers": [
-                      {
-                        "product_id": 832,
-                        "vendor_id": 1452
-                      }
-                    ]
-                  },
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "com.raycast.macos"
-                    ]
-                  }
-                ]
               }
             ]
           },
@@ -3109,6 +3072,351 @@
                 "to": [
                   {
                     "shell_command": "osascript -e \"set volume input volume 0\"; afplay /System/Library/Sounds/Pop.aiff"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "QWERTY to Colemak for VMs",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e"
+                },
+                "to": [
+                  {
+                    "key_code": "f"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r"
+                },
+                "to": [
+                  {
+                    "key_code": "p"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t"
+                },
+                "to": [
+                  {
+                    "key_code": "g"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "y"
+                },
+                "to": [
+                  {
+                    "key_code": "j"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "u"
+                },
+                "to": [
+                  {
+                    "key_code": "l"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "i"
+                },
+                "to": [
+                  {
+                    "key_code": "u"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "o"
+                },
+                "to": [
+                  {
+                    "key_code": "y"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "p"
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s"
+                },
+                "to": [
+                  {
+                    "key_code": "r"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "d"
+                },
+                "to": [
+                  {
+                    "key_code": "s"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f"
+                },
+                "to": [
+                  {
+                    "key_code": "t"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g"
+                },
+                "to": [
+                  {
+                    "key_code": "d"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "n"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
+                  {
+                    "key_code": "e"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
+                  {
+                    "key_code": "i"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "semicolon"
+                },
+                "to": [
+                  {
+                    "key_code": "o"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n"
+                },
+                "to": [
+                  {
+                    "key_code": "k"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.utmapp.UTM",
+                      "com.apple.ScreenContinuity"
+                    ]
                   }
                 ]
               }

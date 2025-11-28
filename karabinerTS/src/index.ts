@@ -24,6 +24,8 @@ const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2", "dev
 const APP_ID_FIREFOX = "org.mozilla.firefox";
 const APP_ID_VSCODE = "com.microsoft.VSCode";
 const APP_ID_CURSOR = "com.todesktop.230313mzl4w4u92";
+const APP_ID_UTM = "com.utmapp.UTM";
+const APP_ID_IPHONE_MIRRORING = "com.apple.ScreenContinuity";
 const inputColemak: ToInputSource = { input_source_id: "com.apple.keylayout.Colemak" };
 const InputAbc: ToInputSource = { input_source_id: "com.apple.keylayout.ABC" };
 const inputArabic: ToInputSource = { input_source_id: "com.apple.keylayout.Arabic" };
@@ -31,8 +33,6 @@ const inputArabic: ToInputSource = { input_source_id: "com.apple.keylayout.Arabi
 const muteMic = 'osascript -e "set volume input volume 50"; afplay /System/Library/Sounds/Ping.aiff';
 const unmuteMic = 'osascript -e "set volume input volume 0"; afplay /System/Library/Sounds/Pop.aiff';
 const simlayerTimeout = 5000;
-
-const personalMachine = { product_id: 0x0340, vendor_id: 0x05ac };
 
 const rightLetterPad: FromAndToKeyCode[][] = [
 	["u", "i", "o", "p"],
@@ -232,7 +232,7 @@ writeToProfile(
 
 			map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode
 
-			withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
+			// withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
 		]),
 
 		rule("Mouse configs 123").manipulators([
@@ -250,6 +250,31 @@ writeToProfile(
 			//  Mute & unmute mic
 			mapPointingButton("button5", "left_shift").to$(muteMic),
 			mapPointingButton("button4", "left_shift").to$(unmuteMic),
+		]),
+
+		rule("QWERTY to Colemak for VMs").manipulators([
+			withCondition(ifApp([APP_ID_UTM, APP_ID_IPHONE_MIRRORING]))([
+				// Top row
+				map("e").to("f"),
+				map("r").to("p"),
+				map("t").to("g"),
+				map("y").to("j"),
+				map("u").to("l"),
+				map("i").to("u"),
+				map("o").to("y"),
+				map("p").to("semicolon"),
+				// Home row
+				map("s").to("r"),
+				map("d").to("s"),
+				map("f").to("t"),
+				map("g").to("d"),
+				map("j").to("n"),
+				map("k").to("e"),
+				map("l").to("i"),
+				map("semicolon").to("o"),
+				// Bottom row
+				map("n").to("k"),
+			]),
 		]),
 	],
 	{
