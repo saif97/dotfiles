@@ -15,6 +15,11 @@ return {
 				backend = "zellij",
 				enabled = true,
 			},
+			tools = { -- extra tools
+				devbox = {
+					cmd = { "devbox" },
+				},
+			},
 			win = {
 				--- This is run when a new terminal is created, before starting it.
 				--- Here you can change window options `terminal.opts`.
