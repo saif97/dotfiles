@@ -76,20 +76,14 @@ if [[ -n "$IS_PERSONAL" ]]; then
 fi
 
 
-# Source zsh plugins - different locations for macOS (brew) vs Linux
-ZSH_PLUGINS_DIR="$HOME/.zsh"
-
-# macOS with Homebrew
+# Add Homebrew completions to fpath
 if command -v brew &> /dev/null; then
 	BREW_PREFIX="$(brew --prefix)"
-	ZSH_PLUGINS_DIR="$BREW_PREFIX/share"
 	fpath+=("$BREW_PREFIX/share/zsh/site-functions")
 fi
 
-if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
-	source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-	source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+# Load completion system (handles compinit, fzf, fzf-tab, syntax plugins, etc.)
+source "$DOT_FILES/zsh/completion.zsh"
 
 # ── macOS-specific stuff ──────────────────────────────────────────────
 if [[ "$OSTYPE" == "darwin"* ]]; then
