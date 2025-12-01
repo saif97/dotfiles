@@ -21,7 +21,14 @@ command -v fzf &> /dev/null && source <(fzf --zsh)
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'if [[ -d $realpath ]]; then lsd -1 --color=always $realpath; else bat --color=always --style=numbers --line-range=:500 $realpath 2>/dev/null; fi'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-min-height 20
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '[' ']'
+zstyle ':fzf-tab:*' continuous-trigger 'right'
 
 # Syntax plugins (must be after fzf-tab)
 ZSH_PLUGINS_DIR="$HOME/.zsh"
