@@ -95,3 +95,14 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	pattern = "*",
 	command = "checktime",
 })
+
+-- Auto-save on text changes and leaving insert mode (silent, no messages)
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+	desc = "Auto-save buffer on changes",
+	group = vim.api.nvim_create_augroup("auto-save", { clear = true }),
+	callback = function()
+		if vim.bo.modifiable and vim.bo.modified and vim.fn.bufname() ~= "" then
+			vim.cmd("silent! write")
+		end
+	end,
+})
