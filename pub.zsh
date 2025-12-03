@@ -36,6 +36,7 @@ alias tmn="zellij" # tm new
 alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
+alias ld="lazydocker"
 alias cpy="pbcopy <"
 alias dk="docker"
 alias dc="docker compose"

@@ -9,6 +9,10 @@ return {
 		-- refer to the configuration section below
 		indent = { enabled = true },
 		input = { enabled = true },
+		notifier = {
+			enabled = true,
+			style = "compact",
+		},
 		picker = {
 			enabled = true,
 			---@class snacks.picker.matcher.Config

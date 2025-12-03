@@ -34,8 +34,11 @@ function M.setup()
 	-- Insert mode access
 	map_key({ "n", "o" }, "o", "i", { desc = "Enter insert mode" })
 	map_key("v", "o", "<Esc>i", { desc = "Enter insert mode" })
-	map_key({ "n", "x", "v" }, "<CR>", function ()
-		return vim.bo.buftype == "terminal" and "<C-\\><C-n>" or "o"
+	map_key("n", "<CR>", function ()
+		return vim.bo.buftype == "terminal" and "i" or "o"
+	end, { desc = "", expr = true })
+	map_key({ "x", "v" }, "<CR>", function ()
+		return vim.bo.buftype == "terminal" and "<Esc>i" or "o"
 	end, { desc = "", expr = true })
 	-- [[ Section: Editing ]]
 
