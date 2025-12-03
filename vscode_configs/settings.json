@@ -9,7 +9,7 @@
       * NEOVIM *
       **********/
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   //
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "console": "externalTerminal", // rather than integratedTerminal
