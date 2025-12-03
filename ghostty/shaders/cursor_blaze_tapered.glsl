@@ -1,3 +1,26 @@
+// ============================================================================
+// TUNABLE PARAMETERS - Adjust these to control the visual intensity
+// ============================================================================
+
+// Colors (RGBA: Red, Green, Blue, Alpha where 1.0 = 100% opacity)
+const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0);        // Main trail body color (orange). Lower alpha for transparency
+const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0);       // Trail edge/accent color (red). Creates the outer glow
+
+// Timing
+const float DURATION = 0.1;                                    // Trail fade duration in seconds. Lower = disappears faster (less distracting)
+
+// Trail dimensions
+const float TRAIL_WIDTH = 0.007;                               // Base thickness of the trail. Lower = thinner trail
+const float TRAIL_OUTER_EDGE = 0.007;                          // Softness/blur of trail outer edge. Lower = sharper edges
+const float TRAIL_INNER_EDGE = 0.006;                          // Softness/blur of trail inner edge. Lower = more defined core
+
+// Cursor glow
+const float CURSOR_GLOW_OFFSET = 0.002;                        // Distance of glow from cursor edge. Lower = tighter glow
+const float CURSOR_GLOW_SIZE = 0.004;                          // Intensity/reach of cursor glow. Lower = subtler effect
+
+// ============================================================================
+
+
 float getSdfRectangle(in vec2 p, in vec2 xy, in vec2 b)
 {
     vec2 d = abs(p - xy) - b;
@@ -65,10 +88,6 @@ float ease(float x) {
     return pow(1.0 - x, 3.0);
 }
 
-const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0);
-const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0);
-const float DURATION = 0.3; //IN SECONDS
-
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     fragColor = texture(iChannel0, fragCoord.xy / iResolution.xy);
@@ -105,13 +124,12 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord)
     // Distance between cursors determine the total length of the parallelogram;
     float lineLength = distance(centerCC, centerCP);
 
-    float mod = .007;
     //trailblaze
-    vec4 trail = mix(TRAIL_COLOR_ACCENT, fragColor, 1. - smoothstep(0., sdfTrail + mod, 0.007));
-    trail = mix(TRAIL_COLOR, trail, 1. - smoothstep(0., sdfTrail + mod, 0.006));
-    trail = mix(trail, TRAIL_COLOR, step(sdfTrail + mod, 0.));
+    vec4 trail = mix(TRAIL_COLOR_ACCENT, fragColor, 1. - smoothstep(0., sdfTrail + TRAIL_WIDTH, TRAIL_OUTER_EDGE));
+    trail = mix(TRAIL_COLOR, trail, 1. - smoothstep(0., sdfTrail + TRAIL_WIDTH, TRAIL_INNER_EDGE));
+    trail = mix(trail, TRAIL_COLOR, step(sdfTrail + TRAIL_WIDTH, 0.));
     //cursorblaze
-    trail = mix(TRAIL_COLOR_ACCENT, trail, 1. - smoothstep(0., sdfCurrentCursor + .002, 0.004));
-    trail = mix(TRAIL_COLOR, trail, 1. - smoothstep(0., sdfCurrentCursor + .002, 0.004));
+    trail = mix(TRAIL_COLOR_ACCENT, trail, 1. - smoothstep(0., sdfCurrentCursor + CURSOR_GLOW_OFFSET, CURSOR_GLOW_SIZE));
+    trail = mix(TRAIL_COLOR, trail, 1. - smoothstep(0., sdfCurrentCursor + CURSOR_GLOW_OFFSET, CURSOR_GLOW_SIZE));
     fragColor = mix(trail, fragColor, 1. - smoothstep(0., sdfCurrentCursor, easedProgress * lineLength));
 }
