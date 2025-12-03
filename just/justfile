@@ -4,7 +4,9 @@ default:
 hello:
     echo "Hello from global justfile!"
 
-
 sync-ai-markedown-files:
     @./sync_ai_md.sh
+
+adb-uninstall-apps:
+    @{{justfile_directory()}}/scripts/uninstall_all_apps.sh
 
