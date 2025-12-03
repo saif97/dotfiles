@@ -33,6 +33,7 @@ function M.setup()
 	addShell()
 	addMarkdown()
 	addLua()
+	addJust()
 end
 
 function addall()
@@ -121,6 +122,22 @@ function addPython()
 				"# type: ignore",
 			})
 		),
+	})
+end
+
+function addJust()
+	ls.add_snippets("just", {
+		s("justfile", {
+			t({
+				"set shell := ['bash', '-euc']",
+				"",
+				"default:",
+					"    @just --list",
+				"",
+				""
+			}),
+			i(1)
+		}),
 	})
 end
 

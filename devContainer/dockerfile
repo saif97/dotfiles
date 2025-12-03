@@ -18,12 +18,15 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install global npm packages
-RUN npm install -g typescript @google/gemini-cli
-
 # Create user and add to sudoers (needed for entrypoint to fix volume permissions)
 RUN groupadd ${USERNAME} && useradd -ms /bin/zsh -g ${USERNAME} ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Put dependencies that change often towards the end to leverage Docker layer caching
+ARG CACHEBUST=1
+
+# Install global npm packages
+RUN npm install -g typescript @google/gemini-cli
 
 # Ensure user owns their entire home directory
 RUN chown -R ${USERNAME}:${USERNAME} ${USER_HOME}
@@ -32,7 +35,7 @@ USER ${USERNAME}
 WORKDIR ${USER_HOME}
 
 # Copy dotfiles from local machine
-COPY --chown=${USERNAME}:${USERNAME} ../ ${USER_HOME}/dotfiles
+COPY --chown=${USERNAME}:${USERNAME} . ${USER_HOME}/dotfiles
 
 # Run install script to set up symlinks and plugins
 RUN cd ${USER_HOME}/dotfiles && bash install.sh

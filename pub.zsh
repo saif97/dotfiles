@@ -3,6 +3,8 @@
 DOT_FILES="${DOT_FILES:-$HOME/dotfiles}"
 source "$DOT_FILES/zsh/history.zsh"
 
+eval "$(zoxide init zsh)"
+
 # Disable vim mode in zsh for now.
 bindkey -e
 
