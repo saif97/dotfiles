@@ -1,3 +1,4 @@
+custom-shader = shaders/cursor_blaze_tapered.glsl
 
 confirm-close-surface = false
 quit-after-last-window-closed = false
