@@ -11,13 +11,13 @@ Karabiener-TS-build:
 
 build-dev-container bust="false":
     #!/usr/bin/env bash
-    CACHE_FLAG=""
+    BUILD_ARGS=""
     if [ "{{bust}}" == "true" ]; then
         echo "Busting cache..."
-        CACHE_FLAG="--build-arg CACHEBUST=$(date +%s)"
+        BUILD_ARGS="--build-arg CACHEBUST=$(date +%s)"
     fi
-    docker build $CACHE_FLAG --platform linux/amd64 -t dev_container -f devContainer/dockerfile .
+    docker compose -f devContainer/docker-compose.yml build $BUILD_ARGS
 
 run-dev-container:
-    docker run --rm -it dev_container
+    docker compose -f devContainer/docker-compose.yml run --rm dev
 

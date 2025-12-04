@@ -22,6 +22,9 @@ services:
       # Mount current working directory into container
       - ${PWD}:/home/dev_in_a_box/workspace
 
+      # Mount Gemini config (read-only, will copy excluding tmp in entrypoint)
+      - ${HOME}/.gemini:/tmp/host_gemini:ro
+
     working_dir: /home/dev_in_a_box/workspace
 
 volumes:

@@ -35,6 +35,7 @@ export ZELLIJ_CONFIG_DIR="$DOT_FILES/zellij"
 alias tm="zellij attach --create --index 0" # attach to existing or create a new session
 alias tmn="zellij" # tm new
 
+alias gem="gemini"
 alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
