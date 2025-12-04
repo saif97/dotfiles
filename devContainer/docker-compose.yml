@@ -19,6 +19,9 @@ services:
       # Persist zsh history
       - zsh_history:/home/dev_in_a_box/.zsh_history
 
+      # Persist Claude Code auth and config
+      - claude_data:/home/dev_in_a_box/.claude
+
       # Mount current working directory into container
       - ${PWD}:/home/dev_in_a_box/workspace
 
@@ -32,3 +35,4 @@ volumes:
   nvim_cache:
   nvim_state:
   zsh_history:
+  claude_data:

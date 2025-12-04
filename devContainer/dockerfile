@@ -26,7 +26,7 @@ RUN groupadd ${USERNAME} && useradd -ms /bin/zsh -g ${USERNAME} ${USERNAME} \
 ARG CACHEBUST=1
 
 # Install global npm packages
-RUN npm install -g typescript @google/gemini-cli
+RUN npm install -g typescript @google/gemini-cli @anthropic-ai/claude-code
 
 # Ensure user owns their entire home directory
 RUN chown -R ${USERNAME}:${USERNAME} ${USER_HOME}

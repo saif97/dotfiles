@@ -13,7 +13,8 @@ for dir in /home/dev_in_a_box/.local/share/nvim \
            /home/dev_in_a_box/.cache/nvim \
            /home/dev_in_a_box/.local/state/nvim \
            /home/dev_in_a_box/.zsh_history \
-           /home/dev_in_a_box/.gemini; do
+           /home/dev_in_a_box/.gemini \
+           /home/dev_in_a_box/.claude; do
     if [ -e "$dir" ]; then
         sudo chown -R dev_in_a_box:dev_in_a_box "$dir" 2>/dev/null || true
     fi
