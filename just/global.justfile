@@ -13,16 +13,16 @@ adb-uninstall-apps:
 
 # Dev Container commands
 devcontainer-build:
-    devcontainer build --workspace-folder /Users/saif.hakeam/dotfiles
+    devcontainer build --workspace-folder .
 
 devcontainer-build-no-cache:
-    devcontainer build --workspace-folder /Users/saif.hakeam/dotfiles --no-cache
+    devcontainer build --workspace-folder . --no-cache
 
 devcontainer-up:
-    devcontainer up --workspace-folder /Users/saif.hakeam/dotfiles
+    devcontainer up --workspace-folder .
 
 devcontainer-exec:
-    devcontainer exec --workspace-folder /Users/saif.hakeam/dotfiles zsh
+    devcontainer exec --workspace-folder . zsh
 
 devcontainer-down:
     devcontainer down --workspace-folder /Users/saif.hakeam/dotfiles

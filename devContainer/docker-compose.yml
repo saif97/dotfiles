@@ -1,8 +1,8 @@
 services:
   dev:
-    image: dev_container
-    container_name: dev_container
-    hostname: dev_container
+    image: base_dev_image
+    container_name: base_dev_container
+    hostname: dev_hostname
     build:
       context: ..
       dockerfile: devContainer/dockerfile
