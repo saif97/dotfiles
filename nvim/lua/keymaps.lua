@@ -205,7 +205,17 @@ function M.setupNvim()
 		vim.notify("Reloaded Keymaps")
 	end, { desc = "Reload Keymaps" })
 
-	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "Open Terminal" })
+	map_key({ "n" }, "<leader>ot", function()
+		Snacks.terminal(nil, {
+			count = vim.v.count1,
+			win = {
+				position = "float",
+				title = " Terminal ",
+				title_pos = "center",
+			}
+		})
+	end, { desc = "Open Terminal" })
+
 	map_key({ "n" }, "<leader>oc", function()
 		vim.fn.system("code " .. vim.fn.getcwd())
 	end, { desc = "Open project in vsCode" })
