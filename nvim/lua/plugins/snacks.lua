@@ -13,6 +13,11 @@ return {
 			enabled = true,
 			style = "compact",
 		},
+		styles = {
+			terminal = {
+				border = "rounded",
+			},
+		},
 		picker = {
 			enabled = true,
 			---@class snacks.picker.matcher.Config

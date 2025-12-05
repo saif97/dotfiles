@@ -173,6 +173,14 @@ function M.setupNvim()
 	map_key("n", "sn", picker.notifications, { desc = "Search notify" })
 	map_key({ "n" }, "sc", picker.commands, { desc = "Search Commands" })
 	map_key({ "n" }, "<leader>lg", Snacks.lazygit.open, { desc = "open LazyGit" })
+	map_key({ "n" }, "<leader>ld", function()
+		Snacks.terminal("lazydocker", {
+			win = {
+				title = " LazyDocker ",
+				title_pos = "center",
+			}
+		})
+	end, { desc = "open LazyDocker" })
 
 	-- [[ Section: LSP Integration ]]
 
@@ -216,6 +224,12 @@ function M.setupNvim()
 		vim.fn.setreg("+", file_dir)
 		vim.notify("Copied: " .. file_dir)
 	end, { desc = "copy absolute file Path Directory" })
+
+	map_key({ "n" }, "<leader>pf", function()
+		local file_name = vim.fn.expand("%:t")
+		vim.fn.setreg("+", file_name)
+		vim.notify("Copied: " .. file_name)
+	end, { desc = "copy Path Filename" })
 
 	map_key({ "n" }, "<leader>pr", function()
 		file_dir = vim.fn.expand("%:~:.")

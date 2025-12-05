@@ -132,5 +132,8 @@ vim.filetype.add({
 		["Fastfile"] = "ruby",
 		["Appfile"] = "ruby",
 		["Matchfile"] = "ruby"
+	},
+	pattern = {
+		[".*%.justfile"] = "just"
 	}
 })
