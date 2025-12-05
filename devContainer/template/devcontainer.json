@@ -3,7 +3,9 @@
 {
 	"name": "<project-name>",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "base_dev_image:latest",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
 	"features": {
 
 	},

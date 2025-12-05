@@ -8,6 +8,13 @@ if [ -d /tmp/host_gemini ]; then
     rm -rf /home/dev_in_a_box/.gemini/tmp
 fi
 
+# Copy Claude config (excluding cache and tmp files)
+if [ -d /tmp/host_claude ]; then
+    mkdir -p /home/dev_in_a_box/.claude
+    cp -r /tmp/host_claude/* /home/dev_in_a_box/.claude/
+    rm -rf /home/dev_in_a_box/.claude/cache /home/dev_in_a_box/.claude/tmp
+fi
+
 # Fix ownership of volume-mounted directories (excluding workspace which is a bind mount)
 for dir in /home/dev_in_a_box/.local/share/nvim \
            /home/dev_in_a_box/.cache/nvim \
@@ -19,6 +26,9 @@ for dir in /home/dev_in_a_box/.local/share/nvim \
         sudo chown -R dev_in_a_box:dev_in_a_box "$dir" 2>/dev/null || true
     fi
 done
+
+# Set gemini to be sandboxed
+export SANDBOX="Gemini in a Box"
 
 # Execute the command passed to the container
 exec "$@"

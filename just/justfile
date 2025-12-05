@@ -11,19 +11,16 @@ sync-ai-markedown-files:
 adb-uninstall-apps:
     ./scripts/uninstall_all_apps.sh
 
-# Dev Container commands
+# terminal
 devcontainer-build:
     devcontainer build --workspace-folder .
 
-devcontainer-build-no-cache:
-    devcontainer build --workspace-folder . --no-cache
-
+# terminal
 devcontainer-up:
     devcontainer up --workspace-folder .
 
+# terminal
 devcontainer-exec:
     devcontainer exec --workspace-folder . zsh
 
-devcontainer-down:
-    devcontainer down --workspace-folder /Users/saif.hakeam/dotfiles
 

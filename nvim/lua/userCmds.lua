@@ -313,11 +313,17 @@ local function devcontainer_init()
 	local cwd = vim.fn.getcwd()
 	local devcontainer_dir = cwd .. "/.devcontainer"
 	local devcontainer_json = devcontainer_dir .. "/devcontainer.json"
-	local template_path = vim.fn.expand("~/dotfiles/devContainer/base-devcontainer.json")
+	local dockerfile_shim = devcontainer_dir .. "/Dockerfile"
+	local template_path = vim.fn.expand("~/dotfiles/devContainer/template/devcontainer.json")
+	local dockerfile_template_path = vim.fn.expand("~/dotfiles/devContainer/template/Dockerfile")
 
-	-- Check if template exists
+	-- Check if templates exist
 	if vim.fn.filereadable(template_path) == 0 then
 		vim.notify("Template not found: " .. template_path, vim.log.levels.ERROR)
+		return
+	end
+	if vim.fn.filereadable(dockerfile_template_path) == 0 then
+		vim.notify("Dockerfile template not found: " .. dockerfile_template_path, vim.log.levels.ERROR)
 		return
 	end
 
@@ -327,7 +333,10 @@ local function devcontainer_init()
 		return
 	end
 
-	-- Read template
+	-- Create directory
+	vim.fn.mkdir(devcontainer_dir, "p")
+
+	-- 1. Process and write devcontainer.json
 	local lines = vim.fn.readfile(template_path)
 	local content = table.concat(lines, "\n")
 
@@ -335,17 +344,30 @@ local function devcontainer_init()
 	local project_name = vim.fn.fnamemodify(cwd, ":t")
 	content = content:gsub("<project%-name>", project_name)
 
-	-- Create directory and write file
-	vim.fn.mkdir(devcontainer_dir, "p")
 	local file = io.open(devcontainer_json, "w")
 	if file then
 		file:write(content)
 		file:close()
-		vim.notify("Created .devcontainer/devcontainer.json", vim.log.levels.INFO)
-		vim.cmd("edit " .. devcontainer_json)
 	else
 		vim.notify("Failed to write devcontainer.json", vim.log.levels.ERROR)
+		return
 	end
+
+	-- 2. Copy Dockerfile shim
+	local dock_lines = vim.fn.readfile(dockerfile_template_path)
+	local dock_content = table.concat(dock_lines, "\n")
+	
+	local dock_file = io.open(dockerfile_shim, "w")
+	if dock_file then
+		dock_file:write(dock_content)
+		dock_file:close()
+	else
+		vim.notify("Failed to write Dockerfile", vim.log.levels.ERROR)
+		return
+	end
+
+	vim.notify("Created .devcontainer/ with devcontainer.json and Dockerfile", vim.log.levels.INFO)
+	vim.cmd("edit " .. devcontainer_json)
 end
 
 vim.api.nvim_create_user_command('DevContainerInit', devcontainer_init, { desc = "Scaffold .devcontainer directory" })
