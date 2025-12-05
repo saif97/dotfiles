@@ -45,7 +45,7 @@ alias dk="docker"
 alias dc="docker compose"
 alias cont="container"
 alias j="just"
-alias jg="just --justfile $DOT_FILES/just/justfile"
+alias jg="just --justfile $DOT_FILES/just/global.justfile"
 
 
 # ── AI stuff ──────────────────────────────────────────────────────────
