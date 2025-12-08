@@ -205,7 +205,9 @@ function M.setupNvim()
 		vim.notify("Reloaded Keymaps")
 	end, { desc = "Reload Keymaps" })
 
-	map_key({ "n" }, "<leader>ot", function()
+	map_key({ "n" }, "<leader>ot", ":terminal<CR>", { desc = "Open Terminal" })
+
+	map_key({ "n" }, "<leader>ft", function()
 		Snacks.terminal(nil, {
 			count = vim.v.count1,
 			win = {
