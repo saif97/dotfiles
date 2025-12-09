@@ -8,6 +8,7 @@ else
 	-- Neovim-only configurations
 	keymaps.setupNvimPreLazy()
 	require("config.lazy")
+	require("templates").setup()
 	require("userCmds")
 	keymaps.setupNvim()
 end

@@ -1,0 +1,7 @@
+# List available recipes
+default:
+    @just --list
+
+# Sample command - replace with your own
+hello name="world":
+    @echo "Hello, {{name}}!"
