@@ -108,6 +108,9 @@ else -- Neovim-only configurations
 	vim.opt.fillchars:append("diff:╱")
 	vim.opt.fillchars:append("eob: ")
 
+	-- Show indicator for wrapped lines
+	vim.opt.showbreak = "↪ "
+
 	vim.o.termguicolors = true
 	vim.o.cursorline = true
 

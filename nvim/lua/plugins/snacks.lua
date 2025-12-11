@@ -7,6 +7,13 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
+		lazygit = {
+			config = {
+				os = {
+					edit = 'nvim --server "$NVIM" --remote-send q && nvim --server "$NVIM" --remote {{filename}}',
+				},
+			},
+		},
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {

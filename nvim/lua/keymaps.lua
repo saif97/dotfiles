@@ -173,6 +173,8 @@ function M.setupNvim()
 	map_key("n", "sn", picker.notifications, { desc = "Search notify" })
 	map_key({ "n" }, "sc", picker.commands, { desc = "Search Commands" })
 	map_key({ "n" }, "<leader>lg", Snacks.lazygit.open, { desc = "open LazyGit" })
+	map_key({ "n" }, "<leader>ll", Snacks.lazygit.log, { desc = "open Lazygit Log" })
+	map_key({ "n" }, "<leader>lf", Snacks.lazygit.log_file, { desc = "open Lazygit File" })
 	map_key({ "n" }, "<leader>ld", function()
 		Snacks.terminal("lazydocker", {
 			win = {
