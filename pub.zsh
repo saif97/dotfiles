@@ -26,7 +26,6 @@ alias f='flutter'
 # ── python stuff ──────────────────────────────────────────────────────
 alias python='python3'
 alias py='python3'
-alias pysour='source ./venv/bin/activate'
 alias pip='pip3'
 alias v='nvim'
 
@@ -44,8 +43,8 @@ alias cpy="pbcopy <"
 alias dk="docker"
 alias dc="docker compose"
 alias cont="container"
-alias j="just"
-alias jg="just --justfile $DOT_FILES/just/global.justfile"
+alias t="just"
+alias tt='just -g'
 
 
 # ── AI stuff ──────────────────────────────────────────────────────────
