@@ -18,15 +18,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Create user and add to sudoers (needed for entrypoint to fix volume permissions)
+# Create user with sudo access
 RUN groupadd ${USERNAME} && useradd -ms /bin/zsh -g ${USERNAME} ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
-# Put dependencies that change often towards the end to leverage Docker layer caching
-ARG CACHEBUST=1
-
-# Install global npm packages
-RUN npm install -g typescript @google/gemini-cli @anthropic-ai/claude-code
 
 # Ensure user owns their entire home directory
 RUN chown -R ${USERNAME}:${USERNAME} ${USER_HOME}
@@ -40,11 +34,11 @@ COPY --chown=${USERNAME}:${USERNAME} . ${USER_HOME}/dotfiles
 # Run install script to set up symlinks and plugins
 RUN cd ${USER_HOME}/dotfiles && bash install.sh
 
-# Copy and set up entrypoint script
-COPY devContainer/entrypoint.sh /usr/local/bin/entrypoint.sh
-USER root
-RUN chmod +x /usr/local/bin/entrypoint.sh
-USER ${USERNAME}
+# Configure npm to install globals in userspace
+ENV NPM_CONFIG_PREFIX=${USER_HOME}/.npm-global
+ENV PATH=${USER_HOME}/.npm-global/bin:$PATH
+ENV SANDBOX="dev_in_a_box"
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+RUN npm install -g @anthropic-ai/claude-code @google/gemini-cli
+
 CMD ["zsh"]

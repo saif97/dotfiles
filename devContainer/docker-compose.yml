@@ -11,28 +11,14 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      # Persist Neovim plugins and data
-      - nvim_data:/home/dev_in_a_box/.local/share/nvim
-      - nvim_cache:/home/dev_in_a_box/.cache/nvim
-      - nvim_state:/home/dev_in_a_box/.local/state/nvim
-
-      # Persist zsh history
       - zsh_history:/home/dev_in_a_box/.zsh_history
-
-      # Persist Claude Code auth and config
       - claude_data:/home/dev_in_a_box/.claude
-
-      # Mount current working directory into container
+      - gemini_data:/home/dev_in_a_box/.gemini
       - ${PWD}:/home/dev_in_a_box/workspace
-
-      # Mount Gemini config (read-only, will copy excluding tmp in entrypoint)
-      - ${HOME}/.gemini:/tmp/host_gemini:ro
 
     working_dir: /home/dev_in_a_box/workspace
 
 volumes:
-  nvim_data:
-  nvim_cache:
-  nvim_state:
   zsh_history:
   claude_data:
+  gemini_data:

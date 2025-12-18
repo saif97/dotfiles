@@ -18,9 +18,7 @@ apt-get install -y \
     software-properties-common \
     python3 \
     python3-pip \
-    lazygit \
     make \
-    neovim \
     fzf \
     just \
     fd-find \

@@ -1,6 +1,9 @@
 # Dev Container .zshrc
 # This file is used for VMs and dev containers
 
+# npm global packages in userspace
+export PATH="$HOME/.npm-global/bin:$PATH"
+
 # Source zsh history configuration
 source ~/.config/zsh/history.zsh
 
