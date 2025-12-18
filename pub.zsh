@@ -1,4 +1,3 @@
-
 # Set a default Dotfiles directory
 DOT_FILES="${DOT_FILES:-$HOME/dotfiles}"
 source "$DOT_FILES/zsh/history.zsh"
@@ -27,6 +26,22 @@ alias f='flutter'
 alias python='python3'
 alias py='python3'
 alias pip='pip3'
+
+# Auto-activate venv on cd
+autoload -U add-zsh-hook
+_auto_venv() {
+	if [[ -d .venv ]]; then
+		source .venv/bin/activate
+		echo "venv activated: .venv"
+	elif [[ -d venv ]]; then
+		source venv/bin/activate
+		echo "venv activated: venv"
+	elif [[ -n "$VIRTUAL_ENV" ]]; then
+		deactivate
+	fi
+}
+add-zsh-hook chpwd _auto_venv
+_auto_venv
 alias v='nvim'
 
 # ── Tmux stuff ────────────────────────────────────────────────────────
@@ -34,7 +49,7 @@ export ZELLIJ_CONFIG_DIR="$DOT_FILES/zellij"
 alias tm="zellij attach --create --index 0" # attach to existing or create a new session
 alias tmn="zellij" # tm new
 
-alias gem="gemini"
+alias gem="gemini -r"
 alias cld="claude --continue"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
@@ -72,6 +87,9 @@ export LC_CTYPE="en_US.UTF-8" # Controls character classification and case conve
 # Use Neovim as default editor
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# Enforce use of virtual environments for pip
+export PIP_REQUIRE_VIRTUAL_ENV=true
 
 if [[ -n "$IS_PERSONAL" ]]; then
 	echo "Using personal configuration"

@@ -20,3 +20,5 @@ keybinding:
     edit: I
   status:
     checkForUpdate: ''
+gui:
+  nerdFontsVersion: "3"

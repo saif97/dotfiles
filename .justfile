@@ -9,15 +9,15 @@ ensure-ai:
 Karabiener-TS-build:
     cd karabinerTS && npm run build
 
-build-dev-container bust="false":
+build-dev-container-base-image:
     #!/usr/bin/env bash
-    BUILD_ARGS=""
-    if [ "{{bust}}" == "true" ]; then
-        echo "Busting cache..."
-        BUILD_ARGS="--build-arg CACHEBUST=$(date +%s)"
-    fi
-    docker compose -f devContainer/docker-compose.yml build $BUILD_ARGS
+    docker compose -f devContainer/docker-compose.yml build 
 
+# terminal
+build-dev-container-bust-cache:
+    #!/usr/bin/env bash
+    docker compose -f devContainer/docker-compose.yml build --build-arg CACHEBUST=$(date +%s)
+    
 run-dev-container:
     docker compose -f devContainer/docker-compose.yml run --rm dev
 
