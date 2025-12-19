@@ -12,16 +12,16 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
-		tmux {
-				// ── switch modes ────────────────────────────────────────────────────
-				bind "o" { SwitchToMode "Session"; }
-				bind "t" { SwitchToMode "Tab"; }
-				bind "h" { SwitchToMode "Move"; }
-				bind "p" { SwitchToMode "Pane"; }
-				bind "r" { SwitchToMode "Resize"; }
-				bind "s" { SwitchToMode "Scroll"; }
+    tmux {
+        // ── switch modes ────────────────────────────────────────────────────
+        bind "o" { SwitchToMode "Session"; }
+        bind "t" { SwitchToMode "Tab"; }
+        bind "h" { SwitchToMode "Move"; }
+        bind "p" { SwitchToMode "Pane"; }
+        bind "r" { SwitchToMode "Resize"; }
+        bind "s" { SwitchToMode "Scroll"; }
 
-				bind "w" {
+        bind "w" {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
@@ -38,12 +38,12 @@ keybinds clear-defaults=true {
         bind "," { GoToPreviousTab; SwitchToMode "Normal"; } // <
         bind "." { GoToNextTab; SwitchToMode "Normal"; } // >
 
-				// ── pane movement ────────────────────────────────────────────────────
+        // ── pane movement ────────────────────────────────────────────────────
         bind "n" { MoveFocus "Left"; SwitchToMode "Normal"; }
         bind "i" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "e" { MoveFocus "Down"; SwitchToMode "Normal"; }
         bind "u" { MoveFocus "Up"; SwitchToMode "Normal"; }
-				bind "l" { ToggleFocusFullscreen; SwitchToMode "Normal"; } // fuLlscreen
+        bind "l" { ToggleFocusFullscreen; SwitchToMode "Normal"; } // fuLlscreen
 
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
@@ -104,7 +104,7 @@ keybinds clear-defaults=true {
         bind "Tab" { ToggleTab; }
         bind "[" { MoveTab "Left"; }
         bind "]" { MoveTab "Right"; }
-				bind "," { GoToPreviousTab; } // <
+        bind "," { GoToPreviousTab; } // <
         bind "." { GoToNextTab; } // >
     }
     scroll {
