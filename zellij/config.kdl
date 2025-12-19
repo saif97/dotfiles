@@ -14,13 +14,20 @@ keybinds clear-defaults=true {
 
         // pane split
         bind "Ctrl Super v" { NewPane "Right"; }
-        bind "Ctrl Super s" { NewPane "Down"; }
+        bind "Ctrl Super b" { NewPane "Down"; } // h is already mapped :(
 
         // pane resize
         bind "Ctrl Super l" { Resize "Increase Left"; }
         bind "Ctrl Super y" { Resize "Increase Right"; }
         bind "Ctrl Super j" { Resize "Increase Up"; }
         bind "Ctrl Super h" { Resize "Increase Down"; }
+
+        bind "Ctrl Super Enter" { ToggleFocusFullscreen; }
+
+        bind "Ctrl Super ;" { MovePane "Up"; }
+        bind "Ctrl Super o" { MovePane "Down"; }
+
+        bind "Ctrl Super /" { CloseFocus;}
     }
     normal {
         // uncomment this and adjust key if using copy_on_select=false
