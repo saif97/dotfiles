@@ -5,6 +5,23 @@ keybinds clear-defaults=true {
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
     }
+    shared_except "locked" {
+        // pane focus
+        bind "Ctrl Super n" { MoveFocus "Left"; }
+        bind "Ctrl Super e" { MoveFocus "Down"; }
+        bind "Ctrl Super i" { MoveFocus "Right"; }
+        bind "Ctrl Super u" { MoveFocus "Up"; }
+
+        // pane split
+        bind "Ctrl Super v" { NewPane "Right"; }
+        bind "Ctrl Super s" { NewPane "Down"; }
+
+        // pane resize
+        bind "Ctrl Super l" { Resize "Increase Left"; }
+        bind "Ctrl Super y" { Resize "Increase Right"; }
+        bind "Ctrl Super j" { Resize "Increase Up"; }
+        bind "Ctrl Super h" { Resize "Increase Down"; }
+    }
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }

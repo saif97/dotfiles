@@ -209,6 +209,8 @@ writeToProfile(
 			// Fix ctrl-i / tab issue
 			map("l", "control").to("l", ["command", "shift"]).condition(ifApp(APP_ID_TERMINALS)),
 
+			map("non_us_backslash").to("left_command", ["control"]).toIfAlone("non_us_backslash"),
+
 			mapWithAnyMod("3").to("left_shift").toIfAlone("b", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
 			mapWithAnyMod("3").to("left_shift").toIfAlone("a", ["command", "shift"]),
 			mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),

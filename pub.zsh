@@ -61,6 +61,7 @@ alias cont="container"
 alias t="just"
 alias tt='just -g'
 
+alias nt="nvim --cmd 'let g:auto_session_enabled=v:false' +term"
 
 # ── AI stuff ──────────────────────────────────────────────────────────
 alias qr="q chat --resume"
