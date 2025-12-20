@@ -33,7 +33,7 @@ return {
 
 
 				["<leader>pn"] = {
-					desc = "Copy [p]ath but [f]ilename only",
+					desc = "copy Path Filename",
 					function(state)
 						local node = state.tree:get_node()
 						local filename = node.name
@@ -42,7 +42,7 @@ return {
 					end,
 				},
 				["<leader>pa"] = {
-					desc = "Copy [p]ath [a]bsolute for the selected file",
+					desc = "copy Path Absolute to file",
 					function(state)
 						local node = state.tree:get_node()
 						local filename = node:get_id()
@@ -51,7 +51,7 @@ return {
 					end,
 				},
 				["<leader>pr"] = {
-					desc = "Copy [p]ath [r]elative to the selected file",
+					desc = "copy Path Relative to the selected file",
 					function(state)
 						local node = state.tree:get_node()
 						local filepath = node:get_id()
@@ -61,7 +61,7 @@ return {
 					end,
 				},
 				["<leader>od"] = {
-					desc = "[o]pen [d]irectory",
+					desc = "Open Directory of the current file",
 					function(state)
 						local node = state.tree:get_node()
 						local filepath = node:get_id()

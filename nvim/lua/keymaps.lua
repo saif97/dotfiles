@@ -243,7 +243,7 @@ function M.setupNvim()
 		vim.notify("Copied: " .. file_dir)
 	end, { desc = "copy absolute file Path Directory" })
 
-	map_key({ "n" }, "<leader>pf", function()
+	map_key({ "n" }, "<leader>pn", function()
 		local file_name = vim.fn.expand("%:t")
 		vim.fn.setreg("+", file_name)
 		vim.notify("Copied: " .. file_name)
