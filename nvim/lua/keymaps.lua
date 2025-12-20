@@ -224,6 +224,10 @@ function M.setupNvim()
 		vim.fn.system("code " .. vim.fn.getcwd())
 	end, { desc = "Open project in vsCode" })
 
+	map_key({ "n" }, "<leader>og", function()
+		vim.fn.system("agy " .. vim.fn.getcwd())
+	end, { desc = "Open project in vsCode" })
+
 	map_key({ "n" }, "<leader>ox", openXCodeProject, { desc = "Open project in Xcode" })
 	map_key({ "n" }, "<leader>oa", openAndroidStudioProject, { desc = "Open project in Android studio" })
 

@@ -308,3 +308,46 @@ vim.opt.statusline = table.concat({
 	" %p%%"                 -- Percentage through file
 }, " ")
 
+local function sync_ai_md()
+	local cwd = vim.fn.getcwd()
+	local claude_path = cwd .. "/CLAUDE.md"
+	local gemini_path = cwd .. "/GEMINI.md"
+	local exclude_path = cwd .. "/.git/info/exclude"
+
+	local claude_exists = vim.fn.filereadable(claude_path) == 1
+	local gemini_exists = vim.fn.filereadable(gemini_path) == 1
+
+	-- Check if either is already a symlink
+	local claude_is_link = vim.fn.getftype(claude_path) == "link"
+	local gemini_is_link = vim.fn.getftype(gemini_path) == "link"
+
+	local function add_to_exclude(filename)
+		if vim.fn.filereadable(exclude_path) == 0 then return end
+		local content = vim.fn.readfile(exclude_path)
+		for _, line in ipairs(content) do
+			if line == filename then return end -- already excluded
+		end
+		vim.fn.writefile({ filename }, exclude_path, "a")
+	end
+
+	if claude_exists and gemini_exists then
+		if claude_is_link or gemini_is_link then
+			vim.notify("Already synced", vim.log.levels.INFO)
+		else
+			vim.notify("Both CLAUDE.md and GEMINI.md exist as regular files", vim.log.levels.WARN)
+		end
+	elseif claude_exists then
+		vim.fn.system({ "ln", "-s", "CLAUDE.md", gemini_path })
+		add_to_exclude("GEMINI.md")
+		vim.notify("Created GEMINI.md -> CLAUDE.md (excluded from git)", vim.log.levels.INFO)
+	elseif gemini_exists then
+		vim.fn.system({ "ln", "-s", "GEMINI.md", claude_path })
+		add_to_exclude("CLAUDE.md")
+		vim.notify("Created CLAUDE.md -> GEMINI.md (excluded from git)", vim.log.levels.INFO)
+	else
+		vim.notify("Neither CLAUDE.md nor GEMINI.md found", vim.log.levels.WARN)
+	end
+end
+
+vim.api.nvim_create_user_command('SyncAiMd', sync_ai_md, { desc = "Symlink CLAUDE.md <-> GEMINI.md" })
+
