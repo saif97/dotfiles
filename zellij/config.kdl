@@ -31,9 +31,8 @@ keybinds clear-defaults=true {
         bind "Ctrl Super /" { CloseFocus; }
 
         // Tab actions
-        bind "Ctrl Super ," { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "Ctrl Super ." { GoToNextTab; SwitchToMode "Normal"; }
-
+        bind "Ctrl Super ," { GoToPreviousTab; }
+        bind "Ctrl Super ." { GoToNextTab; }
     }
     normal {}
     locked {
@@ -64,6 +63,10 @@ keybinds clear-defaults=true {
         // session
         bind "d" { Detach; }
         bind "Space" { NextSwapLayout; }
+
+        // Tab actions
+        bind "," { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "." { GoToNextTab; SwitchToMode "Normal"; }
     }
 
     pane {
