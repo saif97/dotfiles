@@ -41,7 +41,7 @@ return {
 				-- Options used when layout is "left"|"bottom"|"top"|"right"
 				---@type vim.api.keyset.win_config
 				split = {
-					width = 80, -- static width in columns (set to 0 for default adaptive width)
+					width = 150, -- static width in columns (set to 0 for default adaptive width)
 					height = 0, -- set to 0 for default split height
 				},
 				--- CLI Tool Keymaps (default mode is `t`)
@@ -124,7 +124,7 @@ return {
 		},
 		{
 			"<leader>if",
-			function() require("sidekick.cli").send({ msg = "{line}" }) end,
+			function() require("sidekick.cli").send({ msg = "{file}" }) end,
 			desc = "Send File",
 		},
 		{

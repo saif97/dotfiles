@@ -1,4 +1,6 @@
 # git config --global core.excludesfile ~/dotfiles/global.gitignore
+#
+.gemini-clipboard
 
 node_modules
 __pycache__

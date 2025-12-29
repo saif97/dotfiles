@@ -96,13 +96,11 @@ function M.setupNvim()
 
 	-- Clear highlights and close panels
 	map_key(allModes, "<F16>", function()
-		hideCodeCompanion()
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
-		
 		vim.cmd("fc") -- close open floating windows like Lazy
-		require("sidekick.cli").hide()
+		-- require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
 
 	-- Exit terminal mode with Escape

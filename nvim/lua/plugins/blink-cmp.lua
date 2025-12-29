@@ -37,10 +37,10 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "snippets", "lsp", "path", "buffer" },
+			default = { "lsp", "snippets", "path", "buffer" },
 			providers = {
-				snippets = {
-					score_offset = 100, -- Boost snippet scores to appear first
+				lsp = {
+					score_offset = 100,
 				},
 			},
 		},

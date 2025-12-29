@@ -58,21 +58,6 @@ else
 	-- Neovim-only configurations
 end
 
-function hideCodeCompanion()
-	pcall(function()
-		local cc = require("codecompanion")
-		local chat = cc.buf_get_chat(vim.api.nvim_get_current_buf())
-		if chat then
-			vim.cmd("wincmd p")
-		end
-
-		local chat = cc.last_chat()
-		if chat and chat.ui:is_visible() then
-			chat.ui:hide()
-		end
-	end)
-end
-
 function isPersonalMachine()
 	return os.getenv("IS_PERSONAL_MACHINE") ~= nil
 end
