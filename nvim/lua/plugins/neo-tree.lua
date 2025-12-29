@@ -11,6 +11,11 @@ return {
 	---@module "neo-tree"
 	---@type neotree.Config?
 	opts = {
+		default_component_configs = {
+			symlink_target = {
+				enabled = true,
+			},
+		},
 		window = {
 			mappings = {
 				["<BS>"] = "", -- Disables backspace navigation
