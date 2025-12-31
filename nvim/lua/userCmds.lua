@@ -68,7 +68,7 @@ local function lsp_status()
 	end
 end
 
-vim.api.nvim_create_user_command('LspStatus', lsp_status, { desc = "Show detailed LSP status" })
+vim.api.nvim_create_user_command('LspInfo', lsp_status, { desc = "Show detailed LSP Info" })
 
 local function check_lsp_capabilities()
 	local bufnr = vim.api.nvim_get_current_buf()
@@ -175,6 +175,8 @@ local function lsp_info()
 		local cmd = client.config.cmd
 		if type(cmd) == "table" then
 			print("  Command: " .. table.concat(cmd, " "))
+		elseif type(cmd) == "function" then
+			print("  Command: <function>")
 		else
 			print("  Command: " .. (cmd or "Not set"))
 		end
@@ -249,7 +251,7 @@ local function lsp_info()
 end
 
 -- Create command
-vim.api.nvim_create_user_command('LspInfo', lsp_info, { desc = "Show comprehensive LSP information" })
+vim.api.nvim_create_user_command('LspInfoLong', lsp_info, { desc = "Show comprehensive LSP information" })
 
 
 local function lsp_status_short()
