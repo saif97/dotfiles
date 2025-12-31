@@ -42,9 +42,11 @@ function M.setup()
 	end, { desc = "", expr = true })
 	-- [[ Section: Editing ]]
 
-	-- Indentation
-	map_key(allModes, "<Tab>", ">>", { desc = "Indent" })
-	map_key(allModes, "<S-Tab>", "<<", { desc = "Unindent" })
+	-- Indentation (visual modes keep selection with gv)
+	map_key({ "n", "o" }, "<Tab>", ">>", { desc = "Indent" })
+	map_key({ "n", "o" }, "<S-Tab>", "<<", { desc = "Unindent" })
+	map_key({ "x", "v" }, "<Tab>", ">gv", { desc = "Indent" })
+	map_key({ "x", "v" }, "<S-Tab>", "<gv", { desc = "Unindent" })
 
 	-- Undo/Redo
 	map_key(allModes, "L", "u", { desc = "Undo" })
@@ -362,8 +364,10 @@ function M.setupLsp(event)
 	local picker = require("snacks").picker
 	map("gd", picker.lsp_definitions, "Goto Definition")
 	map("ge", function()
-		vim.diagnostic.open_float()
-		vim.cmd('wincmd w')
+		local _, winid = vim.diagnostic.open_float()
+		if winid then
+			vim.api.nvim_set_current_win(winid)
+		end
 	end, "Goto Errors")
 
 	-- Find references for the word under your cursor.
