@@ -87,9 +87,42 @@ local function justfile_init()
 	vim.cmd("edit " .. justfile_path)
 end
 
+-- Gemini scaffolding
+local function gemini_init()
+	local cwd = vim.fn.getcwd()
+	local gemini_dir = cwd .. "/.gemini"
+	local settings_path = gemini_dir .. "/settings.json"
+	local template_path = get_template_dir() .. "/gemini/settings.json"
+
+	-- Check if .gemini already exists
+	if vim.fn.isdirectory(gemini_dir) == 1 then
+		vim.notify(".gemini/ already exists", vim.log.levels.WARN)
+		return
+	end
+
+	-- Create directory
+	vim.fn.mkdir(gemini_dir, "p")
+
+	local lines = vim.fn.readfile(template_path)
+	local content = table.concat(lines, "\n")
+
+	local file = io.open(settings_path, "w")
+	if file then
+		file:write(content)
+		file:close()
+	else
+		vim.notify("Failed to write .gemini/settings.json", vim.log.levels.ERROR)
+		return
+	end
+
+	vim.notify("Created .gemini/settings.json", vim.log.levels.INFO)
+	vim.cmd("edit " .. settings_path)
+end
+
 function M.setup()
-	vim.api.nvim_create_user_command('DevContainerInit', devcontainer_init, { desc = "Scaffold .devcontainer directory" })
-	vim.api.nvim_create_user_command('JustfileInit', justfile_init, { desc = "Scaffold .justfile" })
+	vim.api.nvim_create_user_command('InitDevContainer', devcontainer_init, { desc = "Scaffold .devcontainer directory" })
+	vim.api.nvim_create_user_command('InitJustfile', justfile_init, { desc = "Scaffold .justfile" })
+	vim.api.nvim_create_user_command('InitGemini', gemini_init, { desc = "Scaffold .gemini directory" })
 end
 
 return M

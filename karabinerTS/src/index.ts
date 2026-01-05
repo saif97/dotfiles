@@ -232,7 +232,7 @@ writeToProfile(
 			map("j", ["control"]).to("tab", ["control", "shift"]).condition(ifApp(APP_ID_FIREFOX)),
 			mapWithAnyMod("right_shift").to("left_command", ["option", "shift"]).toIfAlone("f18"),
 
-			map("1").to("left_command", ["option"]).toIfAlone("f17"), // Amethyst Mode
+			map("1").to("left_command", ["option"]).toIfAlone("f13", ["shift"]), 
 
 			// withCondition(ifDevice(personalMachine).unless(), ifApp("com.raycast.macos"))([map("v", "command").toMeh()]),
 		]),

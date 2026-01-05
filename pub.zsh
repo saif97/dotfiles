@@ -50,7 +50,7 @@ alias tm="zellij attach --create --index 0" # attach to existing or create a new
 alias tmn="zellij" # tm new
 
 alias gem="gemini -r"
-alias cld="claude --continue"
+alias cld="claude"
 alias cldn="claude" # claude new 
 alias lg="lazygit"
 alias ld="lazydocker"
@@ -117,7 +117,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	export PATH=$PATH:$ANDROID_HOME/tools/bin
 
 	# Java stuff
-	export JAVA_HOME="/Users/saifhakeam/Library/Java/JavaVirtualMachines/ms-11.0.28/Contents/Home"
+	export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 fi
 
 # ── Key bindings ───────────────────────────────────────────────────────

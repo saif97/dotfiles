@@ -7,7 +7,7 @@ quit-after-last-window-closed = false
 window-decoration = none
 window-padding-y = 0,0
 window-padding-x = 0,0
-background-opacity = 0.90
+# background-opacity = 0.90
 
 # Source: https://gist.github.com/adibhanna/c552c452fb244b3b721e3c2432e85cde
 #font-family = Iosevka Nerd Font
@@ -27,6 +27,9 @@ background = 1C2021
 # foreground = d4be98
 
 # keybindings
+
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+
 keybind = cmd+t=unbind
 keybind = cmd+n=unbind
 keybind = cmd+w=unbind

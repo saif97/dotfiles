@@ -110,7 +110,7 @@
     {
       "command": "multiCommand.hideSidePanels",
       "sequence": [
-        "composer.closeComposerTab",
+        // "composer.closeComposerTab",
         "workbench.action.closeSidebar",
         "workbench.action.closePanel",
         // "workbench.action.maximizeEditor",
@@ -144,7 +144,7 @@
       "command": "multiCommand.EscapeKeyOnEditor",
       "sequence": [
         "vscode-neovim.escape",
-        "composer.closeComposerTab",
+        // "composer.closeComposerTab",
         // "workbench.action.closeSidebar",
         "workbench.action.focusActiveEditorGroup",
         // "editor.foldLevel2",
@@ -667,4 +667,7 @@
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:gpt-4.1",
   "diffEditor.hideUnchangedRegions.enabled": true,
+"json.schemaDownload.enable": true,
+"antigravity.marketplaceExtensionGalleryServiceURL": "https://marketplace.visualstudio.com/_apis/public/gallery",
+"antigravity.marketplaceGalleryItemURL": "https://marketplace.visualstudio.com/items",
 }

@@ -2955,7 +2955,10 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f17"
+                    "key_code": "f13",
+                    "modifiers": [
+                      "shift"
+                    ]
                   }
                 ]
               }
