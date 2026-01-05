@@ -105,6 +105,10 @@ function M.setupNvim()
 		-- require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
 
+	map_key({"t", "n"}, "<S-F16>", function()
+		require("sidekick.cli").hide()
+	end, { desc = "Hide Sidekick" })
+
 	-- Exit terminal mode with Escape
 	map_key({ "t" }, "<F16>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
