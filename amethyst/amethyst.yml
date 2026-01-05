@@ -195,13 +195,13 @@ relaunch-amethyst:
 # WINDOW APPEARANCE SETTINGS
 # ============================================================================
 # Boolean flag for whether or not to add margins betwen windows (default false).
-window-margins: false
+window-margins: true
 
 # Boolean flag for whether or not to set window margins if there is only one window on the screen, assuming window margins are enabled (default false).
-smart-window-margins: false
+smart-window-margins: true
 
 # The size of the margins between windows (in px, default 0).
-window-margin-size: 0
+window-margin-size: 5
 
 # The smallest height that a window can be sized to regardless of its layout frame (in px, default 0).
 window-minimum-height: 0
