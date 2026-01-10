@@ -22,3 +22,4 @@ keybinding:
     checkForUpdate: ''
 gui:
   nerdFontsVersion: "3"
+  showCommandLog: false
