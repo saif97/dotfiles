@@ -21,6 +21,7 @@ local additional_tools = {
 local personal_servers = {
 	"solidity",
 	"copilot",
+	"denols",
 }
 
 if os.getenv("IS_PERSONAL_MACHINE") then
@@ -70,6 +71,7 @@ return {
 		},
 		config = function()
 			-- Enable LSP servers using Neovim 0.11+ API
+			-- Server-specific configs are in after/lsp/*.lua (overrides nvim-lspconfig defaults)
 			vim.lsp.enable(servers)
 
 			-- Diagnostic configuration
