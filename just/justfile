@@ -1,3 +1,4 @@
+import? "~/.config/work.justfile"
 
 default:
     just --justfile {{justfile()}} --list
@@ -7,9 +8,6 @@ hello:
 
 sync-ai-markedown-files:
     @./sync_ai_md.sh
-
-adb-uninstall-apps:
-    ./scripts/uninstall_all_apps.sh
 
 # terminal
 devcontainer-build:

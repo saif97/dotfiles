@@ -29,3 +29,5 @@
 [rebase]
 	autoStash = true
 
+[submodule]
+	recurse = true

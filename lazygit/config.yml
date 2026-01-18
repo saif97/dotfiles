@@ -23,3 +23,10 @@ keybinding:
 gui:
   nerdFontsVersion: "3"
   showCommandLog: false
+customCommands:
+  - key: "U"
+    description: "Update submodules"
+    command: "git submodule update --init --recursive"
+    context: "global"
+    loadingText: "Updating submodules..."
+    output: log

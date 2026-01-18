@@ -33,6 +33,9 @@ keybinds clear-defaults=true {
         // Tab actions
         bind "Ctrl Super ," { GoToPreviousTab; }
         bind "Ctrl Super ." { GoToNextTab; }
+
+        bind "Ctrl Super [" { MoveTab "Left"; }
+        bind "Ctrl Super ]" { MoveTab "Right"; }
     }
     normal {}
     locked {
