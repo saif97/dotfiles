@@ -9,6 +9,9 @@ hello:
 sync-ai-markedown-files:
     @./sync_ai_md.sh
 
+uninstall-apps:
+    @{{justfile_directory()}}/scripts/uninstall_apps.sh
+
 # terminal
 devcontainer-build:
     devcontainer build --workspace-folder .
