@@ -255,7 +255,7 @@ writeToProfile(
 		]),
 
 		rule("QWERTY to Colemak for VMs").manipulators([
-			withCondition(ifApp([APP_ID_UTM, APP_ID_IPHONE_MIRRORING]))([
+			withCondition(ifApp([APP_ID_UTM, APP_ID_IPHONE_MIRRORING, "org.cirruslabs.tart"]))([
 				// Top row
 				map("e").to("f"),
 				map("r").to("p"),

@@ -3117,7 +3117,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3137,7 +3138,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3157,7 +3159,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3177,7 +3180,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3197,7 +3201,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3217,7 +3222,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3237,7 +3243,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3257,7 +3264,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3277,7 +3285,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3297,7 +3306,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3317,7 +3327,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3337,7 +3348,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3357,7 +3369,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3377,7 +3390,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3397,7 +3411,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3417,7 +3432,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]
@@ -3437,7 +3453,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "com.apple.ScreenContinuity"
+                      "com.apple.ScreenContinuity",
+                      "org.cirruslabs.tart"
                     ]
                   }
                 ]

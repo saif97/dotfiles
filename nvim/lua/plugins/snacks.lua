@@ -13,6 +13,13 @@ return {
 					edit = 'nvim --server "$NVIM" --remote-send q && nvim --server "$NVIM" --remote {{filename}}',
 				},
 			},
+			win = {
+				keys = {
+					-- Use Ctrl-h to hide (won't conflict with lazygit's q)
+					hide_window = { "<C-h>", "hide", mode = { "n", "t" } },
+				},
+			},
+
 		},
 		indent = { enabled = true },
 		input = { enabled = true },
