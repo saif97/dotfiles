@@ -5,13 +5,16 @@
 - [✓] setup DiffView
 - [✓] A better way for Git Actions
 - [✓] selecting multiple words selects the entire paragraph
+- [ ] Use speach to text to interact with AI 
 
-- [ ] Misc
+- [○] Misc
+  - [○] LazyGit, custom cmd to open the file in nvim.
+  - [✓] Remove cmd bar
+  - [ ] quiting lazyGit should hide it instead.
+  - [ ] Create a slash cmd that makes sure to mimic Both Claude Code & Gemini's rules & stuff
   - [ ] Better way to switch between files & last cursor position
   - [ ] In LayzGit, search for commits that edits a file ? 
   - [ ] one key to close all floats
-  - [ ] LazyGit, custom cmd to open the file in nvim.
-  - [ ] Remove cmd bar
   - [ ] LSP for bash
   - [ ] Try vim-zsh
 
@@ -20,10 +23,13 @@
   - [✓] Snacks, start more than one cli 
   - [✓] Snacks removes running cli
   - [✓] Install Gemini & Cld & set their auth to match mine
+  - [ ] Gemini & Claude code use same configs I got at my personal machine
   - [ ] Gemini & Claude code in Yolo mode
   - [ ] Sidekick, open tabs on the same side session
+  - [ ] Gemini play chime when finishes [Gemini doesn't seem to support it ?]
 
-- [ ] Zellij
+- [◐] Zellij
+  - [✓] Panes
   - [ ] Faster way to swap between open sessions
 
 - [ ] AI project management 
@@ -33,3 +39,6 @@
 
 - [ ] remove cmd bar
 - [ ] multi-cursor support
+
+GIT / Lazygit
+- [✓] Open PR in browser 
