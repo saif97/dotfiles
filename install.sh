@@ -32,4 +32,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.zsh/zsh-sy
 
 # Setup .zshrc using dev container template
 echo "Configuring .zshrc..."
-cp $HOME/.config/devContainer/dev_container.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/devContainer/dev_container.zshrc $HOME/.zshrc

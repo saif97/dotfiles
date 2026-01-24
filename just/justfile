@@ -1,5 +1,8 @@
 import? "~/.config/work.justfile"
 
+tartImage :="tahoe-xcode"
+# tartImage :="macos-26"
+
 default:
     just --justfile {{justfile()}} --list
 
@@ -8,6 +11,17 @@ hello:
 
 sync-ai-markedown-files:
     @./sync_ai_md.sh
+
+tart-up:
+    tart run --suspendable --dir=shared_dir:~/dev {{tartImage}} &
+tart-stop:
+    tart stop {{tartImage}}
+tart-get-config:
+    tart get {{tartImage}}
+tart-ssh:
+    ssh admin@$(tart ip {{tartImage}})
+tart-share-workspace:
+    ln -s "{{invocation_directory()}}" ~/dev/vms/shared_dir/vm_workspace
 
 uninstall-apps:
     @{{justfile_directory()}}/scripts/uninstall_apps.sh
