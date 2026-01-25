@@ -82,6 +82,7 @@ function openXCodeProject()
 		"macos/*.xcodeproj",
 		"example/ios/*.xcworkspace",
 		"example/ios/*.xcodeproj",
+		"demo-app/platforms/ios/*.xcworkspace",
 		"*.xcworkspace",
 		"*.xcodeproj",
 	}
@@ -179,4 +180,31 @@ function openGitBranch()
 		local url = base_url .. "/tree/" .. branch
 		openUrl(url)
 	end
+end
+
+-- Open Jira ticket extracted from current git branch
+function openJiraTicket()
+	local branch = vim.fn.system("git branch --show-current"):gsub("%s+", "")
+	if branch == "" or vim.v.shell_error ~= 0 then
+		vim.notify("Not on a git branch", vim.log.levels.WARN)
+		return
+	end
+
+	-- Extract ticket ID (pattern: ABC-123)
+	local ticket = branch:match("([A-Za-z]+%-?%d+)")
+	if not ticket then
+		vim.notify("No ticket ID found in branch: " .. branch, vim.log.levels.WARN)
+		return
+	end
+
+	local jira_url = os.getenv("JIRA_URL")
+	if not jira_url then
+		vim.notify("JIRA_URL environment variable not set", vim.log.levels.ERROR)
+		return
+	end
+
+	-- Remove trailing slash if present
+	jira_url = jira_url:gsub("/$", "")
+	local url = jira_url .. "/browse/" .. ticket:upper()
+	openUrl(url)
 end

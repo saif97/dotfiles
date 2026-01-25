@@ -142,8 +142,12 @@ function M.setupNvim()
 
 	-- [[ Section: Buffer Navigation ]]
 	-- Buffer switching
-	map_key({ "n", "i" }, "<C-.>", ":bnext<CR>", { desc = "Next buffer" })
-	map_key({ "n", "i" }, "<C-,>", ":bprevious<CR>", { desc = "Previous buffer" })
+	map_key({ "n", "i" }, "<D-.>", ":bnext<CR>", { desc = "Next buffer" })
+	map_key({ "n", "i" }, "<D-,>", ":bprevious<CR>", { desc = "Previous buffer" })
+
+	-- Back & worth in jumplist
+	map_key(allModes, "<C-,>", "<C-o>", { desc = "Go back" })
+	map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
 
 	-- [[ Section: File Explorer and Projects ]]
 
@@ -176,7 +180,7 @@ function M.setupNvim()
 	map_key("n", "ss", Snacks.picker.spelling, { desc = "Search Spell" })
 	map_key("n", "sn", picker.notifications, { desc = "Search notify" })
 	map_key({ "n" }, "sc", picker.commands, { desc = "Search Commands" })
-	map_key({ "n" }, "<leader>lg", Snacks.lazygit.open, { desc = "open LazyGit" })
+	map_key({ "n" }, "<C-h>", Snacks.lazygit.open, { desc = "open LazyGit" })
 	map_key({ "n" }, "<leader>ll", Snacks.lazygit.log, { desc = "open Lazygit Log" })
 	map_key({ "n" }, "<leader>lf", Snacks.lazygit.log_file, { desc = "open Lazygit File" })
 	map_key({ "n" }, "<leader>ld", function()
@@ -282,10 +286,6 @@ function M.setupNvim()
 	map_key("i", "<M-f>", "<C-right>", { desc = "" })
 	map_key("i", "<M-b>", "<C-left>", { desc = "" })
 
-	-- Back & worth in jumplist
-	map_key(allModes, "<C-,>", "<C-o>", { desc = "Go back" })
-	map_key(allModes, "<C-.>", "<C-i>", { desc = "Go back" })
-
 	map_key({ "n" }, "<leader>wn", ":wincmd p<CR>", { desc = "Window go to Next window - switches back & forth" })
 
 	map_key({ "n", "i" }, "<M-Up>", ":m .-2<CR>==", { desc = "move line up" })
@@ -314,6 +314,7 @@ function M.setupNvim()
 	map_key({ "n" }, "<leader>owr", openGitRemote, { desc = "Open Web Remote" })
 	map_key({ "n" }, "<leader>owu", openGitUpstream, { desc = "Open Web Upstream" })
 	map_key({ "n" }, "<leader>owb", openGitBranch, { desc = "Open Web Branch" })
+	map_key({ "n" }, "<leader>owt", openJiraTicket, { desc = "Open Web Ticket (Jira)" })
 
 
 	local gs = require("gitsigns")

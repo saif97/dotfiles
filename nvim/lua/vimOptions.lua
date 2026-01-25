@@ -125,6 +125,9 @@ else -- Neovim-only configurations
 	-- Excluded: t/c (auto-wrap), a (auto-format paragraphs)
 	vim.opt.formatoptions = "jqlnro"
 
+	-- Do not automatically add a newline at end of file
+	vim.opt.fixendofline = false
+
 	vim.g.copilot_filetypes = {
 		{ "xml", "false" }
 	}
