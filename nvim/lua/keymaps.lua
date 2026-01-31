@@ -109,6 +109,24 @@ function M.setupNvim()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
+	map_key('t', '<C-l>', function()
+		-- 1. Save the current scrollback limit
+		local old_scrollback = vim.bo.scrollback
+
+		-- 2. Set to 1 to wipe the history
+		vim.bo.scrollback = 1
+
+		-- 3. Restore the original limit immediately
+		vim.bo.scrollback = old_scrollback
+
+		-- 4. Send Ctrl-L to the shell to clear the visible screen
+		vim.api.nvim_feedkeys(
+			vim.api.nvim_replace_termcodes('<C-l>', true, true, true),
+			'n',
+			false
+		)
+	end, { desc = "Clear terminal screen and scrollback" })
+
 	-- Exit terminal mode with Escape
 	map_key({ "t" }, "<F16>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
