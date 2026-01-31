@@ -78,7 +78,7 @@ export PATH=$GEM_HOME/bin:$PATH
 # Add dotfiles scripts to PATH
 export PATH="$HOME/dotfiles/scripts:$PATH"
 
-export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME=$DOT_FILES
 
 # Locale settings
 export LANG="en_US.UTF-8" # Sets default locale for all categories
