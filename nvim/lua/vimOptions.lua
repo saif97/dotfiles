@@ -1,10 +1,19 @@
 -- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end)
+-- Uses OSC 52 escape sequences for SSH clipboard support.
+-- See `:help 'clipboard'` and `:help clipboard-osc52`
+vim.g.clipboard = {
+	name = 'OSC 52',
+	copy = {
+		['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+		['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+	},
+	paste = {
+		-- OSC 52 paste may not work on all terminals; fallback to register
+		['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+		['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+	},
+}
+vim.opt.clipboard = 'unnamedplus'
 
 vim.cmd("let $NVIM_LOG_FILE='/tmp/nvim.log'")
 -- Set the log level to debug
@@ -19,9 +28,6 @@ if vim.g.vscode then
 	-- to fix https://github.com/vscode-neovim/vscode-neovim/issues/1137#issuecomment-1936954633
 	vim.keymap.set("", "<Space>", "<Nop>")
 else -- Neovim-only configurations
-	-- The below 2 lines enable vim & system copy pasting to interwork.
-	vim.cmd("set clipboard=unnamed")
-	vim.cmd("set clipboard=unnamedplus")
 	vim.cmd("set backspace=indent,eol,start")
 
 	vim.cmd("set autoindent")
