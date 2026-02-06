@@ -109,7 +109,7 @@ function M.setupNvim()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
-	map_key('t', '<C-l>', function()
+	map_key('t', '<D-k>', function()
 		-- 1. Save the current scrollback limit
 		local old_scrollback = vim.bo.scrollback
 
