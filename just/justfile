@@ -14,12 +14,20 @@ sync-ai-markedown-files:
 
 tart-up:
     tart run --suspendable --dir=shared_dir:~/dev {{tartImage}} &
+
+tart-up-claw:
+    tart run --suspendable openClaw &
+
 tart-stop:
     tart stop {{tartImage}}
 tart-get-config:
     tart get {{tartImage}}
 tart-ssh:
     ssh admin@$(tart ip {{tartImage}})
+
+tart-ssh-claw:
+    ssh admin@$(tart ip openClaw)
+
 tart-share-workspace:
     ln -s "{{invocation_directory()}}" ~/dev/vms/shared_dir/vm_workspace
 
