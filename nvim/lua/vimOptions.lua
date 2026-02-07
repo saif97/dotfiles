@@ -8,9 +8,12 @@ vim.g.clipboard = {
 		['*'] = require('vim.ui.clipboard.osc52').copy('*'),
 	},
 	paste = {
-		-- OSC 52 paste may not work on all terminals; fallback to register
-		['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-		['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+		['+'] = vim.env.SSH_TTY
+			and require('vim.ui.clipboard.osc52').paste('+')
+			or { 'pbpaste' },
+		['*'] = vim.env.SSH_TTY
+			and require('vim.ui.clipboard.osc52').paste('*')
+			or { 'pbpaste' },
 	},
 }
 vim.opt.clipboard = 'unnamedplus'
