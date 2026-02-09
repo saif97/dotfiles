@@ -97,6 +97,9 @@ function M.setupNvim()
 	-- end, { expr = true, desc = "Smart comment deletion" })
 
 	-- Clear highlights and close panels
+	-- Insert mode: escape to normal first, then trigger F16
+	map_key("i", "<F16>", "<Esc>", { desc = "Escape to normal mode" })
+	-- Other modes: directly execute the function
 	map_key(allModes, "<F16>", function()
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
@@ -109,23 +112,27 @@ function M.setupNvim()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
+	-- Terminal mode: clear scrollback + screen
 	map_key('t', '<D-k>', function()
-		-- 1. Save the current scrollback limit
 		local old_scrollback = vim.bo.scrollback
-
-		-- 2. Set to 1 to wipe the history
 		vim.bo.scrollback = 1
-
-		-- 3. Restore the original limit immediately
 		vim.bo.scrollback = old_scrollback
-
-		-- 4. Send Ctrl-L to the shell to clear the visible screen
 		vim.api.nvim_feedkeys(
 			vim.api.nvim_replace_termcodes('<C-l>', true, true, true),
-			'n',
+			't',
 			false
 		)
 	end, { desc = "Clear terminal screen and scrollback" })
+
+	-- Normal mode: enter terminal mode first, then clear
+	map_key('n', '<D-k>', function()
+		if vim.bo.buftype ~= "terminal" then return end
+		vim.api.nvim_feedkeys(
+			vim.api.nvim_replace_termcodes('i<D-k>', true, true, true),
+			'n',
+			false
+		)
+	end, { desc = "Enter terminal mode and clear" })
 
 	-- Exit terminal mode with Escape
 	map_key({ "t" }, "<F16>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -309,7 +316,6 @@ function M.setupNvim()
 	map_key({ "n", "i" }, "<M-Up>", ":m .-2<CR>==", { desc = "move line up" })
 	map_key({ "n", "i" }, "<M-Down>", ":m .+1<CR>==", { desc = "move line down" })
 
-	map_key("t", "<D-k>", "<C-l>", { desc = "Clear terminal text" })
 	map_key("n", "<leader>or", require("justice").select, { desc = "Open just Runner" })
 
 	map_key("n", "<D-d>", "<Cmd>co.<Cr>", { desc = "Dublicate line at cursor" })
