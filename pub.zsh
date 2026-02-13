@@ -17,7 +17,7 @@ fi
 
 alias l='lsd -ali'
 alias cat='bat'
-alias cd='z'
+alias sd='z'
 alias ci='zi'
 alias nv='nvim'
 alias f='flutter'
