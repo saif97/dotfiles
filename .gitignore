@@ -11,3 +11,5 @@ playground
 .vscode
 .claude
 .devcontainer
+swiftpm
+github-copilot

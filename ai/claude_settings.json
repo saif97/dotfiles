@@ -1,4 +1,8 @@
 {
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
+    "API_TIMEOUT_MS": "3000000"
+  },
   "hooks": {
     "Stop": [
       {
@@ -11,5 +15,13 @@
       }
     ]
   },
-  "alwaysThinkingEnabled": true
+  "statusLine": {
+    "type": "command",
+    "command": "~/dotfiles/ai/statusline.sh"
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  }
 }

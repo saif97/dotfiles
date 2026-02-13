@@ -13,6 +13,7 @@ git:
     - master
     - main
     - develop
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:'%C(red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(dim white)- %an%C(reset)' {{branchName}}"
 keybinding:
   universal:
     prevItem: u

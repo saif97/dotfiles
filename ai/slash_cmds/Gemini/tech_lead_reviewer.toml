@@ -38,6 +38,7 @@ When reviewing code, you will:
 - Is the code testable? Are tests present and comprehensive?
 - Will future developers understand this code six months from now?
 - Are dependencies managed appropriately?
+- Are all introduced dependencies strictly necessary, or could the same be achieved with built-in functionality?
 - Is logging/monitoring adequate for debugging production issues?
 - Are there hardcoded values that should be configurable?
 
