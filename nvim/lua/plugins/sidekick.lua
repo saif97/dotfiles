@@ -19,6 +19,10 @@ return {
 				devbox = {
 					cmd = { "devbox" },
 				},
+				ClaudeYOLO = {
+					cmd = { "Claude --dangerously-skip-permissions" },
+				},
+
 			},
 			win = {
 				--- This is run when a new terminal is created, before starting it.
