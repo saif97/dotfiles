@@ -20,7 +20,7 @@ return {
 					cmd = { "devbox" },
 				},
 				ClaudeYOLO = {
-					cmd = { "Claude --dangerously-skip-permissions" },
+					cmd = { "Claude", "--dangerously-skip-permissions" },
 				},
 
 			},
