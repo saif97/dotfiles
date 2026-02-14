@@ -17,12 +17,13 @@ total_output=$(echo "$input" | jq -r '.context_window.total_output_tokens // emp
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 window_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
 
-# Calculate total tokens used
-if [ -n "$total_input" ] && [ "$total_input" != "null" ] && [ -n "$total_output" ] && [ "$total_output" != "null" ]; then
-    total_used=$((total_input + total_output))
-    # Convert to thousands (k) display
-    used_k=$((total_used / 1000))
+# Calculate context window usage
+if [ -n "$window_size" ] && [ "$window_size" != "null" ]; then
     window_k=$((window_size / 1000))
+    # Calculate used tokens from percentage (more accurate than total_input + total_output)
+    if [ -n "$used_pct" ] && [ "$used_pct" != "null" ]; then
+        used_k=$((window_size * used_pct / 100 / 1000))
+    fi
 fi
 
 # Build output - customize these sections
