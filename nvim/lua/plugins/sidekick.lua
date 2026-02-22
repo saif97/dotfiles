@@ -15,15 +15,20 @@ return {
 				backend = "zellij",
 				enabled = true,
 			},
-			tools = { -- extra tools
-				devbox = {
-					cmd = { "devbox" },
-				},
-				ClaudeYOLO = {
-					cmd = { "Claude", "--dangerously-skip-permissions" },
-				},
-
-			},
+			tools = (function()
+				local tools = {
+					devbox = {
+						cmd = { "devbox" },
+					},
+				}
+				-- Only add ClaudeYOLO in sandbox environment
+				if vim.env.SANDBOX then
+					tools.ClaudeYOLO = {
+						cmd = { "Claude", "--dangerously-skip-permissions" },
+					}
+				end
+				return tools
+			end)(),
 			win = {
 				--- This is run when a new terminal is created, before starting it.
 				--- Here you can change window options `terminal.opts`.

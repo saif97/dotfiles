@@ -8,6 +8,23 @@ return {
 		custom_gruvbox.inactive.c.fg = "#303446"
 		custom_gruvbox.inactive.c.bg = "#babbf1"
 
+		-- Check if SANDBOX or SSH environment variables are set
+		local function is_sandbox_or_ssh()
+			local sandbox = vim.env.SANDBOX
+			local ssh = vim.env.SSH_CONNECTION or vim.env.SSH_CLIENT or vim.env.SSH_TTY
+			return sandbox or ssh
+		end
+
+		-- Custom component for sandbox/SSH indicator
+		local function sandbox_indicator()
+			if vim.env.SANDBOX then
+				return "🔒 SANDBOX"
+			elseif vim.env.SSH_CONNECTION or vim.env.SSH_CLIENT or vim.env.SSH_TTY then
+				return "🔐 SSH"
+			end
+			return ""
+		end
+
 		require("lualine").setup({
 			options = {
 				theme = custom_gruvbox,
@@ -15,9 +32,20 @@ return {
 			},
 			sections = {
 				lualine_a = {
-					function()
-						return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-					end,
+					{
+						sandbox_indicator,
+						color = function()
+							if is_sandbox_or_ssh() then
+								return { fg = "#ffffff", bg = "#f38ba8", gui = "bold" }
+							end
+							return {}
+						end,
+					},
+					{
+						function()
+							return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+						end,
+					},
 				},
 				lualine_b = {
 					{
@@ -50,7 +78,12 @@ return {
 				lualine_c = {
 					{
 						"filename",
-						color = { fg = "#303446" }, -- Set the text color (fg) and background color (bg)
+						color = function()
+							if is_sandbox_or_ssh() then
+								return { fg = "#181926", bg = "#e78284" }
+							end
+							return { fg = "#303446" }
+						end,
 					},
 				},
 				lualine_x = {},

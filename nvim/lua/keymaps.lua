@@ -329,11 +329,6 @@ function M.setupNvim()
 	-- Marked comments
 	map_key({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", { desc = "Code Marked comments" })
 
-	-- ── DiffView stuff ─────────────────────────────────────────────────
-	map_key({ "n" }, "<leader>dv", ":DiffviewFileHistory<CR>", { desc = "DiffView file history" })
-	map_key({ "n" }, "<leader>df", ":DiffviewFileHistory %<CR>", { desc = "Diffview File history" })
-	map_key({ "n" }, "<leader>dc", ":DiffviewOpen<CR>", { desc = "Diff local Changes" })
-
 	-- ── Git stuff ───────────────────────────────────────────────────────
 	map_key({ "n" }, "<leader>owr", openGitRemote, { desc = "Open Web Remote" })
 	map_key({ "n" }, "<leader>owu", openGitUpstream, { desc = "Open Web Upstream" })

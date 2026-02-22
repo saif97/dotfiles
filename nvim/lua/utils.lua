@@ -76,10 +76,10 @@ function openXCodeProject()
 	-- Search order: workspace files first (preferred), then project files
 	-- Check common framework locations: ios/, macos/, root
 	local search_patterns = {
-		"ios/*.xcworkspace",
-		"ios/*.xcodeproj",
-		"macos/*.xcworkspace",
-		"macos/*.xcodeproj",
+		"*/ios/*.xcworkspace",
+		"*/ios/*.xcodeproj",
+		"*/macos/*.xcworkspace",
+		"*/macos/*.xcodeproj",
 		"example/ios/*.xcworkspace",
 		"example/ios/*.xcodeproj",
 		"demo-app/platforms/ios/*.xcworkspace",

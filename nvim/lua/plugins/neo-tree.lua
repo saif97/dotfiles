@@ -75,6 +75,15 @@ return {
 						vim.notify("opening: " .. filepath)
 					end,
 				},
+				["<leader>of"] = {
+					desc = "Open file with system default application",
+					function(state)
+						local node = state.tree:get_node()
+						local filepath = node:get_id()
+						vim.fn.system("open " .. filepath)
+						vim.notify("opening: " .. filepath)
+					end,
+				},
 				["<space>"] = "",
 			},
 		},
