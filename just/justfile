@@ -6,14 +6,14 @@ tartImage :="tahoe-xcode"
 default:
     just --justfile {{justfile()}} --list
 
-hello:
-    echo "Hello from global justfile!"
-
 sync-ai-markedown-files:
     @./sync_ai_md.sh
 
 tart-up:
-    tart run --suspendable --dir=shared_dir:~/dev {{tartImage}} &
+    tart run --suspendable \
+        --dir=dev:~/dev:tag=devshare \
+        --dir=dotfiles:~/dotfiles:ro,tag=dotshare \
+        {{tartImage}} &
 
 tart-up-claw:
     tart run --suspendable openClaw &

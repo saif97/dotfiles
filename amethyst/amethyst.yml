@@ -208,7 +208,7 @@ window-margin-size: 5
 window-minimum-height: 0
 
 # The smallest width that a window can be sized to regardless of its layout frame (in px, default 0)
-window-minimum-width: 0
+window-minimum-width: 10
 
 # The max number of windows that may be visible on a screen at one time before additional windows are minimized. A value of 0 disables the feature.
 window-max-count: 0

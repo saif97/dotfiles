@@ -13,3 +13,4 @@ playground
 .devcontainer
 swiftpm
 github-copilot
+.android/cache
