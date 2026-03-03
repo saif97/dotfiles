@@ -1,5 +1,5 @@
 # Set a default Dotfiles directory
-DOT_FILES="${DOT_FILES:-$HOME/dotfiles}"
+export DOT_FILES="${DOT_FILES:-$HOME/dotfiles}"
 source "$DOT_FILES/zsh/history.zsh"
 
 eval "$(zoxide init zsh)"
@@ -50,8 +50,7 @@ alias tm="zellij attach --create --index 0" # attach to existing or create a new
 alias tmn="zellij" # tm new
 
 alias gem="gemini -r"
-alias cld="claude"
-alias cldn="claude" # claude new 
+alias cld="claude" 
 alias lg="lazygit"
 alias ld="lazydocker"
 alias cpy="pbcopy <"
@@ -123,3 +122,4 @@ fi
 # ── Key bindings ───────────────────────────────────────────────────────
 # Bind Alt+Delete to forward delete word
 bindkey '^[[3;3~' kill-word
+

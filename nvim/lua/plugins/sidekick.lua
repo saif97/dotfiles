@@ -17,14 +17,23 @@ return {
 			},
 			tools = (function()
 				local tools = {
-					devbox = {
-						cmd = { "devbox" },
+					Kimi = {
+						cmd = { "cldk" },
+					},
+					GLM = {
+						cmd = { "cldg" },
 					},
 				}
-				-- Only add ClaudeYOLO in sandbox environment
+				-- Only add YOLO variants in sandbox environment
 				if vim.env.SANDBOX then
 					tools.ClaudeYOLO = {
 						cmd = { "Claude", "--dangerously-skip-permissions" },
+					}
+					tools.KimiYOLO = {
+						cmd = { "cldk", "--dangerously-skip-permissions" },
+					}
+					tools.GLMYOLO = {
+						cmd = { "cldg", "--dangerously-skip-permissions" },
 					}
 				end
 				return tools
@@ -77,7 +86,7 @@ return {
 	},
 	keys = {
 		{
-			"<c-;>",
+			"<tab>",
 			function()
 				-- if there is a next edit, jump to it, otherwise apply it if any
 				if not require("sidekick").nes_jump_or_apply() then
