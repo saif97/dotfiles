@@ -1,0 +1,9 @@
+#!/bin/bash
+# OpenRouter AI wrapper for Claude Code
+
+export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
+export ANTHROPIC_AUTH_TOKEN="$OPEN_ROUTER_API_KEY"
+export ANTHROPIC_API_KEY="" # Important: Must be explicitly empty
+export ANTHROPIC_MODEL="moonshotai/kimi-k2.5:fireworks"
+
+claude "$@"

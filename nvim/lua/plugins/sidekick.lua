@@ -16,12 +16,16 @@ return {
 				enabled = true,
 			},
 			tools = (function()
+				local skip_permissions = is_ssh_session()
 				local tools = {
 					Kimi = {
-						cmd = { "cldk" },
+						cmd = skip_permissions and { "cldk", "--dangerously-skip-permissions" } or { "cldk" },
 					},
 					GLM = {
-						cmd = { "cldg" },
+						cmd = skip_permissions and { "cldg", "--dangerously-skip-permissions" } or { "cldg" },
+					},
+					OpenRouter = {
+						cmd = skip_permissions and { "cldo", "--dangerously-skip-permissions" } or { "cldo" },
 					},
 				}
 				-- Only add YOLO variants in sandbox environment

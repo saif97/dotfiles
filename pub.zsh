@@ -50,7 +50,6 @@ alias tm="zellij attach --create --index 0" # attach to existing or create a new
 alias tmn="zellij" # tm new
 
 alias gem="gemini -r"
-alias cld="claude" 
 alias lg="lazygit"
 alias ld="lazydocker"
 alias cpy="pbcopy <"

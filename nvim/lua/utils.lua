@@ -62,6 +62,11 @@ function isPersonalMachine()
 	return os.getenv("IS_PERSONAL_MACHINE") ~= nil
 end
 
+-- Check if we're in an SSH session
+function is_ssh_session()
+	return vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_CLIENT ~= nil or vim.env.SSH_TTY ~= nil
+end
+
 -- Check if current line is an empty comment (only whitespace + comment marker)
 function is_empty_comment_line()
 	local line = vim.api.nvim_get_current_line()

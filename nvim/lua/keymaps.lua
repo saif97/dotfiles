@@ -270,6 +270,12 @@ function M.setupNvim()
 		vim.fn.system("open " .. file_dir)
 	end, { desc = "Open Directory of the current file" })
 
+	map_key({ "n" }, "<leader>of", function()
+		local filepath = vim.fn.expand("%:p")
+		vim.fn.system("open " .. vim.fn.shellescape(filepath))
+		vim.notify("opening: " .. filepath)
+	end, { desc = "Open file with system default application" })
+
 	map_key({ "n" }, "<leader>pd", function()
 		file_dir = vim.fn.expand("%:p:h")
 		vim.fn.setreg("+", file_dir)
