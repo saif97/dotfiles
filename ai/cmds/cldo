@@ -6,4 +6,9 @@ export ANTHROPIC_AUTH_TOKEN="$OPEN_ROUTER_API_KEY"
 export ANTHROPIC_API_KEY="" # Important: Must be explicitly empty
 export ANTHROPIC_MODEL="moonshotai/kimi-k2.5:fireworks"
 
+# Auto-enable permissionless mode in VM/SSH environments
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	set -- "--dangerously-skip-permissions" "$@"
+fi
+
 claude "$@"

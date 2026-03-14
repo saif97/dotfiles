@@ -8,4 +8,9 @@ export ANTHROPIC_DEFAULT_OPUS_MODEL="GLM-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="GLM-4.7"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="GLM-4.5-Air"
 
+# Auto-enable permissionless mode in VM/SSH environments
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	set -- "--dangerously-skip-permissions" "$@"
+fi
+
 claude "$@"

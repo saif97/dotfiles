@@ -5,4 +5,9 @@ export ANTHROPIC_BASE_URL=https://api.kimi.com/coding/
 export ANTHROPIC_AUTH_TOKEN="$KIMI_API_KEY"
 export API_TIMEOUT_MS="3000000"
 
+# Auto-enable permissionless mode in VM/SSH environments
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	set -- "--dangerously-skip-permissions" "$@"
+fi
+
 claude "$@"

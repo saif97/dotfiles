@@ -73,8 +73,8 @@ mkcd(){
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
-# Add dotfiles scripts to PATH
-export PATH="$HOME/dotfiles/scripts:$PATH"
+# Add dotfiles scripts and AI cmds to PATH
+export PATH="$HOME/dotfiles/scripts:$HOME/dotfiles/ai/cmds:$PATH"
 
 export XDG_CONFIG_HOME=$DOT_FILES
 
