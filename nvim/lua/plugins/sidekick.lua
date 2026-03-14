@@ -16,31 +16,15 @@ return {
 				enabled = true,
 			},
 			tools = (function()
-				local skip_permissions = is_ssh_session()
-				local tools = {
-					Kimi = {
-						cmd = skip_permissions and { "cldk", "--dangerously-skip-permissions" } or { "cldk" },
-					},
-					GLM = {
-						cmd = skip_permissions and { "cldg", "--dangerously-skip-permissions" } or { "cldg" },
-					},
-					OpenRouter = {
-						cmd = skip_permissions and { "cldo", "--dangerously-skip-permissions" } or { "cldo" },
-					},
-				}
-				-- Only add YOLO variants in sandbox environment
-				if vim.env.SANDBOX then
-					tools.ClaudeYOLO = {
-						cmd = { "Claude", "--dangerously-skip-permissions" },
-					}
-					tools.KimiYOLO = {
-						cmd = { "cldk", "--dangerously-skip-permissions" },
-					}
-					tools.GLMYOLO = {
-						cmd = { "cldg", "--dangerously-skip-permissions" },
+				if os.getenv("IS_PERSONAL") == "1" then
+					return {
+						claude = { cmd = { "cld" } },
+						Kimi = { cmd = { "cldk" } },
+						GLM = { cmd = { "cldg" } },
+						OpenRouter = { cmd = { "cldo" } },
 					}
 				end
-				return tools
+				return {}
 			end)(),
 			win = {
 				--- This is run when a new terminal is created, before starting it.
