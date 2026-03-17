@@ -18,7 +18,7 @@ _color() {
 _time_left() {
     local resets_at=$1 now=$2
     local epoch
-    epoch=$(date -jf "%Y-%m-%dT%H:%M:%S" "${resets_at%%[.+]*}" +%s 2>/dev/null)
+    epoch=$(TZ=UTC date -jf "%Y-%m-%dT%H:%M:%S" "${resets_at%%[.+]*}" +%s 2>/dev/null)
     [ -z "$epoch" ] && return
 
     local secs=$(( epoch - now ))
