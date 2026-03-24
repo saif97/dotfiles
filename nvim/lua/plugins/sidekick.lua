@@ -15,17 +15,12 @@ return {
 				backend = "zellij",
 				enabled = true,
 			},
-			tools = (function()
-				if os.getenv("IS_PERSONAL") == "1" then
-					return {
-						claude = { cmd = { "cld" } },
-						Kimi = { cmd = { "cldk" } },
-						GLM = { cmd = { "cldg" } },
-						OpenRouter = { cmd = { "cldo" } },
-					}
-				end
-				return {}
-			end)(),
+			tools = (isPersonalMachine() or is_ssh_session()) and {
+				claude = { cmd = { "cld" } },
+				-- Kimi = { cmd = { "cldk" } },
+				-- GLM = { cmd = { "cldg" } },
+				-- OpenRouter = { cmd = { "cldo" } },
+			} or {},
 			win = {
 				--- This is run when a new terminal is created, before starting it.
 				--- Here you can change window options `terminal.opts`.
