@@ -2285,6 +2285,24 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c"
+                },
+                "to": [
+                  {
+                    "shell_command": "~/dotfiles/scripts/clip2share.sh"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "MediaLayer",
+                    "value": 1
+                  }
+                ]
               }
             ]
           },

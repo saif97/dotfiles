@@ -163,6 +163,9 @@ writeToProfile(
 				// Mute & unmute mic
 				map("1").to$(muteMic),
 				map("q").to$(unmuteMic),
+
+				// Save clipboard image to shared dir for VM paste
+				map("c").to$("~/dotfiles/scripts/clip2share.sh"),
 			]),
 
 		layer("2", "NumLayer")
