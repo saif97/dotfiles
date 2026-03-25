@@ -1,4 +1,8 @@
 // Docs: https://karabiner.ts.evanliu.dev/
+//
+// Machine-specific scripts check $personal_machine env var.
+// Set via: echo 'personal_machine=1' | sudo tee "/Library/Application Support/org.pqrs/config/karabiner_environment"
+// Restart karabiner_console_user_server after creating/modifying the file.
 
 import {
 	duoLayer,

@@ -2,6 +2,9 @@
 # Save clipboard image to shared dir and copy VM-side path to clipboard.
 # Triggered via Karabiner on the HOST machine (Cmd+Opt+V).
 # No dependencies — uses native osascript.
+# Only runs on personal machine (personal_machine=1 in karabiner_environment)
+
+[[ "$personal_machine" != "1" ]] && exit 0
 
 SHARED_DIR="$HOME/dev/clipboard"
 VM_PATH="/Users/admin/dev/clipboard"
