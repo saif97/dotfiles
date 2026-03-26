@@ -22,6 +22,7 @@ local personal_servers = {
 	"solidity",
 	"copilot",
 	"denols",
+	"gopls",
 }
 
 if os.getenv("IS_PERSONAL_MACHINE") then
