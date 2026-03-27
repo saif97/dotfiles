@@ -164,6 +164,7 @@ function M.setupNvim()
 	map_key("n", "t/", ":tabclose<CR>", { desc = "Tab Quit" })
 	map_key("n", "t.", ":tabn<CR>", { desc = "Tab next" })
 	map_key("n", "t,", ":tabp<CR>", { desc = "Tab previous" })
+	map_key("n", "tr", ":TabRename ", { desc = "Tab rename" })
 
 	-- [[ Section: Buffer Navigation ]]
 	-- Buffer switching
