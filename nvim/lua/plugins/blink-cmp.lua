@@ -21,7 +21,13 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
-		keymap = { preset = "default" },
+		keymap = {
+			preset = "default",
+			["<Up>"] = {},
+			["<Down>"] = {},
+			["<D-e>"] = { "select_next", "fallback" },
+			["<D-u>"] = { "select_prev", "fallback" },
+		},
 
 		appearance = {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -29,7 +35,10 @@ return {
 			nerd_font_variant = "mono",
 		},
 		-- (Default) Only show the documentation popup when manually triggered
-		completion = { documentation = { auto_show = true } },
+		completion = {
+			documentation = { auto_show = true, window = { border = "rounded" } },
+			menu = { border = "rounded" },
+		},
 		signature = { enabled = true },
 
 		snippets = { preset = "luasnip" },
