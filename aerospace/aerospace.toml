@@ -140,9 +140,11 @@ on-mode-changed = []
     ctrl-shift-i = 'move up'
     ctrl-shift-l = 'move right'
 
+    alt-cmd-h = 'focus-monitor --wrap-around next'
+
     # Throw window to monitor (mod1) — mirrors Amethyst swap-screen-ccw: mod1+h
-    alt-cmd-h = 'move-node-to-monitor --wrap-around prev'
-    alt-cmd-g = 'move-node-to-monitor --wrap-around next'
+    alt-h = 'move-node-to-monitor --wrap-around prev'
+    alt-g = 'move-node-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     # mod1 + amethyst keys: e=shrink, u=expand
