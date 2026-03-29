@@ -121,8 +121,8 @@ on-mode-changed = []
     # '''
 
     # Prev/next non-empty workspace
-    alt-leftSquareBracket = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace prev --stdin'
-    alt-rightSquareBracket = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace next --stdin'
+    ctrl-shift-leftSquareBracket = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace prev --stdin'
+    ctrl-shift-rightSquareBracket = 'exec-and-forget aerospace list-workspaces --monitor focused --empty no | aerospace workspace next --stdin'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
     alt-cmd-leftSquareBracket  = 'layout tiles horizontal vertical'

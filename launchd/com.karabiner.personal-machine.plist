@@ -1,0 +1,22 @@
+
+<!-- 
+ln -sf ~/dotfiles/launchd/com.karabiner.personal-machine.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.karabiner.personal-machine.plist
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.karabiner.personal-machine</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli</string>
+        <string>--set-variables</string>
+        <string>{"personal_machine":1}</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
