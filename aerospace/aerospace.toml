@@ -45,10 +45,13 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
-                         "browser", "vm"  ]
+persistent-workspaces = [
+     "vm", "1", "messages", "3", "4",
+     "browser", "5", "6", "7", "8", "9", "10", "11", "12",
+ ]
 
 [workspace-to-monitor-force-assignment]
+browser = 1
 5 = 1
 6 = 1
 7 = 1
@@ -140,13 +143,13 @@ on-mode-changed = []
     ctrl-shift-i = 'move up'
     ctrl-shift-l = 'move right'
 
-    alt-cmd-h = 'focus-monitor --wrap-around next'
+    alt-cmd-o = 'focus-monitor --wrap-around next'
 
     # Throw window to monitor (mod1) — mirrors Amethyst swap-screen-ccw: mod1+h
-    alt-h = 'move-node-to-monitor --wrap-around prev'
-    alt-g = 'move-node-to-monitor --wrap-around next'
+    alt-cmd-h = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
+    # alt-cmd-g = 'move-node-to-monitor --wrap-around --focus-follows-window next'
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
+    # See: https://nikitabobko.github.io/AeroSpace/commands#resize 
     # mod1 + amethyst keys: e=shrink, u=expand
     alt-cmd-l = 'resize smart -100'
     alt-cmd-y = 'resize smart +100'
@@ -154,9 +157,9 @@ on-mode-changed = []
     # Workspace switching (alt) — numpad grid:
     # l  u  y  ;   →  9, 10, 11, 12
     # n  e  i  o   →  5,  6,  7,  8
-    # k  m  ,  .   →  1,  2,  3,  4
+    # k  m  ,  .   →  1,  messages,  3,  4
     alt-k         = 'workspace 1'
-    alt-m         = 'workspace 2'
+    alt-m         = 'workspace messages'
     alt-comma     = 'workspace 3'
     alt-period    = 'workspace 4'
     alt-n         = 'workspace 5'
@@ -171,22 +174,22 @@ on-mode-changed = []
     alt-b         = 'workspace browser'
     alt-v         = 'workspace vm'
 
-    # Move window to workspace (alt+shift) — same grid
-    alt-shift-k         = 'move-node-to-workspace 1'
-    alt-shift-m         = 'move-node-to-workspace 2'
-    alt-shift-comma     = 'move-node-to-workspace 3'
-    alt-shift-period    = 'move-node-to-workspace 4'
-    alt-shift-n         = 'move-node-to-workspace 5'
-    alt-shift-e         = 'move-node-to-workspace 6'
-    alt-shift-i         = 'move-node-to-workspace 7'
-    alt-shift-o         = 'move-node-to-workspace 8'
-    alt-shift-l         = 'move-node-to-workspace 9'
-    alt-shift-u         = 'move-node-to-workspace 10'
-    alt-shift-y         = 'move-node-to-workspace 11'
-    alt-shift-semicolon = 'move-node-to-workspace 12'
+    # Move window to workspace & follow focus (alt+shift) — same grid
+    alt-shift-k         = 'move-node-to-workspace --focus-follows-window 1'
+    alt-shift-m         = 'move-node-to-workspace --focus-follows-window messages'
+    alt-shift-comma     = 'move-node-to-workspace --focus-follows-window 3'
+    alt-shift-period    = 'move-node-to-workspace --focus-follows-window 4'
+    alt-shift-n         = 'move-node-to-workspace --focus-follows-window 5'
+    alt-shift-e         = 'move-node-to-workspace --focus-follows-window 6'
+    alt-shift-i         = 'move-node-to-workspace --focus-follows-window 7'
+    alt-shift-o         = 'move-node-to-workspace --focus-follows-window 8'
+    alt-shift-l         = 'move-node-to-workspace --focus-follows-window 9'
+    alt-shift-u         = 'move-node-to-workspace --focus-follows-window 10'
+    alt-shift-y         = 'move-node-to-workspace --focus-follows-window 11'
+    alt-shift-semicolon = 'move-node-to-workspace --focus-follows-window 12'
 
-    alt-shift-b         = 'move-node-to-workspace browser'
-    alt-shift-v         = 'move-node-to-workspace vm'
+    alt-shift-b         = 'move-node-to-workspace --focus-follows-window browser'
+    alt-shift-v         = 'move-node-to-workspace --focus-follows-window vm'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
