@@ -131,10 +131,10 @@ on-mode-changed = []
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     # mod1 (alt+cmd) + amethyst keys: i=ccw/left, n=cw/right
-    alt-cmd-n = 'focus left'
-    alt-cmd-e = 'focus down'
-    alt-cmd-u = 'focus up'
-    alt-cmd-i = 'focus right'
+    alt-cmd-n = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-cmd-e = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-cmd-u = 'focus --boundaries-action wrap-around-the-workspace up'
+    alt-cmd-i = 'focus --boundaries-action wrap-around-the-workspace right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     # mod2 (ctrl+shift) — mirrors Amethyst mod2
