@@ -34,7 +34,9 @@ _time_left() {
 
 _fetch() {
     local creds token response
-    creds=$(security find-generic-password -s "Claude Code-credentials" -w 2>/dev/null) || return 1
+      creds=$(security find-generic-password -s "Claude Code-credentials" -w 2>/dev/null) \
+      || creds=$(cat ~/.claude/.credentials.json 2>/dev/null) \
+      || return 1
     token=$(echo "$creds" | jq -r '.claudeAiOauth.accessToken // empty' 2>/dev/null)
     [ -z "$token" ] || [ "$token" = "null" ] && return 1
     response=$(curl -sf --max-time 3 \
