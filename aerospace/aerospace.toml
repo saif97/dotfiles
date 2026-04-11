@@ -46,12 +46,12 @@ automatically-unhide-macos-hidden-apps = false
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
 persistent-workspaces = [
-     "vm", "1", "messages", "3", "4",
-     "browser", "5", "6", "7", "8", "9", "10", "11", "12",
+     "0vm", "0messages", "0browser",
+     "1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
  ]
 
 [workspace-to-monitor-force-assignment]
-browser = 1
+0browser = 1
 5 = 1
 6 = 1
 7 = 1
@@ -158,9 +158,9 @@ on-mode-changed = []
     # Workspace switching (alt) — numpad grid:
     # l  u  y  ;   →  9, 10, 11, 12
     # n  e  i  o   →  5,  6,  7,  8
-    # k  m  ,  .   →  1,  messages,  3,  4
+    # k  m  ,  .   →  1,  0messages,  3,  4
     alt-k         = 'workspace 1'
-    alt-m         = 'workspace messages'
+    alt-m         = 'workspace 0messages'
     alt-comma     = 'workspace 3'
     alt-period    = 'workspace 4'
     alt-n         = 'workspace 5'
@@ -172,12 +172,12 @@ on-mode-changed = []
     alt-y         = 'workspace 11'
     alt-semicolon = 'workspace 12'
 
-    alt-b         = 'workspace browser'
-    alt-v         = 'workspace vm'
+    alt-b         = 'workspace 0browser'
+    alt-v         = 'workspace 0vm'
 
     # Move window to workspace & follow focus (alt+shift) — same grid
     alt-shift-k         = 'move-node-to-workspace --focus-follows-window 1'
-    alt-shift-m         = 'move-node-to-workspace --focus-follows-window messages'
+    alt-shift-m         = 'move-node-to-workspace --focus-follows-window 0messages'
     alt-shift-comma     = 'move-node-to-workspace --focus-follows-window 3'
     alt-shift-period    = 'move-node-to-workspace --focus-follows-window 4'
     alt-shift-n         = 'move-node-to-workspace --focus-follows-window 5'
@@ -189,8 +189,8 @@ on-mode-changed = []
     alt-shift-y         = 'move-node-to-workspace --focus-follows-window 11'
     alt-shift-semicolon = 'move-node-to-workspace --focus-follows-window 12'
 
-    alt-shift-b         = 'move-node-to-workspace --focus-follows-window browser'
-    alt-shift-v         = 'move-node-to-workspace --focus-follows-window vm'
+    alt-shift-b         = 'move-node-to-workspace --focus-follows-window 0browser'
+    alt-shift-v         = 'move-node-to-workspace --focus-follows-window 0vm'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
