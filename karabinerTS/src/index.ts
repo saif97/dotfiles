@@ -1,7 +1,7 @@
 // Docs: https://karabiner.ts.evanliu.dev/
 //
 // Machine-specific scripts check $personal_machine env var.
-// Set via: echo 'personal_machine=1' | sudo tee "/Library/Application Support/org.pqrs/config/karabiner_environment"
+// Set via: echo '{"personal_machine":1}' | sudo tee "/Library/Application Support/org.pqrs/config/karabiner_environment"
 // Restart karabiner_console_user_server after creating/modifying the file.
 
 import {
@@ -116,9 +116,11 @@ writeToProfile(
 				map("comma").to("comma", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
 				map("period").to("period", ["control"]).condition(ifApp(APP_ID_TERMINALS)),
 
-				// desktop switching
-				map("open_bracket").to("left_arrow", ["control"]),
-				map("close_bracket").to("right_arrow", ["control"]),
+				// desktop switching (aerospace prev/next non-empty on personal, native spaces otherwise)
+				map("open_bracket").to("open_bracket", ["control", "shift"]).condition(ifVar("personal_machine", 1)),
+				map("close_bracket").to("close_bracket", ["control", "shift"]).condition(ifVar("personal_machine", 1)),
+				map("open_bracket").to("left_arrow", ["control"]).condition(ifVar("personal_machine", 1).unless()),
+				map("close_bracket").to("right_arrow", ["control"]).condition(ifVar("personal_machine", 1).unless()),
 
 				// back & forward in browser & editors
 				map("open_bracket", "shift").to("open_bracket", ["command"]),

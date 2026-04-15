@@ -1492,6 +1492,80 @@
                 },
                 "to": [
                   {
+                    "key_code": "open_bracket",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "personal_machine",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "close_bracket"
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": [
+                      "control",
+                      "shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "personal_machine",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_throw_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_unless",
+                    "name": "amethyst_focus_mode",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "VimLayer",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "open_bracket"
+                },
+                "to": [
+                  {
                     "key_code": "left_arrow",
                     "modifiers": [
                       "control"
@@ -1499,6 +1573,11 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "personal_machine",
+                    "value": 1
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
@@ -1530,6 +1609,11 @@
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "variable_unless",
+                    "name": "personal_machine",
+                    "value": 1
+                  },
                   {
                     "type": "variable_unless",
                     "name": "amethyst_throw_mode",
