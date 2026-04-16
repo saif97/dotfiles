@@ -9,7 +9,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Blow.aiff"
+            "command": "if [[ -z \"$SSH_TTY\" ]]; then afplay /System/Library/Sounds/Blow.aiff; fi"
           }
         ]
       }
