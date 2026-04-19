@@ -1,99 +1,83 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
+		lazy = false,
+		build = function() require("nvim-treesitter").update() end,
+		config = function()
+			require("nvim-treesitter").setup({})
+
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(ev)
+					local ft = vim.bo[ev.buf].filetype
+					if ft == "" then return end
+					local lang = vim.treesitter.language.get_lang(ft) or ft
+					local cfg = require("nvim-treesitter.config")
+					if not vim.tbl_contains(cfg.get_installed(), lang)
+						and vim.tbl_contains(cfg.get_available(), lang) then
+						require("nvim-treesitter").install({ lang })
+					end
+					pcall(vim.treesitter.start, ev.buf)
+					if ft ~= "markdown" then
+						vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					end
+				end,
+			})
+		end,
 	},
-	build = ":TSUpdate",
-	config = function()
-		local configs = require("nvim-treesitter.configs")
 
-		require("treesitter-context").setup({
-			enable = true,         -- Enable this plugin (Can be enabled/disabled later via commands)
-			multiwindow = true,   -- Enable multiwindow support.
-			max_lines = 0,         -- How many lines the window should span. Values <= 0 mean no limit.
-			min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
-			line_numbers = true,
-			multiline_threshold = 20, -- Maximum number of lines to show for a single context
-			trim_scope = "outer",  -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-			mode = "cursor",       -- Line used to calculate context. Choices: 'cursor', 'topline'
-			-- Separator between context and content. Should be a single character string, like '-'.
-			-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-			separator = '━',
-		})
-
-		configs.setup({
-			auto_install = true,
-			sync_install = false,
-			highlight = { enable = true },
-			indent = {
-				enable = true,
-				disable = { "markdown" }, -- disable treesitter indent for markdown
-			},
-
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<Backspace>", -- set to `false` to disable one of the mappings
-					node_incremental = "<Backspace>",
-					scope_incremental = "<C-BS>",
-					node_decremental = "<S-backspace>",
-				},
-			},
-
-			textobjects = {
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = "VeryLazy",
+		config = function()
+			require("nvim-treesitter-textobjects").setup({
 				select = {
-					enable = true,
-
-					-- Automatically jump forward to textobj, similar to targets.vim
-					-- Say I ask it to delete around a class & I'm not withing a class. it'll just delete it.
 					lookahead = true,
-
-					keymaps = {
-						-- You can use the capture groups defined in textobjects.scm
-						["af"] = "@function.outer",
-						["of"] = "@function.inner",
-						["ac"] = "@class.outer",
-						-- You can optionally set descriptions to the mappings (used in the desc parameter of
-						-- nvim_buf_set_keymap) which plugins like which-key display
-						["oc"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-						-- You can also use captures from other query groups like `locals.scm`
-						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-					},
-					-- You can choose the select mode (default is charwise 'v')
-					--
-					-- Can also be a function which gets passed a table with the keys
-					-- * query_string: eg '@function.inner'
-					-- * method: eg 'v' or 'o'
-					-- and should return the mode ('v', 'V', or '<c-v>') or a table
-					-- mapping query_strings to modes.
 					selection_modes = {
-						["@parameter.outer"] = "v", -- charwise
-						["@function.outer"] = "V", -- linewise
-						["@class.outer"] = "<c-v>", -- blockwise
+						["@parameter.outer"] = "v",
+						["@function.outer"] = "V",
+						["@class.outer"] = "<c-v>",
 					},
-					-- If you set this to `true` (default is `false`) then any textobject is
-					-- extended to include preceding or succeeding whitespace. Succeeding
-					-- whitespace has priority in order to act similarly to eg the built-in
-					-- `ap`.
-					--
-					-- Can also be a function which gets passed a table with the keys
-					-- * query_string: eg '@function.inner'
-					-- * selection_mode: eg 'v'
-					-- and should return true or false
 					include_surrounding_whitespace = true,
 				},
+				move = { set_jumps = true },
+			})
 
-				swap = {
-					enable = true,
-					swap_next = {
-						["<leader>s]"] = "@parameter.inner",
-					},
-					swap_previous = {
-						["<leader>s["] = "@parameter.inner",
-					},
-				},
-			},
-		})
-	end,
+			local sel = require("nvim-treesitter-textobjects.select")
+			local swap = require("nvim-treesitter-textobjects.swap")
+
+			local function pickSel(query, group)
+				return function() sel.select_textobject(query, group or "textobjects") end
+			end
+
+			vim.keymap.set({ "x", "o" }, "af", pickSel("@function.outer"), { desc = "around function" })
+			vim.keymap.set({ "x", "o" }, "of", pickSel("@function.inner"), { desc = "inner function" })
+			vim.keymap.set({ "x", "o" }, "ac", pickSel("@class.outer"), { desc = "around class" })
+			vim.keymap.set({ "x", "o" }, "oc", pickSel("@class.inner"), { desc = "inner class" })
+			vim.keymap.set({ "x", "o" }, "as", pickSel("@local.scope", "locals"), { desc = "around scope" })
+
+			vim.keymap.set("n", "<leader>s]", function() swap.swap_next("@parameter.inner") end, { desc = "swap param next" })
+			vim.keymap.set("n", "<leader>s[", function() swap.swap_previous("@parameter.inner") end, { desc = "swap param prev" })
+		end,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "VeryLazy",
+		config = function()
+			require("treesitter-context").setup({
+				enable = true,
+				multiwindow = true,
+				max_lines = 0,
+				min_window_height = 0,
+				line_numbers = true,
+				multiline_threshold = 20,
+				trim_scope = "outer",
+				mode = "cursor",
+				separator = "━",
+			})
+		end,
+	},
 }

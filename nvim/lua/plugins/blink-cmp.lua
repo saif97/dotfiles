@@ -21,12 +21,14 @@ return {
 		-- C-k: Toggle signature help (if signature.enabled = true)
 		--
 		-- See :h blink-cmp-config-keymap for defining your own keymap
+		-- start
 		keymap = {
 			preset = "default",
 			["<Up>"] = {},
 			["<Down>"] = {},
 			["<D-e>"] = { "select_next", "fallback" },
 			["<D-u>"] = { "select_prev", "fallback" },
+			["<D-y>"] = { "select_and_accept", "fallback" },
 		},
 
 		appearance = {
