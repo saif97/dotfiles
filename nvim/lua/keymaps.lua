@@ -140,6 +140,7 @@ function M.setupNvim()
 
 	-- Quick exit
 	map_key(allModes, "<leader>qq", ":qa!<CR>", { desc = "Quit all buffers" })
+	map_key(allModes, "<leader>qr", ":restart<CR>", { desc = "Restart Nvim" })
 
 	-- [[ Section: Window Management ]]
 	-- Window navigation
