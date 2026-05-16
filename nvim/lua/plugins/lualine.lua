@@ -38,7 +38,7 @@ return {
 						sandbox_indicator,
 						color = function()
 							if is_sandbox_or_ssh() then
-								return { fg = "#ffffff", bg = "#f38ba8", gui = "bold" }
+								return { fg = "#181926", bg = "#ee99a1", gui = "bold" }
 							end
 							return {}
 						end,
@@ -67,8 +67,8 @@ return {
 				lualine_z = {
 					{
 						"mode",
-						fmt = function (str)
-							return str:sub(1,1)
+						fmt = function(str)
+							return str:sub(1, 1)
 						end
 					},
 				},
@@ -82,9 +82,9 @@ return {
 						"filename",
 						color = function()
 							if is_sandbox_or_ssh() then
-								return { fg = "#181926", bg = "#e78284" }
+								return { fg = "#181926", bg = "#ee99a1" }
 							end
-							return { fg = "#303446" }
+							-- return { fg = "#a5adcb", bg = "#303446" }
 						end,
 					},
 				},
