@@ -16,12 +16,12 @@ local servers = {
 -- Additional tools to install via Mason (formatters, linters, etc.)
 local additional_tools = {
 	"shfmt",
+	"prettier",
 }
 
 local personal_servers = {
 	"solidity",
 	"copilot",
-	"denols",
 	"gopls",
 }
 
@@ -71,8 +71,14 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
+			-- Per-server overrides — `vim.lsp.config()` merges with the upstream
+			-- nvim-lspconfig defaults (cmd, filetypes, root_markers, etc.).
+			-- Use this instead of `after/lsp/<name>.lua`, which REPLACES rather than merges.
+			vim.lsp.config("ts_ls", {
+				single_file_support = false,
+			})
+
 			-- Enable LSP servers using Neovim 0.11+ API
-			-- Server-specific configs are in after/lsp/*.lua (overrides nvim-lspconfig defaults)
 			vim.lsp.enable(servers)
 
 			-- Diagnostic configuration
