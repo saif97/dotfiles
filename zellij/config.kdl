@@ -37,7 +37,11 @@ keybinds clear-defaults=true {
         bind "Ctrl Super [" { MoveTab "Left"; }
         bind "Ctrl Super ]" { MoveTab "Right"; }
     }
-    normal {}
+    normal {
+        // Workaround for zellij#4493: clear-defaults=true breaks session-manager's
+        // Ctrl+x (Disconnect others). Forward raw Ctrl-X byte to the focused pane.
+        bind "Ctrl x" { WriteChars ""; }
+    }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
