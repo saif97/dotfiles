@@ -5,8 +5,8 @@ return {
 		local custom_gruvbox = require("lualine.themes.catppuccin")
 		custom_gruvbox.inactive.a.bg = "#8bd5ca"
 		custom_gruvbox.inactive.a.fg = "#181926"
-		custom_gruvbox.inactive.c.fg = "#303446"
-		custom_gruvbox.inactive.c.bg = "#babbf1"
+		custom_gruvbox.inactive.c.fg = "#a5adcb"
+		custom_gruvbox.inactive.c.bg = "#363a4f"
 
 		-- Check if SANDBOX or SSH environment variables are set
 		local function is_sandbox_or_ssh()
@@ -16,11 +16,13 @@ return {
 		end
 
 		-- Custom component for sandbox/SSH indicator
+		local host = (vim.fn.hostname() or ""):gsub("%.local$", "")
+
 		local function sandbox_indicator()
 			if vim.env.SANDBOX then
-				return "🔒 SANDBOX"
+				return "🔒 SANDBOX " .. host
 			elseif vim.env.SSH_CONNECTION or vim.env.SSH_CLIENT or vim.env.SSH_TTY then
-				return "🔐 SSH"
+				return "🔐 SSH " .. host
 			end
 			return ""
 		end
