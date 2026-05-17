@@ -28,7 +28,34 @@ link_if_missing() {
 link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.claude/CLAUDE.md"
 link_if_missing "$HOME/dotfiles/ai/agents" "$HOME/.claude/agents"
 link_if_missing "$HOME/dotfiles/ai/slash_cmds/Claude" "$HOME/.claude/commands"
-link_if_missing "$HOME/dotfiles/ai/claude_settings.json" "$HOME/.claude/settings.json"
+
+# settings.json: if a regular file exists, ask whether to replace it with the
+# dotfile symlink (machine-specific overrides belong in settings.local.json).
+settings_link="$HOME/.claude/settings.json"
+settings_target="$HOME/dotfiles/ai/claude_settings.json"
+if [ -L "$settings_link" ]; then
+    echo "  $settings_link already linked, skipping"
+elif [ -f "$settings_link" ]; then
+    if [ -t 0 ]; then
+        printf "  %s is a regular file. Replace with symlink to dotfile? [y/N] " "$settings_link"
+        read -r reply
+        case "$reply" in
+            y|Y|yes|YES)
+                rm "$settings_link"
+                ln -s "$settings_target" "$settings_link"
+                echo "  linked $settings_link (old file removed; put machine overrides in settings.local.json)"
+                ;;
+            *)
+                echo "  kept existing $settings_link"
+                ;;
+        esac
+    else
+        echo "  WARN: $settings_link is a regular file; re-run install.sh interactively to replace with symlink"
+    fi
+else
+    ln -s "$settings_target" "$settings_link"
+    echo "  linked $settings_link"
+fi
 
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then
