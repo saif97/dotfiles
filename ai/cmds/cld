@@ -7,7 +7,7 @@ unset API_TIMEOUT_MS
 
 # Auto-enable permissionless mode in VM/SSH environments
 if [ -z "$IS_PERSONAL" ] && { [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; }; then
-	set -- "--permission-mode auto" "$@"
+	set -- --permission-mode auto "$@"
 fi
 
 claude "$@"
