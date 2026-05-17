@@ -2383,6 +2383,11 @@
                 "conditions": [
                   {
                     "type": "variable_if",
+                    "name": "personal_machine",
+                    "value": 1
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "MediaLayer",
                     "value": 1
                   }

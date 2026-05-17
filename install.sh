@@ -76,6 +76,17 @@ else
     echo "  zsh-syntax-highlighting already installed"
 fi
 
+# Just zsh completion (brew ships it; apt/cargo/tarball installs don't)
+if command -v just &> /dev/null; then
+    mkdir -p "$HOME/.zsh/completions"
+    if [ ! -f "$HOME/.zsh/completions/_just" ]; then
+        just --completions zsh > "$HOME/.zsh/completions/_just"
+        echo "  generated _just completion"
+    else
+        echo "  _just completion already present"
+    fi
+fi
+
 # Source pub.zsh from .zshrc
 touch "$HOME/.zshrc"
 if ! grep -qF 'source $HOME/dotfiles/pub.zsh' "$HOME/.zshrc"; then
@@ -92,10 +103,12 @@ if ! command -v tree-sitter >/dev/null 2>&1; then
     echo "  installing tree-sitter-cli..."
     if command -v brew >/dev/null 2>&1; then
         brew install tree-sitter-cli
-    elif command -v cargo >/dev/null 2>&1; then
+    elif command -v npm >/dev/null 2>&1; then
+        npm install -g tree-sitter-cli
+    elif command -v cargo >/dev/null 2>&1 && rustup default 2>/dev/null | grep -q .; then
         cargo install tree-sitter-cli
     else
-        echo "  WARN: install tree-sitter-cli manually (brew/cargo not found)"
+        echo "  WARN: install tree-sitter-cli manually (brew/npm/cargo+toolchain not found)"
     fi
 else
     echo "  tree-sitter-cli already installed"

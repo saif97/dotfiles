@@ -5,11 +5,9 @@ return {
 		'nvim-lua/plenary.nvim',
 	},
 	config = function()
-		local flutterPath = isPersonalMachine() and vim.fn.expand("$HOME/dev/Flutter/sdk/flutter/bin/flutter") or nil;
-
+		-- flutter_path omitted on purpose — flutter-tools auto-discovers via $PATH.
 		require('flutter-tools').setup({
 			-- fvm = true,
-			flutter_path = flutterPath,
 			widget_guides = {
 				enabled = true,
 			},

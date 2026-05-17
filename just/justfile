@@ -15,9 +15,6 @@ tart-up:
         --dir=dotfiles:~/dotfiles:ro,tag=dotshare \
         {{tartImage}} &
 
-tart-up-claw:
-    tart run --suspendable openClaw &
-
 tart-stop:
     tart stop {{tartImage}}
 tart-get-config:

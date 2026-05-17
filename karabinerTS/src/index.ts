@@ -1,8 +1,6 @@
 // Docs: https://karabiner.ts.evanliu.dev/
 //
-// Machine-specific scripts check $personal_machine env var.
-// Set via: echo '{"personal_machine":1}' | sudo tee "/Library/Application Support/org.pqrs/config/karabiner_environment"
-// Restart karabiner_console_user_server after creating/modifying the file.
+// '/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --set-variables '{"personal_machine":1}'
 
 import {
 	duoLayer,
@@ -171,7 +169,9 @@ writeToProfile(
 				map("q").to$(unmuteMic),
 
 				// Save clipboard image to shared dir for VM paste
-				map("c").to$("~/dotfiles/scripts/clip2share.sh"),
+				map("c")
+					.to$("~/dotfiles/scripts/clip2share.sh")
+					.condition(ifVar("personal_machine", 1)),
 			]),
 
 		layer("2", "NumLayer")
