@@ -133,16 +133,12 @@ on-mode-changed = []
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     # mod1 (alt+cmd) + amethyst keys: i=ccw/left, n=cw/right
     alt-cmd-n = 'focus --boundaries-action wrap-around-the-workspace left'
-    alt-cmd-e = 'focus --boundaries-action wrap-around-the-workspace down'
-    alt-cmd-u = 'focus --boundaries-action wrap-around-the-workspace up'
     alt-cmd-i = 'focus --boundaries-action wrap-around-the-workspace right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     # mod2 (ctrl+shift) — mirrors Amethyst mod2
-    ctrl-shift-n = 'move left'
-    ctrl-shift-k = 'move down'
-    ctrl-shift-i = 'move up'
-    ctrl-shift-l = 'move right'
+    alt-cmd-l = 'move left'
+    alt-cmd-y = 'move right'
 
     alt-cmd-o = 'focus-monitor --wrap-around next'
 
@@ -152,8 +148,8 @@ on-mode-changed = []
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize 
     # mod1 + amethyst keys: e=shrink, u=expand
-    alt-cmd-l = 'resize smart -100'
-    alt-cmd-y = 'resize smart +100'
+    alt-cmd-u = 'resize smart +100'
+    alt-cmd-e = 'resize smart -100'
 
     # Workspace switching (alt) — numpad grid:
     # l  u  y  ;   →  9, 10, 11, 12
