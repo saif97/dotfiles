@@ -29,6 +29,11 @@ link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.claude/CLAUD
 link_if_missing "$HOME/dotfiles/ai/agents" "$HOME/.claude/agents"
 link_if_missing "$HOME/dotfiles/ai/slash_cmds/Claude" "$HOME/.claude/commands"
 
+# Skills: link per-skill, not the whole dir — ~/.claude/skills also holds
+# skills installed by other tooling that aren't tracked here.
+mkdir -p "$HOME/.claude/skills"
+link_if_missing "$HOME/dotfiles/ai/skills/visualize" "$HOME/.claude/skills/visualize"
+
 # settings.json: if a regular file exists, ask whether to replace it with the
 # dotfile symlink (machine-specific overrides belong in settings.local.json).
 settings_link="$HOME/.claude/settings.json"
