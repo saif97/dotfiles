@@ -91,7 +91,7 @@ export VISUAL="nvim"
 export PIP_REQUIRE_VIRTUAL_ENV=true
 
 if [[ -n "$IS_PERSONAL" ]]; then
-	echo "Using personal configuration"
+	# echo "Using personal configuration" >&2
 	# alias flutter="fvm flutter
 fi
 
