@@ -62,6 +62,10 @@ else
     echo "  linked $settings_link"
 fi
 
+# herdr config (lives in dotfiles; ~/.config isn't always the dotfiles symlink)
+mkdir -p "$HOME/.config/herdr"
+link_if_missing "$HOME/dotfiles/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then
     ln -sf "$HOME/dotfiles/global.gitignore" "$HOME/.gitignore_global"
