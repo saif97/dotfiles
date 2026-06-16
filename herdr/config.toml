@@ -9,7 +9,8 @@
 # Built-in themes: catppuccin, terminal, tokyo-night, dracula, nord,
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
-# name = "catppuccin"
+# zellij used catppuccin-macchiato; herdr ships a single catppuccin variant
+name = "catppuccin"
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
@@ -47,7 +48,38 @@
 # Named punctuation such as minus, comma, ampersand, plus, and backtick is also accepted.
 # Most reliable direct bindings are ctrl+letter, function keys, and explicit modified chords.
 # alt+..., cmd/super, and punctuation-with-modifiers may depend on your terminal/tmux setup.
-# prefix = "ctrl+b"
+
+# === migrated from zellij ===
+# § (non_us_backslash) is mapped in Karabiner to ctrl+cmd when held
+# (karabinerTS/src/index.ts), so the zellij "Ctrl Super + key" bindings are
+# reproduced here as ctrl+cmd+... direct chords: hold §, press key, no prefix.
+prefix = "ctrl+b"               # zellij used Ctrl-b to enter tmux mode
+
+# --- Direct § (ctrl+cmd) chords, no prefix ---
+# Pane focus — Colemak n/e/i/u = left/down/right/up
+focus_pane_left  = "ctrl+cmd+n"
+focus_pane_down  = "ctrl+cmd+e"
+focus_pane_up    = "ctrl+cmd+u"
+focus_pane_right = "ctrl+cmd+i"
+# Pane split — v = side-by-side, b = stacked (swap these two if orientation feels reversed)
+split_vertical   = "ctrl+cmd+v"
+split_horizontal = "ctrl+cmd+b"
+# Pane actions
+zoom       = "ctrl+cmd+enter"   # fullscreen toggle (zellij ToggleFocusFullscreen)
+close_pane = "ctrl+cmd+/"       # zellij CloseFocus — punctuation+mods may not register; fallback prefix+x
+# Tab navigation
+previous_tab = "ctrl+cmd+comma"
+next_tab     = "ctrl+cmd+period"  # period not in herdr's named-punctuation list; if it won't fire, try prefix+n/p
+
+# --- Prefix mode (tap ctrl+b, then key) for less-frequent ops ---
+new_tab          = "prefix+n"   # zellij tmux-mode 'n'
+detach           = "prefix+d"   # zellij tmux-mode 'd'
+workspace_picker = "prefix+w"   # zellij session-manager (tmux-mode 'w')
+edit_scrollback  = "prefix+e"   # zellij scroll-mode 'e'
+resize_mode      = "prefix+r"   # zellij had direct §+l/y/j/h; herdr resize is modal: prefix+r, then h/j/k/l, esc
+
+# No herdr equivalent (left unmapped): move-pane (§+;/o), move-tab (§+[/]),
+# toggle-floating (pane 'l'), break-pane (tab 'b'), sync-tab (tab 's').
 
 # Prefix-mode actions
 # help = "prefix+?"
