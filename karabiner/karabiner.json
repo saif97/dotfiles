@@ -933,7 +933,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1043,7 +1044,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1087,7 +1089,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1128,7 +1131,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1169,7 +1173,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1273,6 +1278,7 @@
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
                       "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app",
                       "org.mozilla.firefox"
                     ]
                   },
@@ -1313,6 +1319,7 @@
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
                       "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app",
                       "org.mozilla.firefox"
                     ]
                   },
@@ -1426,7 +1433,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -1465,7 +1473,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   },
                   {
@@ -2711,7 +2720,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   }
                 ]
@@ -2764,7 +2774,8 @@
                     "bundle_identifiers": [
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
-                      "dev.warp.Warp-Stable"
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
                     ]
                   }
                 ]
@@ -2845,6 +2856,7 @@
                       "com.mitchellh.ghostty",
                       "com.googlecode.iterm2",
                       "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app",
                       "com.todesktop.230313mzl4w4u92"
                     ]
                   }
@@ -2891,7 +2903,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f16"
+                    "key_code": "f12"
                   }
                 ],
                 "conditions": [
@@ -2920,7 +2932,7 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "f16"
+                    "key_code": "f12"
                   }
                 ]
               },

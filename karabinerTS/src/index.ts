@@ -21,7 +21,7 @@ import {
 const karabinerCliPath = "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' karabiner_cli";
 
 const APP_ID_BROWSERS = ["com.google.Chrome", "com.apple.Safari", "org.mozilla.firefox"];
-const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2", "dev.warp.Warp-Stable"];
+const APP_ID_TERMINALS = ["com.mitchellh.ghostty", "com.googlecode.iterm2", "dev.warp.Warp-Stable", "com.cmuxterm.app"];
 
 const APP_ID_FIREFOX = "org.mozilla.firefox";
 const APP_ID_VSCODE = "com.microsoft.VSCode";
@@ -230,8 +230,8 @@ writeToProfile(
 				.toIfHeldDown("right_command")
 				.condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS).concat(APP_ID_CURSOR))),
 			mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
-			mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f16").condition(ifApp(APP_ID_VSCODE)),
-			mapWithAnyMod("right_option").to("right_option").toIfAlone("f16"),
+			mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f12").condition(ifApp(APP_ID_VSCODE)),
+			mapWithAnyMod("right_option").to("right_option").toIfAlone("f12"),
 
 			// in finder make enter open files
 			map("return_or_enter").to("semicolon", ["command"]).condition(ifApp("com.apple.finder")),

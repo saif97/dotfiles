@@ -97,10 +97,11 @@ function M.setupNvim()
 	-- end, { expr = true, desc = "Smart comment deletion" })
 
 	-- Clear highlights and close panels
-	-- Insert mode: escape to normal first, then trigger F16
-	map_key("i", "<F16>", "<Esc>", { desc = "Escape to normal mode" })
+	-- Insert mode: escape to normal first, then trigger F12 (right_option tap;
+	-- moved off F16 — herdr drops the F13–F24 range. F5–F12 forward fine, kept free to extend.)
+	map_key("i", "<F12>", "<Esc>", { desc = "Escape to normal mode" })
 	-- Other modes: directly execute the function
-	map_key(allModes, "<F16>", function()
+	map_key(allModes, "<F12>", function()
 		vim.cmd("nohlsearch")
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
@@ -108,7 +109,7 @@ function M.setupNvim()
 		-- require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
 
-	map_key({"t", "n"}, "<S-F16>", function()
+	map_key({"t", "n"}, "<S-F12>", function()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
@@ -135,7 +136,7 @@ function M.setupNvim()
 	end, { desc = "Enter terminal mode and clear" })
 
 	-- Exit terminal mode with Escape
-	map_key({ "t" }, "<F16>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+	map_key({ "t" }, "<F12>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 	-- map_key({ "t" }, "<leader><Esc>", "<S-Esc>", { desc = "Send escape key, required in some terminal applications" })
 
 	-- Quick exit
