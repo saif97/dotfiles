@@ -230,8 +230,7 @@ writeToProfile(
 				.toIfHeldDown("right_command")
 				.condition(ifApp(APP_ID_BROWSERS.concat(APP_ID_TERMINALS).concat(APP_ID_CURSOR))),
 			mapWithAnyMod("right_command").toIfAlone("f15").toIfHeldDown("right_command"),
-			mapWithAnyMod("right_option").to("right_option", ["left_command"]).toIfAlone("f12").condition(ifApp(APP_ID_VSCODE)),
-			mapWithAnyMod("right_option").to("right_option").toIfAlone("f12"),
+			mapWithAnyMod("right_option").to("right_option").toIfAlone("f12", ["fn"]),
 
 			// in finder make enter open files
 			map("return_or_enter").to("semicolon", ["command"]).condition(ifApp("com.apple.finder")),
