@@ -78,6 +78,34 @@ workspace_picker = "prefix+w"   # zellij session-manager (tmux-mode 'w')
 edit_scrollback  = "prefix+e"   # zellij scroll-mode 'e'
 resize_mode      = "prefix+r"   # zellij had direct §+l/y/j/h; herdr resize is modal: prefix+r, then h/j/k/l, esc
 
+# Colemak-compatible direct resize: § (ctrl+cmd) + shift + n/e/u/i = left/down/up/right.
+# As of herdr 0.7.0 the resize-mode movement keys (h/j/k/l) are HARDCODED — only
+# `resize_mode` is exposed in config (confirmed in src/config/keybinds.rs upstream),
+# so we shell out to the CLI for Colemak-direct chords instead.
+# TODO: re-check future versions for native resize_left/down/up/right keys; if added,
+#       drop these custom commands in favor of first-class bindings.
+# NOTE: --amount is a FRACTION of the split (0.0-1.0), not columns. ~0.03 = 3% per
+#       press. Below ~0.02 the resize is a no-op; 1 = full extent (clamps hard).
+[[keys.command]]
+key = "ctrl+cmd+shift+n"
+type = "shell"
+command = "herdr pane resize --direction left --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+e"
+type = "shell"
+command = "herdr pane resize --direction down --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+u"
+type = "shell"
+command = "herdr pane resize --direction up --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+i"
+type = "shell"
+command = "herdr pane resize --direction right --amount 0.03 --current"
+
 # No herdr equivalent (left unmapped): move-pane (§+;/o), move-tab (§+[/]),
 # toggle-floating (pane 'l'), break-pane (tab 'b'), sync-tab (tab 's').
 
