@@ -70,6 +70,12 @@ close_pane = "ctrl+cmd+/"       # zellij CloseFocus — punctuation+mods may not
 # Tab navigation
 previous_tab = "ctrl+cmd+comma"
 next_tab     = "ctrl+cmd+period"  # period not in herdr's named-punctuation list; if it won't fire, try prefix+n/p
+# Workspace navigation — j = up (prev), h = down (next)
+previous_workspace = "ctrl+cmd+j"
+next_workspace     = "ctrl+cmd+h"
+# Agent navigation — ; = up (prev), o = down (next)
+previous_agent = "ctrl+cmd+semicolon"
+next_agent     = "ctrl+cmd+o"
 
 # --- Prefix mode (tap ctrl+b, then key) for less-frequent ops ---
 new_tab          = "prefix+n"   # zellij tmux-mode 'n'
