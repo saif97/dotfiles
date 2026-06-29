@@ -34,10 +34,10 @@ function M.setup()
 	-- Insert mode access
 	map_key({ "n", "o" }, "o", "i", { desc = "Enter insert mode" })
 	map_key("v", "o", "<Esc>i", { desc = "Enter insert mode" })
-	map_key("n", "<CR>", function ()
+	map_key("n", "<CR>", function()
 		return vim.bo.buftype == "terminal" and "i" or "o"
 	end, { desc = "", expr = true })
-	map_key({ "x", "v" }, "<CR>", function ()
+	map_key({ "x", "v" }, "<CR>", function()
 		return vim.bo.buftype == "terminal" and "<Esc>i" or "o"
 	end, { desc = "", expr = true })
 	-- [[ Section: Editing ]]
@@ -109,7 +109,7 @@ function M.setupNvim()
 		-- require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
 
-	map_key({"t", "n"}, "<S-F12>", function()
+	map_key({ "t", "n" }, "<S-F12>", function()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
@@ -219,6 +219,16 @@ function M.setupNvim()
 			}
 		})
 	end, { desc = "open LazyDocker" })
+
+	map_key({ "n" }, "<leader>hk", function()
+		Snacks.terminal("hunk show", {
+			win = {
+				title = " Hunk diff ",
+				title_pos = "center",
+			}
+		})
+	end, { desc = "open Hunk diff" })
+
 
 	-- [[ Section: LSP Integration ]]
 
@@ -361,6 +371,7 @@ function M.setupNvim()
 		end,
 		{ desc = "Formate full Document" })
 end
+
 function M.setupVScode()
 	local vscode = require("vscode")
 	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
