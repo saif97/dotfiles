@@ -15,8 +15,9 @@ if command -v starship &> /dev/null; then
 	eval "$(starship init zsh)"
 fi
 
-alias l='lsd -ali'
-alias cat='bat'
+alias l='eza -la --inode --icons --group-directories-first'
+alias lt='eza --tree --icons --group-directories-first'
+# alias cat='bat'
 alias sd='z'
 alias ci='zi'
 alias nv='nvim'
