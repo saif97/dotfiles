@@ -24,6 +24,10 @@ keybinding:
 gui:
   nerdFontsVersion: "3"
   showCommandLog: false
+  expandFocusedSidePanel: true
+  shrinkSidePanelsToContent: true
+  # showFileStatusHeaders: true
+  # showFileTree: false
 customCommands:
   - key: "U"
     description: "Update submodules"
