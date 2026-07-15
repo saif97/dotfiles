@@ -15,8 +15,9 @@ if command -v starship &> /dev/null; then
 	eval "$(starship init zsh)"
 fi
 
-alias l='eza -la --inode --icons --group-directories-first'
-alias lt='eza --tree --icons --group-directories-first'
+alias l='eza -la --icons --group-directories-first'
+alias lz='eza -la --total-size --icons --group-directories-first'
+alias lt='eza --tree --total-size --level=2 --long --icons --group-directories-first'
 # alias cat='bat'
 alias sd='z'
 alias ci='zi'
@@ -51,6 +52,7 @@ alias tm="zellij attach --create --index 0" # attach to existing or create a new
 alias tmn="zellij" # tm new
 
 alias gem="gemini -r"
+alias cod="codex"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias cpy="pbcopy <"
