@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration
 # Place this file at ~/.config/herdr/config.toml
 
@@ -10,7 +11,7 @@
 #                  gruvbox, one-dark, solarized, kanagawa, rose-pine,
 #                  vesper
 # zellij used catppuccin-macchiato; herdr ships a single catppuccin variant
-name = "catppuccin"
+name = "gruvbox"
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
@@ -78,7 +79,8 @@ previous_agent = "ctrl+cmd+semicolon"
 next_agent     = "ctrl+cmd+o"
 
 # --- Prefix mode (tap ctrl+b, then key) for less-frequent ops ---
-new_tab          = "prefix+n"   # zellij tmux-mode 'n'
+new_tab          = "prefix+shift+t"   # zellij tmux-mode 'n'
+rename_tab       = "prefix+t"
 detach           = "prefix+d"   # zellij tmux-mode 'd'
 workspace_picker = "prefix+w"   # zellij session-manager (tmux-mode 'w')
 edit_scrollback  = "prefix+e"   # zellij scroll-mode 'e'
@@ -92,25 +94,6 @@ resize_mode      = "prefix+r"   # zellij had direct §+l/y/j/h; herdr resize is 
 #       drop these custom commands in favor of first-class bindings.
 # NOTE: --amount is a FRACTION of the split (0.0-1.0), not columns. ~0.03 = 3% per
 #       press. Below ~0.02 the resize is a no-op; 1 = full extent (clamps hard).
-[[keys.command]]
-key = "ctrl+cmd+shift+n"
-type = "shell"
-command = "herdr pane resize --direction left --amount 0.03 --current"
-
-[[keys.command]]
-key = "ctrl+cmd+shift+e"
-type = "shell"
-command = "herdr pane resize --direction down --amount 0.03 --current"
-
-[[keys.command]]
-key = "ctrl+cmd+shift+u"
-type = "shell"
-command = "herdr pane resize --direction up --amount 0.03 --current"
-
-[[keys.command]]
-key = "ctrl+cmd+shift+i"
-type = "shell"
-command = "herdr pane resize --direction right --amount 0.03 --current"
 
 # No herdr equivalent (left unmapped): move-pane (§+;/o), move-tab (§+[/]),
 # toggle-floating (pane 'l'), break-pane (tab 'b'), sync-tab (tab 's').
@@ -123,11 +106,14 @@ command = "herdr pane resize --direction right --amount 0.03 --current"
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
-# new_workspace = "prefix+shift+n"
+new_workspace = "prefix+shift+s"
+rename_workspace = "prefix+s"
+
+open_worktree = "prefix+k"
 # new_worktree = "prefix+shift+g"
-# open_worktree = ""    # optional, unset by default
+# 
 # remove_worktree = ""  # optional, unset by default; opens confirmation
-# rename_workspace = "prefix+shift+w"
+# 
 # close_workspace = "prefix+shift+d"
 # previous_workspace = "" # optional, unset by default
 # next_workspace = ""     # optional, unset by default
@@ -135,7 +121,7 @@ command = "herdr pane resize --direction right --amount 0.03 --current"
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
 # new_tab = "prefix+c"
-# rename_tab = "prefix+shift+t"
+# 
 # previous_tab = "prefix+p"
 # next_tab = "prefix+n"
 # switch_tab = "prefix+1..9"
@@ -264,7 +250,11 @@ command = "herdr pane resize --direction right --amount 0.03 --current"
 [session]
 # Resume supported AI-agent panes into their native conversation sessions after
 # a Herdr server restart. Requires official integrations that report session refs.
-# resume_agents_on_restore = true
+# NOTE: only resumes AI-agent panes (Claude, codex, etc.) — NOT arbitrary shell
+# commands. Herdr cannot resurrect running shells like zellij; for that, detach
+# (prefix+d) instead of stopping the server. Known rough edge: OMP --resume panes
+# may report idle while working (herdr#1264).
+resume_agents_on_restore = true
 
 [remote]
 # Whether herdr manages the ssh config used for the `herdr --remote` bridge.
@@ -283,7 +273,10 @@ command = "herdr pane resize --direction right --amount 0.03 --current"
 # Requires a Kitty graphics-compatible outer terminal.
 # kitty_graphics = false
 # Save recent pane screen history across full server restarts.
-pane_history = false
+# Restores the last VISUAL screen contents only, not the live process.
+# Known bug: an unclean exit between session.json and session-history.json
+# writes can attach stale scrollback to the wrong pane (herdr#1156).
+pane_history = true
 # While prefix mode is active, temporarily switch the macOS host input
 # source to an ASCII-capable keyboard layout so prefix commands register
 # even when a CJK IME is active, then restore the previous input source
@@ -308,3 +301,24 @@ pane_history = false
 # Maximum scrollback buffer size in bytes retained per pane terminal.
 # Matches Ghostty's default scrollback-limit behavior.
 # scrollback_limit_bytes = 10000000
+
+[[keys.command]]
+key = "ctrl+cmd+shift+n"
+type = "shell"
+command = "herdr pane resize --direction left --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+e"
+type = "shell"
+command = "herdr pane resize --direction down --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+u"
+type = "shell"
+command = "herdr pane resize --direction up --amount 0.03 --current"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+i"
+type = "shell"
+command = "herdr pane resize --direction right --amount 0.03 --current"
+
