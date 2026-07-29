@@ -23,6 +23,7 @@ local personal_servers = {
 	"solidity",
 	"copilot",
 	"gopls",
+	"rust_analyzer",
 }
 
 if os.getenv("IS_PERSONAL_MACHINE") then

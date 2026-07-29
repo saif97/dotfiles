@@ -8,7 +8,7 @@ quit-after-last-window-closed = false
 window-decoration = none
 window-padding-y = 0,0
 window-padding-x = 0,0
-background-opacity = 0.1
+background-opacity = 0
 background-blur = macos-glass-regular
 
 # Source: https://gist.github.com/adibhanna/c552c452fb244b3b721e3c2432e85cde

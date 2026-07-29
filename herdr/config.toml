@@ -110,7 +110,7 @@ new_workspace = "prefix+shift+s"
 rename_workspace = "prefix+s"
 
 open_worktree = "prefix+k"
-# new_worktree = "prefix+shift+g"
+new_worktree = "prefix+shift+k"
 # 
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # 
