@@ -29,10 +29,19 @@ link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.claude/CLAUD
 link_if_missing "$HOME/dotfiles/ai/agents" "$HOME/.claude/agents"
 link_if_missing "$HOME/dotfiles/ai/slash_cmds/Claude" "$HOME/.claude/commands"
 
-# Skills: link per-skill, not the whole dir — ~/.claude/skills also holds
-# skills installed by other tooling that aren't tracked here.
-mkdir -p "$HOME/.claude/skills"
-link_if_missing "$HOME/dotfiles/ai/skills/visualize" "$HOME/.claude/skills/visualize"
+# Gemini slash commands
+mkdir -p "$HOME/.gemini"
+link_if_missing "$HOME/dotfiles/ai/slash_cmds/Gemini" "$HOME/.gemini/commands"
+
+# Skills: link per-skill into both ~/.claude/skills and ~/.agents/skills —
+# not the whole dir, since both also hold skills installed by other tooling
+# that aren't tracked here.
+mkdir -p "$HOME/.claude/skills" "$HOME/.agents/skills"
+for skill in "$HOME"/dotfiles/ai/skills/*/; do
+    name=$(basename "$skill")
+    link_if_missing "$skill" "$HOME/.claude/skills/$name"
+    link_if_missing "$skill" "$HOME/.agents/skills/$name"
+done
 
 # settings.json: if a regular file exists, ask whether to replace it with the
 # dotfile symlink (machine-specific overrides belong in settings.local.json).
@@ -73,6 +82,15 @@ if [ ! -L "$HOME/.gitignore_global" ]; then
     echo "  linked global gitignore"
 else
     echo "  global gitignore already linked"
+fi
+
+# Shared Git configuration
+git_config="$HOME/dotfiles/git/pub.gitconfig"
+if git config --global --get-all include.path | grep -Fxq "$git_config"; then
+    echo "  shared git config already included"
+else
+    git config --global --add include.path "$git_config"
+    echo "  included shared git config"
 fi
 
 # --- Submodules (fzf-tab, etc.) ---

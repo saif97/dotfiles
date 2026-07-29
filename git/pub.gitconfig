@@ -19,6 +19,7 @@
 
 [merge]
     conflictStyle = zdiff3
+    autoStash = true
 
 [include]
 	path = ./catppuccin.gitconfig
