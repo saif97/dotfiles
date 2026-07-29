@@ -230,6 +230,28 @@ function M.setupNvim()
 	end, { desc = "open Hunk diff" })
 
 
+	map_key({ "n" }, "<leader>db", function()
+		local branches = vim.fn.systemlist({
+			"git", "for-each-ref",
+			"--sort=-committerdate",
+			"--format=%(refname:short)",
+			"refs/remotes/origin",
+		})
+		if vim.v.shell_error ~= 0 then
+			vim.notify(table.concat(branches, "\n"), vim.log.levels.ERROR)
+			return
+		end
+		branches = vim.tbl_filter(function(branch) return branch ~= "origin/HEAD" end, branches)
+		if vim.tbl_isempty(branches) then
+			vim.notify("No origin branches found", vim.log.levels.WARN)
+			return
+		end
+		Snacks.picker.select(branches, { prompt = "Diff against origin branch" }, function(branch)
+			if not branch then return end
+			vim.cmd("DiffviewOpen " .. vim.fn.fnameescape(branch) .. "...HEAD")
+		end)
+	end, { desc = "Diff against origin Branch" })
+
 	-- [[ Section: LSP Integration ]]
 
 	map_key("n", "<leader>cd", vim.diagnostic.setloclist, { desc = "Code Diagnostic list" })
