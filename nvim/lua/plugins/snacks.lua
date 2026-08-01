@@ -22,6 +22,7 @@ return {
 
 		},
 		indent = { enabled = true },
+		gh = { enabled = true },
 		input = { enabled = true },
 		notifier = {
 			enabled = true,
