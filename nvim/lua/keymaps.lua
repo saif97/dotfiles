@@ -252,7 +252,7 @@ function M.setupNvim()
 		end
 		Snacks.picker.select(branches, { prompt = "Diff against origin branch" }, function(branch)
 			if not branch then return end
-			vim.cmd("DiffviewOpen " .. vim.fn.fnameescape(branch) .. "...HEAD")
+			vim.cmd("DiffviewOpen " .. vim.fn.fnameescape(branch))
 		end)
 	end, { desc = "Diff against origin Branch" })
 
