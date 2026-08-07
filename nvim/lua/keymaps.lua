@@ -240,8 +240,16 @@ function M.setupNvim()
 	)
 
 	map_key({ "n" }, "<leader>dm", function()
-		local branch = isPersonalMachine() and "origin/main" or "origin/develop"
-		vim.cmd("DiffviewOpen " .. branch)
+		-- Repos disagree on the base branch name, so try each in order of preference
+		local candidates = { "origin/develop", "origin/main", "origin/master" }
+		for _, branch in ipairs(candidates) do
+			vim.fn.system({ "git", "rev-parse", "--verify", "--quiet", branch })
+			if vim.v.shell_error == 0 then
+				vim.cmd("DiffviewOpen " .. branch)
+				return
+			end
+		end
+		vim.notify("No " .. table.concat(candidates, "/") .. " branch found", vim.log.levels.WARN)
 	end, { desc = "Diff against origin Main branch" })
 
 	map_key({ "n" }, "<leader>db", function()
