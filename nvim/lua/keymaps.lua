@@ -233,6 +233,11 @@ function M.setupNvim()
 		})
 	end, { desc = "open Hunk diff" })
 
+	map_key({ "n" }, "<leader>dc", function()
+			vim.cmd("DiffviewOpen")
+		end,
+		{ desc = "open current changes" }
+	)
 
 	map_key({ "n" }, "<leader>db", function()
 		local branches = vim.fn.systemlist({
@@ -294,10 +299,6 @@ function M.setupNvim()
 
 	map_key({ "n" }, "<leader>oc", function()
 		vim.fn.system("code " .. vim.fn.getcwd())
-	end, { desc = "Open project in vsCode" })
-
-	map_key({ "n" }, "<leader>og", function()
-		vim.fn.system("agy " .. vim.fn.getcwd())
 	end, { desc = "Open project in vsCode" })
 
 	map_key({ "n" }, "<leader>ox", openXCodeProject, { desc = "Open project in Xcode" })
