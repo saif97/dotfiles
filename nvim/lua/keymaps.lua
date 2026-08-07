@@ -239,6 +239,11 @@ function M.setupNvim()
 		{ desc = "open current changes" }
 	)
 
+	map_key({ "n" }, "<leader>dm", function()
+		local branch = isPersonalMachine() and "origin/main" or "origin/develop"
+		vim.cmd("DiffviewOpen " .. branch)
+	end, { desc = "Diff against origin Main branch" })
+
 	map_key({ "n" }, "<leader>db", function()
 		local branches = vim.fn.systemlist({
 			"git", "for-each-ref",
