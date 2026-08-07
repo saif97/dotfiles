@@ -43,4 +43,4 @@ Done when typechecking and the full test suite pass on the branch, and every beh
 
 ## 5. Review
 
-Run /code-review and act on what it finds.
+Run /code-review then /simplify and act on what it finds.
