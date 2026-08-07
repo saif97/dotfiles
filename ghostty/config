@@ -51,6 +51,12 @@ cursor-style = bar
 # sets delete forward a word
 keybind = alt+delete=text:\x1b[3;3~ 
 
+# Make shift+backspace distinguishable from plain backspace (nvim <S-BS>).
+# Nvim only asks for kitty keyboard flag 1 (CSI > 1 u), and under that flag keys
+# with a legacy encoding are still sent legacy when only shift is held — so
+# shift+backspace would otherwise arrive as a bare 0x7f, i.e. plain <BS>.
+keybind = shift+backspace=csi:127;2u
+
 macos-option-as-alt = true
 
 # Clipboard

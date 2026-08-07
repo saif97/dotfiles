@@ -367,6 +367,14 @@ function M.setupNvim()
 
 	map_key(allModes, "<D-a>", "<Esc>ggVG", { desc = "Select all text" })
 
+	-- Incremental selection (built-in treesitter |v_an| / |v_in|, LSP selectionRange fallback).
+	-- remap = true is required: an/in are Lua default *mappings*, so noremap would skip them.
+	map_key("n", "<BS>", "van", { desc = "Select node under cursor", remap = true })
+	map_key({ "x", "v" }, "<BS>", "an", { desc = "Grow selection to parent node", remap = true })
+	-- <M-BS> is the fallback: not every terminal/multiplexer forwards shift+backspace distinctly
+	map_key({ "x", "v" }, "<S-BS>", "in", { desc = "Shrink selection to child node", remap = true })
+	map_key({ "x", "v" }, "<M-BS>", "in", { desc = "Shrink selection to child node", remap = true })
+
 	map_key({ "n", "v" }, "<Leader>cb", "<Cmd>CBccbox<CR>", { desc = "Code Box" })
 	map_key({ "n", "v" }, "<Leader>ct", "<Cmd>CBllline<CR>", { desc = "Code Table" })
 	-- Simple line
