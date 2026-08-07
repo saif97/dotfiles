@@ -398,25 +398,6 @@ function M.setupNvim()
 		{ desc = "Formate full Document" })
 end
 
-function M.setupVScode()
-	local vscode = require("vscode")
-	-- callVscodeAction(allModes, "<leader>ag", "workbench.action.chat.openEditSession", {})
-	--
-	--[[ Cursor AI keymaps  ]]
-	callVscodeActions(allModes, "<leader>an", "composerMode.agent") -- Cursor AI Agent
-	callVscodeActions(allModes, "<leader>ac", "composerMode.chat") -- Cursor AI Ask mode
-
-	callVscodeActions(allModes, "<Esc><Esc>", {
-		"composer.closeComposerTab",
-		"workbench.action.closeSidebar",
-		"workbench.action.closePanel",
-	}, true) -- Cursor AI Edit
-
-	callVscodeActions(allModes, "/", "actions.find")
-	callVscodeActions(allModes, "b", "editor.action.nextMatchFindAction")
-	callVscodeActions(allModes, "B", "editor.action.previousMatchFindAction")
-end
-
 function M.setupLsp(event)
 	-- NOTE: Remember that Lua is a real programming language, and as such it is possible
 	-- to define small helper and utility functions so you don't have to repeat yourself.
