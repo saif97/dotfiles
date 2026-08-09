@@ -33,5 +33,12 @@
 [pull]
 	rebase = true
 
+[push]
+	# push to the tracked upstream branch even when its name differs from
+	# the local branch (avoids "upstream branch does not match" fatal)
+	default = upstream
+	# branches with no upstream yet: create origin/<branch> on first push
+	autoSetupRemote = true
+
 [submodule]
 	recurse = true
