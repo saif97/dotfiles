@@ -13,7 +13,21 @@ git:
     - master
     - main
     - develop
-  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:'%C(red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(dim white)- %an%C(reset)' {{branchName}}"
+  # NOTE: lazygit tokenizes this with str.ToArgv and runs it WITHOUT a shell, and that
+  # tokenizer strips backslashes even inside single quotes. So no pipes to sed/perl and
+  # no regex escapes here -- they arrive corrupted. Glyphs must be literal UTF-8.
+  # %d is required for --decorate to show anything under a custom --pretty=format.
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=format:'%C(red)%h%C(reset)%C(auto)%d%C(reset) %C(bold green)(%ar)%C(reset) %s %C(dim white) %an%C(reset)' {{branchName}}"
+  log:
+    # lazygit draws its own box-drawing graph in the commits panel -- no shelling out.
+    showGraph: always
+    order: topo-order
+  # Prefill the commit message from the branch name.
+  # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+  # feature/CP-1234-thing -> "CP-1234 "; branches without a CP-#### are left alone.
+  commitPrefix:
+    - pattern: "^(?:[^/]+/)?(CP-\\d+).*$"
+      replace: "$1 "
 keybinding:
   universal:
     prevItem: u

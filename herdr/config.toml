@@ -214,9 +214,27 @@ new_worktree = "prefix+shift+k"
 # Agent panel scope: "current" or "all". Toggling it in the sidebar saves this setting.
 # agent_panel_scope = "all"
 
+# Draw borders around split panes. Default: true
+pane_borders = true
+
+# Keep split panes visually separated instead of sharing divider borders.
+# false = panes share divider borders (tighter, reclaims a row/column per split). Default: true
+pane_gaps = false
+
+# Hide the tab row when the workspace has only one tab. Default: false
+hide_tab_bar_when_single_tab = true
+
+# Agent sidebar ordering: "spaces" (default) or "priority".
+agent_panel_sort = "priority"
+
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
 # accent = "cyan"
+
+[ui.sidebar.spaces]
+# Blank terminal rows between worktree groups and unrelated top-level Spaces.
+# Worktree parents and their indented children stay packed. Default: 0
+row_gap = 1
 
 # Background notification popup delivery
 [ui.toast]
@@ -276,7 +294,7 @@ resume_agents_on_restore = true
 # Restores the last VISUAL screen contents only, not the live process.
 # Known bug: an unclean exit between session.json and session-history.json
 # writes can attach stale scrollback to the wrong pane (herdr#1156).
-pane_history = true
+pane_history = false
 # While prefix mode is active, temporarily switch the macOS host input
 # source to an ASCII-capable keyboard layout so prefix commands register
 # even when a CJK IME is active, then restore the previous input source

@@ -3212,7 +3212,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3237,7 +3238,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3262,7 +3264,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3287,7 +3290,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3312,7 +3316,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3337,7 +3342,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3362,7 +3368,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3387,7 +3394,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3412,7 +3420,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3437,7 +3446,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3462,7 +3472,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3487,7 +3498,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3512,7 +3524,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3537,7 +3550,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3562,7 +3576,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3587,7 +3602,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]
@@ -3612,7 +3628,8 @@
                     "type": "frontmost_application_if",
                     "bundle_identifiers": [
                       "com.utmapp.UTM",
-                      "org.cirruslabs.tart"
+                      "org.cirruslabs.tart",
+                      "com.microsoft.rdc.macos"
                     ]
                   }
                 ]

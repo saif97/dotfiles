@@ -13,8 +13,8 @@ tmp
 
 .idea
 
-*.log
-logs
+*.log*
+
 
 **/.DS_Store
 
