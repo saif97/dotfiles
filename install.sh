@@ -127,6 +127,7 @@ mkdir -p "$HOME/.config"
 link_config_dir nvim
 link_config_dir herdr
 link_config_dir btop
+link_config_dir lazygit
 
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then
