@@ -4,14 +4,6 @@ set -e
 
 echo "Installing dotfiles (idempotent)..."
 
-# ~/.config → ~/dotfiles only if ~/.config doesn't already exist
-if [ ! -e "$HOME/.config" ] && [ ! -L "$HOME/.config" ]; then
-    ln -s "$HOME/dotfiles" "$HOME/.config"
-    echo "  linked ~/.config → ~/dotfiles"
-else
-    echo "  ~/.config already exists, skipping"
-fi
-
 # --- Symlinks ---
 
 # Claude Code
@@ -25,6 +17,65 @@ link_if_missing() {
         echo "  $linkname exists, skipping"
     fi
 }
+
+# Physical path of a directory, or empty if it isn't one.
+resolve_dir() { (cd "$1" 2>/dev/null && pwd -P); }
+
+# ~/.config/<name> → ~/dotfiles/<name>. Three cases beyond a plain link:
+#   - ~/.config is itself the dotfiles symlink, so the path already resolves;
+#   - an empty dir sits there (usually left by an earlier mkdir), so remove it;
+#   - a real dir with contents, so ask before moving it aside.
+link_config_dir() {
+    local name="$1"
+    local target="$HOME/dotfiles/$name"
+    local linkname="$HOME/.config/$name"
+
+    if [ "$(resolve_dir "$HOME/.config")" = "$(resolve_dir "$HOME/dotfiles")" ]; then
+        echo "  ~/.config is the dotfiles symlink, $name already in place"
+        return
+    fi
+
+    if [ -L "$linkname" ]; then
+        if [ "$(resolve_dir "$linkname")" = "$(resolve_dir "$target")" ]; then
+            echo "  $linkname already linked, skipping"
+        else
+            echo "  WARN: $linkname points to $(readlink "$linkname"), not $target"
+        fi
+        return
+    fi
+
+    if [ ! -e "$linkname" ]; then
+        ln -s "$target" "$linkname"
+        echo "  linked $linkname"
+        return
+    fi
+
+    # Empty dir holds no data; take it without asking.
+    if [ -d "$linkname" ] && rmdir "$linkname" 2>/dev/null; then
+        ln -s "$target" "$linkname"
+        echo "  linked $linkname (removed empty dir)"
+        return
+    fi
+
+    if [ -t 0 ]; then
+        local backup="$linkname.bak.$(date +%Y%m%d-%H%M%S)"
+        printf "  %s is a real directory. Move it to %s and link? [y/N] " "$linkname" "$(basename "$backup")"
+        read -r reply
+        case "$reply" in
+            y|Y|yes|YES)
+                mv "$linkname" "$backup"
+                ln -s "$target" "$linkname"
+                echo "  linked $linkname (old contents kept in $backup)"
+                ;;
+            *)
+                echo "  kept existing $linkname"
+                ;;
+        esac
+    else
+        echo "  WARN: $linkname is a real directory; re-run install.sh interactively to replace it"
+    fi
+}
+
 link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.claude/CLAUDE.md"
 link_if_missing "$HOME/dotfiles/ai/agents" "$HOME/.claude/agents"
 link_if_missing "$HOME/dotfiles/ai/slash_cmds/Claude" "$HOME/.claude/commands"
@@ -71,9 +122,11 @@ else
     echo "  linked $settings_link"
 fi
 
-# herdr config (lives in dotfiles; ~/.config isn't always the dotfiles symlink)
-mkdir -p "$HOME/.config/herdr"
-link_if_missing "$HOME/dotfiles/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+# Configs linked one by one into ~/.config. Add a line here for each new one.
+mkdir -p "$HOME/.config"
+link_config_dir nvim
+link_config_dir herdr
+link_config_dir btop
 
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then

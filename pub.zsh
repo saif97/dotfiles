@@ -50,7 +50,6 @@ alias v='nvim'
 
 # ── Tmux stuff ────────────────────────────────────────────────────────
 export ZELLIJ_CONFIG_DIR="$DOT_FILES/zellij"
-export HERDR_CONFIG_PATH="$DOT_FILES/herd/config.yaml"
 alias tm="zellij attach --create --index 0" # attach to existing or create a new session
 alias tmn="zellij" # tm new
 
