@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		commit = "4916d6592ede8c07973490d9322f187e07dfefac",
 		branch = "main",
 		lazy = false,
 		build = function() require("nvim-treesitter").update() end,
@@ -28,6 +29,7 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		commit = "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
 		branch = "main",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		event = "VeryLazy",
@@ -65,6 +67,7 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		commit = "1a1a7c5d6d75cb49bf64049dafab15ebe294a79f",
 		event = "VeryLazy",
 		config = function()
 			require("treesitter-context").setup({

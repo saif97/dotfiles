@@ -1,5 +1,6 @@
 return {
   "rmagatti/auto-session",
+  commit = "00334ee24b9a05001ad50221c8daffbeedaa0842",
   lazy = false,
 
   ---enables autocomplete for opts

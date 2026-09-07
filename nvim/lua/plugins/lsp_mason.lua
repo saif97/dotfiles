@@ -33,6 +33,7 @@ end
 return {
 	{
 		"williamboman/mason.nvim",
+		commit = "9eaedb864cdadc29c6eb7d761a6c0d8aee26c91b",
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -57,6 +58,7 @@ return {
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
+		commit = "c2465eb07db648026eee81005a659abe26e6d077",
 		dependencies = { "williamboman/mason.nvim" },
 		config = function()
 			require("mason-lspconfig").setup({
@@ -67,9 +69,10 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		commit = "562487bc108bf73c2493f9e701b9334b48163216",
 		dependencies = {
 			"mason-org/mason-lspconfig.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
+			{ "j-hui/fidget.nvim", commit = "d9ba6b7bfe29b3119a610892af67602641da778e", opts = {} },
 		},
 		config = function()
 			-- Per-server overrides — `vim.lsp.config()` merges with the upstream

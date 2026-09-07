@@ -1,6 +1,7 @@
 -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
 return {
 	"numToStr/Comment.nvim",
+	commit = "e30b7f2008e52442154b66f7c519bfd2f1e32acb",
 	opts = {
 		---Add a space b/w comment and the line
 		padding = true,

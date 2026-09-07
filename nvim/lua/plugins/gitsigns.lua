@@ -2,6 +2,7 @@ vim.api.nvim_create_user_command("Gitsigns blame", "Gitsigns blame", { desc = "S
 
 return {
 	"lewis6991/gitsigns.nvim",
+	commit = "8b729e489f1475615dc6c9737da917b3bc163605",
 	config = function()
 		require("gitsigns").setup({
 			current_line_blame = true,

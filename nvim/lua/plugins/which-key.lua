@@ -1,5 +1,6 @@
 return { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    commit = "370ec46f710e058c9c1646273e6b225acf47cbed",
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)

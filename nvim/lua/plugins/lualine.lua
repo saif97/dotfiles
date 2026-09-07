@@ -1,8 +1,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	commit = "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af",
+	dependencies = { "nvim-tree/nvim-web-devicons", "catppuccin/nvim" },
 	config = function()
-		local custom_gruvbox = require("lualine.themes.catppuccin")
+		local custom_gruvbox = require("lualine.themes.catppuccin-macchiato")
 		custom_gruvbox.inactive.a.bg = "#8bd5ca"
 		custom_gruvbox.inactive.a.fg = "#181926"
 		custom_gruvbox.inactive.c.fg = "#a5adcb"

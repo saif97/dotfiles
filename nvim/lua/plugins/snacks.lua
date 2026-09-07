@@ -1,5 +1,6 @@
 return {
 	"folke/snacks.nvim",
+	commit = "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
 	priority = 1000,
 	lazy = false,
 	---@type snacks.Config

@@ -1,9 +1,11 @@
 return {
 	"saghen/blink.cmp",
+	commit = "9bcb14b43852a6f2bfd5ac9ef29cb5cf09b1b39b",
 	-- optional: provides snippets for the snippet source
 	dependencies = { "rafamadriz/friendly-snippets", "L3MON4D3/LuaSnip" },
 
 	-- use a release tag to download pre-built binaries
+	-- (the pinned commit above IS tag v1.4.1, so the prebuilt binary still resolves)
 	version = "1.*",
 
 	---@module 'blink.cmp'

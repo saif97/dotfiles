@@ -7,6 +7,7 @@ local last_cli_position = nil
 local terminal_ref = nil
 return {
 	"folke/sidekick.nvim",
+	commit = "c2bdf8cfcd87a6be5f8b84322c1b5052e78e302e",
 	-- dir = "/Users/saifhakeam/dev/openSourcing/sidekick.nvim",
 	opts = {
 		-- add any options here

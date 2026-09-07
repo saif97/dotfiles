@@ -1,5 +1,6 @@
 return {
   "zbirenbaum/copilot.lua",
+  commit = "3cd5086c28c5769f5db147721f457a3e081de254",
   enabled = isPersonalMachine(),
   cmd = "Copilot",
   event = "InsertEnter",

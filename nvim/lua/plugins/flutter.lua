@@ -1,5 +1,6 @@
 return {
 	'nvim-flutter/flutter-tools.nvim',
+	commit = "65b7399804315a1160933b64292d3c5330aa4e9f",
 	lazy = false,
 	dependencies = {
 		'nvim-lua/plenary.nvim',
