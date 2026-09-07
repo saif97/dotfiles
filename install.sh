@@ -205,6 +205,30 @@ else
 fi
 
 
+# --- npm supply-chain hardening ---
+
+if command -v npm >/dev/null 2>&1; then
+    npm_ver=$(npm --version)
+    npm_major=${npm_ver%%.*}
+    npm_minor=${npm_ver#*.}; npm_minor=${npm_minor%%.*}
+    if [ "$npm_major" -gt 11 ] || { [ "$npm_major" -eq 11 ] && [ "$npm_minor" -ge 10 ]; }; then
+        for pair in min-release-age=7 allow-git=none; do
+            key=${pair%%=*}; value=${pair#*=}
+            if [ "$(npm config get "$key")" = "$value" ]; then
+                echo "  npm $key already $value"
+            else
+                npm config set "$key" "$value"
+                echo "  set npm $key=$value"
+            fi
+        done
+    else
+        echo "  ERROR: npm $npm_ver is too old — min-release-age/allow-git need 11.10+." >&2
+        echo "         An older npm drops both keys in silence, so the machine would" >&2
+        echo "         install with no supply-chain guard. Upgrade npm, then re-run." >&2
+        exit 1
+    fi
+fi
+
 # --- tree-sitter-cli (required by nvim-treesitter main branch) ---
 
 if ! command -v tree-sitter >/dev/null 2>&1; then
