@@ -30,7 +30,7 @@
     "security-guidance@claude-plugins-official": true
   },
   "autoCompactEnabled": false,
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "disableRemoteControl": true,
   "skipAutoPermissionPrompt": true
 }
