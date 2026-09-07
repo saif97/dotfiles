@@ -7,9 +7,6 @@
     "commit": "",
     "pr": ""
   },
-  "permissions": {
-    "defaultMode": "auto"
-  },
   "hooks": {
     "Stop": [
       {
@@ -34,6 +31,6 @@
   },
   "autoCompactEnabled": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true
+  "disableRemoteControl": true,
+  "skipAutoPermissionPrompt": true
 }

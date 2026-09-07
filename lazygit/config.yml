@@ -26,7 +26,7 @@ git:
   # https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
   # feature/CP-1234-thing -> "CP-1234 "; branches without a CP-#### are left alone.
   commitPrefix:
-    - pattern: "^(?:[^/]+/)?(CP-\\d+).*$"
+    - pattern: '^(?:[^/]+/)?(CP-\d+).*$'
       replace: "$1 "
 keybinding:
   universal:
