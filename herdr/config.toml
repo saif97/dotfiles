@@ -62,6 +62,13 @@ focus_pane_left  = "ctrl+cmd+n"
 focus_pane_down  = "ctrl+cmd+e"
 focus_pane_up    = "ctrl+cmd+u"
 focus_pane_right = "ctrl+cmd+i"
+# Back-and-forth between the two panes you last used. Pairs with the key that
+# nvim uses to reach the agent (nvim/lua/plugins/sidekick.lua), so one chord walks
+# both ways: nvim -> agent, then agent -> nvim. herdr owns this chord globally,
+# which is what lets it fire from inside the agent pane, where no nvim keymap can.
+# It was ctrl+y, but that is yank/paste in Claude Code and in readline, and the
+# global grab swallowed it before the agent saw it. The § modifier avoids that.
+last_pane = "ctrl+cmd+y"
 # Pane split — v = side-by-side, b = stacked (swap these two if orientation feels reversed)
 split_vertical   = "ctrl+cmd+v"
 split_horizontal = "ctrl+cmd+b"
@@ -285,6 +292,7 @@ resume_agents_on_restore = true
 # manage_ssh_config = true
 
 [experimental]
+kitty_graphics = true
 # Allow launching herdr from inside a herdr-managed pane.
 # allow_nested = false
 # Experimental local Kitty graphics rendering for attached clients.
@@ -340,3 +348,32 @@ key = "ctrl+cmd+shift+i"
 type = "shell"
 command = "herdr pane resize --direction right --amount 0.03 --current"
 
+
+# --- Recency switching (mru plugin, ~/dotfiles/herdr/mru) ---
+# The plugin records what you focus; these four keys read that history.
+# Plain chord opens the picker, shift goes straight to the previous one.
+# Pickers list most-recent-first and leave out where you already are.
+# Toggles switch without a dialog, and ping-pong when pressed again.
+[[keys.command]]
+key = "ctrl+cmd+p"
+type = "plugin_action"
+command = "saif.herdr-mru.pick-workspace"
+description = "Recent projects"
+
+[[keys.command]]
+key = "ctrl+cmd+a"
+type = "plugin_action"
+command = "saif.herdr-mru.pick-agent"
+description = "Recent agents"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+a"
+type = "plugin_action"
+command = "saif.herdr-mru.toggle-agent"
+description = "Previous agent"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+p"
+type = "plugin_action"
+command = "saif.herdr-mru.toggle-workspace"
+description = "Previous project"

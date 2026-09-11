@@ -129,6 +129,19 @@ link_config_dir herdr
 link_config_dir btop
 link_config_dir lazygit
 
+# herdr plugins live in the repo, but the link to them is machine state
+# (~/.config/herdr/plugins.json), so register them here.
+if command -v herdr >/dev/null 2>&1; then
+    if herdr plugin list --plugin saif.herdr-mru 2>/dev/null | grep -q "saif.herdr-mru"; then
+        echo "  herdr-mru plugin already linked"
+    else
+        herdr plugin link "$HOME/dotfiles/herdr/mru" >/dev/null &&
+            echo "  linked herdr-mru plugin"
+    fi
+else
+    echo "  herdr not installed, skipping herdr-mru plugin"
+fi
+
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then
     ln -sf "$HOME/dotfiles/global.gitignore" "$HOME/.gitignore_global"

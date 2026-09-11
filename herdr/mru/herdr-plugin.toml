@@ -1,0 +1,60 @@
+id = "saif.herdr-mru"
+name = "Herdr MRU"
+version = "0.1.0"
+description = "Recency history for herdr workspaces and agents."
+min_herdr_version = "0.9.0"
+platforms = ["linux", "macos"]
+
+# The plugin only records history. The pickers and the toggles are plain
+# [[keys.command]] entries in config.toml, so they need no plugin runtime.
+[[events]]
+on = "workspace.focused"
+command = ["bash", "track.sh"]
+
+[[events]]
+on = "pane.focused"
+command = ["bash", "track.sh"]
+
+[[actions]]
+id = "toggle-workspace"
+title = "Toggle: previous project"
+description = "Focus the workspace you were in before this one"
+contexts = ["global"]
+command = ["bash", "toggle.sh", "workspace"]
+
+[[actions]]
+id = "toggle-agent"
+title = "Toggle: previous agent"
+description = "Focus the agent you were in before this one"
+contexts = ["global"]
+command = ["bash", "toggle.sh", "agent"]
+
+[[actions]]
+id = "pick-workspace"
+title = "Pick: recent projects"
+description = "Open the project picker, most recent first"
+contexts = ["global"]
+command = ["bash", "open-picker.sh", "workspaces"]
+
+[[actions]]
+id = "pick-agent"
+title = "Pick: recent agents"
+description = "Open the agent picker, most recent first"
+contexts = ["global"]
+command = ["bash", "open-picker.sh", "agents"]
+
+[[panes]]
+id = "workspaces"
+title = "Recent projects"
+placement = "popup"
+width = "60%"
+height = "60%"
+command = ["bash", "pick.sh", "workspace"]
+
+[[panes]]
+id = "agents"
+title = "Recent agents"
+placement = "popup"
+width = "60%"
+height = "60%"
+command = ["bash", "pick.sh", "agent"]
