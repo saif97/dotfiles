@@ -28,7 +28,23 @@ read -r ws pane < <(mru_focused) || exit 0
 [ -n "${ws:-}" ] || exit 0
 [ "$ws" = "-" ] && exit 0
 
-printf '%s %s %s\n' "$(mru_now_ms)" "$ws" "${pane:--}" >>"$HERDR_MRU_LOG"
+# Mark the line when this focus is a step of an open walk, so that walking
+# through the history does not rewrite it. walk.sh saves its state before it
+# focuses, which is what lets this test see the step.
+mark='-'
+if head="$(mru_walk_head)"; then
+  read -r w_kind _w_cursor w_expected w_last <<<"$head"
+  case "$w_kind" in
+    workspace) focused="$ws" ;;
+    agent) focused="${pane:--}" ;;
+    *) focused='' ;;
+  esac
+  if [ -n "$focused" ] && [ "$focused" = "$w_expected" ] && mru_walk_fresh "$w_last"; then
+    mark='w'
+  fi
+fi
+
+printf '%s %s %s %s\n' "$(mru_now_ms)" "$ws" "${pane:--}" "$mark" >>"$HERDR_MRU_LOG"
 
 # Trim now and then. The reader only needs the recent tail.
 lines=$(wc -l <"$HERDR_MRU_LOG" 2>/dev/null || echo 0)

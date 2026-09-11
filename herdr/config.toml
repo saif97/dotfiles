@@ -89,7 +89,6 @@ next_agent     = "ctrl+cmd+o"
 new_tab          = "prefix+shift+t"   # zellij tmux-mode 'n'
 rename_tab       = "prefix+t"
 detach           = "prefix+d"   # zellij tmux-mode 'd'
-workspace_picker = "prefix+w"   # zellij session-manager (tmux-mode 'w')
 edit_scrollback  = "prefix+e"   # zellij scroll-mode 'e'
 resize_mode      = "prefix+r"   # zellij had direct §+l/y/j/h; herdr resize is modal: prefix+r, then h/j/k/l, esc
 
@@ -102,8 +101,10 @@ resize_mode      = "prefix+r"   # zellij had direct §+l/y/j/h; herdr resize is 
 # NOTE: --amount is a FRACTION of the split (0.0-1.0), not columns. ~0.03 = 3% per
 #       press. Below ~0.02 the resize is a no-op; 1 = full extent (clamps hard).
 
-# No herdr equivalent (left unmapped): move-pane (§+;/o), move-tab (§+[/]),
-# toggle-floating (pane 'l'), break-pane (tab 'b'), sync-tab (tab 's').
+# No herdr equivalent (left unmapped): move-pane (§+;/o), toggle-floating
+# (pane 'l'), break-pane (tab 'b'), sync-tab (tab 's').
+# zellij's move-tab (§+[/]) is gone; those two chords now walk the MRU history
+# forward — see the recency block at the end of this file.
 
 # Prefix-mode actions
 # help = "prefix+?"
@@ -350,30 +351,45 @@ command = "herdr pane resize --direction right --amount 0.03 --current"
 
 
 # --- Recency switching (mru plugin, ~/dotfiles/herdr/mru) ---
-# The plugin records what you focus; these four keys read that history.
-# Plain chord opens the picker, shift goes straight to the previous one.
+# The plugin records what you focus; these six keys read that history.
+# Plain chord opens the picker, shift walks the history without a dialog.
 # Pickers list most-recent-first and leave out where you already are.
-# Toggles switch without a dialog, and ping-pong when pressed again.
+# Back walks one step per press: hold the chord and press again inside 3 s to
+# go further back. Forward retraces the same walk. Let the walk time out and
+# back returns you to where you were, as a plain toggle would.
 [[keys.command]]
-key = "ctrl+cmd+p"
+key = "prefix+w"
 type = "plugin_action"
 command = "saif.herdr-mru.pick-workspace"
 description = "Recent projects"
 
 [[keys.command]]
-key = "ctrl+cmd+a"
+key = "prefix+a"
 type = "plugin_action"
 command = "saif.herdr-mru.pick-agent"
 description = "Recent agents"
 
 [[keys.command]]
-key = "ctrl+cmd+shift+a"
+key = "ctrl+cmd+["
 type = "plugin_action"
-command = "saif.herdr-mru.toggle-agent"
-description = "Previous agent"
+command = "saif.herdr-mru.back-workspace"
+description = "Back through recent projects"
 
 [[keys.command]]
-key = "ctrl+cmd+shift+p"
+key = "ctrl+cmd+]"
 type = "plugin_action"
-command = "saif.herdr-mru.toggle-workspace"
-description = "Previous project"
+command = "saif.herdr-mru.forward-workspace"
+description = "Forward through recent projects"
+
+# [[keys.command]]
+# key = "ctrl+cmd+["
+# type = "plugin_action"
+# command = "saif.herdr-mru.forward-agent"
+# description = "Forward through recent agents"
+
+[[keys.command]]
+key = "ctrl+cmd+shift+a"
+type = "plugin_action"
+command = "saif.herdr-mru.back-agent"
+description = "Back through recent agents"
+

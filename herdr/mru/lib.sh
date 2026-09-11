@@ -10,11 +10,17 @@ fi
 
 HERDR_MRU_DIR="${HERDR_MRU_DIR:-${XDG_STATE_HOME:-${HOME:-/tmp}/.local/state}/herdr-mru}"
 HERDR_MRU_LOG="$HERDR_MRU_DIR/focus.log"
+HERDR_MRU_WALK_STATE="$HERDR_MRU_DIR/walk.state"
 
 # An item must hold focus this long (ms) before it enters the history.
 # This keeps pane cycling (prefix+tab) from filling the list with items
 # you only passed through.
 HERDR_MRU_DWELL_MS="${HERDR_MRU_DWELL_MS:-900}"
+# How long a walk stays open (ms). A press inside this window steps further
+# along the list the walk froze; a later press starts a new walk from the
+# ranking as it is then. It is also the dwell a walk stop must hold before it
+# counts as a visit, so passing through does not reorder the history.
+HERDR_MRU_WALK_TIMEOUT_MS="${HERDR_MRU_WALK_TIMEOUT_MS:-3000}"
 HERDR_MRU_MAX_LINES="${HERDR_MRU_MAX_LINES:-2000}"
 HERDR_MRU_KEEP_LINES="${HERDR_MRU_KEEP_LINES:-500}"
 
@@ -48,7 +54,10 @@ mru_now_ms() {
 #   mru_rank workspace   -> workspace ids
 #   mru_rank pane        -> pane ids
 # Consecutive focuses of the same id count as one visit. A visit shorter
-# than HERDR_MRU_DWELL_MS is dropped.
+# than HERDR_MRU_DWELL_MS is dropped. A visit a walk made (field 4 is "w")
+# must instead outlast HERDR_MRU_WALK_TIMEOUT_MS, which is the point where the
+# walk is over and you have stayed: steps you only passed through leave the
+# history as it was. Lines written before field 4 existed read as normal ones.
 mru_rank() {
   local field
   case "$1" in
@@ -57,23 +66,60 @@ mru_rank() {
     *) return 1 ;;
   esac
   [ -f "$HERDR_MRU_LOG" ] || return 0
-  awk -v f="$field" -v now="$(mru_now_ms)" -v dwell="$HERDR_MRU_DWELL_MS" '
+  awk -v f="$field" -v now="$(mru_now_ms)" -v dwell="$HERDR_MRU_DWELL_MS" \
+      -v walkdwell="$HERDR_MRU_WALK_TIMEOUT_MS" '
+    function need() { return curwalk ? walkdwell : dwell }
     {
       ts = $1 + 0
       id = $(f)
       if (id == "" || id == "null" || id == "-") next
       if (id != cur) {
-        if (cur != "" && ts - start >= dwell) runs[++n] = cur
+        if (cur != "" && ts - start >= need()) runs[++n] = cur
         cur = id
         start = ts
+        curwalk = ($4 == "w")
+      } else if ($4 != "w") {
+        # A focus you made yourself ends the walk claim on this run.
+        curwalk = 0
       }
     }
     END {
-      if (cur != "" && now - start >= dwell) runs[++n] = cur
+      if (cur != "" && now - start >= need()) runs[++n] = cur
       for (i = n; i >= 1; i--)
         if (!(runs[i] in seen)) { seen[runs[i]] = 1; print runs[i] }
     }
   ' "$HERDR_MRU_LOG"
+}
+
+# Walk state. Line 1 is "kind cursor expected_id last_ms"; the lines after it
+# are the frozen id list, index 0 first, one per line.
+mru_walk_head() {
+  [ -f "$HERDR_MRU_WALK_STATE" ] || return 1
+  head -n 1 "$HERDR_MRU_WALK_STATE"
+}
+
+mru_walk_list() {
+  [ -f "$HERDR_MRU_WALK_STATE" ] || return 1
+  tail -n +2 "$HERDR_MRU_WALK_STATE"
+}
+
+# mru_walk_save <kind> <cursor> <expected_id> <list>
+mru_walk_save() {
+  local tmp
+  mkdir -p "$HERDR_MRU_DIR" || return 0
+  tmp="$HERDR_MRU_WALK_STATE.tmp.$$"
+  {
+    printf '%s %s %s %s\n' "$1" "$2" "$3" "$(mru_now_ms)"
+    printf '%s\n' "$4"
+  } >"$tmp" && mv "$tmp" "$HERDR_MRU_WALK_STATE"
+}
+
+# True while a press would still continue the walk that wrote $2 as last_ms.
+mru_walk_fresh() {
+  case "${1:-}" in
+    '' | *[!0-9]*) return 1 ;;
+  esac
+  [ $(( $(mru_now_ms) - $1 )) -le "$HERDR_MRU_WALK_TIMEOUT_MS" ]
 }
 
 # Order "id<TAB>label" rows on stdin by the ranked ids in file $1.

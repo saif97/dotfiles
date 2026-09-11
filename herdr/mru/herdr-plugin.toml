@@ -16,18 +16,32 @@ on = "pane.focused"
 command = ["bash", "track.sh"]
 
 [[actions]]
-id = "toggle-workspace"
-title = "Toggle: previous project"
-description = "Focus the workspace you were in before this one"
+id = "back-workspace"
+title = "Back: earlier project"
+description = "Step back through the projects you used, one press per step"
 contexts = ["global"]
-command = ["bash", "toggle.sh", "workspace"]
+command = ["bash", "walk.sh", "workspace", "back"]
 
 [[actions]]
-id = "toggle-agent"
-title = "Toggle: previous agent"
-description = "Focus the agent you were in before this one"
+id = "back-agent"
+title = "Back: earlier agent"
+description = "Step back through the agents you used, one press per step"
 contexts = ["global"]
-command = ["bash", "toggle.sh", "agent"]
+command = ["bash", "walk.sh", "agent", "back"]
+
+[[actions]]
+id = "forward-workspace"
+title = "Forward: later project"
+description = "Retrace a project walk toward where it started"
+contexts = ["global"]
+command = ["bash", "walk.sh", "workspace", "forward"]
+
+[[actions]]
+id = "forward-agent"
+title = "Forward: later agent"
+description = "Retrace an agent walk toward where it started"
+contexts = ["global"]
+command = ["bash", "walk.sh", "agent", "forward"]
 
 [[actions]]
 id = "pick-workspace"
