@@ -1,13 +1,11 @@
 ---
 name: close-issue
-description: "Carry an issue from its link to committed work on a branch of its own."
+description: "Carry an issue from its link to an open pull request."
 argument-hint: "Issue link or number"
 disable-model-invocation: true
 ---
 
 # Close Issue
-
-Carry the issue the user passed to committed work on a branch of its own.
 
 ## 1. Read the issue
 
@@ -17,23 +15,37 @@ If the issue names a parent — a tracking or epic issue, a "part of #N", a sub-
 
 Done when you can state in one sentence the behaviour the issue asks for, and in one more how it serves the parent, if there is one.
 
-## 2. Branch from the latest default branch
+## 2. Hold at the `ready-for-agent` gate
 
-`git fetch origin`, then cut the branch from the freshly fetched remote tip (`origin/master` in this repository), whatever the working tree currently sits on.
+The `ready-for-agent` label signals that the issue is groomed. With it, the gate is open.
+
+Without it, tell the user what remains unsettled and ask for explicit confirmation to proceed. Wait for their answer. The gate opens when the user confirms or the invocation itself explicitly passes it.
+
+Done when the label is on the issue, or the user opened the gate by hand.
+
+## 3. Branch from the integration base
+
+`git fetch origin`, then choose the integration base:
+
+- If its parent spec or epic has open pull requests, stack on them: use the stack tip's head branch.
+- If its parent spec or epic has no open pull request, use the parent's branch.
+- Otherwise, use the repository's default branch.
+
+Cut the issue branch from the freshly fetched tip of that integration base, regardless of the current checkout.
 
 Name it `issue-<number>-<slug>`, the slug a few words of the issue title in the project's domain language. That number is the only link between the branch and the issue, so it goes in the name of every branch this skill creates.
 
-Done when `git merge-base HEAD origin/master` matches `git rev-parse origin/master`, and the branch name carries the issue number.
+Done when `git merge-base HEAD <integration-base>` matches `git rev-parse <integration-base>`, and the branch name carries the issue number.
 
-## 3. Settle the open decisions
+## 4. Settle the open decisions
 
 List the decisions the issue leaves to you — the ones that change the shape of the code, as opposed to the ones a careful reader resolves from the issue and the codebase.
 
-An empty list goes straight to step 4. Otherwise run /grilling over exactly those decisions.
+If any remain, run /grilling over them.
 
-Done when the list is empty, answered by the issue or by the user.
+Done when every decision is settled by the issue or the user.
 
-## 4. Build it with /tdd
+## 5. Build it with /tdd
 
 Run /tdd: agree the seams with the user, then work in vertical slices — one test, one implementation, one commit.
 
@@ -41,6 +53,14 @@ Each commit is atomic — one behaviour, imperative mood, the project's domain l
 
 Done when typechecking and the full test suite pass on the branch, and every behaviour the issue asks for is committed.
 
-## 5. Review
+## 6. Review
 
-Run /code-review then /simplify and act on what it finds.
+Run /code-review, then /simplify. Resolve and commit their findings.
+
+Done when both passes have no unresolved findings and the checks from step 5 pass on the reviewed head.
+
+## 7. Open the pull request
+
+Only after the review is done, push the issue branch and open a pull request against the integration base selected in step 3.
+
+Done when the pull request is open against the selected integration base and the user has its link.
