@@ -53,7 +53,7 @@ export ZELLIJ_CONFIG_DIR="$DOT_FILES/zellij"
 alias tm="zellij attach --create --index 0" # attach to existing or create a new session
 alias tmn="zellij" # tm new
 
-alias gem="gemini -r"
+alias hd="herdr"
 alias cod="codex"
 alias lg="lazygit"
 alias ld="lazydocker"

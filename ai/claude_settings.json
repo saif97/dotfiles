@@ -32,5 +32,7 @@
   "autoCompactEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "outputStyle": "Concise",
+  "model": "opus"
 }
