@@ -113,6 +113,24 @@ function M.setupNvim()
 		require("sidekick.cli").hide()
 	end, { desc = "Hide Sidekick" })
 
+	-- Focus the herdr agent pane. Normal and visual only: <C-y> accepts a
+	-- completion in insert mode (blink.cmp `default` preset), and terminal mode
+	-- stays clear so the agent keeps <C-y> as paste. herdr's last_pane chord
+	-- brings you back.
+	map_key({ "n", "x", "v" }, "<C-y>", function()
+		require("herdr").focus()
+	end, { desc = "Focus herdr agent" })
+
+	-- Stage context in the agent's prompt. Nothing is submitted: you read it
+	-- and press Enter yourself.
+	map_key("n", "<leader>if", function()
+		require("herdr").send()
+	end, { desc = "Send file location to herdr agent" })
+
+	map_key({ "x", "v" }, "<leader>iv", function()
+		require("herdr").send({ selection = true })
+	end, { desc = "Send selection to herdr agent" })
+
 	-- Terminal mode: clear scrollback + screen
 	map_key('t', '<D-k>', function()
 		local old_scrollback = vim.bo.scrollback
