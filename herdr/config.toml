@@ -217,7 +217,7 @@ new_worktree = "prefix+shift+k"
 # prompt_new_tab_name = true
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
-# show_agent_labels_on_pane_borders = false
+show_agent_labels_on_pane_borders = true
 
 # Agent panel scope: "current" or "all". Toggling it in the sidebar saves this setting.
 # agent_panel_scope = "all"
@@ -235,9 +235,16 @@ hide_tab_bar_when_single_tab = true
 # Agent sidebar ordering: "spaces" (default) or "priority".
 agent_panel_sort = "priority"
 
+# Agent status indicators: "dots" (default) or "symbols" (one glyph per state).
+status_indicators = "symbols"
+
 # Accent color for highlights, borders, and navigation UI.
 # Accepts: hex (#89b4fa), named colors (cyan, blue, magenta), or rgb(r,g,b)
 # accent = "cyan"
+
+[ui.sidebar.agents]
+# Blank terminal rows between agent entries. Default: 0
+row_gap = 1
 
 [ui.sidebar.spaces]
 # Blank terminal rows between worktree groups and unrelated top-level Spaces.
@@ -262,7 +269,7 @@ row_gap = 1
 
 # Play sounds when agents change state in background workspaces
 [ui.sound]
-# enabled = true
+enabled = false
 # Optional custom mp3 sound files. Relative paths are resolved from this config file's directory.
 # path = "sounds/notification.mp3"   # one mp3 file for all sound notifications
 # done_path = "sounds/done.mp3"      # overrides only finished notifications
