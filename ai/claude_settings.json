@@ -7,6 +7,7 @@
     "commit": "",
     "pr": ""
   },
+  "model": "opus",
   "hooks": {
     "Stop": [
       {
@@ -29,10 +30,9 @@
     "typescript-lsp@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true
   },
+  "outputStyle": "Concise",
   "autoCompactEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "outputStyle": "Concise",
-  "model": "opus"
+  "skipAutoPermissionPrompt": true
 }
