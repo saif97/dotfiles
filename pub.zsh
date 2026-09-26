@@ -75,6 +75,11 @@ mkcd(){
 	pwd
 }
 
+# Pull the latest dotfiles. Local changes are stashed and put back after.
+dotpull(){
+	git -C "$DOT_FILES" pull --rebase --autostash
+}
+
 export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
