@@ -6,8 +6,8 @@ return {
 		local custom_gruvbox = require("lualine.themes.catppuccin-macchiato")
 		custom_gruvbox.inactive.a.bg = "#8bd5ca"
 		custom_gruvbox.inactive.a.fg = "#181926"
-		custom_gruvbox.inactive.c.fg = "#a5adcb"
-		custom_gruvbox.inactive.c.bg = "#363a4f"
+		custom_gruvbox.inactive.c.fg = "#c6a0f6"
+		custom_gruvbox.inactive.c.bg = "#453a5e"
 
 		-- Check if SANDBOX or SSH environment variables are set
 		local function is_sandbox_or_ssh()
@@ -33,7 +33,10 @@ return {
 				theme = custom_gruvbox,
 				globalstatus = false,
 			},
-			sections = {
+			-- Bars are at the top of each window (winbar), not at the bottom
+			sections = {},
+			inactive_sections = {},
+			winbar = {
 				lualine_a = {
 					{
 						sandbox_indicator,
@@ -75,7 +78,7 @@ return {
 				},
 			},
 
-			inactive_sections = {
+			inactive_winbar = {
 				lualine_a = {},
 				lualine_b = {},
 				lualine_c = {
@@ -85,7 +88,7 @@ return {
 							if is_sandbox_or_ssh() then
 								return { fg = "#181926", bg = "#ee99a1" }
 							end
-							-- return { fg = "#a5adcb", bg = "#303446" }
+							return { fg = "#c6a0f6", bg = "#453a5e" }
 						end,
 					},
 				},
@@ -93,15 +96,10 @@ return {
 				lualine_y = {},
 				lualine_z = {},
 			},
-
-			-- inactive_winbar = {
-			-- 	lualine_a = { { "filename", color = { fg = "#232634" } } }, -- customize font and background color
-			-- 	lualine_b = {},
-			-- 	lualine_c = {},
-			-- 	lualine_x = {},
-			-- 	lualine_y = {},
-			-- 	lualine_z = {},
-			-- },
 		})
+
+		-- No bottom statusline. Windows above a horizontal split still get one, so draw it as a separator line
+		vim.o.laststatus = 0
+		vim.o.statusline = "%#WinSeparator#%{repeat('─', winwidth(0))}"
 	end,
 }
