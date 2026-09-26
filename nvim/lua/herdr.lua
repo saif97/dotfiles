@@ -263,12 +263,13 @@ local function location(from, to)
 	return to and to ~= from and ("%s L%d-L%d"):format(loc, from, to) or ("%s L%d"):format(loc, from)
 end
 
----Put the current file, or the visual selection, in the agent's prompt.
+---Put the current file, the cursor line, or the visual selection, in the
+---agent's prompt.
 ---
 ---It stages the text and stops. `herdr pane send-text` writes the text without
 ---Enter, so you read it and submit it yourself. Compare `herdr agent prompt`,
 ---which submits, and `herdr pane run`, which appends Enter.
----@param opts? { selection?: boolean }
+---@param opts? { selection?: boolean, line?: boolean }
 function M.send(opts)
 	opts = opts or {}
 
@@ -289,8 +290,10 @@ function M.send(opts)
 		local from, to = vim.fn.getpos("'<")[2], vim.fn.getpos("'>")[2]
 		local lines = vim.api.nvim_buf_get_lines(0, from - 1, to, false)
 		text = ("%s\n\n```%s\n%s\n```\n"):format(location(from, to), vim.bo.filetype, table.concat(lines, "\n"))
-	else
+	elseif opts.line then
 		text = location(vim.api.nvim_win_get_cursor(0)[1]) .. " "
+	else
+		text = location() .. " "
 	end
 
 	local pane_id = agents[1].pane_id

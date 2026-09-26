@@ -125,7 +125,11 @@ function M.setupNvim()
 	-- and press Enter yourself.
 	map_key("n", "<leader>if", function()
 		require("herdr").send()
-	end, { desc = "Send file location to herdr agent" })
+	end, { desc = "Send file to herdr agent" })
+
+	map_key("n", "<leader>it", function()
+		require("herdr").send({ line = true })
+	end, { desc = "Send file and line to herdr agent" })
 
 	map_key({ "x", "v" }, "<leader>iv", function()
 		require("herdr").send({ selection = true })
