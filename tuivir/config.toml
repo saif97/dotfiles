@@ -1,0 +1,14 @@
+[keybindings]
+selection_next = ["e", "down"]
+selection_previous = ["u", "up"]
+selection_next_fast = ["E"]
+selection_previous_fast = ["U"]
+resource_shell_details = ["x"]
+
+resource_shell = ["X"]
+
+detail_view_next = ["n", "right"]
+detail_view_previous = ["i", "left"]
+
+[resource_shell]
+prefix = "ctrl+t"
