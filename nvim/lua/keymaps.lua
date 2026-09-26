@@ -106,12 +106,7 @@ function M.setupNvim()
 		vim.diagnostic.hide()
 		vim.cmd("Neotree close")
 		vim.cmd("fc") -- close open floating windows like Lazy
-		-- require("sidekick.cli").hide()
 	end, { desc = "Clear highlights and close panels" })
-
-	map_key({ "t", "n" }, "<S-F12>", function()
-		require("sidekick.cli").hide()
-	end, { desc = "Hide Sidekick" })
 
 	-- Focus the herdr agent pane. Normal and visual only: <C-y> accepts a
 	-- completion in insert mode (blink.cmp `default` preset), and terminal mode

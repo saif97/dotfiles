@@ -1,16 +1,3 @@
-local function poop()
-	local Config = require("sidekick.config")
-	local clients = Config.get_clients()
-	for _, client in ipairs(clients) do
-		vim.notify("Pooping on " .. client.name, vim.log.levels.INFO)
-	end
-	
-end
-
-vim.api.nvim_create_user_command('Poop', function()
-	poop()
-end, {})
-
 local function restart_lsp(bufnr)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 	local clients
