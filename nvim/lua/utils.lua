@@ -28,8 +28,15 @@ function map_key(modes, from, to, options)
 	end
 end
 
+-- True when IS_WORK_MACHINE is set, unless it is set to "false" or "0".
+function isWorkMachine()
+	local value = os.getenv("IS_WORK_MACHINE")
+	return value ~= nil and value ~= "" and value ~= "false" and value ~= "0"
+end
+
+-- Every machine is personal unless it is marked as a work machine.
 function isPersonalMachine()
-	return os.getenv("IS_PERSONAL_MACHINE") ~= nil
+	return not isWorkMachine()
 end
 
 -- Check if we're in an SSH session

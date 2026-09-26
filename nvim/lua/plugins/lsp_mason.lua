@@ -26,7 +26,8 @@ local personal_servers = {
 	"rust_analyzer",
 }
 
-if os.getenv("IS_PERSONAL_MACHINE") then
+require("utils")
+if isPersonalMachine() then
 	vim.list_extend(servers, personal_servers)
 end
 
