@@ -234,6 +234,20 @@ if command -v npm >/dev/null 2>&1; then
                 echo "  set npm $key=$value"
             fi
         done
+
+        # Codex and its platform packages can update immediately; other npm
+        # packages still have the seven-day release-age window.
+        if [ "$npm_major" -gt 11 ] || { [ "$npm_major" -eq 11 ] && [ "$npm_minor" -ge 17 ]; }; then
+            npm_userconfig=$(npm config get userconfig)
+            if grep -qxF 'min-release-age-exclude[]=@openai/codex*' "$npm_userconfig" 2>/dev/null; then
+                echo "  npm Codex release-age exemption already set"
+            else
+                printf '\n%s\n' 'min-release-age-exclude[]=@openai/codex*' >> "$npm_userconfig"
+                echo "  exempted @openai/codex* from npm min-release-age"
+            fi
+        else
+            echo "  WARN: npm $npm_ver needs 11.17+ for the Codex release-age exemption." >&2
+        fi
     else
         echo "  ERROR: npm $npm_ver is too old — min-release-age/allow-git need 11.10+." >&2
         echo "         An older npm drops both keys in silence, so the machine would" >&2
