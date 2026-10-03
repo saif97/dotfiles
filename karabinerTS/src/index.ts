@@ -225,6 +225,12 @@ writeToProfile(
 			mapWithAnyMod("9").to("right_shift").toIfAlone("return_or_enter"),
 			// map("-").toHyper().toIfAlone("-"),
 
+			// shift + right_command tap in terminals: shift+F11, herdr's sidebar toggle (herdr/config.toml).
+			// F13+ would be cleaner, but herdr drops them before the pane.
+			map("right_command", "shift")
+				.toIfAlone("f11", ["fn", "shift"])
+				.toIfHeldDown("right_command")
+				.condition(ifApp(APP_ID_TERMINALS)),
 			mapWithAnyMod("right_command")
 				.toIfAlone("escape")
 				.toIfHeldDown("right_command")

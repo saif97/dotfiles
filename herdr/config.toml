@@ -73,7 +73,7 @@ last_pane = "ctrl+cmd+y"
 split_vertical   = "ctrl+cmd+v"
 split_horizontal = "ctrl+cmd+b"
 # Pane actions
-zoom       = "ctrl+cmd+enter"   # fullscreen toggle (zellij ToggleFocusFullscreen)
+zoom       = ["ctrl+cmd+enter", "shift+f12"]   # fullscreen toggle (zellij ToggleFocusFullscreen); shift+f12 = shift + right_option tap (Karabiner)
 close_pane = "ctrl+cmd+/"       # zellij CloseFocus — punctuation+mods may not register; fallback prefix+x
 # Tab navigation
 previous_tab = "ctrl+cmd+comma"
@@ -149,7 +149,7 @@ new_worktree = "prefix+shift+k"
 # close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
-# toggle_sidebar = "prefix+b"
+toggle_sidebar = ["prefix+b", "shift+f11"]  # shift+f11 = shift + right_command tap in terminals (Karabiner)
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.

@@ -2831,6 +2831,42 @@
                 "from": {
                   "key_code": "right_command",
                   "modifiers": {
+                    "mandatory": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "f11",
+                    "modifiers": [
+                      "fn",
+                      "shift"
+                    ]
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "right_command"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "com.mitchellh.ghostty",
+                      "com.googlecode.iterm2",
+                      "dev.warp.Warp-Stable",
+                      "com.cmuxterm.app"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": {
                     "optional": [
                       "any"
                     ]
