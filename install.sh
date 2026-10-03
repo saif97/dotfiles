@@ -2,6 +2,21 @@
 
 set -e
 
+# Status lines: ✅ applied, ⏭️ skipped, ⚠️ needs your action, ❌ failed.
+applied() { echo "  ✅ $*"; }
+skipped() { echo "  ⏭️  $*"; }
+warn() { echo "  ⚠️  $*" >&2; }
+failed() { echo "  ❌ $*" >&2; }
+
+# set -e stops at the first failed command; say so instead of exiting quietly.
+on_exit() {
+    rc=$?
+    if [ "$rc" -ne 0 ]; then
+        echo "❌ install.sh stopped early (exit $rc)" >&2
+    fi
+}
+trap on_exit EXIT
+
 echo "Installing dotfiles (idempotent)..."
 
 # --- Symlinks ---
@@ -12,9 +27,9 @@ link_if_missing() {
     local target="$1" linkname="$2"
     if [ ! -e "$linkname" ] && [ ! -L "$linkname" ]; then
         ln -s "$target" "$linkname"
-        echo "  linked $linkname"
+        applied "linked $linkname"
     else
-        echo "  $linkname exists, skipping"
+        skipped "$linkname exists"
     fi
 }
 
@@ -31,29 +46,29 @@ link_config_dir() {
     local linkname="$HOME/.config/$name"
 
     if [ "$(resolve_dir "$HOME/.config")" = "$(resolve_dir "$HOME/dotfiles")" ]; then
-        echo "  ~/.config is the dotfiles symlink, $name already in place"
+        skipped "~/.config is the dotfiles symlink, $name already in place"
         return
     fi
 
     if [ -L "$linkname" ]; then
         if [ "$(resolve_dir "$linkname")" = "$(resolve_dir "$target")" ]; then
-            echo "  $linkname already linked, skipping"
+            skipped "$linkname already linked"
         else
-            echo "  WARN: $linkname points to $(readlink "$linkname"), not $target"
+            warn "$linkname points to $(readlink "$linkname"), not $target"
         fi
         return
     fi
 
     if [ ! -e "$linkname" ]; then
         ln -s "$target" "$linkname"
-        echo "  linked $linkname"
+        applied "linked $linkname"
         return
     fi
 
     # Empty dir holds no data; take it without asking.
     if [ -d "$linkname" ] && rmdir "$linkname" 2>/dev/null; then
         ln -s "$target" "$linkname"
-        echo "  linked $linkname (removed empty dir)"
+        applied "linked $linkname (removed empty dir)"
         return
     fi
 
@@ -65,14 +80,14 @@ link_config_dir() {
             y|Y|yes|YES)
                 mv "$linkname" "$backup"
                 ln -s "$target" "$linkname"
-                echo "  linked $linkname (old contents kept in $backup)"
+                applied "linked $linkname (old contents kept in $backup)"
                 ;;
             *)
-                echo "  kept existing $linkname"
+                skipped "kept existing $linkname"
                 ;;
         esac
     else
-        echo "  WARN: $linkname is a real directory; re-run install.sh interactively to replace it"
+        warn "$linkname is a real directory; re-run install.sh interactively to replace it"
     fi
 }
 
@@ -99,7 +114,7 @@ done
 settings_link="$HOME/.claude/settings.json"
 settings_target="$HOME/dotfiles/ai/claude_settings.json"
 if [ -L "$settings_link" ]; then
-    echo "  $settings_link already linked, skipping"
+    skipped "$settings_link already linked"
 elif [ -f "$settings_link" ]; then
     if [ -t 0 ]; then
         printf "  %s is a regular file. Replace with symlink to dotfile? [y/N] " "$settings_link"
@@ -108,18 +123,18 @@ elif [ -f "$settings_link" ]; then
             y|Y|yes|YES)
                 rm "$settings_link"
                 ln -s "$settings_target" "$settings_link"
-                echo "  linked $settings_link (old file removed; put machine overrides in settings.local.json)"
+                applied "linked $settings_link (old file removed; put machine overrides in settings.local.json)"
                 ;;
             *)
-                echo "  kept existing $settings_link"
+                skipped "kept existing $settings_link"
                 ;;
         esac
     else
-        echo "  WARN: $settings_link is a regular file; re-run install.sh interactively to replace with symlink"
+        warn "$settings_link is a regular file; re-run install.sh interactively to replace with symlink"
     fi
 else
     ln -s "$settings_target" "$settings_link"
-    echo "  linked $settings_link"
+    applied "linked $settings_link"
 fi
 
 # Configs linked one by one into ~/.config. Add a line here for each new one.
@@ -134,12 +149,15 @@ link_config_dir lazygit
 # Each line is "<plugin id> <dir under herdr/>".
 while read -r plugin_id plugin_dir; do
     if ! command -v herdr >/dev/null 2>&1; then
-        echo "  herdr not installed, skipping $plugin_id plugin"
+        skipped "herdr not installed, skipping $plugin_id plugin"
     elif herdr plugin list --plugin "$plugin_id" </dev/null 2>/dev/null | grep -q "$plugin_id"; then
-        echo "  $plugin_id plugin already linked"
+        skipped "$plugin_id plugin already linked"
     else
-        herdr plugin link "$HOME/dotfiles/herdr/$plugin_dir" </dev/null >/dev/null &&
-            echo "  linked $plugin_id plugin"
+        if herdr plugin link "$HOME/dotfiles/herdr/$plugin_dir" </dev/null >/dev/null; then
+            applied "linked $plugin_id plugin"
+        else
+            failed "could not link $plugin_id plugin"
+        fi
     fi
 done <<EOF_PLUGINS
 saif.herdr-mru mru
@@ -150,18 +168,18 @@ EOF_PLUGINS
 if [ ! -L "$HOME/.gitignore_global" ]; then
     ln -sf "$HOME/dotfiles/global.gitignore" "$HOME/.gitignore_global"
     git config --global core.excludesfile "$HOME/.gitignore_global"
-    echo "  linked global gitignore"
+    applied "linked global gitignore"
 else
-    echo "  global gitignore already linked"
+    skipped "global gitignore already linked"
 fi
 
 # Shared Git configuration
 git_config="$HOME/dotfiles/git/pub.gitconfig"
 if git config --global --get-all include.path | grep -Fxq "$git_config"; then
-    echo "  shared git config already included"
+    skipped "shared git config already included"
 else
     git config --global --add include.path "$git_config"
-    echo "  included shared git config"
+    applied "included shared git config"
 fi
 
 # --- Submodules (fzf-tab, etc.) ---
@@ -183,32 +201,35 @@ if ! command -v zsh >/dev/null 2>&1; then
     elif command -v pacman >/dev/null 2>&1; then
         sudo pacman -S --noconfirm zsh
     else
-        echo "  WARN: install zsh manually (no known package manager found)"
+        warn "install zsh manually (no known package manager found)"
     fi
+    command -v zsh >/dev/null 2>&1 && applied "installed zsh"
 else
-    echo "  zsh already installed"
+    skipped "zsh already installed"
 fi
 
 mkdir -p "$HOME/.zsh"
 if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
+    applied "installed zsh-autosuggestions"
 else
-    echo "  zsh-autosuggestions already installed"
+    skipped "zsh-autosuggestions already installed"
 fi
 if [ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.zsh/zsh-syntax-highlighting"
+    applied "installed zsh-syntax-highlighting"
 else
-    echo "  zsh-syntax-highlighting already installed"
+    skipped "zsh-syntax-highlighting already installed"
 fi
 
 # Just zsh completion (brew ships it; apt/cargo/tarball installs don't)
-if command -v just &> /dev/null; then
+if command -v just >/dev/null 2>&1; then
     mkdir -p "$HOME/.zsh/completions"
     if [ ! -f "$HOME/.zsh/completions/_just" ]; then
         just --completions zsh > "$HOME/.zsh/completions/_just"
-        echo "  generated _just completion"
+        applied "generated _just completion"
     else
-        echo "  _just completion already present"
+        skipped "_just completion already present"
     fi
 fi
 
@@ -216,9 +237,9 @@ fi
 touch "$HOME/.zshrc"
 if ! grep -qF 'source $HOME/dotfiles/pub.zsh' "$HOME/.zshrc"; then
     echo 'source $HOME/dotfiles/pub.zsh' >> "$HOME/.zshrc"
-    echo "  added pub.zsh source to .zshrc"
+    applied "added pub.zsh source to .zshrc"
 else
-    echo "  pub.zsh already sourced in .zshrc"
+    skipped "pub.zsh already sourced in .zshrc"
 fi
 
 
@@ -232,10 +253,10 @@ if command -v npm >/dev/null 2>&1; then
         for pair in min-release-age=7 allow-git=none; do
             key=${pair%%=*}; value=${pair#*=}
             if [ "$(npm config get "$key")" = "$value" ]; then
-                echo "  npm $key already $value"
+                skipped "npm $key already $value"
             else
                 npm config set "$key" "$value"
-                echo "  set npm $key=$value"
+                applied "set npm $key=$value"
             fi
         done
 
@@ -244,18 +265,18 @@ if command -v npm >/dev/null 2>&1; then
         if [ "$npm_major" -gt 11 ] || { [ "$npm_major" -eq 11 ] && [ "$npm_minor" -ge 17 ]; }; then
             npm_userconfig=$(npm config get userconfig)
             if grep -qxF 'min-release-age-exclude[]=@openai/codex*' "$npm_userconfig" 2>/dev/null; then
-                echo "  npm Codex release-age exemption already set"
+                skipped "npm Codex release-age exemption already set"
             else
                 printf '\n%s\n' 'min-release-age-exclude[]=@openai/codex*' >> "$npm_userconfig"
-                echo "  exempted @openai/codex* from npm min-release-age"
+                applied "exempted @openai/codex* from npm min-release-age"
             fi
         else
-            echo "  WARN: npm $npm_ver needs 11.17+ for the Codex release-age exemption." >&2
+            warn "npm $npm_ver needs 11.17+ for the Codex release-age exemption."
         fi
     else
-        echo "  ERROR: npm $npm_ver is too old — min-release-age/allow-git need 11.10+." >&2
-        echo "         An older npm drops both keys in silence, so the machine would" >&2
-        echo "         install with no supply-chain guard. Upgrade npm, then re-run." >&2
+        failed "npm $npm_ver is too old — min-release-age/allow-git need 11.10+."
+        echo "     An older npm drops both keys in silence, so the machine would" >&2
+        echo "     install with no supply-chain guard. Upgrade npm, then re-run." >&2
         exit 1
     fi
 fi
@@ -271,10 +292,11 @@ if ! command -v tree-sitter >/dev/null 2>&1; then
     elif command -v cargo >/dev/null 2>&1 && rustup default 2>/dev/null | grep -q .; then
         cargo install tree-sitter-cli
     else
-        echo "  WARN: install tree-sitter-cli manually (brew/npm/cargo+toolchain not found)"
+        warn "install tree-sitter-cli manually (brew/npm/cargo+toolchain not found)"
     fi
+    command -v tree-sitter >/dev/null 2>&1 && applied "installed tree-sitter-cli"
 else
-    echo "  tree-sitter-cli already installed"
+    skipped "tree-sitter-cli already installed"
 fi
 
-echo "Done."
+echo "✅ Done."
