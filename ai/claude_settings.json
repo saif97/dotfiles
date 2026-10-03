@@ -8,18 +8,6 @@
     "pr": ""
   },
   "model": "opus",
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "if [[ -z \"$SSH_TTY\" ]]; then afplay /System/Library/Sounds/Blow.aiff; fi"
-          }
-        ]
-      }
-    ]
-  },
   "statusLine": {
     "type": "command",
     "command": "~/dotfiles/ai/statusline.sh"
@@ -34,5 +22,6 @@
   "autoCompactEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "switchModelsOnFlag": false
 }
