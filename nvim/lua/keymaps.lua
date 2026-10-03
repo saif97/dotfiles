@@ -197,7 +197,6 @@ function M.setupNvim()
 	-- [[ Section: File Explorer and Projects ]]
 
 	map_key({ "n" }, "<leader>e", ":Neotree filesystem focus left<CR>", { desc = "Open file explorer" })
-	map_key({ "n" }, "<leader>sp", ":SessionSearch<CR>", { desc = "Search Projects" })
 
 	-- [[ Section: Snacks Integration ]]
 

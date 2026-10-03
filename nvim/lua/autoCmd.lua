@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 require("windowSizing").setup()
+require("sessions").setup()
 
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
