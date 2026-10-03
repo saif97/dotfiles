@@ -131,22 +131,20 @@ link_config_dir lazygit
 
 # herdr plugins live in the repo, but the link to them is machine state
 # (~/.config/herdr/plugins.json), so register them here.
-# Each entry is "<plugin id> <dir under herdr/>".
-herdr_plugins=(
-    "saif.herdr-mru mru"
-    "saif.herdr-pane-titles pane-titles"
-)
-for entry in "${herdr_plugins[@]}"; do
-    read -r plugin_id plugin_dir <<<"$entry"
+# Each line is "<plugin id> <dir under herdr/>".
+while read -r plugin_id plugin_dir; do
     if ! command -v herdr >/dev/null 2>&1; then
         echo "  herdr not installed, skipping $plugin_id plugin"
-    elif herdr plugin list --plugin "$plugin_id" 2>/dev/null | grep -q "$plugin_id"; then
+    elif herdr plugin list --plugin "$plugin_id" </dev/null 2>/dev/null | grep -q "$plugin_id"; then
         echo "  $plugin_id plugin already linked"
     else
-        herdr plugin link "$HOME/dotfiles/herdr/$plugin_dir" >/dev/null &&
+        herdr plugin link "$HOME/dotfiles/herdr/$plugin_dir" </dev/null >/dev/null &&
             echo "  linked $plugin_id plugin"
     fi
-done
+done <<EOF_PLUGINS
+saif.herdr-mru mru
+saif.herdr-pane-titles pane-titles
+EOF_PLUGINS
 
 # Global gitignore
 if [ ! -L "$HOME/.gitignore_global" ]; then
