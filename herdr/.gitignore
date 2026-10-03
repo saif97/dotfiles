@@ -1,6 +1,8 @@
-# herdr writes runtime state here; track config.toml and the mru plugin only
+# herdr writes runtime state here; track config.toml and the plugins only
 *
 !.gitignore
 !config.toml
 !mru/
 !mru/**
+!pane-titles/
+!pane-titles/**
