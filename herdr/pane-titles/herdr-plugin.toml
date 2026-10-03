@@ -7,7 +7,7 @@ platforms = ["linux", "macos"]
 
 # herdr shows display_agent on the pane border, in place of the agent label.
 # Agent panes show their terminal title, other panes their workspace name,
-# each after the machine label (see sync.sh).
+# each after the short hostname.
 # Plugins get no event for a terminal title change (pane.updated is refused),
 # so an agent title catches up on the next agent state change.
 [[events]]

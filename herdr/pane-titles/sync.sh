@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # herdr event hook: set each pane's display_agent, which herdr draws on the
 # pane border. An agent pane gets its terminal_title_stripped; any other pane
-# gets its workspace name. Each title starts with the machine label.
+# gets its workspace name. Each title starts with the short hostname.
 # Reads all panes from the server rather than from the event payload, so one
 # hook handles every event kind.
 set -uo pipefail
@@ -11,15 +11,9 @@ PATH="$PATH:/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin"
 
 SOURCE="pane-titles"
 
-# Herdr runs this plugin on the server that owns the pane, and a server does not
-# know the label a client gave it. So each server keeps its label in a file:
-#   echo wren-reads > "$(herdr plugin config-dir saif.herdr-pane-titles)/machine-label"
-# No file means this is the local machine.
-MACHINE="local"
-LABEL_FILE="${HERDR_PLUGIN_CONFIG_DIR:-}/machine-label"
-if [ -n "${HERDR_PLUGIN_CONFIG_DIR:-}" ] && [ -s "$LABEL_FILE" ]; then
-  MACHINE="$(head -n1 "$LABEL_FILE")"
-fi
+# Herdr runs this plugin on the server that owns the pane, so the hostname
+# names the machine the pane runs on.
+MACHINE="$(hostname -s)"
 
 # Write only when the value changes. The write itself fires pane.updated, so
 # an unconditional write would loop.
