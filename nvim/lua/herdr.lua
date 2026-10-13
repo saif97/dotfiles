@@ -175,10 +175,20 @@ local function name_agent(pane_id, name, tries)
 	end)
 end
 
----Split our pane and start the agent in it. herdr owns the process, so it
+---Agents offered when a workspace does not have one yet. Keep the command as
+---the source of truth for availability: wrappers such as `cld` count too.
+local agent_tools = {
+	{ name = "Claude Code", command = "cld" },
+	{ name = "Codex", command = "codex" },
+	{ name = "OpenCode", command = "opencode" },
+}
+
+---Split our pane and start the selected agent in it. herdr owns the process, so it
 ---survives quitting nvim, and herdr can track its state.
+---@param tool? { name: string, command: string }
 ---@return boolean started
-function M.start()
+function M.start(tool)
+	tool = tool or agent_tools[1]
 	local cwd = vim.fs.root(0, ".git") or vim.uv.cwd()
 
 	local out, err = herdr({
@@ -204,12 +214,12 @@ function M.start()
 	end
 
 	-- `exec` replaces the pane's shell, so the pane closes when the agent exits.
-	-- We run `cld`, not `herdr agent start --kind claude`: that starts the
-	-- canonical `claude` and so skips the wrapper in ai/cmds/cld, which unsets
-	-- the ANTHROPIC_* overrides and adds `--permission-mode auto` over SSH.
-	local _, run_err = herdr({ "pane", "run", pane_id, "exec cld" })
+	-- Run the command directly rather than `herdr agent start`: Claude needs the
+	-- `cld` wrapper, which clears provider overrides and adjusts permissions over
+	-- SSH. Herdr detects and tracks the resulting agent either way.
+	local _, run_err = herdr({ "pane", "run", pane_id, "exec " .. tool.command })
 	if run_err then
-		vim.notify("herdr: could not start the agent: " .. run_err, vim.log.levels.ERROR)
+		vim.notify("herdr: could not start " .. tool.name .. ": " .. run_err, vim.log.levels.ERROR)
 		return false
 	end
 
@@ -220,7 +230,30 @@ function M.start()
 	return true
 end
 
----Move focus to the nearest agent, starting one if this workspace has none.
+---Let the user choose an installed agent, matching Sidekick's empty-state picker.
+function M.select()
+	local installed = vim.tbl_filter(function(tool)
+		return vim.fn.executable(tool.command) == 1
+	end, agent_tools)
+
+	if #installed == 0 then
+		vim.notify("herdr: no supported agent command found in PATH", vim.log.levels.WARN)
+		return
+	end
+
+	vim.ui.select(installed, {
+		prompt = "Select agent",
+		format_item = function(tool)
+			return tool.name
+		end,
+	}, function(tool)
+		if tool then
+			M.start(tool)
+		end
+	end)
+end
+
+---Move focus to the nearest agent in this tab, or choose one to start.
 function M.focus()
 	if vim.env.HERDR_PANE_ID == nil then
 		vim.notify("herdr: nvim is not running in a herdr pane", vim.log.levels.WARN)
@@ -232,8 +265,10 @@ function M.focus()
 		vim.notify("herdr: " .. err, vim.log.levels.ERROR)
 		return
 	end
-	if #agents == 0 then
-		M.start()
+	-- Agents in another tab are not attached to this nvim layout. Sidekick
+	-- treated that as an empty state, so offer the picker here as well.
+	if #agents == 0 or agents[1].tab_id ~= vim.env.HERDR_TAB_ID then
+		M.select()
 		return
 	end
 

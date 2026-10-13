@@ -10,6 +10,7 @@ unset NO_COLOR
 bindkey -e
 
 export BAT_CONFIG_DIR="$DOT_FILES/bat"
+export TUIVIR_CONFIG_FILE="$DOT_FILES/tuivir/config.toml"
 
 export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 export STARSHIP_CACHE=~/.starship/cache
@@ -54,7 +55,6 @@ alias tm="zellij attach --create --index 0" # attach to existing or create a new
 alias tmn="zellij" # tm new
 
 alias hd="herdr"
-alias cod="codex"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias cpy="pbcopy <"

@@ -116,6 +116,10 @@ function M.setupNvim()
 		require("herdr").focus()
 	end, { desc = "Focus herdr agent" })
 
+	map_key("n", "<leader>is", function()
+		require("herdr").select()
+	end, { desc = "Select herdr agent" })
+
 	-- Stage context in the agent's prompt. Nothing is submitted: you read it
 	-- and press Enter yourself.
 	map_key("n", "<leader>if", function()
