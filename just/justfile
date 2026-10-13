@@ -1,5 +1,4 @@
 import? "~/.config/work.justfile"
-import? "~/privateDotfiles/sandbox/mac.justfile"
 
 tartImage :="tahoe-xcode"
 # tartImage :="macos-26"
