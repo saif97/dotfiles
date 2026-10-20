@@ -63,6 +63,7 @@ alias dc="docker compose"
 alias cont="container"
 alias t="just"
 alias tt='just -g'
+alias tv='tuivir'
 
 alias nt="nvim --cmd 'let g:auto_session_enabled=v:false' +term"
 
