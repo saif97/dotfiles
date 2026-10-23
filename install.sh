@@ -19,6 +19,13 @@ trap on_exit EXIT
 
 echo "Installing dotfiles (idempotent)..."
 
+# --- Submodules (fzf-tab, vendored skills, etc.; before symlinks that point into them) ---
+# Checks out the commit this repo records; never moves to a newer upstream commit.
+
+if [ -f "$HOME/dotfiles/.gitmodules" ]; then
+    git -C "$HOME/dotfiles" submodule update --init --recursive
+fi
+
 # --- Symlinks ---
 
 # Claude Code
@@ -109,6 +116,23 @@ for skill in "$HOME"/dotfiles/ai/skills/*/; do
     link_if_missing "$skill" "$HOME/.agents/skills/$name"
 done
 
+# Third-party skills: each one is a git submodule under ai/vendor, pinned to
+# the commit this repo records. Link its skills the same way as the dotfiles
+# skills above. A name that already exists is kept.
+# Each line is "<submodule dir> <dir in it that holds skill dirs>".
+# To update: check out a new tag in the submodule, then commit and push.
+while read -r repo subdir; do
+    for skill in "$HOME/dotfiles/$repo/$subdir"/*/; do
+        [ -f "$skill/SKILL.md" ] || continue
+        name=$(basename "$skill")
+        link_if_missing "$skill" "$HOME/.claude/skills/$name"
+        link_if_missing "$skill" "$HOME/.agents/skills/$name"
+    done
+done <<EOF_SKILLS
+ai/vendor/mattpocock-skills skills/engineering
+ai/vendor/mattpocock-skills skills/productivity
+EOF_SKILLS
+
 # settings.json: if a regular file exists, ask whether to replace it with the
 # dotfile symlink (machine-specific overrides belong in settings.local.json).
 settings_link="$HOME/.claude/settings.json"
@@ -180,12 +204,6 @@ if git config --global --get-all include.path | grep -Fxq "$git_config"; then
 else
     git config --global --add include.path "$git_config"
     applied "included shared git config"
-fi
-
-# --- Submodules (fzf-tab, etc.) ---
-
-if [ -f "$HOME/dotfiles/.gitmodules" ]; then
-    git -C "$HOME/dotfiles" submodule update --init --recursive
 fi
 
 # --- Zsh ---

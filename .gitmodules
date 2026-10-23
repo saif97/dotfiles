@@ -1,3 +1,6 @@
 [submodule "zsh/plugins/fzf-tab"]
 	path = zsh/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
+[submodule "ai/vendor/mattpocock-skills"]
+	path = ai/vendor/mattpocock-skills
+	url = https://github.com/mattpocock/skills
