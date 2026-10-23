@@ -1,6 +1,6 @@
 import? "~/.config/work.justfile"
 
-tartImage :="tahoe-xcode"
+tartImage :="golden-gate-xcode"
 # tartImage :="macos-26"
 
 default:
@@ -11,8 +11,6 @@ sync-ai-markedown-files:
 
 tart-up:
     tart run --suspendable \
-        --dir=dev:~/dev:tag=devshare \
-        --dir=dotfiles:~/dotfiles:ro,tag=dotshare \
         {{tartImage}} &
 
 tart-stop:

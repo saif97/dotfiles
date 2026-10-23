@@ -269,7 +269,7 @@ writeToProfile(
 		]),
 
 		rule("QWERTY to Colemak for VMs").manipulators([
-			withCondition(ifApp([APP_ID_UTM, "org.cirruslabs.tart", "com.microsoft.rdc.macos"]))([
+			withCondition(ifApp([APP_ID_UTM, "com.github.cirruslabs.tart", "com.microsoft.rdc.macos"]))([
 				// Top row
 				mapWithAnyMod("e").to("f"),
 				mapWithAnyMod("r").to("p"),
