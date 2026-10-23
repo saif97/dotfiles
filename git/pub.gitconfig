@@ -39,6 +39,3 @@
 	default = upstream
 	# branches with no upstream yet: create origin/<branch> on first push
 	autoSetupRemote = true
-
-[submodule]
-	recurse = true
