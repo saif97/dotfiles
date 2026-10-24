@@ -30,17 +30,21 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':fzf-tab:*' switch-group '[' ']'
 zstyle ':fzf-tab:*' continuous-trigger 'right'
 
-# Syntax plugins (must be after fzf-tab)
-ZSH_PLUGINS_DIR="$HOME/.zsh"
+# Syntax plugins (must be after fzf-tab). Use brew's copy if present, else the clone in ~/.zsh.
+ZSH_PLUGINS_DIRS=("$HOME/.zsh")
 if command -v brew &> /dev/null; then
 	BREW_PREFIX="$(brew --prefix)"
-	ZSH_PLUGINS_DIR="$BREW_PREFIX/share"
+	ZSH_PLUGINS_DIRS=("$BREW_PREFIX/share" "${ZSH_PLUGINS_DIRS[@]}")
 fi
 
-if [[ -d "$ZSH_PLUGINS_DIR" ]]; then
-	source "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-	source "$ZSH_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
-fi
+for plugin in zsh-syntax-highlighting zsh-autosuggestions; do
+	for dir in "${ZSH_PLUGINS_DIRS[@]}"; do
+		if [[ -f "$dir/$plugin/$plugin.zsh" ]]; then
+			source "$dir/$plugin/$plugin.zsh"
+			break
+		fi
+	done
+done
 
 # Google Cloud SDK
 [[ -f "$HOME/dev/sdks/google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/dev/sdks/google-cloud-sdk/completion.zsh.inc"

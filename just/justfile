@@ -1,45 +1,9 @@
 import? "~/.config/work.justfile"
 import? "~/privateDotfiles/sandbox/mac.justfile"
 
-tartImage :="golden-gate-xcode"
-# tartImage :="macos-26"
-
 default:
     just --justfile {{justfile()}} --list
 
-sync-ai-markedown-files:
-    @./sync_ai_md.sh
-
-tart-up:
-    tart run --suspendable \
-        {{tartImage}} &
-
-tart-stop:
-    tart stop {{tartImage}}
-tart-get-config:
-    tart get {{tartImage}}
-tart-ssh:
-    ssh admin@$(tart ip {{tartImage}})
-
-tart-ssh-claw:
-    ssh admin@$(tart ip openClaw)
-
-tart-share-workspace:
-    ln -s "{{invocation_directory()}}" ~/dev/vms/shared_dir/vm_workspace
-
 uninstall-apps:
     @{{justfile_directory()}}/scripts/uninstall_apps.sh
-
-# terminal
-devcontainer-build:
-    devcontainer build --workspace-folder .
-
-# terminal
-devcontainer-up:
-    devcontainer up --workspace-folder .
-
-# terminal
-devcontainer-exec:
-    devcontainer exec --workspace-folder . zsh
-
 
