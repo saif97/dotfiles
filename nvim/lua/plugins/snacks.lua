@@ -11,7 +11,8 @@ return {
 		lazygit = {
 			config = {
 				os = {
-					edit = 'nvim --server "$NVIM" --remote-send q && nvim --server "$NVIM" --remote {{filename}}',
+					-- <C-h> triggers hide_window below, keeping lazygit alive
+					edit = 'nvim --server "$NVIM" --remote-send "<C-h>" && nvim --server "$NVIM" --remote {{filename}}',
 				},
 			},
 			win = {
