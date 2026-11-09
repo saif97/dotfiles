@@ -99,6 +99,8 @@ link_config_dir() {
 }
 
 link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.claude/CLAUDE.md"
+mkdir -p "$HOME/.codex"
+link_if_missing "$HOME/dotfiles/ai/aiSystemInstructions.md" "$HOME/.codex/AGENTS.md"
 link_if_missing "$HOME/dotfiles/ai/agents" "$HOME/.claude/agents"
 link_if_missing "$HOME/dotfiles/ai/slash_cmds/Claude" "$HOME/.claude/commands"
 
