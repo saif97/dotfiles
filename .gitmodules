@@ -3,4 +3,4 @@
 	url = https://github.com/Aloxaf/fzf-tab
 [submodule "ai/vendor/mattpocock-skills"]
 	path = ai/vendor/mattpocock-skills
-	url = https://github.com/mattpocock/skills
+	url = https://github.com/saif97/mattpocock-skills
